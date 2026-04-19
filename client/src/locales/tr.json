@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "projects": "Projeler",
+    "team": "Ekibimiz",
+    "partners": "İş Ortakları",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "badge": "Yapay Zeka & İleri Teknoloji",
+    "title": "Geleceğin Teknolojisini",
+    "titleAccent": "Bugün",
+    "titleEnd": "İnşa Ediyoruz",
+    "subtitle": "Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.",
+    "cta1": "Projeleri Keşfet",
+    "cta2": "Bize Ulaşın"
+  },
+  "about": {
+    "label": "Hakkımızda",
+    "title": "Teknolojiyle Değer Yaratan",
+    "titleAccent": "Vizyon",
+    "subtitle": "Kim olduğumuzu ve nereye gittiğimizi keşfedin.",
+    "h3": "Hikayemiz",
+    "p1": "IMPEVOS, yapay zeka ve yazılım teknolojileri alanında yenilikçi çözümler sunan bir teknoloji şirketidir. Anonim şirket yapısıyla kurumsal güvenilirliği, startup ruhuyla çevikliği bir arada sunuyoruz.",
+    "p2": "Global ölçekte düşünüyor, yerel dinamikleri anlayarak hareket ediyoruz. Her projemiz, müşterilerimizin dijital dönüşüm yolculuğunda somut değer yaratmak üzere tasarlanmıştır.",
+    "highlight": "IMPEVOS A.Ş. — Kurumsal güvenilirlik, startup çevikliği.",
+    "metric1": { "value": 50, "suffix": "+", "label": "Tamamlanan Proje" },
+    "metric2": { "value": 30, "suffix": "+", "label": "Mutlu Müşteri" },
+    "metric3": { "value": 3, "suffix": "", "label": "Kurucu Ortak" },
+    "metric4": { "value": 8, "suffix": "+", "label": "Yıllık Deneyim" }
+  },
+  "services": {
+    "label": "Hizmetlerimiz",
+    "title": "Uçtan Uca",
+    "titleAccent": "Teknoloji",
+    "titleEnd": "Çözümleri",
+    "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.",
+    "items": [
+      { "icon": "Brain", "title": "Yapay Zeka Çözümleri", "desc": "Makine öğrenmesi, doğal dil işleme ve bilgisayarlı görme teknolojileriyle akıllı sistemler geliştiriyoruz." },
+      { "icon": "Code", "title": "Yazılım Geliştirme", "desc": "Web, mobil ve masaüstü platformlar için modern, ölçeklenebilir ve güvenli yazılım çözümleri üretiyoruz." },
+      { "icon": "GearSix", "title": "Süreç Otomasyonu", "desc": "İş süreçlerinizi otomatikleştirerek verimliliği artırıyor, maliyetleri düşürüyoruz." },
+      { "icon": "Cloud", "title": "Bulut Altyapı", "desc": "Güvenli, ölçeklenebilir ve yüksek performanslı bulut altyapı çözümleri tasarlıyor ve yönetiyoruz." },
+      { "icon": "ChartLineUp", "title": "Veri Analitiği", "desc": "Büyük veri analizi ve görselleştirme ile veriye dayalı karar alma süreçlerinizi güçlendiriyoruz." },
+      { "icon": "ShieldCheck", "title": "Siber Güvenlik", "desc": "Kapsamlı güvenlik değerlendirmeleri ve koruma çözümleriyle dijital varlıklarınızı güvence altına alıyoruz." }
+    ]
+  },
+  "projects": {
+    "label": "Projelerimiz",
+    "title": "Gerçekleştirdiğimiz",
+    "titleAccent": "Projeler",
+    "subtitle": "Yenilikçi çözümlerimizle fark yaratan projelerimizi keşfedin.",
+    "tabs": { "all": "Tümü", "ongoing": "Devam Eden", "completed": "Tamamlanan" },
+    "details": "Detaylar",
+    "items": [
+      { "id": 1, "status": "ongoing", "statusLabel": "Devam Ediyor", "title": "IMPEVOS AI Platform", "desc": "Kurumsal müşteriler için yapay zeka destekli iş zekası ve otomasyon platformu.", "icon": "Robot" },
+      { "id": 2, "status": "ongoing", "statusLabel": "Devam Ediyor", "title": "SmartFlow", "desc": "İş süreçlerini akıllı hale getiren, öğrenen ve optimize eden otomasyon sistemi.", "icon": "FlowArrow" },
+      { "id": 3, "status": "ongoing", "statusLabel": "Devam Ediyor", "title": "CloudMatrix", "desc": "Çoklu bulut ortamlarını tek noktadan yöneten altyapı yönetim platformu.", "icon": "CloudArrowUp" },
+      { "id": 4, "status": "completed", "statusLabel": "Tamamlandı", "title": "DataVision", "desc": "Gerçek zamanlı veri görselleştirme ve analiz panosu çözümü.", "icon": "ChartBar" },
+      { "id": 5, "status": "completed", "statusLabel": "Tamamlandı", "title": "SecureGuard", "desc": "Yapay zeka destekli siber güvenlik izleme ve tehdit algılama sistemi.", "icon": "ShieldCheckered" },
+      { "id": 6, "status": "completed", "statusLabel": "Tamamlandı", "title": "AutoPilot CRM", "desc": "Yapay zeka ile müşteri ilişkilerini yöneten akıllı CRM platformu.", "icon": "UsersThree" }
+    ]
+  },
+  "team": {
+    "label": "Ekibimiz",
+    "title": "Arkasındaki",
+    "titleAccent": "İnsan",
+    "titleEnd": "Gücü",
+    "subtitle": "Vizyoner ve tutkulu kurucu ekibimiz, en karmaşık teknoloji problemlerine zarif çözümler üretir.",
+    "members": [
+      { "initials": "GE", "name": "Göktuğ ERYILMAZ", "role": "Kurucu Ortak - CEO", "gradient": "linear-gradient(135deg, #00ff00, #009944)" },
+      { "initials": "TB", "name": "Tolga BIYIK", "role": "Kurucu Ortak - CPO", "gradient": "linear-gradient(135deg, #00cc44, #007733)" },
+      { "initials": "BG", "name": "Burak GÖKCE", "role": "Kurucu Ortak - CTO", "gradient": "linear-gradient(135deg, #33ff55, #00bb33)" }
+    ]
+  },
+  "partners": {
+    "label": "İş Ortaklarımız",
+    "title": "Güçlü",
+    "titleAccent": "İş Birlikleri",
+    "subtitle": "Sektörün önde gelen şirketleriyle birlikte, daha büyük değer yaratıyoruz.",
+    "logos": ["NexGen Technologies", "QuantumCore Labs", "SynapseAI", "DataPrime", "CloudVerse", "CyberShield Inc", "NeuroTech Solutions", "Praxis Digital"]
+  },
+  "contact": {
+    "label": "İletişim",
+    "title": "Bizimle",
+    "titleAccent": "İletişime",
+    "titleEnd": "Geçin",
+    "subtitle": "Projeleriniz için konuşalım. Size en uygun çözümü birlikte bulalım.",
+    "info": {
+      "title": "Konuşalım",
+      "desc": "Yeni bir proje, iş birliği veya sadece merhaba demek için bize ulaşın. En kısa sürede size dönüş yapalım.",
+      "email": { "label": "E-posta", "value": "info@impevos.com" },
+      "phone": { "label": "Telefon", "value": "+90 (212) 000 00 00" },
+      "address": { "label": "Adres", "value": "İstanbul, Türkiye" }
+    },
+    "form": {
+      "name": "Adınız Soyadınız",
+      "email": "E-posta Adresiniz",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "submit": "Mesaj Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.",
+      "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin."
+    }
+  },
+  "footer": {
+    "desc": "Yapay zeka ve ileri teknoloji çözümleriyle geleceği şekillendiriyoruz.",
+    "links": "Hızlı Bağlantılar",
+    "services": "Hizmetler",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "cookies": "Çerez Politikası",
+    "copyright": "© 2025 IMPEVOS A.Ş. Tüm hakları saklıdır."
+  }
+}

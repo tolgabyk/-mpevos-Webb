@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMPEVOS | Teknoloji & İnovasyon</title>
+  <meta name="description" content="IMPEVOS - Yapay zeka, yazılım geliştirme ve otomasyon çözümleriyle geleceğin teknolojisini bugün inşa ediyoruz.">
+  <meta name="keywords" content="IMPEVOS, yapay zeka, AI, yazılım, teknoloji, otomasyon, bulut, siber güvenlik">
+  <meta name="author" content="IMPEVOS A.Ş.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IMPEVOS | Teknoloji & İnovasyon">
+  <meta property="og:description" content="Yapay zeka ve ileri teknoloji çözümleriyle geleceği şekillendiriyoruz.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://impevos.com">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="IMPEVOS Home">
+        <span class="logo-im">im</span>
+        <span class="logo-mark">
+          <span class="mark-top"></span>
+          <span class="mark-bot"></span>
+        </span>
+        <span class="logo-evos">evos</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" class="nav-link active" data-i18n="nav.home">Ana Sayfa</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">Hakkımızda</a>
+        <a href="#services" class="nav-link" data-i18n="nav.services">Hizmetler</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projeler</a>
+        <a href="#team" class="nav-link" data-i18n="nav.team">Ekibimiz</a>
+        <a href="#partners" class="nav-link" data-i18n="nav.partners">İş Ortakları</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">İletişim</a>
+      </div>
+
+      <div class="nav-right">
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="tr">TR</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-glow"></div>
+    <div class="grid-bg"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span data-i18n="hero.badge">Yapay Zeka & İleri Teknoloji</span>
+      </div>
+      <h1 class="hero-title" data-i18n="hero.title">
+        Geleceğin Teknolojisini<br><span class="text-accent">Bugün</span> İnşa Ediyoruz
+      </h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">
+          Projeleri Keşfet
+        </a>
+        <a href="#contact" class="btn btn-secondary" data-i18n="hero.cta2">
+          Bize Ulaşın
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label" data-i18n="about.label">Hakkımızda</div>
+        <h2 class="section-title" data-i18n="about.title">
+          Teknolojiyle Değer Yaratan<br>Bir <span class="text-accent">Vizyon</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="about.subtitle">
+          Kim olduğumuzu ve nereye gittiğimizi keşfedin.
+        </p>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text reveal reveal-left">
+          <h3 data-i18n="about.h3">Hikayemiz</h3>
+          <p data-i18n="about.p1">
+            IMPEVOS, yapay zeka ve yazılım teknolojileri alanında yenilikçi çözümler sunan bir teknoloji şirketidir. Anonim şirket yapısıyla kurumsal güvenilirliği, startup ruhuyla çevikliği bir arada sunuyoruz.
+          </p>
+          <p data-i18n="about.p2">
+            Global ölçekte düşünüyor, yerel dinamikleri anlayarak hareket ediyoruz. Her projemiz, müşterilerimizin dijital dönüşüm yolculuğunda somut değer yaratmak üzere tasarlanmıştır.
+          </p>
+          <div class="about-highlight">
+            <i class="ph ph-buildings" style="font-size: 1.5rem; color: var(--color-accent);"></i>
+            <p data-i18n="about.highlight">IMPEVOS A.Ş. — Kurumsal güvenilirlik, startup çevikliği.</p>
+          </div>
+        </div>
+
+        <div class="about-text reveal reveal-right">
+          <div class="metrics-grid" style="margin-bottom: 0;">
+            <div class="metric-card">
+              <div class="metric-value" data-count="50" data-suffix="+">0</div>
+              <div class="metric-label" data-i18n="about.metric1.label">Tamamlanan Proje</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value" data-count="30" data-suffix="+">0</div>
+              <div class="metric-label" data-i18n="about.metric2.label">Mutlu Müşteri</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value" data-count="15" data-suffix="+">0</div>
+              <div class="metric-label" data-i18n="about.metric3.label">Uzman Kadro</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value" data-count="8" data-suffix="+">0</div>
+              <div class="metric-label" data-i18n="about.metric4.label">Yıllık Deneyim</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVICES ==================== -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label" data-i18n="services.label">Hizmetlerimiz</div>
+        <h2 class="section-title" data-i18n="services.title">
+          Uçtan Uca <span class="text-accent">Teknoloji</span> Çözümleri
+        </h2>
+        <p class="section-subtitle" data-i18n="services.subtitle">
+          İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal delay-1">
+          <div class="service-icon"><i class="ph ph-brain"></i></div>
+          <h3 data-i18n="services.1.title">Yapay Zeka Çözümleri</h3>
+          <p data-i18n="services.1.desc">Makine öğrenmesi, doğal dil işleme ve bilgisayarlı görme teknolojileriyle akıllı sistemler geliştiriyoruz.</p>
+        </div>
+
+        <div class="service-card reveal delay-2">
+          <div class="service-icon"><i class="ph ph-code"></i></div>
+          <h3 data-i18n="services.2.title">Yazılım Geliştirme</h3>
+          <p data-i18n="services.2.desc">Web, mobil ve masaüstü platformlar için modern, ölçeklenebilir ve güvenli yazılım çözümleri üretiyoruz.</p>
+        </div>
+
+        <div class="service-card reveal delay-3">
+          <div class="service-icon"><i class="ph ph-gear-six"></i></div>
+          <h3 data-i18n="services.3.title">Süreç Otomasyonu</h3>
+          <p data-i18n="services.3.desc">İş süreçlerinizi otomatikleştirerek verimliliği artırıyor, maliyetleri düşürüyoruz.</p>
+        </div>
+
+        <div class="service-card reveal delay-4">
+          <div class="service-icon"><i class="ph ph-cloud"></i></div>
+          <h3 data-i18n="services.4.title">Bulut Altyapı</h3>
+          <p data-i18n="services.4.desc">Güvenli, ölçeklenebilir ve yüksek performanslı bulut altyapı çözümleri tasarlıyor ve yönetiyoruz.</p>
+        </div>
+
+        <div class="service-card reveal delay-5">
+          <div class="service-icon"><i class="ph ph-chart-line-up"></i></div>
+          <h3 data-i18n="services.5.title">Veri Analitiği</h3>
+          <p data-i18n="services.5.desc">Büyük veri analizi ve görselleştirme ile veriye dayalı karar alma süreçlerinizi güçlendiriyoruz.</p>
+        </div>
+
+        <div class="service-card reveal delay-6">
+          <div class="service-icon"><i class="ph ph-shield-check"></i></div>
+          <h3 data-i18n="services.6.title">Siber Güvenlik</h3>
+          <p data-i18n="services.6.desc">Kapsamlı güvenlik değerlendirmeleri ve koruma çözümleriyle dijital varlıklarınızı güvence altına alıyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label" data-i18n="projects.label">Projelerimiz</div>
+        <h2 class="section-title" data-i18n="projects.title">
+          Gerçekleştirdiğimiz <span class="text-accent">Projeler</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="projects.subtitle">
+          Yenilikçi çözümlerimizle fark yaratan projelerimizi keşfedin.
+        </p>
+      </div>
+
+      <div class="project-tabs reveal">
+        <button class="project-tab active" data-filter="all" data-i18n="projects.tab.all">Tümü</button>
+        <button class="project-tab" data-filter="ongoing" data-i18n="projects.tab.ongoing">Devam Eden</button>
+        <button class="project-tab" data-filter="completed" data-i18n="projects.tab.completed">Tamamlanan</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card reveal delay-1" data-status="ongoing">
+          <div class="project-image project-image-1">
+            <i class="ph ph-robot"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-status ongoing">
+              <span class="dot"></span>
+              <span data-i18n="projects.1.status">Devam Ediyor</span>
+            </div>
+            <h3 data-i18n="projects.1.title">IMPEVOS AI Platform</h3>
+            <p data-i18n="projects.1.desc">Kurumsal müşteriler için yapay zeka destekli iş zekası ve otomasyon platformu.</p>
+            <a href="#" class="project-link">
+              <span data-i18n="projects.details">Detaylar</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal delay-2" data-status="ongoing">
+          <div class="project-image project-image-2">
+            <i class="ph ph-flow-arrow"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-status ongoing">
+              <span class="dot"></span>
+              <span data-i18n="projects.2.status">Devam Ediyor</span>
+            </div>
+            <h3 data-i18n="projects.2.title">SmartFlow</h3>
+            <p data-i18n="projects.2.desc">İş süreçlerini akıllı hale getiren, öğrenen ve optimize eden otomasyon sistemi.</p>
+            <a href="#" class="project-link">
+              <span data-i18n="projects.details">Detaylar</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal delay-3" data-status="ongoing">
+          <div class="project-image project-image-3">
+            <i class="ph ph-cloud-arrow-up"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-status ongoing">
+              <span class="dot"></span>
+              <span data-i18n="projects.3.status">Devam Ediyor</span>
+            </div>
+            <h3 data-i18n="projects.3.title">CloudMatrix</h3>
+            <p data-i18n="projects.3.desc">Çoklu bulut ortamlarını tek noktadan yöneten altyapı yönetim platformu.</p>
+            <a href="#" class="project-link">
+              <span data-i18n="projects.details">Detaylar</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal delay-1" data-status="completed">
+          <div class="project-image project-image-4">
+            <i class="ph ph-chart-bar"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-status completed">
+              <span class="dot"></span>
+              <span data-i18n="projects.4.status">Tamamlandı</span>
+            </div>
+            <h3 data-i18n="projects.4.title">DataVision</h3>
+            <p data-i18n="projects.4.desc">Gerçek zamanlı veri görselleştirme ve analiz panosu çözümü.</p>
+            <a href="#" class="project-link">
+              <span data-i18n="projects.details">Detaylar</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card reveal delay-2" data-status="completed">
+          <div class="project-image project-image-5">
+            <i class="ph ph-shield-checkered"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-status completed">
+              <span class="dot"></span>
+              <span data-i18n="projects.5.status">Tamamlandı</span>
+            </div>
+            <h3 data-i18n="projects.5.title">SecureGuard</h3>
+            <p data-i18n="projects.5.desc">Yapay zeka destekli siber güvenlik izleme ve tehdit algılama sistemi.</p>
+            <a href="#" class="project-link">
+              <span data-i18n="projects.details">Detaylar</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card reveal delay-3" data-status="completed">
+          <div class="project-image project-image-6">
+            <i class="ph ph-users-three"></i>
+          </div>
+          <div class="project-body">
+            <div class="project-status completed">
+              <span class="dot"></span>
+              <span data-i18n="projects.6.status">Tamamlandı</span>
+            </div>
+            <h3 data-i18n="projects.6.title">AutoPilot CRM</h3>
+            <p data-i18n="projects.6.desc">Yapay zeka ile müşteri ilişkilerini yöneten akıllı CRM platformu.</p>
+            <a href="#" class="project-link">
+              <span data-i18n="projects.details">Detaylar</span>
+              <i class="ph ph-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TEAM ==================== -->
+  <section id="team">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label" data-i18n="team.label">Ekibimiz</div>
+        <h2 class="section-title" data-i18n="team.title">
+          Arkasındaki <span class="text-accent">İnsan</span> Gücü
+        </h2>
+        <p class="section-subtitle" data-i18n="team.subtitle">
+          Deneyimli ve tutkulu ekibimiz, en karmaşık problemlere bile zarif çözümler üretir.
+        </p>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card reveal delay-1">
+          <div class="team-avatar avatar-1">GE</div>
+          <h3 data-i18n="team.1.name">Göktuğ ERYILMAZ</h3>
+          <div class="team-role" data-i18n="team.1.role">Kurucu Ortak - CEO</div>
+          <div class="team-socials">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-x-logo"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card reveal delay-2">
+          <div class="team-avatar avatar-2">TB</div>
+          <h3 data-i18n="team.2.name">Tolga BIYIK</h3>
+          <div class="team-role" data-i18n="team.2.role">Kurucu Ortak - CPO</div>
+          <div class="team-socials">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="Twitter"><i class="ph ph-x-logo"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card reveal delay-3">
+          <div class="team-avatar avatar-3">BG</div>
+          <h3 data-i18n="team.3.name">Burak GÖKCE</h3>
+          <div class="team-role" data-i18n="team.3.role">Kurucu Ortak - CTO</div>
+          <div class="team-socials">
+            <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+            <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PARTNERS ==================== -->
+  <section id="partners">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label" data-i18n="partners.label">İş Ortaklarımız</div>
+        <h2 class="section-title" data-i18n="partners.title">
+          Güçlü <span class="text-accent">İş Birlikleri</span>
+        </h2>
+        <p class="section-subtitle" data-i18n="partners.subtitle">
+          Sektörün önde gelen şirketleriyle birlikte, daha büyük değer yaratıyoruz.
+        </p>
+      </div>
+    </div>
+
+    <div class="partners-slider">
+      <div class="partners-track">
+        <div class="partner-logo">NexGen Technologies</div>
+        <div class="partner-logo">QuantumCore Labs</div>
+        <div class="partner-logo">SynapseAI</div>
+        <div class="partner-logo">DataPrime</div>
+        <div class="partner-logo">CloudVerse</div>
+        <div class="partner-logo">CyberShield Inc</div>
+        <div class="partner-logo">NeuroTech Solutions</div>
+        <div class="partner-logo">Praxis Digital</div>
+        <!-- Duplicated for seamless loop -->
+        <div class="partner-logo">NexGen Technologies</div>
+        <div class="partner-logo">QuantumCore Labs</div>
+        <div class="partner-logo">SynapseAI</div>
+        <div class="partner-logo">DataPrime</div>
+        <div class="partner-logo">CloudVerse</div>
+        <div class="partner-logo">CyberShield Inc</div>
+        <div class="partner-logo">NeuroTech Solutions</div>
+        <div class="partner-logo">Praxis Digital</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label" data-i18n="contact.label">İletişim</div>
+        <h2 class="section-title" data-i18n="contact.title">
+          Bizimle <span class="text-accent">İletişime</span> Geçin
+        </h2>
+        <p class="section-subtitle" data-i18n="contact.subtitle">
+          Projeleriniz için konuşalım. Size en uygun çözümü birlikte bulalım.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Contact Info -->
+        <div class="contact-info reveal reveal-left">
+          <h3 data-i18n="contact.info.title">Konuşalım</h3>
+          <p data-i18n="contact.info.desc">
+            Yeni bir proje, iş birliği veya sadece merhaba demek için bize ulaşın. En kısa sürede size dönüş yapalım.
+          </p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="ph ph-envelope"></i>
+              </div>
+              <div class="contact-item-text">
+                <span class="label" data-i18n="contact.email.label">E-posta</span>
+                <span class="value" data-i18n="contact.email.value">info@impevos.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="ph ph-phone"></i>
+              </div>
+              <div class="contact-item-text">
+                <span class="label" data-i18n="contact.phone.label">Telefon</span>
+                <span class="value" data-i18n="contact.phone.value">+90 (212) 000 00 00</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="ph ph-map-pin"></i>
+              </div>
+              <div class="contact-item-text">
+                <span class="label" data-i18n="contact.address.label">Adres</span>
+                <span class="value" data-i18n="contact.address.value">İstanbul, Türkiye</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="contact-form" class="contact-form reveal reveal-right">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" id="form-name" data-i18n="contact.form.name" placeholder="Adınız Soyadınız" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="form-email" data-i18n="contact.form.email" placeholder="E-posta Adresiniz" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" id="form-subject" data-i18n="contact.form.subject" placeholder="Konu">
+          </div>
+          <div class="form-group">
+            <textarea id="form-message" data-i18n="contact.form.message" placeholder="Mesajınız" rows="5" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">
+              Mesaj Gönder
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo" aria-label="IMPEVOS Home">
+            <span class="logo-im">im</span>
+            <span class="logo-mark">
+              <span class="mark-top"></span>
+              <span class="mark-bot"></span>
+            </span>
+            <span class="logo-evos">evos</span>
+          </a>
+          <p data-i18n="footer.desc">
+            Yapay zeka ve ileri teknoloji çözümleriyle geleceği şekillendiriyoruz.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer.links">Hızlı Bağlantılar</h4>
+          <ul>
+            <li><a href="#about" data-i18n="nav.about">Hakkımızda</a></li>
+            <li><a href="#services" data-i18n="nav.services">Hizmetler</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projeler</a></li>
+            <li><a href="#team" data-i18n="nav.team">Ekibimiz</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">İletişim</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer.services">Hizmetler</h4>
+          <ul>
+            <li><a href="#services" data-i18n="services.1.title">Yapay Zeka Çözümleri</a></li>
+            <li><a href="#services" data-i18n="services.2.title">Yazılım Geliştirme</a></li>
+            <li><a href="#services" data-i18n="services.3.title">Süreç Otomasyonu</a></li>
+            <li><a href="#services" data-i18n="services.4.title">Bulut Altyapı</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 data-i18n="footer.legal">Yasal</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.privacy">Gizlilik Politikası</a></li>
+            <li><a href="#" data-i18n="footer.terms">Kullanım Koşulları</a></li>
+            <li><a href="#" data-i18n="footer.cookies">Çerez Politikası</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2025 IMPEVOS A.Ş. Tüm hakları saklıdır.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="ph ph-x-logo"></i></a>
+          <a href="#" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+          <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/i18n.js"></script>
+  <script src="scripts/animations.js"></script>
+  <script src="scripts/main.js"></script>
+
+</body>
+</html>

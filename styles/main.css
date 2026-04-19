@@ -1,0 +1,296 @@
+/* ==========================================
+   IMPEVOS — Design System & Global Styles
+   ========================================== */
+
+/* --- CSS Reset --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Custom Properties --- */
+:root {
+  /* Colors */
+  --color-primary: #000000;
+  --color-primary-light: #0a0a0a;
+  --color-primary-medium: #111111;
+  --color-primary-card: #0d0d0d;
+  --color-secondary: #ffffff;
+  --color-secondary-dim: rgba(255, 255, 255, 0.7);
+  --color-secondary-muted: rgba(255, 255, 255, 0.4);
+  --color-accent: #00ff00;
+  --color-accent-dim: rgba(0, 255, 0, 0.12);
+  --color-accent-glow: rgba(0, 255, 0, 0.4);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.15);
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-hover: rgba(255, 255, 255, 0.06);
+
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  /* Spacing & Sizing */
+  --section-padding: 120px;
+  --container-max: 1200px;
+  --container-padding: 24px;
+  --card-radius: 20px;
+  --btn-radius: 12px;
+  --navbar-height: 72px;
+
+  /* Transitions */
+  --ease-fast: 0.2s ease;
+  --ease-base: 0.3s ease;
+  --ease-slow: 0.5s ease;
+  --ease-spring: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Shadows */
+  --glow-sm: 0 0 20px var(--color-accent-glow);
+  --glow-lg: 0 0 40px var(--color-accent-glow);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-primary);
+}
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--ease-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  background: none;
+}
+
+input, textarea {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+
+/* --- Layout --- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+section {
+  padding: var(--section-padding) 0;
+  position: relative;
+}
+
+/* --- Section Headers --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: var(--fw-semibold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.section-label::before,
+.section-label::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--color-accent);
+  opacity: 0.5;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--fw-extrabold);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-secondary-dim);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--color-secondary-dim);
+}
+
+/* --- Text Utilities --- */
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-size: 0.9375rem;
+  font-weight: var(--fw-semibold);
+  border-radius: var(--btn-radius);
+  transition: all var(--ease-base);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  box-shadow: var(--glow-sm);
+}
+
+.btn-primary:hover {
+  box-shadow: var(--glow-lg);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-accent-dim);
+}
+
+/* --- Glassmorphism Card Base --- */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+}
+
+.glass:hover {
+  border-color: var(--color-border-hover);
+  background: var(--color-glass-hover);
+}
+
+/* --- Grid Background (Tech Aesthetic) --- */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 80px;
+    --container-padding: 20px;
+    --navbar-height: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px;
+    --container-padding: 16px;
+  }
+}

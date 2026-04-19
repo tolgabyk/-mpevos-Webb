@@ -1,0 +1,118 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "team": "Team",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "AI & Advanced Technology",
+    "title": "Building the Technology",
+    "titleAccent": "of Tomorrow",
+    "titleEnd": "Today",
+    "subtitle": "We empower your business with AI, automation, and advanced software solutions. Global vision, local strength.",
+    "cta1": "Explore Projects",
+    "cta2": "Contact Us"
+  },
+  "about": {
+    "label": "About Us",
+    "title": "A Vision That Creates",
+    "titleAccent": "Value",
+    "subtitle": "Discover who we are and where we're heading.",
+    "h3": "Our Story",
+    "p1": "IMPEVOS is a technology company offering innovative solutions in AI and software technologies. With our joint-stock structure, we combine corporate reliability with startup agility.",
+    "p2": "We think on a global scale and act with an understanding of local dynamics. Every project is designed to create tangible value in our clients' digital transformation journey.",
+    "highlight": "IMPEVOS A.Ş. — Corporate reliability, startup agility.",
+    "metric1": { "value": 50, "suffix": "+", "label": "Projects Completed" },
+    "metric2": { "value": 30, "suffix": "+", "label": "Happy Clients" },
+    "metric3": { "value": 3, "suffix": "", "label": "Co-Founders" },
+    "metric4": { "value": 8, "suffix": "+", "label": "Years Experience" }
+  },
+  "services": {
+    "label": "Our Services",
+    "title": "End-to-End",
+    "titleAccent": "Technology",
+    "titleEnd": "Solutions",
+    "subtitle": "We offer scalable and innovative solutions tailored to your business needs.",
+    "items": [
+      { "icon": "Brain", "title": "AI Solutions", "desc": "We develop intelligent systems with machine learning, natural language processing, and computer vision technologies." },
+      { "icon": "Code", "title": "Software Development", "desc": "We create modern, scalable, and secure software solutions for web, mobile, and desktop platforms." },
+      { "icon": "GearSix", "title": "Process Automation", "desc": "We automate your business processes to increase efficiency and reduce costs." },
+      { "icon": "Cloud", "title": "Cloud Infrastructure", "desc": "We design and manage secure, scalable, and high-performance cloud infrastructure solutions." },
+      { "icon": "ChartLineUp", "title": "Data Analytics", "desc": "We strengthen your data-driven decision-making with big data analysis and visualization." },
+      { "icon": "ShieldCheck", "title": "Cybersecurity", "desc": "We protect your digital assets with comprehensive security assessments and protection solutions." }
+    ]
+  },
+  "projects": {
+    "label": "Our Projects",
+    "title": "Projects That Make",
+    "titleAccent": "a Difference",
+    "subtitle": "Discover our projects that stand out with innovative solutions.",
+    "tabs": { "all": "All", "ongoing": "Ongoing", "completed": "Completed" },
+    "details": "Details",
+    "items": [
+      { "id": 1, "status": "ongoing", "statusLabel": "In Progress", "title": "IMPEVOS AI Platform", "desc": "AI-powered business intelligence and automation platform for enterprise clients.", "icon": "Robot" },
+      { "id": 2, "status": "ongoing", "statusLabel": "In Progress", "title": "SmartFlow", "desc": "An automation system that makes business processes intelligent, learns and optimizes.", "icon": "FlowArrow" },
+      { "id": 3, "status": "ongoing", "statusLabel": "In Progress", "title": "CloudMatrix", "desc": "Infrastructure management platform that manages multi-cloud environments from a single point.", "icon": "CloudArrowUp" },
+      { "id": 4, "status": "completed", "statusLabel": "Completed", "title": "DataVision", "desc": "Real-time data visualization and analytics dashboard solution.", "icon": "ChartBar" },
+      { "id": 5, "status": "completed", "statusLabel": "Completed", "title": "SecureGuard", "desc": "AI-powered cybersecurity monitoring and threat detection system.", "icon": "ShieldCheckered" },
+      { "id": 6, "status": "completed", "statusLabel": "Completed", "title": "AutoPilot CRM", "desc": "Intelligent CRM platform that manages customer relationships with AI.", "icon": "UsersThree" }
+    ]
+  },
+  "team": {
+    "label": "Our Team",
+    "title": "The",
+    "titleAccent": "People",
+    "titleEnd": "Behind It",
+    "subtitle": "Our visionary and passionate founding team creates elegant solutions for even the most complex technology challenges.",
+    "members": [
+      { "initials": "GE", "name": "Göktuğ ERYILMAZ", "role": "Co-Founder - CEO", "gradient": "linear-gradient(135deg, #00ff00, #009944)" },
+      { "initials": "TB", "name": "Tolga BIYIK", "role": "Co-Founder - CPO", "gradient": "linear-gradient(135deg, #00cc44, #007733)" },
+      { "initials": "BG", "name": "Burak GÖKCE", "role": "Co-Founder - CTO", "gradient": "linear-gradient(135deg, #33ff55, #00bb33)" }
+    ]
+  },
+  "partners": {
+    "label": "Our Partners",
+    "title": "Strong",
+    "titleAccent": "Partnerships",
+    "subtitle": "Together with leading companies in the industry, we create greater value.",
+    "logos": ["NexGen Technologies", "QuantumCore Labs", "SynapseAI", "DataPrime", "CloudVerse", "CyberShield Inc", "NeuroTech Solutions", "Praxis Digital"]
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Get in",
+    "titleAccent": "Touch",
+    "titleEnd": "With Us",
+    "subtitle": "Let's talk about your projects. Together, we'll find the best solution for you.",
+    "info": {
+      "title": "Let's Talk",
+      "desc": "Reach out for a new project, collaboration, or just to say hello. We'll get back to you as soon as possible.",
+      "email": { "label": "Email", "value": "info@impevos.com" },
+      "phone": { "label": "Phone", "value": "+90 (212) 000 00 00" },
+      "address": { "label": "Address", "value": "Istanbul, Turkey" }
+    },
+    "form": {
+      "name": "Your Full Name",
+      "email": "Your Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message was sent successfully! We'll get back to you shortly.",
+      "error": "Failed to send message. Please try again."
+    }
+  },
+  "footer": {
+    "desc": "Shaping the future with AI and advanced technology solutions.",
+    "links": "Quick Links",
+    "services": "Services",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "cookies": "Cookie Policy",
+    "copyright": "© 2025 IMPEVOS A.Ş. All rights reserved."
+  }
+}
