@@ -62,16 +62,109 @@
       { "id": 6, "status": "completed", "statusLabel": "Completed", "title": "AutoPilot CRM", "desc": "Intelligent CRM platform that manages customer relationships with AI.", "icon": "UsersThree" }
     ]
   },
+  "appShowcase": {
+    "badge": "Live on the App Store",
+    "titleAccent": "Not Ortağım",
+    "titleEnd": "is live on the App Store!",
+    "subtitle": "An AI-powered note-sharing platform. Upload a PDF, let AI build summaries and quizzes, listen to it as a podcast, or snap a question with Photo Mode and get an instant answer — Not Ortağım is always with you.",
+    "features": [
+      "AI summary, quiz and study plan in one tap",
+      "Photo Mode: snap a question, the AI teacher solves it instantly",
+      "Listen to your notes as a podcast and learn on the go",
+      "Share PDFs and discover thousands of student notes"
+    ],
+    "storeTopApple": "Download on the",
+    "androidSoon": "Android coming soon",
+    "metaRating": "App Store rating",
+    "metaAge": "age rating",
+    "metaCategoryValue": "Education",
+    "metaCategory": "category",
+    "float1Title": "AI summary ready",
+    "float1Desc": "540 pages in 38 sec",
+    "float2Title": "Podcast generated",
+    "float2Desc": "Listen to your notes",
+    "float3Title": "Quiz completed",
+    "float3Desc": "10/10 correct answers"
+  },
   "team": {
     "label": "Our Team",
     "title": "The",
     "titleAccent": "People",
     "titleEnd": "Behind It",
-    "subtitle": "Our visionary and passionate founding team creates elegant solutions for even the most complex technology challenges.",
-    "members": [
-      { "initials": "GE", "name": "Göktuğ ERYILMAZ", "role": "Co-Founder - CEO", "gradient": "linear-gradient(135deg, #00ff00, #009944)" },
-      { "initials": "TB", "name": "Tolga BIYIK", "role": "Co-Founder - CPO", "gradient": "linear-gradient(135deg, #00cc44, #007733)" },
-      { "initials": "BG", "name": "Burak GÖKCE", "role": "Co-Founder - CTO", "gradient": "linear-gradient(135deg, #33ff55, #00bb33)" }
+    "subtitle": "Our passionate team grows IMPEVOS every day, led by specialised leaders across each department.",
+    "leaderLabel": "Lead",
+    "deputyLabel": "Deputy",
+    "peopleSuffix": "people",
+    "statMembers": "Team members",
+    "statDepartments": "Departments",
+    "statVision": "Shared vision",
+    "departments": [
+      {
+        "id": "leadership",
+        "iconKey": "leadership",
+        "name": "Leadership",
+        "members": [
+          { "isLeader": true, "initials": "GE", "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "gradient": "linear-gradient(135deg, #00ff66, #009944)" },
+          { "isLeader": true, "initials": "TB", "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "gradient": "linear-gradient(135deg, #00cc44, #007733)" },
+          { "isLeader": true, "initials": "BG", "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "gradient": "linear-gradient(135deg, #33ff55, #00bb33)", "secondaryType": "github" }
+        ]
+      },
+      {
+        "id": "rd",
+        "iconKey": "rd",
+        "name": "R&D Team",
+        "members": [
+          { "isLeader": true, "name": "Kübra Utanğaç", "role": "R&D Leader", "photo": "/team/kubra-utangac.png" },
+          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "R&D Deputy Leader", "photo": "/team/dilara-ozcan.png" },
+          { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
+          { "name": "Şükrü Ata Erenkuş", "role": "R&D Team Member", "photo": "/team/sukru-ata-erenkus.png" },
+          { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
+          { "name": "Mustafa Eren Kabaca", "role": "R&D Analyst", "photo": "/team/mustafa-eren-kabaca.png" }
+        ]
+      },
+      {
+        "id": "softwareRd",
+        "iconKey": "softwareRd",
+        "name": "Software R&D Team",
+        "members": [
+          { "isLeader": true, "name": "Ali Kaklık", "role": "Software R&D Leader", "photo": "/team/ali-kaklik.png", "secondaryType": "github" },
+          { "name": "Backend Developer", "role": "Backend Developer", "secondaryType": "github" },
+          { "name": "Frontend Developer", "role": "Frontend Developer", "secondaryType": "github" },
+          { "name": "Mobile Developer", "role": "Mobile Developer", "secondaryType": "github" },
+          { "name": "AI Engineer", "role": "AI Engineer", "secondaryType": "github" }
+        ]
+      },
+      {
+        "id": "marketing",
+        "iconKey": "marketing",
+        "name": "Marketing Team",
+        "members": [
+          { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Marketing Team Leader", "photo": "/team/mehmet-efe-dur.png" },
+          { "name": "Zelal Koç", "role": "Marketing Team Member", "photo": "/team/zelal-koc.png" },
+          { "name": "Content Specialist", "role": "Content Specialist" },
+          { "name": "Growth Specialist", "role": "Growth Specialist" }
+        ]
+      },
+      {
+        "id": "socialMedia",
+        "iconKey": "socialMedia",
+        "name": "Social Media Team",
+        "members": [
+          { "isLeader": true, "name": "Social Media Lead", "role": "Social Media Team Lead" },
+          { "name": "Social Media Specialist", "role": "Social Media Specialist" },
+          { "name": "Content Creator", "role": "Content Creator" }
+        ]
+      },
+      {
+        "id": "community",
+        "iconKey": "community",
+        "name": "University Community Team",
+        "members": [
+          { "isLeader": true, "name": "Community Lead", "role": "University Community Lead" },
+          { "name": "Community Ambassador", "role": "University Ambassador" },
+          { "name": "Community Ambassador", "role": "University Ambassador" }
+        ]
+      }
     ]
   },
   "partners": {
