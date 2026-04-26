@@ -5,7 +5,6 @@
     "services": "Hizmetler",
     "projects": "Projeler",
     "team": "Ekibimiz",
-    "partners": "İş Ortakları",
     "contact": "İletişim"
   },
   "hero": {
@@ -24,9 +23,8 @@
     "titleAccent": "Vizyon",
     "subtitle": "Kim olduğumuzu ve nereye gittiğimizi keşfedin.",
     "h3": "Hikayemiz",
-    "p1": "IMPEVOS TEKNOLOJİ A.Ş., yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunan bir teknoloji şirketidir. Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
+    "p1": "IMPEVOS TEKNOLOJİ, yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunan bir teknoloji şirketidir. Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
     "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
-    "highlight": "IMPEVOS TEKNOLOJİ A.Ş. — İnovasyonun ve kurumsal güvenin merkezi.",
     "metric1": { "value": 50, "suffix": "+", "label": "Tamamlanan Proje" },
     "metric2": { "value": 30, "suffix": "+", "label": "Mutlu Müşteri" },
     "metric3": { "value": 3, "suffix": "", "label": "Kurucu Ortak" },
@@ -55,12 +53,38 @@
     "tabs": { "all": "Tümü", "ongoing": "Devam Eden", "completed": "Tamamlanan" },
     "details": "Detaylar",
     "items": [
-      { "id": 1, "status": "ongoing", "statusLabel": "Devam Ediyor", "title": "IMPEVOS AI Platform", "desc": "Kurumsal müşteriler için yapay zeka destekli iş zekası ve otomasyon platformu.", "icon": "Robot" },
-      { "id": 2, "status": "ongoing", "statusLabel": "Devam Ediyor", "title": "SmartFlow", "desc": "İş süreçlerini akıllı hale getiren, öğrenen ve optimize eden otomasyon sistemi.", "icon": "FlowArrow" },
-      { "id": 3, "status": "ongoing", "statusLabel": "Devam Ediyor", "title": "CloudMatrix", "desc": "Çoklu bulut ortamlarını tek noktadan yöneten altyapı yönetim platformu.", "icon": "CloudArrowUp" },
-      { "id": 4, "status": "completed", "statusLabel": "Tamamlandı", "title": "DataVision", "desc": "Gerçek zamanlı veri görselleştirme ve analiz panosu çözümü.", "icon": "ChartBar" },
-      { "id": 5, "status": "completed", "statusLabel": "Tamamlandı", "title": "SecureGuard", "desc": "Yapay zeka destekli siber güvenlik izleme ve tehdit algılama sistemi.", "icon": "ShieldCheckered" },
-      { "id": 6, "status": "completed", "statusLabel": "Tamamlandı", "title": "AutoPilot CRM", "desc": "Yapay zeka ile müşteri ilişkilerini yöneten akıllı CRM platformu.", "icon": "UsersThree" }
+      { 
+        "id": "not-ortagim", 
+        "status": "completed", 
+        "statusLabel": "Yayında", 
+        "title": "Not Ortağım", 
+        "desc": "Yapay zeka destekli, PDF özetleme ve interaktif çalışma asistanı. App Store'da yayında.", 
+        "type": "app",
+        "screens": [
+          "/app-screens/01-discover.png",
+          "/app-screens/02-photo-mode.png",
+          "/app-screens/03-pdf.png"
+        ]
+      },
+      { 
+        "id": "rota-neresi", 
+        "status": "ongoing", 
+        "statusLabel": "Devam Ediyor", 
+        "title": "Rota Neresi", 
+        "desc": "Kişisel ilgi alanlarınıza ve bütçenize göre en uygun rotaları oluşturan akıllı gezi planlayıcı.", 
+        "type": "app",
+        "screens": [
+          "/app-screens/rota1.jpeg",
+          "/app-screens/rota2.jpeg",
+          "/app-screens/rota3.jpeg",
+          "/app-screens/rota4.jpeg",
+          "/app-screens/rota5.jpeg",
+          "/app-screens/rota6.jpeg",
+          "/app-screens/rota7.jpeg",
+          "/app-screens/rota8.jpeg",
+          "/app-screens/rota9.jpeg"
+        ]
+      }
     ]
   },
   "appShowcase": {
@@ -128,8 +152,7 @@
         "iconKey": "softwareRd",
         "name": "Yazılım Ar-Ge Ekibi",
         "members": [
-          { "isLeader": true, "name": "Ali Kaklık", "role": "Yazılım Ar-Ge Lideri", "photo": "/team/ali-kaklik.png", "secondaryType": "github" },
-          { "name": "Furkan Dinçer", "role": "Yazılım Ar-Ge Ekip Üyesi", "photo": "/team/furkan-dincer.jpeg", "secondaryType": "github" }
+          { "isLeader": true, "name": "Ali Kaklık", "role": "Yazılım Ar-Ge Lideri", "photo": "/team/ali-kaklik.png", "secondaryType": "github" }
         ]
       },
       {
@@ -162,13 +185,6 @@
         ]
       }
     ]
-  },
-  "partners": {
-    "label": "İş Ortaklarımız",
-    "title": "Güçlü",
-    "titleAccent": "İş Birlikleri",
-    "subtitle": "Sektörün önde gelen şirketleriyle birlikte, daha büyük değer yaratıyoruz.",
-    "logos": ["NexGen Technologies", "QuantumCore Labs", "SynapseAI", "DataPrime", "CloudVerse", "CyberShield Inc", "NeuroTech Solutions", "Praxis Digital"]
   },
   "contact": {
     "label": "İletişim",

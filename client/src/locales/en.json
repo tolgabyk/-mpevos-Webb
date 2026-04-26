@@ -5,7 +5,6 @@
     "services": "Services",
     "projects": "Projects",
     "team": "Team",
-    "partners": "Partners",
     "contact": "Contact"
   },
   "hero": {
@@ -24,9 +23,8 @@
     "titleAccent": "Value",
     "subtitle": "Discover who we are and where we're heading.",
     "h3": "Our Story",
-    "p1": "IMPEVOS TECHNOLOGY INC. is a pioneering technology company providing innovative solutions in AI, advanced software technologies, and digital transformation. We combine corporate reliability with startup innovation to build the future today.",
+    "p1": "IMPEVOS TECHNOLOGY is a pioneering technology company providing innovative solutions in AI, advanced software technologies, and digital transformation. We combine corporate reliability with startup innovation to build the future today.",
     "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology.",
-    "highlight": "IMPEVOS TECHNOLOGY INC. — The center of innovation and corporate trust.",
     "metric1": { "value": 50, "suffix": "+", "label": "Projects Completed" },
     "metric2": { "value": 30, "suffix": "+", "label": "Happy Clients" },
     "metric3": { "value": 3, "suffix": "", "label": "Co-Founders" },
@@ -55,12 +53,38 @@
     "tabs": { "all": "All", "ongoing": "Ongoing", "completed": "Completed" },
     "details": "Details",
     "items": [
-      { "id": 1, "status": "ongoing", "statusLabel": "In Progress", "title": "IMPEVOS AI Platform", "desc": "AI-powered business intelligence and automation platform for enterprise clients.", "icon": "Robot" },
-      { "id": 2, "status": "ongoing", "statusLabel": "In Progress", "title": "SmartFlow", "desc": "An automation system that makes business processes intelligent, learns and optimizes.", "icon": "FlowArrow" },
-      { "id": 3, "status": "ongoing", "statusLabel": "In Progress", "title": "CloudMatrix", "desc": "Infrastructure management platform that manages multi-cloud environments from a single point.", "icon": "CloudArrowUp" },
-      { "id": 4, "status": "completed", "statusLabel": "Completed", "title": "DataVision", "desc": "Real-time data visualization and analytics dashboard solution.", "icon": "ChartBar" },
-      { "id": 5, "status": "completed", "statusLabel": "Completed", "title": "SecureGuard", "desc": "AI-powered cybersecurity monitoring and threat detection system.", "icon": "ShieldCheckered" },
-      { "id": 6, "status": "completed", "statusLabel": "Completed", "title": "AutoPilot CRM", "desc": "Intelligent CRM platform that manages customer relationships with AI.", "icon": "UsersThree" }
+      { 
+        "id": "not-ortagim", 
+        "status": "completed", 
+        "statusLabel": "Live", 
+        "title": "Not Ortağım", 
+        "desc": "AI-powered PDF summarization and interactive study assistant. Live on the App Store.", 
+        "type": "app",
+        "screens": [
+          "/app-screens/01-discover.png",
+          "/app-screens/02-photo-mode.png",
+          "/app-screens/03-pdf.png"
+        ]
+      },
+      { 
+        "id": "rota-neresi", 
+        "status": "ongoing", 
+        "statusLabel": "In Progress", 
+        "title": "Rota Neresi", 
+        "desc": "Smart trip planner that creates the best routes based on your personal interests and budget.", 
+        "type": "app",
+        "screens": [
+          "/app-screens/rota1.jpeg",
+          "/app-screens/rota2.jpeg",
+          "/app-screens/rota3.jpeg",
+          "/app-screens/rota4.jpeg",
+          "/app-screens/rota5.jpeg",
+          "/app-screens/rota6.jpeg",
+          "/app-screens/rota7.jpeg",
+          "/app-screens/rota8.jpeg",
+          "/app-screens/rota9.jpeg"
+        ]
+      }
     ]
   },
   "appShowcase": {
@@ -128,8 +152,7 @@
         "iconKey": "softwareRd",
         "name": "Software R&D Team",
         "members": [
-          { "isLeader": true, "name": "Ali Kaklık", "role": "Software R&D Leader", "photo": "/team/ali-kaklik.png", "secondaryType": "github" },
-          { "name": "Furkan Dinçer", "role": "Software R&D Team Member", "photo": "/team/furkan-dincer.jpeg", "secondaryType": "github" }
+          { "isLeader": true, "name": "Ali Kaklık", "role": "Software R&D Leader", "photo": "/team/ali-kaklik.png", "secondaryType": "github" }
         ]
       },
       {
@@ -162,13 +185,6 @@
         ]
       }
     ]
-  },
-  "partners": {
-    "label": "Our Partners",
-    "title": "Strong",
-    "titleAccent": "Partnerships",
-    "subtitle": "Together with leading companies in the industry, we create greater value.",
-    "logos": ["NexGen Technologies", "QuantumCore Labs", "SynapseAI", "DataPrime", "CloudVerse", "CyberShield Inc", "NeuroTech Solutions", "Praxis Digital"]
   },
   "contact": {
     "label": "Contact",

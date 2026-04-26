@@ -5,7 +5,6 @@ import About from './components/About/About'
 import Services from './components/Services/Services'
 import Projects from './components/Projects/Projects'
 import Team from './components/Team/Team'
-import Partners from './components/Partners/Partners'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
 
@@ -20,7 +19,6 @@ function App() {
         <Services />
         <Projects />
         <Team />
-        <Partners />
         <Contact />
       </main>
       <Footer />

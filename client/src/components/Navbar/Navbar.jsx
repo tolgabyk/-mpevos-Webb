@@ -5,7 +5,7 @@ import { List, X } from '@phosphor-icons/react'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
 import styles from './Navbar.module.css'
 
-const NAV_IDS = ['hero', 'about', 'services', 'projects', 'team', 'partners', 'contact']
+const NAV_IDS = ['hero', 'about', 'services', 'projects', 'team', 'contact']
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
@@ -35,7 +35,6 @@ export default function Navbar() {
     { id: 'services', label: t('nav.services') },
     { id: 'projects', label: t('nav.projects') },
     { id: 'team', label: t('nav.team') },
-    { id: 'partners', label: t('nav.partners') },
     { id: 'contact', label: t('nav.contact') },
   ]
 

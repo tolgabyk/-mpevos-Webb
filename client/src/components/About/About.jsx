@@ -61,10 +61,6 @@ export default function About() {
             <h3>{t('about.h3')}</h3>
             <p>{t('about.p1')}</p>
             <p>{t('about.p2')}</p>
-            <div className={styles.highlight}>
-              <Buildings size={28} color="var(--color-accent)" />
-              <p>{t('about.highlight')}</p>
-            </div>
           </motion.div>
 
           {/* Right: Metrics */}
