@@ -12,6 +12,8 @@ import {
   ArrowSquareOut,
   Bell,
   CheckCircle,
+  Globe,
+  ArrowRight,
 } from '@phosphor-icons/react'
 import styles from './AppShowcase.module.css'
 
@@ -114,6 +116,21 @@ export default function AppShowcase() {
               )
             })}
           </ul>
+
+          <motion.a
+            href="https://www.notortagim.com"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.minimalUpdateLink}
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            <span className={styles.liveDot} />
+            <span className={styles.updateText}>{t('appShowcase.updateShort')}</span>
+            <ArrowRight size={16} weight="bold" className={styles.updateArrow} />
+          </motion.a>
 
           <div className={styles.storeRow}>
             <a

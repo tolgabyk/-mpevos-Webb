@@ -15,7 +15,8 @@
     "titleEnd": "Today",
     "subtitle": "We empower your business with AI, automation, and advanced software solutions. Global vision, local strength.",
     "cta1": "Explore Projects",
-    "cta2": "Contact Us"
+    "cta2": "Contact Us",
+    "scroll": "scroll"
   },
   "about": {
     "label": "About Us",
@@ -23,9 +24,9 @@
     "titleAccent": "Value",
     "subtitle": "Discover who we are and where we're heading.",
     "h3": "Our Story",
-    "p1": "IMPEVOS is a technology company offering innovative solutions in AI and software technologies. With our joint-stock structure, we combine corporate reliability with startup agility.",
-    "p2": "We think on a global scale and act with an understanding of local dynamics. Every project is designed to create tangible value in our clients' digital transformation journey.",
-    "highlight": "IMPEVOS A.Ş. — Corporate reliability, startup agility.",
+    "p1": "IMPEVOS TECHNOLOGY INC. is a pioneering technology company providing innovative solutions in AI, advanced software technologies, and digital transformation. We combine corporate reliability with startup innovation to build the future today.",
+    "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology.",
+    "highlight": "IMPEVOS TECHNOLOGY INC. — The center of innovation and corporate trust.",
     "metric1": { "value": 50, "suffix": "+", "label": "Projects Completed" },
     "metric2": { "value": 30, "suffix": "+", "label": "Happy Clients" },
     "metric3": { "value": 3, "suffix": "", "label": "Co-Founders" },
@@ -84,7 +85,8 @@
     "float2Title": "Podcast generated",
     "float2Desc": "Listen to your notes",
     "float3Title": "Quiz completed",
-    "float3Desc": "10/10 correct answers"
+    "float3Desc": "10/10 correct answers",
+    "updateShort": "Follow Latest Updates & Innovations"
   },
   "team": {
     "label": "Our Team",
@@ -104,9 +106,9 @@
         "iconKey": "leadership",
         "name": "Leadership",
         "members": [
-          { "isLeader": true, "initials": "GE", "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "gradient": "linear-gradient(135deg, #00ff66, #009944)" },
-          { "isLeader": true, "initials": "TB", "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "gradient": "linear-gradient(135deg, #00cc44, #007733)" },
-          { "isLeader": true, "initials": "BG", "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "gradient": "linear-gradient(135deg, #33ff55, #00bb33)", "secondaryType": "github" }
+          { "isLeader": true, "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
+          { "isLeader": true, "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
+          { "isLeader": true, "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
         ]
       },
       {
@@ -115,11 +117,10 @@
         "name": "R&D Team",
         "members": [
           { "isLeader": true, "name": "Kübra Utanğaç", "role": "R&D Leader", "photo": "/team/kubra-utangac.png" },
-          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "R&D Deputy Leader", "photo": "/team/dilara-ozcan.png" },
+          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "R&D Deputy Leader", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
-          { "name": "Şükrü Ata Erenkuş", "role": "R&D Team Member", "photo": "/team/sukru-ata-erenkus.png" },
           { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
-          { "name": "Mustafa Eren Kabaca", "role": "R&D Analyst", "photo": "/team/mustafa-eren-kabaca.png" }
+          { "name": "Mustafa Eren Kabaca", "role": "R&D Team Member", "photo": "/team/mustafa-eren-kabaca.png" }
         ]
       },
       {
@@ -128,10 +129,16 @@
         "name": "Software R&D Team",
         "members": [
           { "isLeader": true, "name": "Ali Kaklık", "role": "Software R&D Leader", "photo": "/team/ali-kaklik.png", "secondaryType": "github" },
-          { "name": "Backend Developer", "role": "Backend Developer", "secondaryType": "github" },
-          { "name": "Frontend Developer", "role": "Frontend Developer", "secondaryType": "github" },
-          { "name": "Mobile Developer", "role": "Mobile Developer", "secondaryType": "github" },
-          { "name": "AI Engineer", "role": "AI Engineer", "secondaryType": "github" }
+          { "name": "Furkan Dinçer", "role": "Software R&D Team Member", "photo": "/team/furkan-dincer.jpeg", "secondaryType": "github" }
+        ]
+      },
+      {
+        "id": "business",
+        "iconKey": "business",
+        "name": "Business Development",
+        "members": [
+          { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "Business Partnership Lead", "photo": "/team/sukru-ata-erenkus.png" },
+          { "isLeader": true, "name": "Timur Ceyhan", "role": "International Business Development Lead", "photo": "/team/timur_ceyhan.jpeg" }
         ]
       },
       {
@@ -140,9 +147,8 @@
         "name": "Marketing Team",
         "members": [
           { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Marketing Team Leader", "photo": "/team/mehmet-efe-dur.png" },
-          { "name": "Zelal Koç", "role": "Marketing Team Member", "photo": "/team/zelal-koc.png" },
-          { "name": "Content Specialist", "role": "Content Specialist" },
-          { "name": "Growth Specialist", "role": "Growth Specialist" }
+          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Marketing Deputy Lead", "photo": "/team/semra-aslan.jpeg" },
+          { "name": "Zelal Koç", "role": "Marketing Team Member", "photo": "/team/zelal-koc.png" }
         ]
       },
       {
@@ -150,19 +156,9 @@
         "iconKey": "socialMedia",
         "name": "Social Media Team",
         "members": [
-          { "isLeader": true, "name": "Social Media Lead", "role": "Social Media Team Lead" },
-          { "name": "Social Media Specialist", "role": "Social Media Specialist" },
-          { "name": "Content Creator", "role": "Content Creator" }
-        ]
-      },
-      {
-        "id": "community",
-        "iconKey": "community",
-        "name": "University Community Team",
-        "members": [
-          { "isLeader": true, "name": "Community Lead", "role": "University Community Lead" },
-          { "name": "Community Ambassador", "role": "University Ambassador" },
-          { "name": "Community Ambassador", "role": "University Ambassador" }
+          { "isLeader": true, "name": "Taha Mis", "role": "Social Media Lead", "photo": "/team/taha-mis.jpeg" },
+          { "isDeputyLeader": true, "name": "Muhammet Can Ertengi", "role": "Social Media Deputy Lead", "photo": "/team/muhammet-can-ertengi.jpeg" },
+          { "name": "İlayda Çakmak", "role": "Social Media Team Member", "photo": "/team/ilayda_cakmak.jpeg" }
         ]
       }
     ]
@@ -206,6 +202,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "cookies": "Cookie Policy",
-    "copyright": "© 2025 IMPEVOS A.Ş. All rights reserved."
+    "copyright": "© 2025 IMPEVOS TECHNOLOGY INC. All rights reserved."
   }
 }

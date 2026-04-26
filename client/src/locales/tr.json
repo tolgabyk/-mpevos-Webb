@@ -15,7 +15,8 @@
     "titleEnd": "İnşa Ediyoruz",
     "subtitle": "Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.",
     "cta1": "Projeleri Keşfet",
-    "cta2": "Bize Ulaşın"
+    "cta2": "Bize Ulaşın",
+    "scroll": "kaydır"
   },
   "about": {
     "label": "Hakkımızda",
@@ -23,9 +24,9 @@
     "titleAccent": "Vizyon",
     "subtitle": "Kim olduğumuzu ve nereye gittiğimizi keşfedin.",
     "h3": "Hikayemiz",
-    "p1": "IMPEVOS, yapay zeka ve yazılım teknolojileri alanında yenilikçi çözümler sunan bir teknoloji şirketidir. Anonim şirket yapısıyla kurumsal güvenilirliği, startup ruhuyla çevikliği bir arada sunuyoruz.",
-    "p2": "Global ölçekte düşünüyor, yerel dinamikleri anlayarak hareket ediyoruz. Her projemiz, müşterilerimizin dijital dönüşüm yolculuğunda somut değer yaratmak üzere tasarlanmıştır.",
-    "highlight": "IMPEVOS A.Ş. — Kurumsal güvenilirlik, startup çevikliği.",
+    "p1": "IMPEVOS TEKNOLOJİ A.Ş., yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunan bir teknoloji şirketidir. Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
+    "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
+    "highlight": "IMPEVOS TEKNOLOJİ A.Ş. — İnovasyonun ve kurumsal güvenin merkezi.",
     "metric1": { "value": 50, "suffix": "+", "label": "Tamamlanan Proje" },
     "metric2": { "value": 30, "suffix": "+", "label": "Mutlu Müşteri" },
     "metric3": { "value": 3, "suffix": "", "label": "Kurucu Ortak" },
@@ -84,7 +85,8 @@
     "float2Title": "Podcast oluşturuldu",
     "float2Desc": "Notunu kulaktan dinle",
     "float3Title": "Quiz tamamlandı",
-    "float3Desc": "10/10 doğru cevap"
+    "float3Desc": "10/10 doğru cevap",
+    "updateShort": "Güncellemeleri ve Yenilikleri Takip Et"
   },
   "team": {
     "label": "Ekibimiz",
@@ -104,9 +106,9 @@
         "iconKey": "leadership",
         "name": "Yönetim Kurulu",
         "members": [
-          { "isLeader": true, "initials": "GE", "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "gradient": "linear-gradient(135deg, #00ff66, #009944)" },
-          { "isLeader": true, "initials": "TB", "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "gradient": "linear-gradient(135deg, #00cc44, #007733)" },
-          { "isLeader": true, "initials": "BG", "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "gradient": "linear-gradient(135deg, #33ff55, #00bb33)", "secondaryType": "github" }
+          { "isLeader": true, "name": "Göktuğ ERYILMAZ", "role": "Kurucu Ortak — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
+          { "isLeader": true, "name": "Tolga BIYIK", "role": "Kurucu Ortak — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
+          { "isLeader": true, "name": "Burak GÖKCE", "role": "Kurucu Ortak — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
         ]
       },
       {
@@ -114,12 +116,11 @@
         "iconKey": "rd",
         "name": "Ar-Ge Ekibi",
         "members": [
-          { "isLeader": true, "name": "Kübra Utanğaç", "role": "R&D Leader", "photo": "/team/kubra-utangac.png" },
-          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "R&D Deputy Leader", "photo": "/team/dilara-ozcan.png" },
-          { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
-          { "name": "Şükrü Ata Erenkuş", "role": "R&D Team Member", "photo": "/team/sukru-ata-erenkus.png" },
-          { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
-          { "name": "Mustafa Eren Kabaca", "role": "R&D Analyst", "photo": "/team/mustafa-eren-kabaca.png" }
+          { "isLeader": true, "name": "Kübra Utanğaç", "role": "Ar-Ge Lideri", "photo": "/team/kubra-utangac.png" },
+          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
+          { "isDeputyLeader": true, "name": "Esra Özekin", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/esra-ozekin.png" },
+          { "name": "Ümmü Altın", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/ummu-altin.png" },
+          { "name": "Mustafa Eren Kabaca", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/mustafa-eren-kabaca.png" }
         ]
       },
       {
@@ -127,11 +128,17 @@
         "iconKey": "softwareRd",
         "name": "Yazılım Ar-Ge Ekibi",
         "members": [
-          { "isLeader": true, "name": "Ali Kaklık", "role": "Software R&D Leader", "photo": "/team/ali-kaklik.png", "secondaryType": "github" },
-          { "name": "Backend Geliştirici", "role": "Backend Developer", "secondaryType": "github" },
-          { "name": "Frontend Geliştirici", "role": "Frontend Developer", "secondaryType": "github" },
-          { "name": "Mobil Geliştirici", "role": "Mobile Developer", "secondaryType": "github" },
-          { "name": "Yapay Zeka Mühendisi", "role": "AI Engineer", "secondaryType": "github" }
+          { "isLeader": true, "name": "Ali Kaklık", "role": "Yazılım Ar-Ge Lideri", "photo": "/team/ali-kaklik.png", "secondaryType": "github" },
+          { "name": "Furkan Dinçer", "role": "Yazılım Ar-Ge Ekip Üyesi", "photo": "/team/furkan-dincer.jpeg", "secondaryType": "github" }
+        ]
+      },
+      {
+        "id": "business",
+        "iconKey": "business",
+        "name": "İş Geliştirme ve Ortaklıklar",
+        "members": [
+          { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "İş Ortaklıkları Lideri", "photo": "/team/sukru-ata-erenkus.png" },
+          { "isLeader": true, "name": "Timur Ceyhan", "role": "Uluslararası İş Geliştirme Lideri", "photo": "/team/timur_ceyhan.jpeg" }
         ]
       },
       {
@@ -139,10 +146,9 @@
         "iconKey": "marketing",
         "name": "Pazarlama Ekibi",
         "members": [
-          { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Marketing Team Leader", "photo": "/team/mehmet-efe-dur.png" },
-          { "name": "Zelal Koç", "role": "Marketing Team Member", "photo": "/team/zelal-koc.png" },
-          { "name": "İçerik Uzmanı", "role": "Content Specialist" },
-          { "name": "Büyüme Uzmanı", "role": "Growth Specialist" }
+          { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Pazarlama Takım Lideri", "photo": "/team/mehmet-efe-dur.png" },
+          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Pazarlama Lider Yardımcısı", "photo": "/team/semra-aslan.jpeg" },
+          { "name": "Zelal Koç", "role": "Pazarlama Ekip Üyesi", "photo": "/team/zelal-koc.png" }
         ]
       },
       {
@@ -150,19 +156,9 @@
         "iconKey": "socialMedia",
         "name": "Sosyal Medya Ekibi",
         "members": [
-          { "isLeader": true, "name": "Sosyal Medya Lideri", "role": "Social Media Team Lead" },
-          { "name": "Sosyal Medya Uzmanı", "role": "Social Media Specialist" },
-          { "name": "İçerik Üreticisi", "role": "Content Creator" }
-        ]
-      },
-      {
-        "id": "community",
-        "iconKey": "community",
-        "name": "Üniversite Topluluk Ekibi",
-        "members": [
-          { "isLeader": true, "name": "Topluluk Lideri", "role": "University Community Lead" },
-          { "name": "Topluluk Temsilcisi", "role": "University Ambassador" },
-          { "name": "Topluluk Temsilcisi", "role": "University Ambassador" }
+          { "isLeader": true, "name": "Taha Mis", "role": "Sosyal Medya Lideri", "photo": "/team/taha-mis.jpeg" },
+          { "isDeputyLeader": true, "name": "Muhammet Can Ertengi", "role": "Sosyal Medya Lider Yardımcısı", "photo": "/team/muhammet-can-ertengi.jpeg" },
+          { "name": "İlayda Çakmak", "role": "Sosyal Medya Ekip Üyesi", "photo": "/team/ilayda_cakmak.jpeg" }
         ]
       }
     ]
@@ -206,6 +202,6 @@
     "privacy": "Gizlilik Politikası",
     "terms": "Kullanım Koşulları",
     "cookies": "Çerez Politikası",
-    "copyright": "© 2025 IMPEVOS A.Ş. Tüm hakları saklıdır."
+    "copyright": "© 2025 IMPEVOS TEKNOLOJİ A.Ş. Tüm hakları saklıdır."
   }
 }

@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
@@ -5,20 +6,39 @@ import styles from './Services.module.css'
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } }
+  visible: { transition: { staggerChildren: 0.08 } }
 }
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } }
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } 
+  }
 }
 
 export default function Services() {
   const { t } = useTranslation()
   const items = t('services.items', { returnObjects: true })
+  const containerRef = useRef(null)
+
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return
+    const cards = containerRef.current.getElementsByClassName(styles.card)
+    for (const card of cards) {
+      const rect = card.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      card.style.setProperty('--mouse-x', `${x}px`)
+      card.style.setProperty('--mouse-y', `${y}px`)
+    }
+  }
 
   return (
-    <section id="services">
+    <section id="services" className={styles.section}>
+      <div className={styles.bgDecoration} />
       <div className="container">
         <motion.div
           className="section-header"
@@ -35,7 +55,9 @@ export default function Services() {
         </motion.div>
 
         <motion.div
+          ref={containerRef}
           className={styles.grid}
+          onMouseMove={handleMouseMove}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -45,11 +67,13 @@ export default function Services() {
             const Icon = Icons[item.icon]
             return (
               <motion.div key={i} className={styles.card} variants={cardVariants}>
+                <div className={styles.cardGlow} />
                 <div className={styles.iconWrap}>
-                  {Icon && <Icon size={26} weight="duotone" />}
+                  {Icon && <Icon size={24} weight="duotone" />}
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDesc}>{item.desc}</p>
+                <div className={styles.cardBorder} />
               </motion.div>
             )
           })}

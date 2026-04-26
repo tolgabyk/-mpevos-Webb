@@ -1,12 +1,21 @@
 .section {
-  padding-bottom: 140px;
+  padding-bottom: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 60px;
 }
 
 .slider {
   overflow: hidden;
   position: relative;
-  padding: 20px 0;
-  margin-top: 40px;
+  width: 100%;
+  padding: 10px 0;
 }
 
 .slider::before,
@@ -22,49 +31,63 @@
 
 .slider::before {
   left: 0;
-  background: linear-gradient(to right, var(--color-primary), transparent);
+  background: linear-gradient(to right, #000 0%, transparent 100%);
 }
 
 .slider::after {
   right: 0;
-  background: linear-gradient(to left, var(--color-primary), transparent);
+  background: linear-gradient(to left, #000 0%, transparent 100%);
 }
 
 .track {
   display: flex;
   align-items: center;
-  gap: 32px;
   width: max-content;
-  animation: marquee 40s linear infinite;
+  animation: marquee 60s linear infinite;
+  z-index: 1;
+}
+
+.trackReverse {
+  animation: marqueeReverse 70s linear infinite;
 }
 
 .track:hover {
   animation-play-state: paused;
 }
 
-.logo {
+.partnerName {
   flex-shrink: 0;
-  padding: 18px 40px;
-  background: var(--color-glass);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  font-size: 1.0625rem;
-  font-weight: 700;
-  color: var(--color-secondary-muted);
-  white-space: nowrap;
-  transition: all var(--ease-base);
-  letter-spacing: 0.5px;
+  padding: 0 60px;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: default;
+  user-select: none;
 }
 
-.logo:hover {
-  color: var(--color-secondary);
-  border-color: var(--color-accent);
-  background: var(--color-accent-dim);
-  transform: translateY(-2px);
+.partnerName:hover {
+  color: var(--color-accent);
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 @media (max-width: 768px) {
-  .logo { padding: 14px 28px; font-size: 0.9375rem; }
-  .slider::before, .slider::after { width: 10vw; }
+  .marqueeContainer { gap: 24px; }
+  .partnerName { padding: 0 30px; font-size: 1.2rem; }
+  .slider::before, .slider::after { width: 15vw; }
+  .track { animation-duration: 30s; }
+  .trackReverse { animation-duration: 35s; }
 }

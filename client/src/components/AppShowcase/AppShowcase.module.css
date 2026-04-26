@@ -241,6 +241,70 @@
   animation: pulseDot 1.8s ease-in-out infinite;
 }
 
+.minimalUpdateLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  margin-bottom: 24px;
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(8px);
+}
+
+.minimalUpdateLink:hover {
+  background: rgba(0, 255, 0, 0.06);
+  border-color: rgba(0, 255, 0, 0.4);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 255, 0, 0.12);
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 8px var(--color-accent);
+}
+
+.liveDot::after {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: livePulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes livePulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+.updateText {
+  letter-spacing: 0.2px;
+}
+
+.updateArrow {
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.minimalUpdateLink:hover .updateArrow {
+  opacity: 1;
+  transform: translateX(3px);
+  color: var(--color-accent);
+}
+
 /* ---------- Meta row ---------- */
 .metaRow {
   display: flex;
@@ -638,5 +702,6 @@
   .androidPill { padding: 10px 14px; }
   .metaRow { gap: 14px; padding: 14px 16px; }
   .metaDivider { display: none; }
+  .minimalUpdateLink { padding: 6px 14px; font-size: 0.75rem; margin-bottom: 20px; }
   .dots { bottom: -32px; }
 }

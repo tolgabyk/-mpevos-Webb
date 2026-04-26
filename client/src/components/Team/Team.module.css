@@ -254,7 +254,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 20%;
   border-radius: 50%;
 }
 
@@ -360,21 +360,298 @@
   box-shadow: 0 4px 14px rgba(0, 255, 0, 0.4);
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 1100px) {
-  .grid { grid-template-columns: repeat(3, 1fr); }
+/* ---------- Tree Layout ---------- */
+.treeContainer {
+  position: relative;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-@media (max-width: 760px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-  .deptHeader { flex-wrap: wrap; }
-  .deptLine { display: none; }
-  .statsRow { flex-wrap: wrap; gap: 14px; padding: 14px 18px; }
-  .stat + .stat { border-left: none; padding-left: 0; }
+.peak {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+.deptLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--color-accent);
+  border-radius: 100px;
+  color: var(--color-accent);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+  z-index: 20;
+}
+
+.leadershipWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  z-index: 10;
+}
+
+.leadershipLine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 66%;
+  max-width: 800px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-accent) 20%, var(--color-accent) 80%, transparent);
+  z-index: 1;
+}
+
+.leadershipNodes {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+}
+
+.nodeWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.connectorLine {
+  width: 2px;
+  height: 30px;
+  background: var(--color-accent);
+  margin-top: -30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tree Lines */
+.mainStem {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-accent), rgba(0, 255, 0, 0.4));
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.branches {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+  padding-top: 20px;
+  z-index: 10;
+}
+
+.branch {
+  position: relative;
+  display: flex;
+}
+
+.branchLine {
+  position: absolute;
+  top: -40px;
+  height: 80px;
+  left: 50%;
+  width: 2px;
+  background: rgba(0, 255, 0, 0.4);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.branchLineBottom {
+  position: absolute;
+  bottom: -40px;
+  height: 40px;
+  left: 50%;
+  width: 2px;
+  background: rgba(0, 255, 0, 0.4);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.branch:last-child .branchLineBottom {
+  display: none;
+}
+
+.branchContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+.gridWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  z-index: 10;
+}
+
+.horizontalConnector {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  max-width: 1000px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(0, 255, 0, 0.4) 15%, rgba(0, 255, 0, 0.4) 85%, transparent);
+  z-index: 1;
+}
+
+.memberGrid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 5;
+}
+
+/* Node Card */
+.node {
+  position: relative;
+  width: 240px;
+  z-index: 10;
+}
+
+.nodeCard {
+  position: relative;
+  background: #0a0a0a; /* Fully opaque to hide lines behind */
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  padding: 44px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  transition: all var(--ease-base);
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nodeCard:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-5px);
+  background: #111;
+  box-shadow: 0 20px 50px rgba(0, 255, 0, 0.15);
+}
+
+.nodeLeader .nodeCard {
+  border-color: rgba(0, 255, 0, 0.5);
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(10, 10, 10, 0.98));
+  width: 260px;
+}
+
+.nodeInfo {
+  width: 100%;
+}
+
+.nodeInfo .name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--color-secondary);
+}
+
+.nodeInfo .role {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  min-height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.nodeCard:hover .socials {
+  opacity: 1;
+}
+
+.socials a {
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+  display: flex;
+}
+
+.socials a:hover {
+  transform: scale(1.25);
+  color: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .horizontalConnector { width: 85%; }
+  .leadershipLine { width: 75%; }
+}
+
+@media (max-width: 900px) {
+  .treeContainer { align-items: flex-start; padding-left: 20px; }
+  .peak { align-items: flex-start; padding-bottom: 50px; }
+  .leadershipWrapper { justify-content: flex-start; padding-top: 0; }
+  .leadershipLine { display: none; }
+  .leadershipNodes { flex-direction: column; gap: 24px; padding-left: 10px; }
+  .mainStem { left: 40px; height: 50px; }
+  .branches { padding-top: 0; gap: 60px; }
+  .branch { width: 100%; }
+  .branchLine { left: 20px; }
+  .branchContent { align-items: flex-start; }
+  .gridWrapper { padding-top: 0; align-items: flex-start; }
+  .horizontalConnector { display: none; }
+  .memberGrid { flex-direction: column; gap: 24px; align-items: flex-start; padding-left: 10px; }
+  .nodeWrapper { align-items: flex-start; }
+  .connectorLine { display: none; }
+  .node { width: calc(100vw - 80px); max-width: 300px; }
+  .nodeLeader { width: calc(100vw - 80px); max-width: 320px; }
+  .nodeLeader .nodeCard { width: 100%; }
 }
 
 @media (max-width: 460px) {
-  .grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
-  .card { padding: 24px 16px 20px; }
-  .socials { opacity: 1; transform: none; }
+  .treeContainer { padding-left: 15px; }
+  .branchLine { left: 10px; }
+  .mainStem { left: 30px; }
+  .nodeCard { padding: 32px 16px 20px; }
+  .avatar { width: 72px; height: 72px; }
 }

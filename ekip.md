@@ -1,4 +1,4 @@
-# IMPEVOS Ekibi
+# IMPEVOS TEKNOLOJİ A.Ş. Ekibi
 
 ## Kurucu Ortaklar
 

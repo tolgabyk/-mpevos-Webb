@@ -122,7 +122,7 @@ export default function Hero() {
 
         <motion.div className={styles.scrollIndicator} variants={itemVariants}>
           <div className={styles.scrollLine} />
-          <span>scroll</span>
+          <span>{t('hero.scroll')}</span>
         </motion.div>
       </motion.div>
     </section>

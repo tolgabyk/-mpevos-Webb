@@ -12,6 +12,7 @@ import {
   InstagramLogo,
   GraduationCap,
   Briefcase,
+  Handshake,
 } from '@phosphor-icons/react'
 import styles from './Team.module.css'
 
@@ -22,16 +23,28 @@ const DEPARTMENT_ICONS = {
   marketing: Megaphone,
   socialMedia: InstagramLogo,
   community: GraduationCap,
+  business: Handshake,
 }
 
 const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.06 } },
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { staggerChildren: 0.15 } 
+  },
 }
 
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.94, y: 16 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } },
+const nodeVariants = {
+  hidden: { opacity: 0, scale: 0.8, y: 30 },
+  visible: { 
+    opacity: 1, 
+    scale: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.6, 
+      ease: [0.22, 1, 0.36, 1] 
+    } 
+  },
 }
 
 function getInitials(name) {
@@ -41,48 +54,57 @@ function getInitials(name) {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
 }
 
-function MemberCard({ member, isLeader, isDeputy, leaderLabel, deputyLabel }) {
+function MemberNode({ member, isLeader, isDeputy, leaderLabel, deputyLabel }) {
   const hasPhoto = Boolean(member.photo)
   const initials = member.initials || getInitials(member.name)
 
   return (
     <motion.div
-      className={`${styles.card} ${isLeader ? styles.cardLeader : ''} ${isDeputy ? styles.cardDeputy : ''}`}
-      variants={cardVariants}
+      className={`${styles.node} ${isLeader ? styles.nodeLeader : ''} ${isDeputy ? styles.nodeDeputy : ''}`}
+      variants={nodeVariants}
     >
-      {isLeader && (
-        <div className={styles.leaderBadge}>
-          <Crown size={11} weight="fill" />
-          <span>{leaderLabel}</span>
-        </div>
-      )}
-      {isDeputy && !isLeader && (
-        <div className={styles.deputyBadge}>
-          <Medal size={11} weight="fill" />
-          <span>{deputyLabel}</span>
-        </div>
-      )}
-
-      <div
-        className={`${styles.avatar} ${hasPhoto ? styles.avatarHasPhoto : ''}`}
-        style={!hasPhoto && member.gradient ? { background: member.gradient } : undefined}
-      >
-        {hasPhoto ? (
-          <img src={member.photo} alt={member.name} className={styles.avatarImg} />
-        ) : (
-          <span>{initials}</span>
+      <div className={styles.nodeCard}>
+        {isLeader && (
+          <div className={styles.leaderBadge}>
+            <Crown size={11} weight="fill" />
+            <span>{leaderLabel}</span>
+          </div>
         )}
-        <span className={styles.avatarRing} aria-hidden="true" />
-      </div>
+        {isDeputy && !isLeader && (
+          <div className={styles.deputyBadge}>
+            <Medal size={11} weight="fill" />
+            <span>{deputyLabel}</span>
+          </div>
+        )}
 
-      <h3 className={styles.name}>{member.name}</h3>
-      <div className={styles.role}>{member.role}</div>
+        <div className={`${styles.avatar} ${hasPhoto ? styles.avatarHasPhoto : ''}`}>
+          {hasPhoto ? (
+            <img 
+              src={member.photo} 
+              alt={member.name} 
+              className={styles.avatarImg} 
+              style={member.objectPosition ? { objectPosition: member.objectPosition } : {}}
+            />
+          ) : (
+            <span>{initials}</span>
+          )}
+          <span className={styles.avatarRing} />
+        </div>
 
-      <div className={styles.socials}>
-        <a href={member.linkedin || '#'} aria-label="LinkedIn"><LinkedinLogo weight="fill" /></a>
-        <a href={member.secondary || '#'} aria-label={member.secondaryType === 'github' ? 'GitHub' : 'Twitter'}>
-          {member.secondaryType === 'github' ? <GithubLogo weight="fill" /> : <TwitterLogo weight="fill" />}
-        </a>
+        <div className={styles.nodeInfo}>
+          <h3 className={styles.name}>{member.name}</h3>
+          <div className={styles.role}>{member.role}</div>
+          
+          <div className={styles.socials}>
+            {member.linkedin && <a href={member.linkedin} target="_blank" rel="noopener noreferrer"><LinkedinLogo weight="fill" /></a>}
+            {member.instagram && <a href={member.instagram} target="_blank" rel="noopener noreferrer"><InstagramLogo weight="fill" /></a>}
+            {member.secondary && (
+              <a href={member.secondary} target="_blank" rel="noopener noreferrer">
+                {member.secondaryType === 'github' ? <GithubLogo weight="fill" /> : <TwitterLogo weight="fill" />}
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     </motion.div>
   )
@@ -94,6 +116,10 @@ export default function Team() {
   const leaderLabel = t('team.leaderLabel')
   const deputyLabel = t('team.deputyLabel')
   const totalMembers = departments.reduce((sum, d) => sum + (d.members?.length || 0), 0)
+
+  // Separate Leadership from other departments
+  const leadershipDept = departments.find(d => d.iconKey === 'leadership')
+  const otherDepts = departments.filter(d => d.iconKey !== 'leadership')
 
   return (
     <section id="team" className={styles.section}>
@@ -127,67 +153,99 @@ export default function Team() {
           </div>
         </motion.div>
 
-        <div className={styles.departments}>
-          {departments.map((dept, idx) => {
-            const Icon = DEPARTMENT_ICONS[dept.iconKey] || Briefcase
-            const members = dept.members || []
-            const leaders = members.filter(m => m.isLeader)
-            const others = members.filter(m => !m.isLeader)
-
-            return (
-              <motion.div
-                key={dept.id || idx}
-                className={styles.department}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+        <div className={styles.treeContainer}>
+          {/* Peak: Leadership */}
+          {leadershipDept && (
+            <div className={styles.peak}>
+              <motion.div 
+                className={styles.deptLabel}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
               >
-                <div className={styles.deptHeader}>
-                  <div className={styles.deptIcon}>
-                    <Icon size={20} weight="duotone" />
-                  </div>
-                  <div className={styles.deptHeaderText}>
-                    <h3 className={styles.deptName}>{dept.name}</h3>
-                    <span className={styles.deptCount}>
-                      {members.length} {t('team.peopleSuffix')}
-                    </span>
-                  </div>
-                  <div className={styles.deptLine} />
-                </div>
-
-                <motion.div
-                  className={styles.grid}
+                <Briefcase size={20} weight="duotone" />
+                <span>{leadershipDept.name}</span>
+              </motion.div>
+              
+              <div className={styles.leadershipWrapper}>
+                <div className={styles.leadershipLine} />
+                <motion.div 
+                  className={styles.leadershipNodes}
                   variants={containerVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, margin: '-60px' }}
+                  viewport={{ once: true }}
                 >
-                  {leaders.map((m, i) => (
-                    <MemberCard
-                      key={`l-${i}`}
-                      member={m}
-                      isLeader
-                      isDeputy={false}
-                      leaderLabel={leaderLabel}
-                      deputyLabel={deputyLabel}
-                    />
-                  ))}
-                  {others.map((m, i) => (
-                    <MemberCard
-                      key={`m-${i}`}
-                      member={m}
-                      isDeputy={Boolean(m.isDeputyLeader)}
-                      leaderLabel={leaderLabel}
-                      deputyLabel={deputyLabel}
-                    />
+                  {leadershipDept.members?.map((m, i) => (
+                    <div key={`lead-wrap-${i}`} className={styles.nodeWrapper}>
+                      <div className={styles.connectorLine} />
+                      <MemberNode
+                        member={m}
+                        isLeader={m.isLeader}
+                        isDeputy={m.isDeputyLeader}
+                        leaderLabel={leaderLabel}
+                        deputyLabel={deputyLabel}
+                      />
+                    </div>
                   ))}
                 </motion.div>
-              </motion.div>
-            )
-          })}
+              </div>
+              <div className={styles.mainStem} />
+            </div>
+          )}
+
+          {/* Branches: Other Departments */}
+          <div className={styles.branches}>
+            {otherDepts.map((dept, idx) => {
+              const Icon = DEPARTMENT_ICONS[dept.iconKey] || Briefcase
+              return (
+                <div key={dept.id || idx} className={styles.branch}>
+                  <div className={styles.branchLine} />
+                  <div className={styles.branchContent}>
+                    <motion.div 
+                      className={styles.deptLabel}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <Icon size={18} weight="duotone" />
+                      <span>{dept.name}</span>
+                    </motion.div>
+                    
+                    <div className={styles.gridWrapper}>
+                      <div className={styles.horizontalConnector} />
+                      <motion.div 
+                        className={styles.memberGrid}
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                      >
+                        {dept.members?.map((m, i) => (
+                          <div key={`mem-wrap-${idx}-${i}`} className={styles.nodeWrapper}>
+                            <div className={styles.connectorLine} />
+                            <MemberNode
+                              member={m}
+                              isLeader={m.isLeader}
+                              isDeputy={m.isDeputyLeader}
+                              leaderLabel={leaderLabel}
+                              deputyLabel={deputyLabel}
+                            />
+                          </div>
+                        ))}
+                      </motion.div>
+                    </div>
+                  </div>
+                  <div className={styles.branchLineBottom} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
+
+
