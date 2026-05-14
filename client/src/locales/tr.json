@@ -170,8 +170,7 @@
         "name": "Pazarlama Ekibi",
         "members": [
           { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Pazarlama Takım Lideri", "photo": "/team/mehmet-efe-dur.png" },
-          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Pazarlama Lider Yardımcısı", "photo": "/team/semra-aslan.jpeg" },
-          { "name": "Zelal Koç", "role": "Pazarlama Ekip Üyesi", "photo": "/team/zelal-koc.png" }
+          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Pazarlama Lider Yardımcısı", "photo": "/team/semra-aslan.jpeg" }
         ]
       },
       {
@@ -218,6 +217,6 @@
     "privacy": "Gizlilik Politikası",
     "terms": "Kullanım Koşulları",
     "cookies": "Çerez Politikası",
-    "copyright": "© 2025 IMPEVOS TEKNOLOJİ A.Ş. Tüm hakları saklıdır."
+    "copyright": "© 2026 IMPEVOS TEKNOLOJİ A.Ş. Tüm hakları saklıdır."
   }
 }

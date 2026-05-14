@@ -170,8 +170,7 @@
         "name": "Marketing Team",
         "members": [
           { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Marketing Team Leader", "photo": "/team/mehmet-efe-dur.png" },
-          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Marketing Deputy Lead", "photo": "/team/semra-aslan.jpeg" },
-          { "name": "Zelal Koç", "role": "Marketing Team Member", "photo": "/team/zelal-koc.png" }
+          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Marketing Deputy Lead", "photo": "/team/semra-aslan.jpeg" }
         ]
       },
       {
@@ -218,6 +217,6 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "cookies": "Cookie Policy",
-    "copyright": "© 2025 IMPEVOS TECHNOLOGY INC. All rights reserved."
+    "copyright": "© 2026 IMPEVOS TECHNOLOGY INC. All rights reserved."
   }
 }
