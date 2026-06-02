@@ -163,7 +163,7 @@
         "members": [
           { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "İş Ortaklıkları Lideri", "photo": "/team/sukru-ata-erenkus.png" },
           { "isLeader": true, "name": "Timur Ceyhan", "role": "Uluslararası İş Geliştirme Lideri", "photo": "/team/timur_ceyhan.jpeg" },
-          { "name": "Sema Kayalı", "role": "İş Ortaklıkları Ekip Üyesi" },
+          { "name": "Sema Kayalı", "role": "İş Ortaklıkları Ekip Üyesi", "photo": "/team/sema.jpeg" },
           { "name": "Dilara Çavuş", "role": "İş Ortaklıkları Ekip Üyesi" }
         ]
       },

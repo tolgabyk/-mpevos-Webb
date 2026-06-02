@@ -163,7 +163,7 @@
         "members": [
           { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "Business Partnership Lead", "photo": "/team/sukru-ata-erenkus.png" },
           { "isLeader": true, "name": "Timur Ceyhan", "role": "International Business Development Lead", "photo": "/team/timur_ceyhan.jpeg" },
-          { "name": "Sema Kayalı", "role": "Business Partnership Team Member" },
+          { "name": "Sema Kayalı", "role": "Business Partnership Team Member", "photo": "/team/sema.jpeg" },
           { "name": "Dilara Çavuş", "role": "Business Partnership Team Member" }
         ]
       },
