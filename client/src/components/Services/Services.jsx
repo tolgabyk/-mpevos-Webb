@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
+import { ArrowUpRight } from '@phosphor-icons/react'
 import styles from './Services.module.css'
 
 const containerVariants = {
@@ -68,11 +69,21 @@ export default function Services() {
             return (
               <motion.div key={i} className={styles.card} variants={cardVariants}>
                 <div className={styles.cardGlow} />
-                <div className={styles.iconWrap}>
-                  {Icon && <Icon size={24} weight="duotone" />}
+                
+                <div className={styles.cardHeader}>
+                  <div className={styles.iconWrap}>
+                    {Icon && <Icon size={28} weight="duotone" />}
+                  </div>
+                  <div className={styles.arrowIcon}>
+                    <ArrowUpRight size={24} weight="regular" />
+                  </div>
                 </div>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDesc}>{item.desc}</p>
+
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.cardDesc}>{item.desc}</p>
+                </div>
+                
                 <div className={styles.cardBorder} />
               </motion.div>
             )

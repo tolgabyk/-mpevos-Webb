@@ -144,7 +144,8 @@
           { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "R&D Deputy Leader", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
           { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
-          { "name": "Mustafa Eren Kabaca", "role": "R&D Team Member", "photo": "/team/mustafa-eren-kabaca.png" }
+          { "name": "Mustafa Eren Kabaca", "role": "R&D Team Member", "photo": "/team/mustafa-eren-kabaca.png" },
+          { "name": "Beyza Civcik", "role": "R&D Team Member" }
         ]
       },
       {
@@ -161,7 +162,9 @@
         "name": "Business Development",
         "members": [
           { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "Business Partnership Lead", "photo": "/team/sukru-ata-erenkus.png" },
-          { "isLeader": true, "name": "Timur Ceyhan", "role": "International Business Development Lead", "photo": "/team/timur_ceyhan.jpeg" }
+          { "isLeader": true, "name": "Timur Ceyhan", "role": "International Business Development Lead", "photo": "/team/timur_ceyhan.jpeg" },
+          { "name": "Sema Kayalı", "role": "Business Partnership Team Member" },
+          { "name": "Dilara Çavuş", "role": "Business Partnership Team Member" }
         ]
       },
       {
@@ -170,17 +173,8 @@
         "name": "Marketing Team",
         "members": [
           { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Marketing Team Leader", "photo": "/team/mehmet-efe-dur.png" },
-          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Marketing Deputy Lead", "photo": "/team/semra-aslan.jpeg" }
-        ]
-      },
-      {
-        "id": "socialMedia",
-        "iconKey": "socialMedia",
-        "name": "Social Media Team",
-        "members": [
-          { "isLeader": true, "name": "Taha Mis", "role": "Social Media Lead", "photo": "/team/taha-mis.jpeg" },
-          { "isDeputyLeader": true, "name": "Muhammet Can Ertengi", "role": "Social Media Deputy Lead", "photo": "/team/muhammet-can-ertengi.jpeg" },
-          { "name": "İlayda Çakmak", "role": "Social Media Team Member", "photo": "/team/ilayda_cakmak.jpeg" }
+          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Marketing Deputy Lead", "photo": "/team/semra-aslan.jpeg" },
+          { "name": "Özlem Gültekin", "role": "Marketing Team Member" }
         ]
       }
     ]

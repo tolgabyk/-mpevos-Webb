@@ -144,7 +144,8 @@
           { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/esra-ozekin.png" },
           { "name": "Ümmü Altın", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/ummu-altin.png" },
-          { "name": "Mustafa Eren Kabaca", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/mustafa-eren-kabaca.png" }
+          { "name": "Mustafa Eren Kabaca", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/mustafa-eren-kabaca.png" },
+          { "name": "Beyza Civcik", "role": "Ar-Ge Ekip Üyesi" }
         ]
       },
       {
@@ -161,7 +162,9 @@
         "name": "İş Geliştirme ve Ortaklıklar",
         "members": [
           { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "İş Ortaklıkları Lideri", "photo": "/team/sukru-ata-erenkus.png" },
-          { "isLeader": true, "name": "Timur Ceyhan", "role": "Uluslararası İş Geliştirme Lideri", "photo": "/team/timur_ceyhan.jpeg" }
+          { "isLeader": true, "name": "Timur Ceyhan", "role": "Uluslararası İş Geliştirme Lideri", "photo": "/team/timur_ceyhan.jpeg" },
+          { "name": "Sema Kayalı", "role": "İş Ortaklıkları Ekip Üyesi" },
+          { "name": "Dilara Çavuş", "role": "İş Ortaklıkları Ekip Üyesi" }
         ]
       },
       {
@@ -170,17 +173,8 @@
         "name": "Pazarlama Ekibi",
         "members": [
           { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Pazarlama Takım Lideri", "photo": "/team/mehmet-efe-dur.png" },
-          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Pazarlama Lider Yardımcısı", "photo": "/team/semra-aslan.jpeg" }
-        ]
-      },
-      {
-        "id": "socialMedia",
-        "iconKey": "socialMedia",
-        "name": "Sosyal Medya Ekibi",
-        "members": [
-          { "isLeader": true, "name": "Taha Mis", "role": "Sosyal Medya Lideri", "photo": "/team/taha-mis.jpeg" },
-          { "isDeputyLeader": true, "name": "Muhammet Can Ertengi", "role": "Sosyal Medya Lider Yardımcısı", "photo": "/team/muhammet-can-ertengi.jpeg" },
-          { "name": "İlayda Çakmak", "role": "Sosyal Medya Ekip Üyesi", "photo": "/team/ilayda_cakmak.jpeg" }
+          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Pazarlama Lider Yardımcısı", "photo": "/team/semra-aslan.jpeg" },
+          { "name": "Özlem Gültekin", "role": "Pazarlama Ekip Üyesi" }
         ]
       }
     ]
