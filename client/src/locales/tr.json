@@ -5,6 +5,7 @@
     "services": "Hizmetler",
     "projects": "Projeler",
     "team": "Ekibimiz",
+    "internship": "Staj",
     "contact": "İletişim"
   },
   "hero": {
@@ -201,6 +202,210 @@
       "sending": "Gönderiliyor...",
       "success": "Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.",
       "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin."
+    }
+  },
+  "internship": {
+    "hero": {
+      "badge": "Stajyer Alımları 2026",
+      "title": "İmpevos Stajyer Alımları Başladı",
+      "subtitle": "Zorunlu yaz stajı olan öğrenciler için staj başvurularımız açıldı. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri ekibimize bekliyoruz.",
+      "slides": [
+        {
+          "type": "internship",
+          "badge": "Stajyer Alımları 2026",
+          "title": "İmpevos Stajyer Alımları Başladı",
+          "subtitle": "Zorunlu yaz stajı olan öğrenciler için staj başvurularımız açıldı. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri ekibimize bekliyoruz.",
+          "cta1": "Hemen Başvur",
+          "cta1Link": "#internship-apply",
+          "cta2": "Staj Detaylarını Gör",
+          "cta2Link": "#internship-details"
+        },
+        {
+          "type": "company",
+          "badge": "Yapay Zeka & İleri Teknoloji",
+          "title": "Geleceğin Teknolojisini",
+          "titleAccent": "Bugün",
+          "titleEnd": "İnşa Ediyoruz",
+          "subtitle": "Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.",
+          "cta1": "Projeleri Keşfet",
+          "cta1Link": "#projects",
+          "cta2": "Bize Ulaşın",
+          "cta2Link": "#contact"
+        }
+      ],
+      "cta1": "Hemen Başvur",
+      "cta2": "Staj Detaylarını Gör",
+      "scroll": "kaydır"
+    },
+    "announcement": {
+      "label": "Staj duyurusu",
+      "cta": "Başvur",
+      "messages": [
+        "Stajyer alımlarımız başladı — Yaz stajı başvuruları açık",
+        "Yazılım, tasarım ve mobil geliştirmede staj fırsatı",
+        "Zorunlu stajı olan öğrenciler için gerçek proje deneyimi",
+        "İmpevos yaz staj programına hemen başvur"
+      ]
+    },
+    "midBanner": {
+      "title": "Stajyer Alımlarımız Başladı",
+      "desc": "Zorunlu yaz stajı olan öğrenciler için İmpevos staj programı başvuruları devam ediyor. Yazılım, tasarım ve dijital projelerde kendini geliştirmek isteyen öğrencileri arıyoruz.",
+      "cta": "Hemen Başvur"
+    },
+    "highlight": {
+      "title": "Stajyer Alımları Başladı",
+      "desc": "Zorunlu yaz stajı olan öğrenciler için İmpevos staj programı başvuruları açıldı.",
+      "cta": "Başvuru Yap",
+      "cards": [
+        "Gerçek Proje Deneyimi",
+        "Ekip Çalışması",
+        "Mentor Desteği",
+        "Uzaktan Çalışma Kültürü"
+      ]
+    },
+    "expectations": {
+      "title": "Bu stajda seni neler bekliyor",
+      "items": [
+        "Gerçek projelerde görev alma",
+        "Ekip toplantılarına katılma",
+        "Yazılım, tasarım ve proje süreçlerini öğrenme",
+        "Mentor desteği alma",
+        "Uzaktan çalışma kültürünü deneyimleme",
+        "Portföyüne ekleyebileceğin işler üretme"
+      ]
+    },
+    "details": {
+      "label": "Staj Programı",
+      "title": "İmpevos Yaz Stajı Programı",
+      "intro": [
+        "İmpevos olarak zorunlu yaz stajı olan öğrenciler için staj programımızı başlatıyoruz.",
+        "Bu süreçte öğrenciler yalnızca izleyici olarak değil, gerçek proje süreçlerinde aktif rol alarak deneyim kazanacak.",
+        "Amacımız genç yeteneklere yazılım, tasarım, proje yönetimi ve ekip çalışması konusunda gerçek bir çalışma ortamı sunmak."
+      ],
+      "eligibleTitle": "Kimler Başvurabilir",
+      "eligible": [
+        "Üniversitelerin ilgili bölümlerinde okuyan öğrenciler",
+        "Zorunlu yaz stajı bulunan öğrenciler",
+        "Yazılım, tasarım, mobil uygulama, web geliştirme veya dijital projelere ilgi duyanlar",
+        "Sorumluluk alabilecek ve ekip çalışmasına uyum sağlayabilecek kişiler",
+        "Öğrenmeye açık ve düzenli iletişim kurabilecek öğrenciler"
+      ],
+      "areasTitle": "Başvuru Alanları",
+      "areas": [
+        "Web Geliştirme",
+        "Mobil Uygulama Geliştirme",
+        "Backend Geliştirme",
+        "UI/UX Tasarım",
+        "Yapay Zeka ve Otomasyon",
+        "Sosyal Medya ve Dijital İçerik",
+        "Proje Yönetimi ve Operasyon"
+      ]
+    },
+    "form": {
+      "label": "Başvuru",
+      "title": "Staj Başvuru Formu",
+      "subtitle": "Zorunlu alanlar * ile işaretlidir.",
+      "steps": [
+        "Kişisel Bilgiler",
+        "Eğitim Bilgileri",
+        "Staj Bilgileri",
+        "Teknik Bilgiler",
+        "Linkler ve CV",
+        "Onay ve Gönder"
+      ],
+      "fields": {
+        "fullName": "Ad Soyad",
+        "email": "E-posta Adresi",
+        "phone": "Telefon Numarası",
+        "city": "Hangi şehirde yaşıyorsun?",
+        "district": "İlçe",
+        "university": "Üniversite Adı",
+        "department": "Bölüm",
+        "grade": "Sınıf",
+        "gpa": "Not ortalaman nedir?",
+        "englishLevel": "İngilizce seviyen nedir?",
+        "mandatoryInternship": "Zorunlu yaz stajın var mı?",
+        "internshipDateRange": "Staj tarih aralığın nedir?",
+        "internshipWorkDays": "Staj süren kaç iş günü?",
+        "field": "Hangi alanda staj yapmak istiyorsun?",
+        "hasPreviousInternship": "Daha önce staj yaptın mı?",
+        "previousInternshipInfo": "Staj deneyimini kısaca anlat (yoksa 'Deneyimim yok' yaz)",
+        "technologies": "Daha önce hangi teknolojileri kullandın?",
+        "selfIntro": "Kendini kısaca tanıtır mısın?",
+        "reason": "İmpevos'ta staj yapmak isteme sebebin nedir?",
+        "projectLink": "Proje linkin",
+        "github": "GitHub linkin",
+        "linkedin": "LinkedIn linkin",
+        "cv": "CV Yükle",
+        "portfolio": "Portfolyo linkin",
+        "remoteWork": "Uzaktan çalışmaya uygun musun?",
+        "daysPerWeek": "Haftalık kaç gün aktif olabilirsin?",
+        "teamMeetings": "Ekip toplantılarına katılabilir misin?",
+        "howDidYouHear": "İmpevos'u nereden duydun?",
+        "additionalNotes": "Eklemek istediğin bir şey var mı?"
+      },
+      "options": {
+        "mandatory": [
+          { "value": "yes", "label": "Evet" },
+          { "value": "no", "label": "Hayır" },
+          { "value": "unsure", "label": "Emin değilim" }
+        ],
+        "previousInternship": [
+          { "value": "yes", "label": "Evet" },
+          { "value": "no", "label": "Hayır" }
+        ],
+        "english": [
+          { "value": "beginner", "label": "Başlangıç" },
+          { "value": "intermediate", "label": "Orta" },
+          { "value": "good", "label": "İyi" },
+          { "value": "advanced", "label": "İleri" }
+        ],
+        "hearAbout": [
+          { "value": "instagram", "label": "Instagram" },
+          { "value": "linkedin", "label": "LinkedIn" },
+          { "value": "friend", "label": "Arkadaş / Tanıdık" },
+          { "value": "university", "label": "Üniversite" },
+          { "value": "google", "label": "Google / Arama" },
+          { "value": "other", "label": "Diğer" }
+        ],
+        "field": [
+          { "value": "web-frontend", "label": "Web Frontend" },
+          { "value": "backend", "label": "Backend" },
+          { "value": "mobile-ios", "label": "Mobil iOS" },
+          { "value": "mobile-android", "label": "Mobil Android" },
+          { "value": "ui-ux", "label": "UI/UX Tasarım" },
+          { "value": "ai", "label": "Yapay Zeka" },
+          { "value": "digital-marketing", "label": "Dijital Pazarlama" },
+          { "value": "social-media", "label": "Sosyal Medya" },
+          { "value": "project-management", "label": "Proje Yönetimi" },
+          { "value": "undecided", "label": "Henüz karar vermedim" }
+        ],
+        "remote": [
+          { "value": "yes", "label": "Evet" },
+          { "value": "no", "label": "Hayır" },
+          { "value": "partial", "label": "Kısmen" }
+        ],
+        "meetings": [
+          { "value": "yes", "label": "Evet" },
+          { "value": "no", "label": "Hayır" },
+          { "value": "depends", "label": "Duruma göre" }
+        ]
+      },
+      "select": "Seçiniz",
+      "linkHint": "Linkin yoksa ilgili alana 'Yok' yazabilirsin.",
+      "cvHint": "PDF, DOC veya DOCX (max 5MB)",
+      "required": "Lütfen tüm zorunlu alanları doldurun.",
+      "invalidEmail": "Geçerli bir e-posta adresi giriniz.",
+      "cvRequired": "CV yüklemeniz gerekmektedir.",
+      "back": "Geri",
+      "next": "İleri",
+      "submit": "Başvuruyu Gönder",
+      "sending": "Gönderiliyor...",
+      "error": "Başvuru gönderilemedi. Lütfen tekrar deneyin.",
+      "networkError": "Sunucuya bağlanılamadı. API sunucusunun çalıştığından emin olun.",
+      "successTitle": "Başvurun başarıyla alındı",
+      "successDesc": "İmpevos ekibi başvurunu inceleyecek ve uygun görülmesi durumunda seninle iletişime geçecektir. İlgin için teşekkür ederiz.",
+      "successBtn": "Tamam"
     }
   },
   "footer": {

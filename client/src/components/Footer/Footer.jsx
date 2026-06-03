@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { LinkedinLogo, TwitterLogo, GithubLogo, InstagramLogo } from '@phosphor-icons/react'
+import { LinkedinLogo, InstagramLogo } from '@phosphor-icons/react'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -53,10 +53,8 @@ export default function Footer() {
         <div className={styles.bottom}>
           <p>{t('footer.copyright')}</p>
           <div className={styles.socials}>
-            <a href="#" aria-label="LinkedIn"><LinkedinLogo weight="fill" /></a>
-            <a href="#" aria-label="Twitter"><TwitterLogo weight="fill" /></a>
-            <a href="#" aria-label="GitHub"><GithubLogo weight="fill" /></a>
-            <a href="#" aria-label="Instagram"><InstagramLogo weight="fill" /></a>
+            <a href="https://www.linkedin.com/company/impevos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedinLogo weight="fill" /></a>
+            <a href="https://www.instagram.com/impevos?igsh=eHFsa2sxbDBxYXRk" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramLogo weight="fill" /></a>
           </div>
         </div>
       </div>

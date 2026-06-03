@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_USER}>`,
       replyTo: email,
-      to: process.env.CONTACT_EMAIL || 'info@impevos.com',
+      to: process.env.CONTACT_EMAIL || 'impevos@gmail.com',
       subject: subject || 'Web Sitesi İletişim Formu Yeni Mesaj',
       text: `Gönderen: ${name} (${email})\n\nMesaj:\n${message}`,
       html: `

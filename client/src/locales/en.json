@@ -5,6 +5,7 @@
     "services": "Services",
     "projects": "Projects",
     "team": "Team",
+    "internship": "Internship",
     "contact": "Contact"
   },
   "hero": {
@@ -201,6 +202,210 @@
       "sending": "Sending...",
       "success": "Your message was sent successfully! We'll get back to you shortly.",
       "error": "Failed to send message. Please try again."
+    }
+  },
+  "internship": {
+    "hero": {
+      "badge": "Internship Openings 2026",
+      "title": "Impevos Internship Applications Are Open",
+      "subtitle": "Applications are now open for students with mandatory summer internships. We welcome students who want to gain real experience in software, design, mobile development, and digital projects.",
+      "slides": [
+        {
+          "type": "internship",
+          "badge": "Internship Openings 2026",
+          "title": "Impevos Internship Applications Are Open",
+          "subtitle": "Applications are now open for students with mandatory summer internships. We welcome students who want real experience in software, design, mobile development, and digital projects.",
+          "cta1": "Apply Now",
+          "cta1Link": "#internship-apply",
+          "cta2": "View Internship Details",
+          "cta2Link": "#internship-details"
+        },
+        {
+          "type": "company",
+          "badge": "AI & Advanced Technology",
+          "title": "Building the Technology",
+          "titleAccent": "of Tomorrow",
+          "titleEnd": "Today",
+          "subtitle": "We empower your business with AI, automation, and advanced software solutions. Global vision, local strength.",
+          "cta1": "Explore Projects",
+          "cta1Link": "#projects",
+          "cta2": "Contact Us",
+          "cta2Link": "#contact"
+        }
+      ],
+      "cta1": "Apply Now",
+      "cta2": "View Internship Details",
+      "scroll": "scroll"
+    },
+    "announcement": {
+      "label": "Internship announcement",
+      "cta": "Apply",
+      "messages": [
+        "Our internship applications are open — Summer internship now accepting",
+        "Internship opportunities in software, design, and mobile development",
+        "Real project experience for students with mandatory internships",
+        "Apply now to the Impevos summer internship program"
+      ]
+    },
+    "midBanner": {
+      "title": "Our Internship Applications Are Open",
+      "desc": "Applications continue for the Impevos internship program for students with mandatory summer internships. We're looking for students eager to grow in software, design, and digital projects.",
+      "cta": "Apply Now"
+    },
+    "highlight": {
+      "title": "Internship Applications Are Open",
+      "desc": "Applications for the Impevos internship program are open for students with mandatory summer internships.",
+      "cta": "Apply",
+      "cards": [
+        "Real Project Experience",
+        "Team Collaboration",
+        "Mentor Support",
+        "Remote Work Culture"
+      ]
+    },
+    "expectations": {
+      "title": "What awaits you in this internship",
+      "items": [
+        "Working on real projects",
+        "Participating in team meetings",
+        "Learning software, design, and project processes",
+        "Receiving mentor support",
+        "Experiencing remote work culture",
+        "Creating portfolio-worthy work"
+      ]
+    },
+    "details": {
+      "label": "Internship Program",
+      "title": "Impevos Summer Internship Program",
+      "intro": [
+        "At Impevos, we are launching our internship program for students with mandatory summer internships.",
+        "During this process, students will gain experience by actively participating in real project workflows, not just observing.",
+        "Our goal is to provide young talents with a genuine work environment in software, design, project management, and teamwork."
+      ],
+      "eligibleTitle": "Who Can Apply",
+      "eligible": [
+        "Students enrolled in relevant university departments",
+        "Students with mandatory summer internships",
+        "Those interested in software, design, mobile apps, web development, or digital projects",
+        "Individuals who can take responsibility and adapt to teamwork",
+        "Students who are eager to learn and communicate effectively"
+      ],
+      "areasTitle": "Application Areas",
+      "areas": [
+        "Web Development",
+        "Mobile App Development",
+        "Backend Development",
+        "UI/UX Design",
+        "AI and Automation",
+        "Social Media and Digital Content",
+        "Project Management and Operations"
+      ]
+    },
+    "form": {
+      "label": "Application",
+      "title": "Internship Application Form",
+      "subtitle": "Required fields are marked with *.",
+      "steps": [
+        "Personal Info",
+        "Education Info",
+        "Internship Info",
+        "Technical Info",
+        "Links & CV",
+        "Review & Submit"
+      ],
+      "fields": {
+        "fullName": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "city": "Which city do you live in?",
+        "district": "District",
+        "university": "University Name",
+        "department": "Department",
+        "grade": "Year/Grade",
+        "gpa": "What is your GPA?",
+        "englishLevel": "What is your English level?",
+        "mandatoryInternship": "Do you have a mandatory summer internship?",
+        "internshipDateRange": "What is your internship date range?",
+        "internshipWorkDays": "How many business days is your internship?",
+        "field": "Which area would you like to intern in?",
+        "hasPreviousInternship": "Have you done an internship before?",
+        "previousInternshipInfo": "Briefly describe your internship experience (or write 'No experience')",
+        "technologies": "Which technologies have you used before?",
+        "selfIntro": "Briefly introduce yourself",
+        "reason": "Why do you want to intern at Impevos?",
+        "projectLink": "Project link",
+        "github": "GitHub link",
+        "linkedin": "LinkedIn link",
+        "cv": "Upload CV",
+        "portfolio": "Portfolio link",
+        "remoteWork": "Are you available for remote work?",
+        "daysPerWeek": "How many days per week can you be active?",
+        "teamMeetings": "Can you attend team meetings?",
+        "howDidYouHear": "How did you hear about Impevos?",
+        "additionalNotes": "Anything else you'd like to add?"
+      },
+      "options": {
+        "mandatory": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" },
+          { "value": "unsure", "label": "Not sure" }
+        ],
+        "previousInternship": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" }
+        ],
+        "english": [
+          { "value": "beginner", "label": "Beginner" },
+          { "value": "intermediate", "label": "Intermediate" },
+          { "value": "good", "label": "Good" },
+          { "value": "advanced", "label": "Advanced" }
+        ],
+        "hearAbout": [
+          { "value": "instagram", "label": "Instagram" },
+          { "value": "linkedin", "label": "LinkedIn" },
+          { "value": "friend", "label": "Friend / Referral" },
+          { "value": "university", "label": "University" },
+          { "value": "google", "label": "Google / Search" },
+          { "value": "other", "label": "Other" }
+        ],
+        "field": [
+          { "value": "web-frontend", "label": "Web Frontend" },
+          { "value": "backend", "label": "Backend" },
+          { "value": "mobile-ios", "label": "Mobile iOS" },
+          { "value": "mobile-android", "label": "Mobile Android" },
+          { "value": "ui-ux", "label": "UI/UX Design" },
+          { "value": "ai", "label": "Artificial Intelligence" },
+          { "value": "digital-marketing", "label": "Digital Marketing" },
+          { "value": "social-media", "label": "Social Media" },
+          { "value": "project-management", "label": "Project Management" },
+          { "value": "undecided", "label": "Not decided yet" }
+        ],
+        "remote": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" },
+          { "value": "partial", "label": "Partially" }
+        ],
+        "meetings": [
+          { "value": "yes", "label": "Yes" },
+          { "value": "no", "label": "No" },
+          { "value": "depends", "label": "Depends" }
+        ]
+      },
+      "select": "Select",
+      "linkHint": "If you don't have a link, you can write 'None'.",
+      "cvHint": "PDF, DOC or DOCX (max 5MB)",
+      "required": "Please fill in all required fields.",
+      "invalidEmail": "Please enter a valid email address.",
+      "cvRequired": "CV upload is required.",
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit Application",
+      "sending": "Submitting...",
+      "error": "Application could not be submitted. Please try again.",
+      "networkError": "Could not connect to the server. Make sure the API server is running.",
+      "successTitle": "Your application has been received",
+      "successDesc": "The Impevos team will review your application and contact you if suitable. Thank you for your interest.",
+      "successBtn": "OK"
     }
   },
   "footer": {
