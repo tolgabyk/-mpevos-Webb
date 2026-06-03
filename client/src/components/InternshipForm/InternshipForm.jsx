@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle, UploadSimple } from '@phosphor-icons/react'
-import { apiUrl, parseJsonResponse } from '../../utils/api'
+import { submitInternshipApplication } from '../../utils/internshipSubmit'
 import styles from './InternshipForm.module.css'
 
 const INITIAL_FORM = {
@@ -129,17 +129,13 @@ export default function InternshipForm() {
     setStatus('loading')
     setError('')
 
-    const data = new FormData()
-    Object.entries(form).forEach(([key, val]) => data.append(key, val))
-    data.append('cv', cvFile)
-
     try {
-      const res = await fetch(apiUrl('/api/internship/apply'), { method: 'POST', body: data })
-      const result = await parseJsonResponse(res)
-      if (res.ok) {
+      const { res, result } = await submitInternshipApplication(form, cvFile)
+      const ok = res.ok && result.ok !== false && !result.error
+      if (ok) {
         setStatus('success')
       } else {
-        setError(result.error || t('internship.form.error'))
+        setError(result.message || result.error || t('internship.form.error'))
         setStatus('idle')
       }
     } catch {

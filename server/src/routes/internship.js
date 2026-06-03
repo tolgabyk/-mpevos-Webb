@@ -116,6 +116,19 @@ async function handleApply(req, res) {
 
     const notifyResults = await notifyApplication(application, cvPath)
 
+    if (!notifyResults.email?.sent && !notifyResults.panel?.synced) {
+      if (req.file) {
+        fs.unlink(path.join(UPLOAD_DIR, req.file.filename), () => {})
+      }
+      return res.status(502).json({
+        error: 'Başvuru alındı ancak e-posta ve panele iletilemedi. Lütfen tekrar deneyin.',
+        details: {
+          email: notifyResults.email?.error || null,
+          panel: notifyResults.panel?.error || null,
+        },
+      })
+    }
+
     res.status(201).json({
       id: application.id,
       message: 'Başvuru alındı',
