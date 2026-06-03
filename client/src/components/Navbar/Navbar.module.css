@@ -39,6 +39,40 @@
   object-fit: contain;
 }
 
+/* Apply button */
+.applyBtn {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--color-accent);
+  border-radius: 100px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.25);
+}
+
+.applyBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(0, 255, 0, 0.4);
+}
+
+.mobileApplyBtn {
+  width: 100%;
+  max-width: 280px;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  background: var(--color-accent);
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
 /* Desktop nav */
 .navLinks {
   display: flex;
@@ -179,6 +213,7 @@
 }
 
 @media (max-width: 900px) {
+  .applyBtn { display: none; }
   .navLinks { display: none; }
   .hamburger { display: flex; }
 }

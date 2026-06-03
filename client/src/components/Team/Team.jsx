@@ -4,8 +4,6 @@ import {
   LinkedinLogo,
   TwitterLogo,
   GithubLogo,
-  Crown,
-  Medal,
   Code,
   Flask,
   Megaphone,
@@ -54,29 +52,16 @@ function getInitials(name) {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
 }
 
-function MemberNode({ member, isLeader, isDeputy, leaderLabel, deputyLabel }) {
+function MemberNode({ member, isLeader }) {
   const hasPhoto = Boolean(member.photo)
   const initials = member.initials || getInitials(member.name)
 
   return (
     <motion.div
-      className={`${styles.node} ${isLeader ? styles.nodeLeader : ''} ${isDeputy ? styles.nodeDeputy : ''}`}
+      className={`${styles.node} ${isLeader ? styles.nodeLeader : ''}`}
       variants={nodeVariants}
     >
       <div className={styles.nodeCard}>
-        {isLeader && (
-          <div className={styles.leaderBadge}>
-            <Crown size={11} weight="fill" />
-            <span>{leaderLabel}</span>
-          </div>
-        )}
-        {isDeputy && !isLeader && (
-          <div className={styles.deputyBadge}>
-            <Medal size={11} weight="fill" />
-            <span>{deputyLabel}</span>
-          </div>
-        )}
-
         <div className={`${styles.avatar} ${hasPhoto ? styles.avatarHasPhoto : ''}`}>
           {hasPhoto ? (
             <img 
@@ -113,8 +98,6 @@ function MemberNode({ member, isLeader, isDeputy, leaderLabel, deputyLabel }) {
 export default function Team() {
   const { t } = useTranslation()
   const departments = t('team.departments', { returnObjects: true }) || []
-  const leaderLabel = t('team.leaderLabel')
-  const deputyLabel = t('team.deputyLabel')
   const totalMembers = departments.reduce((sum, d) => sum + (d.members?.length || 0), 0)
 
   // Separate Leadership from other departments
@@ -181,10 +164,7 @@ export default function Team() {
                       <div className={styles.connectorLine} />
                       <MemberNode
                         member={m}
-                        isLeader={m.isLeader}
-                        isDeputy={m.isDeputyLeader}
-                        leaderLabel={leaderLabel}
-                        deputyLabel={deputyLabel}
+                        isLeader={false}
                       />
                     </div>
                   ))}
@@ -226,10 +206,7 @@ export default function Team() {
                             <div className={styles.connectorLine} />
                             <MemberNode
                               member={m}
-                              isLeader={m.isLeader}
-                              isDeputy={m.isDeputyLeader}
-                              leaderLabel={leaderLabel}
-                              deputyLabel={deputyLabel}
+                              isLeader={false}
                             />
                           </div>
                         ))}

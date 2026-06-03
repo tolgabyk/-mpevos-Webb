@@ -6,6 +6,7 @@
     "projects": "Projeler",
     "team": "Ekibimiz",
     "internship": "Staj",
+    "internshipApply": "Staj Başvuru Formu",
     "contact": "İletişim"
   },
   "hero": {
@@ -63,8 +64,12 @@
         "type": "app",
         "screens": [
           "/app-screens/01-discover.png",
-          "/app-screens/02-photo-mode.png",
-          "/app-screens/03-pdf.png"
+          "/app-screens/02-discover-feed.png",
+          "/app-screens/03-ai-work.png",
+          "/app-screens/04-note-detail.png",
+          "/app-screens/05-voice-summary.png",
+          "/app-screens/06-ai-summary.png",
+          "/app-screens/07-youtube-summary.png"
         ]
       },
       { 
@@ -131,9 +136,9 @@
         "iconKey": "leadership",
         "name": "Yönetim Kurulu",
         "members": [
-          { "isLeader": true, "name": "Göktuğ ERYILMAZ", "role": "Kurucu Ortak — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
-          { "isLeader": true, "name": "Tolga BIYIK", "role": "Kurucu Ortak — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
-          { "isLeader": true, "name": "Burak GÖKCE", "role": "Kurucu Ortak — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
+          { "name": "Göktuğ ERYILMAZ", "role": "Kurucu Ortak — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
+          { "name": "Tolga BIYIK", "role": "Kurucu Ortak — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
+          { "name": "Burak GÖKCE", "role": "Kurucu Ortak — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
         ]
       },
       {
@@ -142,19 +147,11 @@
         "name": "Ar-Ge Ekibi",
         "members": [
           { "isLeader": true, "name": "Kübra Utanğaç", "role": "Ar-Ge Lideri", "photo": "/team/kubra-utangac.png" },
-          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
+          { "name": "Dilara Özcan", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/esra-ozekin.png" },
           { "name": "Ümmü Altın", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/ummu-altin.png" },
           { "name": "Mustafa Eren Kabaca", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/mustafa-eren-kabaca.png" },
           { "name": "Beyza Civcik", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/beyza.jpeg" }
-        ]
-      },
-      {
-        "id": "softwareRd",
-        "iconKey": "softwareRd",
-        "name": "Yazılım Ar-Ge Ekibi",
-        "members": [
-          { "isLeader": true, "name": "Ali Kaklık", "role": "Yazılım Ar-Ge Lideri", "photo": "/team/ali-kaklik.png", "secondaryType": "github" }
         ]
       },
       {
@@ -246,6 +243,14 @@
         "Zorunlu stajı olan öğrenciler için gerçek proje deneyimi",
         "İmpevos yaz staj programına hemen başvur"
       ]
+    },
+    "popup": {
+      "badge": "Staj Duyurusu",
+      "title": "Stajyer Alımlarımız Başladı!",
+      "desc": "Zorunlu yaz stajı olan öğrenciler için İmpevos staj programı başvuruları açıldı. Yazılım, tasarım ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri bekliyoruz.",
+      "cta": "Staj Başvuru Formuna Git",
+      "later": "Daha Sonra",
+      "close": "Kapat"
     },
     "midBanner": {
       "title": "Stajyer Alımlarımız Başladı",

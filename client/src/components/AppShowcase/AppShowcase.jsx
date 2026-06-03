@@ -16,35 +16,17 @@ import {
   ArrowRight,
 } from '@phosphor-icons/react'
 import styles from './AppShowcase.module.css'
+import { NOT_ORTAGIM_SCREENS as screens } from '../../data/notOrtagimScreens'
 
 const APP_STORE_URL =
   'https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814?l=tr'
 
 const SCREEN_ROTATION_MS = 3400
 
-const screens = [
-  { src: '/app-screens/01-discover.png', label: 'Keşfet' },
-  { src: '/app-screens/02-photo-mode.png', label: 'Foto Modu' },
-  { src: '/app-screens/03-pdf.png', label: 'PDF Paylaş' },
-  { src: '/app-screens/04-ai-teacher.png', label: 'AI Öğretmen' },
-  { src: '/app-screens/05-photo-onboarding.png', label: 'Foto Çöz' },
-  { src: '/app-screens/06-campaigns.png', label: 'Kampanyalar' },
-]
-
 const slideVariants = {
-  enter: { opacity: 0, x: 60, scale: 0.96 },
-  center: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  },
-  exit: {
-    opacity: 0,
-    x: -60,
-    scale: 0.96,
-    transition: { duration: 0.55, ease: [0.4, 0, 0.6, 1] },
-  },
+  enter: { opacity: 0 },
+  center: { opacity: 1, transition: { duration: 0.45, ease: 'easeOut' } },
+  exit: { opacity: 0, transition: { duration: 0.35, ease: 'easeIn' } },
 }
 
 export default function AppShowcase() {
@@ -249,7 +231,7 @@ export default function AppShowcase() {
                 <div className={styles.phoneScreen}>
                   <AnimatePresence mode="wait" initial={false}>
                     <motion.img
-                      key={active}
+                      key={screens[active].src}
                       src={screens[active].src}
                       alt={screens[active].label}
                       className={styles.screenImg}
@@ -258,6 +240,9 @@ export default function AppShowcase() {
                       animate="center"
                       exit="exit"
                       draggable={false}
+                      decoding="async"
+                      width={390}
+                      height={844}
                     />
                   </AnimatePresence>
 

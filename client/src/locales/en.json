@@ -6,6 +6,7 @@
     "projects": "Projects",
     "team": "Team",
     "internship": "Internship",
+    "internshipApply": "Internship Application",
     "contact": "Contact"
   },
   "hero": {
@@ -63,8 +64,12 @@
         "type": "app",
         "screens": [
           "/app-screens/01-discover.png",
-          "/app-screens/02-photo-mode.png",
-          "/app-screens/03-pdf.png"
+          "/app-screens/02-discover-feed.png",
+          "/app-screens/03-ai-work.png",
+          "/app-screens/04-note-detail.png",
+          "/app-screens/05-voice-summary.png",
+          "/app-screens/06-ai-summary.png",
+          "/app-screens/07-youtube-summary.png"
         ]
       },
       { 
@@ -131,9 +136,9 @@
         "iconKey": "leadership",
         "name": "Leadership",
         "members": [
-          { "isLeader": true, "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
-          { "isLeader": true, "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
-          { "isLeader": true, "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
+          { "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
+          { "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
+          { "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
         ]
       },
       {
@@ -142,19 +147,11 @@
         "name": "R&D Team",
         "members": [
           { "isLeader": true, "name": "Kübra Utanğaç", "role": "R&D Leader", "photo": "/team/kubra-utangac.png" },
-          { "isDeputyLeader": true, "name": "Dilara Özcan", "role": "R&D Deputy Leader", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
+          { "name": "Dilara Özcan", "role": "R&D Team Member", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
           { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
           { "name": "Mustafa Eren Kabaca", "role": "R&D Team Member", "photo": "/team/mustafa-eren-kabaca.png" },
           { "name": "Beyza Civcik", "role": "R&D Team Member", "photo": "/team/beyza.jpeg" }
-        ]
-      },
-      {
-        "id": "softwareRd",
-        "iconKey": "softwareRd",
-        "name": "Software R&D Team",
-        "members": [
-          { "isLeader": true, "name": "Ali Kaklık", "role": "Software R&D Leader", "photo": "/team/ali-kaklik.png", "secondaryType": "github" }
         ]
       },
       {
@@ -246,6 +243,14 @@
         "Real project experience for students with mandatory internships",
         "Apply now to the Impevos summer internship program"
       ]
+    },
+    "popup": {
+      "badge": "Internship Announcement",
+      "title": "Our Internship Applications Are Open!",
+      "desc": "Applications are now open for the Impevos summer internship program for students with mandatory internships. Join us to gain real experience in software, design, and digital projects.",
+      "cta": "Go to Application Form",
+      "later": "Maybe Later",
+      "close": "Close"
     },
     "midBanner": {
       "title": "Our Internship Applications Are Open",

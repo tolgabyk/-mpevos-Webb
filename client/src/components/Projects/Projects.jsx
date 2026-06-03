@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
+import { NOT_ORTAGIM_SCREEN_SRCS } from '../../data/notOrtagimScreens'
 import styles from './Projects.module.css'
 
 export default function Projects() {
@@ -60,7 +61,7 @@ export default function Projects() {
                     {item.type === 'app' ? (
                       <div className={styles.phoneFrame}>
                         <div className={styles.notch} />
-                        <PhoneCarousel screens={item.screens} />
+                        <PhoneCarousel screens={item.id === 'not-ortagim' ? NOT_ORTAGIM_SCREEN_SRCS : item.screens} />
                       </div>
                     ) : (
                       <div className={styles.iconPlaceholder}>
@@ -104,16 +105,20 @@ function PhoneCarousel({ screens = [] }) {
 
   return (
     <div className={styles.screen}>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.img
-          key={idx}
+          key={screens[idx]}
           src={screens[idx]}
           alt="App screenshot"
           className={styles.screenImg}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          decoding="async"
+          width={390}
+          height={844}
+          draggable={false}
         />
       </AnimatePresence>
       <div className={styles.glare} />

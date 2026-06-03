@@ -71,6 +71,14 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className={styles.navRight}>
+            <button
+              type="button"
+              className={styles.applyBtn}
+              onClick={() => handleNavClick('internship-apply')}
+            >
+              {t('nav.internshipApply')}
+            </button>
+
             {/* Lang Toggle */}
             <div className={styles.langToggle}>
               <button
@@ -106,12 +114,25 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
           >
             <ul className={styles.mobileNavLinks}>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0 }}
+              >
+                <button
+                  type="button"
+                  className={styles.mobileApplyBtn}
+                  onClick={() => handleNavClick('internship-apply')}
+                >
+                  {t('nav.internshipApply')}
+                </button>
+              </motion.li>
               {navItems.map(({ id, label }, i) => (
                 <motion.li
                   key={id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
+                  transition={{ delay: (i + 1) * 0.06 }}
                 >
                   <button
                     className={`${styles.mobileNavLink} ${activeId === id ? styles.active : ''}`}
