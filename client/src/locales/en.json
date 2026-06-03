@@ -145,7 +145,7 @@
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
           { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
           { "name": "Mustafa Eren Kabaca", "role": "R&D Team Member", "photo": "/team/mustafa-eren-kabaca.png" },
-          { "name": "Beyza Civcik", "role": "R&D Team Member" }
+          { "name": "Beyza Civcik", "role": "R&D Team Member", "photo": "/team/beyza.jpeg" }
         ]
       },
       {
@@ -164,7 +164,7 @@
           { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "Business Partnership Lead", "photo": "/team/sukru-ata-erenkus.png" },
           { "isLeader": true, "name": "Timur Ceyhan", "role": "International Business Development Lead", "photo": "/team/timur_ceyhan.jpeg" },
           { "name": "Sema Kayalı", "role": "Business Partnership Team Member", "photo": "/team/sema.jpeg" },
-          { "name": "Dilara Çavuş", "role": "Business Partnership Team Member" }
+          { "name": "Dilara Çavuş", "role": "Business Partnership Team Member", "photo": "/team/dilara_cavus.jpeg", "objectPosition": "70% 50%" }
         ]
       },
       {

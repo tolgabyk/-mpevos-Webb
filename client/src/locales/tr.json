@@ -145,7 +145,7 @@
           { "isDeputyLeader": true, "name": "Esra Özekin", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/esra-ozekin.png" },
           { "name": "Ümmü Altın", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/ummu-altin.png" },
           { "name": "Mustafa Eren Kabaca", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/mustafa-eren-kabaca.png" },
-          { "name": "Beyza Civcik", "role": "Ar-Ge Ekip Üyesi" }
+          { "name": "Beyza Civcik", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/beyza.jpeg" }
         ]
       },
       {
@@ -164,7 +164,7 @@
           { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "İş Ortaklıkları Lideri", "photo": "/team/sukru-ata-erenkus.png" },
           { "isLeader": true, "name": "Timur Ceyhan", "role": "Uluslararası İş Geliştirme Lideri", "photo": "/team/timur_ceyhan.jpeg" },
           { "name": "Sema Kayalı", "role": "İş Ortaklıkları Ekip Üyesi", "photo": "/team/sema.jpeg" },
-          { "name": "Dilara Çavuş", "role": "İş Ortaklıkları Ekip Üyesi" }
+          { "name": "Dilara Çavuş", "role": "İş Ortaklıkları Ekip Üyesi", "photo": "/team/dilara_cavus.jpeg", "objectPosition": "70% 50%" }
         ]
       },
       {
