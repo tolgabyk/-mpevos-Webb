@@ -1,5 +1,4 @@
 import Navbar from '../components/Navbar/Navbar'
-import InternshipAnnouncementBar from '../components/InternshipAnnouncementBar/InternshipAnnouncementBar'
 import InternshipWelcomePopup from '../components/InternshipWelcomePopup/InternshipWelcomePopup'
 import InternshipHero from '../components/InternshipHero/InternshipHero'
 import AppShowcase from '../components/AppShowcase/AppShowcase'
@@ -17,7 +16,6 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <InternshipAnnouncementBar />
       <InternshipWelcomePopup />
       <main>
         <InternshipHero />
