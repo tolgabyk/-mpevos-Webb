@@ -10,6 +10,32 @@
     "joinTeam": "Ekibe Katıl",
     "contact": "İletişim"
   },
+  "joinTeam": {
+    "announcement": {
+      "label": "Ekip başvurusu duyurusu",
+      "cta": "Ekibe Katıl",
+      "messages": [
+        "Ekip başvurularımız açıldı — Yazılım, pazarlama ve operasyon alanlarında",
+        "Gerçek projelerde deneyim kazanmak isteyen ekip arkadaşları arıyoruz",
+        "Cursor, Claude, Antigravity ve AI araçlarını kullanan adaylar öncelikli",
+        "Yazılım ekibi, pazarlama ekibi ve aktif proje ekiplerine başvur",
+        "İmpevos ekibine katıl — gönüllü çalışma modeliyle gerçek proje deneyimi"
+      ]
+    },
+    "midBanner": {
+      "title": "Ekip Başvurularımız Açıldı",
+      "desc": "Yazılım, yapay zeka, mobil uygulama, web geliştirme, pazarlama ve operasyon alanlarında bizimle birlikte gerçek projelerde yer almak isteyen ekip arkadaşları arıyoruz.",
+      "cta": "Ekibe Katıl"
+    },
+    "popup": {
+      "badge": "Ekip Başvurusu",
+      "title": "Ekip Başvurularımız Açıldı!",
+      "desc": "İmpevos bünyesinde yazılım, pazarlama, mobil uygulama ve operasyon projelerinde görev almak isteyen adaylar için ekip başvuruları başladı. Gerçek projelerde deneyim kazan, modern araçlarla çalış.",
+      "cta": "Ekibe Katıl",
+      "later": "Daha Sonra",
+      "close": "Kapat"
+    }
+  },
   "hero": {
     "badge": "Yapay Zeka & İleri Teknoloji",
     "title": "Geleceğin Teknolojisini",
@@ -208,6 +234,16 @@
       "title": "İmpevos Stajyer Alımları Başladı",
       "subtitle": "Zorunlu yaz stajı olan öğrenciler için staj başvurularımız açıldı. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri ekibimize bekliyoruz.",
       "slides": [
+        {
+          "type": "team",
+          "badge": "Ekip Başvuruları Açık",
+          "title": "İmpevos Ekibine Katıl",
+          "subtitle": "Ekip başvurularımız açıldı. Yazılım, yapay zeka, mobil uygulama, pazarlama ve operasyon alanlarında gerçek projelerde deneyim kazanmak isteyen ekip arkadaşları arıyoruz.",
+          "cta1": "Ekibe Katıl",
+          "cta1Link": "/ekibe-katil",
+          "cta2": "Başvuru Detayları",
+          "cta2Link": "/ekibe-katil"
+        },
         {
           "type": "internship",
           "badge": "Stajyer Alımları 2026",

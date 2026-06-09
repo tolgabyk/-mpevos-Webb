@@ -10,6 +10,32 @@
     "joinTeam": "Join the Team",
     "contact": "Contact"
   },
+  "joinTeam": {
+    "announcement": {
+      "label": "Team application announcement",
+      "cta": "Join the Team",
+      "messages": [
+        "Team applications are open — Software, marketing and operations",
+        "We are looking for teammates to gain experience on real projects",
+        "Candidates using Cursor, Claude, Antigravity and AI tools are prioritized",
+        "Apply to software, marketing and active project teams",
+        "Join Impevos — real project experience through our volunteer work model"
+      ]
+    },
+    "midBanner": {
+      "title": "Team Applications Are Open",
+      "desc": "We are looking for teammates in software, AI, mobile apps, web development, marketing and operations to work on real projects with us.",
+      "cta": "Join the Team"
+    },
+    "popup": {
+      "badge": "Team Application",
+      "title": "Team Applications Are Open!",
+      "desc": "Team applications have started for candidates who want to work on software, marketing, mobile and operations projects at Impevos. Gain real project experience and work with modern tools.",
+      "cta": "Join the Team",
+      "later": "Later",
+      "close": "Close"
+    }
+  },
   "hero": {
     "badge": "AI & Advanced Technology",
     "title": "Building the Technology",
@@ -208,6 +234,16 @@
       "title": "Impevos Internship Applications Are Open",
       "subtitle": "Applications are now open for students with mandatory summer internships. We welcome students who want to gain real experience in software, design, mobile development, and digital projects.",
       "slides": [
+        {
+          "type": "team",
+          "badge": "Team Applications Open",
+          "title": "Join the Impevos Team",
+          "subtitle": "Team applications are open. We are looking for teammates in software, AI, mobile apps, marketing and operations who want to gain experience on real projects.",
+          "cta1": "Join the Team",
+          "cta1Link": "/ekibe-katil",
+          "cta2": "Application Details",
+          "cta2Link": "/ekibe-katil"
+        },
         {
           "type": "internship",
           "badge": "Internship Openings 2026",
