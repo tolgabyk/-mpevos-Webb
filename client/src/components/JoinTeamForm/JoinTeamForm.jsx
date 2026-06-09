@@ -117,11 +117,11 @@ export default function JoinTeamForm() {
 
     try {
       const { res, result } = await submitJoinTeamApplication(form, cvFile)
-      const ok = res.ok && result.ok !== false && !result.error
-      if (ok) {
+      const success = res.ok && (result.ok === true || (result.ok !== false && !result.error))
+      if (success) {
         setStatus('success')
       } else {
-        setError(result.error || result.message || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.')
+        setError(result.message || result.error || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.')
         setStatus('idle')
       }
     } catch {
