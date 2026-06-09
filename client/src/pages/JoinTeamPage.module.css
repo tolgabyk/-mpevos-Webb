@@ -1,0 +1,177 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-primary);
+}
+
+.hero {
+  position: relative;
+  padding: 160px 0 80px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 255, 0, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--color-accent-dim);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-secondary-dim);
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.infoBanner {
+  padding: 48px 0;
+}
+
+.infoCard {
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--card-radius);
+  padding: 32px 36px;
+}
+
+.infoCard p {
+  color: var(--color-secondary-dim);
+  line-height: 1.8;
+  font-size: 0.9375rem;
+}
+
+.categories {
+  padding: 40px 0 60px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.categoryCard {
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  padding: 28px;
+  transition: border-color var(--ease-base);
+}
+
+.categoryCard:hover {
+  border-color: rgba(0, 255, 0, 0.25);
+}
+
+.categoryCard h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--color-secondary);
+}
+
+.leader {
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.categoryCard > p {
+  font-size: 0.875rem;
+  color: var(--color-secondary-dim);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.roleTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.roleTag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  color: var(--color-secondary-muted);
+}
+
+.formSection {
+  padding: 60px 0 80px;
+}
+
+.formSectionHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.motivation {
+  padding: 80px 0 100px;
+  text-align: center;
+}
+
+.motivationCard {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(0, 255, 0, 0.15);
+  border-radius: var(--card-radius);
+}
+
+.motivationCard p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--color-secondary-dim);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 130px 0 60px;
+  }
+
+  .categoryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoCard {
+    padding: 24px 20px;
+  }
+
+  .motivationCard {
+    padding: 32px 24px;
+  }
+}

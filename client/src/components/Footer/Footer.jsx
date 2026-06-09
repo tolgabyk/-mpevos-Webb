@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { LinkedinLogo, InstagramLogo } from '@phosphor-icons/react'
 import styles from './Footer.module.css'
@@ -25,6 +26,7 @@ export default function Footer() {
               <li><a href="#services">{t('nav.services')}</a></li>
               <li><a href="#projects">{t('nav.projects')}</a></li>
               <li><a href="#team">{t('nav.team')}</a></li>
+              <li><Link to="/ekibe-katil">{t('nav.joinTeam')}</Link></li>
               <li><a href="#contact">{t('nav.contact')}</a></li>
             </ul>
           </div>

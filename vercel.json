@@ -6,6 +6,10 @@
     "api/internship/apply.js": {
       "maxDuration": 60,
       "memory": 1024
+    },
+    "api/join-team/apply.js": {
+      "maxDuration": 60,
+      "memory": 1024
     }
   },
   "rewrites": [

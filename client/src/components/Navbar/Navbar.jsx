@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { List, X } from '@phosphor-icons/react'
@@ -9,9 +10,12 @@ const NAV_IDS = ['hero', 'about', 'services', 'projects', 'team', 'internship-de
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHome = location.pathname === '/'
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const activeId = useScrollSpy(NAV_IDS)
+  const activeId = useScrollSpy(isHome ? NAV_IDS : [])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30)
@@ -26,7 +30,20 @@ export default function Navbar() {
 
   const handleNavClick = (id) => {
     setMenuOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate(`/#${id}`)
+    }
+  }
+
+  const handleLogoClick = () => {
+    setMenuOpen(false)
+    if (isHome) {
+      document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/')
+    }
   }
 
   const navItems = [
@@ -44,7 +61,7 @@ export default function Navbar() {
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.container}>
           {/* Logo */}
-          <button className={styles.logo} onClick={() => handleNavClick('hero')}>
+          <button className={styles.logo} onClick={handleLogoClick}>
             <img src="/logo.png" alt="IMPEVOS Logo" />
           </button>
 
@@ -71,9 +88,16 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className={styles.navRight}>
+            <Link
+              to="/ekibe-katil"
+              className={`${styles.applyBtn} ${location.pathname === '/ekibe-katil' ? styles.applyBtnActive : ''}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {t('nav.joinTeam')}
+            </Link>
             <button
               type="button"
-              className={styles.applyBtn}
+              className={styles.applyBtnSecondary}
               onClick={() => handleNavClick('internship-apply')}
             >
               {t('nav.internshipApply')}
@@ -119,9 +143,22 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0 }}
               >
+                <Link
+                  to="/ekibe-katil"
+                  className={styles.mobileApplyBtn}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {t('nav.joinTeam')}
+                </Link>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.03 }}
+              >
                 <button
                   type="button"
-                  className={styles.mobileApplyBtn}
+                  className={styles.mobileNavLink}
                   onClick={() => handleNavClick('internship-apply')}
                 >
                   {t('nav.internshipApply')}
