@@ -3,7 +3,7 @@ import multer from 'multer'
 import path from 'path'
 import fs from 'fs'
 import crypto from 'crypto'
-import { createJoinTeamApplication, getRecentJoinTeamByEmail } from '../db-join-team.js'
+import { createJoinTeamApplication } from '../db-join-team.js'
 import { notifyJoinTeamApplication } from '../services/join-team-notify.js'
 import { parseJoinTeamBody } from '../lib/join-team-parse.js'
 import { CV_DIR } from '../config.js'
@@ -46,14 +46,6 @@ async function handleApply(req, res) {
   try {
     const { application, cvPath: parsedPath } = parseJoinTeamBody(req.body, req.file)
     const cvPath = req.file ? path.join(UPLOAD_DIR, req.file.filename) : parsedPath
-
-    const recent = getRecentJoinTeamByEmail(application.email)
-    if (recent) {
-      if (req.file) fs.unlink(cvPath, () => {})
-      return res.status(429).json({
-        error: 'Bu e-posta adresiyle son 24 saat içinde zaten başvuru yapılmış. Lütfen daha sonra tekrar deneyin.',
-      })
-    }
 
     const saved = createJoinTeamApplication({
       ...application,

@@ -112,7 +112,7 @@ function toPanelPayload(app, cvPath) {
     grade_year: app.age || '',
     linkedin_url: app.linkedin || '',
     github_url: app.githubPortfolio || '',
-    source: 'Web Sitesi',
+    source: 'impevos-web',
     status: 'Yeni Başvuru',
     application_type: APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType,
     department: getDepartment(app),
@@ -126,7 +126,9 @@ function toPanelPayload(app, cvPath) {
     cv_url: '',
     cv_filename: app.cvOriginalName || 'cv.pdf',
     form_data: {
-      basvuru_turu: APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType,
+      basvuru_turu: `Ekip — ${APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType}`,
+      basvuru_kategorisi: 'ekip',
+      basvuru_kaynak: 'Web Sitesi — Ekibe Katıl',
       departman: getDepartment(app),
       gonullu_onay: app.voluntaryConsent ? 'Evet' : 'Hayır',
       claude: yesNo(app.claudeUsed),
@@ -147,8 +149,8 @@ function toPanelPayload(app, cvPath) {
 export async function syncJoinTeamToDashboard(application, cvPath) {
   const webhookUrl =
     process.env.JOIN_TEAM_WEBHOOK_URL ||
-    process.env.DASHBOARD_WEBHOOK_URL?.replace('internship-applications', 'team-applications') ||
-    'https://impevosekip.me/api/team-applications'
+    process.env.DASHBOARD_WEBHOOK_URL ||
+    'https://impevosekip.me/api/internship-applications'
   const apiKey = process.env.DASHBOARD_API_KEY || process.env.INTERNSHIP_APPLICATIONS_WEBHOOK_SECRET
 
   if (!apiKey) {
