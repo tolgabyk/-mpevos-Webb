@@ -2,8 +2,8 @@ import { apiUrl, parseJsonResponse } from './api'
 
 const PANEL_FALLBACK_URL =
   import.meta.env.VITE_JOIN_TEAM_SUBMIT_URL ||
-  import.meta.env.VITE_PANEL_SUBMIT_URL ||
-  'https://impevosekip.me/api/internship-applications/submit'
+  import.meta.env.VITE_TEAM_APPLICATION_SUBMIT_URL ||
+  'https://impevosekip.me/api/team-applications/submit'
 
 const TYPE_LABELS = {
   'software-team': 'Yazılım Ekibi',

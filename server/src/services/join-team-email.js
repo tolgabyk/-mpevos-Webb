@@ -34,8 +34,8 @@ function typeLabel(type) {
 }
 
 function panelUrl(id) {
-  const base = process.env.JOIN_TEAM_PANEL_URL || 'https://impevosekip.me/admin/applications'
-  return id ? `${base}/${id}` : base
+  const base = process.env.JOIN_TEAM_PANEL_URL || 'https://impevosekip.me/ekip-basvurulari'
+  return id ? `${base}?id=${id}` : base
 }
 
 function buildCompanyHtml(app) {

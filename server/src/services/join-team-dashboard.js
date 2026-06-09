@@ -9,6 +9,15 @@ const APPLICATION_TYPE_LABELS = {
   volunteer: 'Gönüllü / Deneyim Kazanmak İstiyorum',
 }
 
+const APPLICATION_KIND_MAP = {
+  'software-team': 'yazilim',
+  'marketing-team': 'pazarlama',
+  'active-project-team': 'aktif_proje',
+  'other-departments': 'diger',
+  'intern-junior': 'stajyer_junior',
+  volunteer: 'gonullu',
+}
+
 const SOFTWARE_ROLE_LABELS = {
   frontend: 'Frontend Developer',
   backend: 'Backend Developer',
@@ -23,10 +32,22 @@ const SOFTWARE_ROLE_LABELS = {
   qa: 'QA / Test',
 }
 
+const TEAM_SUBMIT_URL =
+  process.env.JOIN_TEAM_SUBMIT_URL ||
+  process.env.TEAM_APPLICATION_SUBMIT_URL ||
+  'https://impevosekip.me/api/team-applications/submit'
+
 function yesNo(val) {
   if (val === 'yes' || val === true) return 'Evet'
   if (val === 'no' || val === false) return 'Hayır'
   return val || ''
+}
+
+function aiLevel(val) {
+  const v = yesNo(val)
+  if (v === 'Evet') return 'orta'
+  if (v === 'Hayır') return 'yok'
+  return v
 }
 
 function buildMessage(app) {
@@ -101,81 +122,68 @@ function getDepartment(app) {
   return APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType
 }
 
-function toPanelPayload(app, cvPath) {
-  const payload = {
-    full_name: app.fullName,
-    email: app.email,
-    phone: app.phone || '',
-    city: app.city || '',
-    university: app.universityInfo || '',
-    field_of_study: getDepartment(app),
-    grade_year: app.age || '',
-    linkedin_url: app.linkedin || '',
-    github_url: app.githubPortfolio || '',
-    source: 'impevos-web',
-    status: 'Yeni Başvuru',
-    application_type: APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType,
-    department: getDepartment(app),
-    voluntary_consent: !!app.voluntaryConsent,
-    claude_used: yesNo(app.claudeUsed),
-    cursor_used: yesNo(app.cursorUsed),
-    antigravity_used: yesNo(app.antigravityUsed),
-    chatgpt_used: app.aiToolsUsage ? 'Evet' : '',
-    hours_per_week: app.hoursPerWeek || app.hoursPerWeekMarketing || app.weeklyHoursAP || app.hoursPerWeekOther || '',
-    message: buildMessage(app),
-    cv_url: '',
-    cv_filename: app.cvOriginalName || 'cv.pdf',
-    form_data: {
-      basvuru_turu: `Ekip — ${APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType}`,
-      basvuru_kategorisi: 'ekip',
-      basvuru_kaynak: 'Web Sitesi — Ekibe Katıl',
-      departman: getDepartment(app),
-      gonullu_onay: app.voluntaryConsent ? 'Evet' : 'Hayır',
-      claude: yesNo(app.claudeUsed),
-      cursor: yesNo(app.cursorUsed),
-      antigravity: yesNo(app.antigravityUsed),
-      haftalik_saat: app.hoursPerWeek || app.hoursPerWeekMarketing || app.weeklyHoursAP || app.hoursPerWeekOther || '',
-      sehir: app.city || '',
-    },
-  }
+function guessMime(filename) {
+  const ext = String(filename).toLowerCase().split('.').pop()
+  if (ext === 'pdf') return 'application/pdf'
+  if (ext === 'doc') return 'application/msword'
+  if (ext === 'docx') return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+  return 'application/octet-stream'
+}
+
+function buildTeamFormData(app, cvPath) {
+  const fd = new FormData()
+  const kind = APPLICATION_KIND_MAP[app.applicationType] || 'diger'
+  const weekly =
+    app.hoursPerWeek || app.hoursPerWeekMarketing || app.weeklyHoursAP || app.hoursPerWeekOther || ''
+
+  fd.append('application_kind', kind)
+  fd.append('full_name', app.fullName)
+  fd.append('email', app.email)
+  fd.append('phone', app.phone || '')
+  fd.append('city', app.city || '')
+  fd.append('age', app.age || '')
+  fd.append('education', app.universityInfo || '')
+  fd.append('linkedin_url', app.linkedin || '')
+  fd.append('github_url', app.githubPortfolio || '')
+  fd.append('availability', weekly)
+  fd.append('message', buildMessage(app))
+  fd.append('volunteer_consent', app.voluntaryConsent ? 'true' : 'false')
+  fd.append('source', 'impevos.com')
+  fd.append('website', '')
+
+  fd.append('role_interest', getDepartment(app))
+  fd.append('weekly_hours', weekly)
+  fd.append('cursor', aiLevel(app.cursorUsed))
+  fd.append('claude', aiLevel(app.claudeUsed))
+  fd.append('antigravity', aiLevel(app.antigravityUsed))
+  if (app.aiToolsUsage) fd.append('chatgpt', 'orta')
+  if (app.technologies) fd.append('technologies', app.technologies)
+  if (app.whyImpevos) fd.append('why_impevos', app.whyImpevos)
+  if (app.differentiator) fd.append('differentiator', app.differentiator)
 
   if (cvPath && fs.existsSync(cvPath)) {
-    payload.cv_base64 = fs.readFileSync(cvPath).toString('base64')
+    const buf = fs.readFileSync(cvPath)
+    const name = app.cvOriginalName || 'cv.pdf'
+    fd.append('cv', new Blob([buf], { type: guessMime(name) }), name)
   }
 
-  return payload
+  return fd
 }
 
 export async function syncJoinTeamToDashboard(application, cvPath) {
-  const webhookUrl =
-    process.env.JOIN_TEAM_WEBHOOK_URL ||
-    process.env.DASHBOARD_WEBHOOK_URL ||
-    'https://impevosekip.me/api/internship-applications'
-  const apiKey = process.env.DASHBOARD_API_KEY || process.env.INTERNSHIP_APPLICATIONS_WEBHOOK_SECRET
+  const fd = buildTeamFormData(application, cvPath)
 
-  if (!apiKey) {
-    console.warn('⚠️  DASHBOARD_API_KEY tanımlı değil → CRM paneline gönderilemedi')
-    return { skipped: true }
-  }
-
-  const payload = toPanelPayload(application, cvPath)
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${apiKey}`,
-    'x-impevos-webhook-secret': apiKey,
-  }
-
-  const res = await fetch(webhookUrl, {
+  const res = await fetch(TEAM_SUBMIT_URL, {
     method: 'POST',
-    headers,
-    body: JSON.stringify(payload),
+    headers: { Origin: 'https://impevos.com' },
+    body: fd,
   })
 
   const result = await res.json().catch(() => ({}))
 
-  if (!res.ok) {
+  if (!res.ok || result.ok === false) {
     const msg = result.message || result.error || res.statusText
-    throw new Error(`CRM webhook hatası (${res.status}): ${msg}`)
+    throw new Error(`CRM panel hatası (${res.status}): ${msg}`)
   }
 
   console.log(`✅ Ekip başvurusu CRM paneline gönderildi: ${application.fullName} (id: ${result.id || '—'})`)

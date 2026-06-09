@@ -1,6 +1,4 @@
-import formidable from 'formidable'
 import fs from 'fs'
-import crypto from 'crypto'
 
 export const config = {
   api: { bodyParser: false },
@@ -15,11 +13,25 @@ const TYPE_LABELS = {
   volunteer: 'Gönüllü / Deneyim Kazanmak İstiyorum',
 }
 
+const KIND_MAP = {
+  'software-team': 'yazilim',
+  'marketing-team': 'pazarlama',
+  'active-project-team': 'aktif_proje',
+  'other-departments': 'diger',
+  'intern-junior': 'stajyer_junior',
+  volunteer: 'gonullu',
+}
+
 const SOFTWARE_ROLE_LABELS = {
   frontend: 'Frontend', backend: 'Backend', ios: 'iOS', android: 'Android',
   flutter: 'Flutter', 'react-native': 'React Native', 'ui-ux': 'UI/UX',
   ai: 'AI', devops: 'DevOps', fullstack: 'Full Stack', qa: 'QA / Test',
 }
+
+const TEAM_SUBMIT_URL =
+  process.env.JOIN_TEAM_SUBMIT_URL ||
+  process.env.TEAM_APPLICATION_SUBMIT_URL ||
+  'https://impevosekip.me/api/team-applications/submit'
 
 function fieldValue(fields, name) {
   const raw = fields[name]
@@ -48,84 +60,60 @@ function buildMessage(body) {
   return lines.join('\n')
 }
 
-function toCrmPayload(body, cvBase64, cvFilename) {
-  const typeLabel = TYPE_LABELS[body.applicationType] || body.applicationType
-  return {
-    full_name: body.fullName,
-    email: body.email,
-    phone: body.phone || '',
-    university: body.universityInfo || '',
-    field_of_study: getDepartment(body),
-    grade_year: body.age || '',
-    linkedin_url: body.linkedin || body.githubPortfolio || '',
-    source: 'impevos-web',
-    application_type: typeLabel,
-    status: 'Yeni Başvuru',
-    department: getDepartment(body),
-    voluntary_consent: parseBool(body.voluntaryConsent),
-    message: buildMessage(body),
-    cv_filename: cvFilename,
-    cv_base64: cvBase64,
-    form_data: {
-      basvuru_turu: `Ekip — ${typeLabel}`,
-      basvuru_kategorisi: 'ekip',
-      basvuru_kaynak: 'Web Sitesi — Ekibe Katıl',
-      departman: getDepartment(body),
-      gonullu_onay: parseBool(body.voluntaryConsent) ? 'Evet' : 'Hayır',
-      sehir: body.city || '',
-      claude: body.claudeUsed || '',
-      cursor: body.cursorUsed || '',
-      antigravity: body.antigravityUsed || '',
-      haftalik_saat: body.hoursPerWeek || body.hoursPerWeekMarketing || body.weeklyHoursAP || body.hoursPerWeekOther || '',
-    },
-  }
+function aiLevel(val) {
+  if (val === 'yes' || val === true) return 'orta'
+  if (val === 'no' || val === false) return 'yok'
+  return val || 'yok'
 }
 
-async function syncToCrm(payload) {
-  const webhookUrl =
-    process.env.JOIN_TEAM_WEBHOOK_URL ||
-    process.env.DASHBOARD_WEBHOOK_URL ||
-    'https://impevosekip.me/api/internship-applications'
-  const apiKey = process.env.DASHBOARD_API_KEY || process.env.INTERNSHIP_APPLICATIONS_WEBHOOK_SECRET
-
-  if (!apiKey) {
-    return { skipped: true, error: 'CRM API anahtarı tanımlı değil' }
-  }
-
-  const res = await fetch(webhookUrl, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-      'x-impevos-webhook-secret': apiKey,
-    },
-    body: JSON.stringify(payload),
-  })
-
-  const result = await res.json().catch(() => ({}))
-  if (!res.ok) {
-    throw new Error(result.message || result.error || `CRM hatası (${res.status})`)
-  }
-  return { synced: true, panelId: result.id }
+function guessMime(filename) {
+  const ext = String(filename).toLowerCase().split('.').pop()
+  if (ext === 'pdf') return 'application/pdf'
+  if (ext === 'doc') return 'application/msword'
+  if (ext === 'docx') return 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+  return 'application/octet-stream'
 }
 
-async function syncToCrmPublicSubmit(payload) {
-  const submitUrl =
-    process.env.JOIN_TEAM_SUBMIT_URL ||
-    'https://impevosekip.me/api/internship-applications/submit'
+async function syncToTeamPanel(body, cvFile) {
+  const fd = new FormData()
+  const weekly =
+    body.hoursPerWeek || body.hoursPerWeekMarketing || body.weeklyHoursAP || body.hoursPerWeekOther || ''
 
-  const res = await fetch(submitUrl, {
+  fd.append('application_kind', KIND_MAP[body.applicationType] || 'diger')
+  fd.append('full_name', body.fullName)
+  fd.append('email', body.email)
+  fd.append('phone', body.phone || '')
+  fd.append('city', body.city || '')
+  fd.append('age', body.age || '')
+  fd.append('education', body.universityInfo || '')
+  fd.append('linkedin_url', body.linkedin || '')
+  fd.append('github_url', body.githubPortfolio || '')
+  fd.append('availability', weekly)
+  fd.append('message', buildMessage(body))
+  fd.append('volunteer_consent', parseBool(body.voluntaryConsent) ? 'true' : 'false')
+  fd.append('source', 'impevos.com')
+  fd.append('website', '')
+  fd.append('role_interest', getDepartment(body))
+  fd.append('weekly_hours', weekly)
+  fd.append('cursor', aiLevel(body.cursorUsed))
+  fd.append('claude', aiLevel(body.claudeUsed))
+  fd.append('antigravity', aiLevel(body.antigravityUsed))
+
+  if (cvFile?.filepath) {
+    const buf = fs.readFileSync(cvFile.filepath)
+    const name = cvFile.originalFilename || 'cv.pdf'
+    fd.append('cv', new Blob([buf], { type: guessMime(name) }), name)
+  }
+
+  const res = await fetch(TEAM_SUBMIT_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      ...payload,
-      source: 'impevos.com',
-    }),
+    headers: { Origin: 'https://impevos.com' },
+    body: fd,
   })
 
   const result = await res.json().catch(() => ({}))
   if (!res.ok || result.ok === false) {
-    throw new Error(result.message || result.error || `Panel submit hatası (${res.status})`)
+    throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
   }
   return { synced: true, panelId: result.id }
 }
@@ -147,6 +135,7 @@ export default async function handler(req, res) {
   let cvPath = null
 
   try {
+    const { default: formidable } = await import('formidable')
     const form = formidable({ maxFileSize: 5 * 1024 * 1024, keepExtensions: true })
     const [fields, files] = await form.parse(req)
     const cvFile = files.cv?.[0] || files.CV?.[0]
@@ -167,23 +156,13 @@ export default async function handler(req, res) {
     }
 
     cvPath = cvFile.filepath
-    const cvBase64 = fs.readFileSync(cvPath).toString('base64')
-    const cvFilename = cvFile.originalFilename || 'cv.pdf'
-    const payload = toCrmPayload(body, cvBase64, cvFilename)
-
-    let crmResult = null
-    try {
-      crmResult = await syncToCrm(payload)
-    } catch (webhookErr) {
-      console.warn('Webhook CRM hatası, public submit deneniyor:', webhookErr.message)
-      crmResult = await syncToCrmPublicSubmit(payload)
-    }
+    const crmResult = await syncToTeamPanel(body, cvFile)
 
     return sendJson(res, 201, {
       ok: true,
-      id: crmResult?.panelId || crypto.randomUUID(),
-      message: 'Başvuru alındı',
-      notified: { panel: !!crmResult?.synced },
+      id: crmResult.panelId,
+      message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
+      notified: { panel: true },
     })
   } catch (err) {
     return sendJson(res, 500, { error: err.message || 'Başvuru gönderilemedi' })
