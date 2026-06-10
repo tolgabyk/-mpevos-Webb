@@ -55,27 +55,14 @@
   position: relative;
   z-index: 1;
   margin: 0 calc(var(--container-padding) * -1);
-  padding: 0 var(--container-padding);
+  padding: 12px var(--container-padding) 20px;
+  overflow: hidden;
 }
 
 .track {
   display: flex;
   gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 12px 0 20px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  cursor: grab;
-}
-
-.track:active {
-  cursor: grabbing;
-}
-
-.track::-webkit-scrollbar {
-  display: none;
+  will-change: transform;
 }
 
 .card {
@@ -91,7 +78,8 @@
   -webkit-backdrop-filter: blur(20px);
   transition:
     border-color 0.45s ease,
-    box-shadow 0.5s ease;
+    box-shadow 0.5s ease,
+    transform 0.5s ease;
 }
 
 .cardActive {
@@ -237,6 +225,7 @@
 }
 
 .progressTrack {
+  position: relative;
   width: min(280px, 60%);
   height: 2px;
   background: rgba(255, 255, 255, 0.1);
@@ -244,12 +233,21 @@
   overflow: hidden;
 }
 
-.progressBar {
+.autoProgress {
   height: 100%;
   width: 100%;
   background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
-  border-radius: inherit;
   transform-origin: left;
+  transform: scaleX(0);
+  animation: autoFill linear forwards;
+}
+
+.autoPaused {
+  animation-play-state: paused;
+}
+
+@keyframes autoFill {
+  to { transform: scaleX(1); }
 }
 
 @media (max-width: 768px) {

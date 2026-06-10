@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
@@ -6,55 +6,37 @@ import { RevealGroup, RevealItem } from '../Reveal/Reveal'
 import { EASE_SMOOTH, fadeUp, VIEWPORT_TIGHT } from '../../utils/motion'
 import styles from './Services.module.css'
 
+const AUTO_INTERVAL = 4500
+const GAP = 20
+
 export default function Services() {
   const { t } = useTranslation()
   const items = t('services.items', { returnObjects: true })
-  const trackRef = useRef(null)
-  const [progress, setProgress] = useState(0)
+  const wrapRef = useRef(null)
   const [activeIdx, setActiveIdx] = useState(0)
+  const [step, setStep] = useState(340)
+  const [paused, setPaused] = useState(false)
+
+  const measure = useCallback(() => {
+    const card = wrapRef.current?.querySelector('[data-service-card]')
+    if (card) setStep(card.offsetWidth + GAP)
+  }, [])
 
   useEffect(() => {
-    const track = trackRef.current
-    if (!track) return undefined
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [measure, items.length])
 
-    const onScroll = () => {
-      const max = track.scrollWidth - track.clientWidth
-      const ratio = max > 0 ? track.scrollLeft / max : 0
-      setProgress(ratio)
+  useEffect(() => {
+    if (paused || items.length <= 1) return undefined
+    const id = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % items.length)
+    }, AUTO_INTERVAL)
+    return () => clearInterval(id)
+  }, [paused, items.length])
 
-      const cards = track.querySelectorAll('[data-service-card]')
-      let closest = 0
-      let minDist = Infinity
-      cards.forEach((el, i) => {
-        const dist = Math.abs(el.offsetLeft - track.scrollLeft - 8)
-        if (dist < minDist) {
-          minDist = dist
-          closest = i
-        }
-      })
-      setActiveIdx(closest)
-    }
-
-    const onWheel = (e) => {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return
-      e.preventDefault()
-      track.scrollLeft += e.deltaY * 0.9
-    }
-
-    track.addEventListener('scroll', onScroll, { passive: true })
-    track.addEventListener('wheel', onWheel, { passive: false })
-    onScroll()
-    return () => {
-      track.removeEventListener('scroll', onScroll)
-      track.removeEventListener('wheel', onWheel)
-    }
-  }, [items.length])
-
-  const scrollToCard = (index) => {
-    const track = trackRef.current
-    const card = track?.querySelector(`[data-service-card="${index}"]`)
-    card?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' })
-  }
+  const goTo = (index) => setActiveIdx(index)
 
   return (
     <section id="services" className={styles.section}>
@@ -74,8 +56,19 @@ export default function Services() {
           </RevealItem>
         </RevealGroup>
 
-        <div className={styles.carouselWrap}>
-          <div ref={trackRef} className={styles.track}>
+        <div
+          ref={wrapRef}
+          className={styles.carouselWrap}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={() => setPaused(true)}
+          onTouchEnd={() => setTimeout(() => setPaused(false), AUTO_INTERVAL)}
+        >
+          <motion.div
+            className={styles.track}
+            animate={{ x: -activeIdx * step }}
+            transition={{ duration: 0.85, ease: EASE_SMOOTH }}
+          >
             {items.map((item, i) => {
               const Icon = Icons[item.icon]
               const isActive = i === activeIdx
@@ -94,7 +87,12 @@ export default function Services() {
                       transition: { ...fadeUp.visible.transition, delay: i * 0.06 },
                     },
                   }}
-                  whileHover={{ y: -10, transition: { duration: 0.4, ease: EASE_SMOOTH } }}
+                  animate={{
+                    scale: isActive ? 1 : 0.96,
+                    opacity: isActive ? 1 : 0.65,
+                  }}
+                  transition={{ duration: 0.6, ease: EASE_SMOOTH }}
+                  whileHover={isActive ? { y: -10 } : undefined}
                 >
                   <div className={styles.cardBg} />
                   <div className={styles.cardShine} />
@@ -109,7 +107,7 @@ export default function Services() {
                 </motion.article>
               )
             })}
-          </div>
+          </motion.div>
         </div>
 
         <div className={styles.footer}>
@@ -119,17 +117,17 @@ export default function Services() {
                 key={item.title}
                 type="button"
                 className={`${styles.dot} ${i === activeIdx ? styles.dotActive : ''}`}
-                onClick={() => scrollToCard(i)}
+                onClick={() => goTo(i)}
                 aria-label={item.title}
               />
             ))}
           </div>
           <div className={styles.progressWrap}>
             <div className={styles.progressTrack}>
-              <motion.div
-                className={styles.progressBar}
-                animate={{ scaleX: Math.max(progress, 0.06) }}
-                transition={{ duration: 0.2, ease: EASE_SMOOTH }}
+              <div
+                key={activeIdx}
+                className={`${styles.autoProgress} ${paused ? styles.autoPaused : ''}`}
+                style={{ animationDuration: `${AUTO_INTERVAL}ms` }}
               />
             </div>
           </div>
