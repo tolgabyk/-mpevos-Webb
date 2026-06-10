@@ -9,7 +9,9 @@
 .bgGlow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0, 255, 0, 0.04) 0%, transparent 60%);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 255, 0, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 80%, rgba(0, 200, 80, 0.05) 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -93,8 +95,10 @@
 }
 
 .cardActive {
-  border-color: rgba(0, 255, 0, 0.25);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  border-color: rgba(0, 255, 0, 0.35);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.45),
+    0 0 32px rgba(0, 255, 0, 0.1);
 }
 
 .cardBg {
@@ -129,8 +133,10 @@
 }
 
 .cardActive .iconCircle {
-  background: rgba(0, 255, 0, 0.12);
-  border-color: rgba(0, 255, 0, 0.3);
+  background: var(--color-accent);
+  color: #000;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.35);
 }
 
 .cardTitle {
@@ -183,6 +189,7 @@
   width: 24px;
   border-radius: 100px;
   background: var(--color-accent);
+  box-shadow: 0 0 12px rgba(0, 255, 0, 0.45);
 }
 
 .progressWrap {
