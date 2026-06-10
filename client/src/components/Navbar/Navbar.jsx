@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { List, X } from '@phosphor-icons/react'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
 import styles from './Navbar.module.css'
 
-const NAV_IDS = ['hero', 'about', 'services', 'projects', 'team', 'internship-details', 'internship-apply', 'contact']
+const NAV_IDS = ['hero', 'about', 'services', 'projects', 'contact']
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
@@ -51,8 +51,6 @@ export default function Navbar() {
     { id: 'about', label: t('nav.about') },
     { id: 'services', label: t('nav.services') },
     { id: 'projects', label: t('nav.projects') },
-    { id: 'team', label: t('nav.team') },
-    { id: 'internship-details', label: t('nav.internship') },
     { id: 'contact', label: t('nav.contact') },
   ]
 
@@ -88,19 +86,12 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className={styles.navRight}>
-            <Link
-              to="/ekibe-katil"
-              className={`${styles.applyBtn} ${location.pathname === '/ekibe-katil' ? styles.applyBtnActive : ''}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              {t('nav.joinTeam')}
-            </Link>
             <button
               type="button"
-              className={styles.applyBtnSecondary}
-              onClick={() => handleNavClick('internship-apply')}
+              className={styles.applyBtn}
+              onClick={() => handleNavClick('contact')}
             >
-              {t('nav.internshipApply')}
+              {t('nav.contact')}
             </button>
 
             {/* Lang Toggle */}
@@ -138,38 +129,12 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
           >
             <ul className={styles.mobileNavLinks}>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0 }}
-              >
-                <Link
-                  to="/ekibe-katil"
-                  className={styles.mobileApplyBtn}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {t('nav.joinTeam')}
-                </Link>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.03 }}
-              >
-                <button
-                  type="button"
-                  className={styles.mobileNavLink}
-                  onClick={() => handleNavClick('internship-apply')}
-                >
-                  {t('nav.internshipApply')}
-                </button>
-              </motion.li>
               {navItems.map(({ id, label }, i) => (
                 <motion.li
                   key={id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (i + 1) * 0.06 }}
+                  transition={{ delay: i * 0.06 }}
                 >
                   <button
                     className={`${styles.mobileNavLink} ${activeId === id ? styles.active : ''}`}
