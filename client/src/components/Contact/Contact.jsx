@@ -83,6 +83,16 @@ export default function Contact() {
                 </div>
               ))}
             </div>
+
+            <div className={styles.helpBox}>
+              <p className={styles.helpText}>{t('contact.info.help.text')}</p>
+              <p className={styles.helpContact}>
+                {t('contact.info.help.cta')}{' '}
+                <a href="tel:+905344952332" className={styles.helpPhone}>
+                  {t('contact.info.help.phone')}
+                </a>
+              </p>
+            </div>
           </motion.div>
 
           {/* Form Side */}

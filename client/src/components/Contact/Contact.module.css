@@ -66,6 +66,41 @@
   font-size: 0.9375rem;
 }
 
+.helpBox {
+  margin-top: 32px;
+  padding: 20px 22px;
+  background: rgba(0, 255, 0, 0.06);
+  border: 1px solid rgba(0, 255, 0, 0.22);
+  border-radius: 14px;
+}
+
+.helpText {
+  margin: 0 0 8px;
+  font-size: 0.9375rem;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.helpContact {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-secondary-dim);
+  line-height: 1.5;
+}
+
+.helpPhone {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--ease-fast);
+}
+
+.helpPhone:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
 /* Form */
 .form {
   display: flex;
