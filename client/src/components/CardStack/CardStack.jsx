@@ -4,14 +4,12 @@ import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 import { EASE_SMOOTH, EASE_SPRING } from '../../utils/motion'
 import styles from './CardStack.module.css'
 
-const VISIBLE = 5
 const SWIPE_THRESHOLD = 60
 const DRAG_THRESHOLD = 70
 
 function getStackPosition(index, active, total) {
   let diff = index - active
   if (diff < 0) diff += total
-  if (diff >= VISIBLE) return null
   return diff
 }
 
@@ -26,18 +24,28 @@ export default function CardStack({
   deckClassName = '',
   showManualProgress = false,
   variant = 'accent',
+  stackDepth = 6,
 }) {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
   const [paused, setPaused] = useState(false)
+  const [exiting, setExiting] = useState(false)
   const touchStart = useRef(null)
 
   const total = items.length
+  const visibleCount = Math.min(stackDepth, total)
 
   const goTo = useCallback((index, dir = 1) => {
+    if (exiting) return
+    const next = (index + total) % total
+    if (next === active) return
     setDirection(dir)
-    setActive((index + total) % total)
-  }, [total])
+    setExiting(true)
+    setTimeout(() => {
+      setActive(next)
+      setExiting(false)
+    }, 320)
+  }, [active, exiting, total])
 
   const goNext = useCallback(() => goTo(active + 1, 1), [active, goTo])
   const goPrev = useCallback(() => goTo(active - 1, -1), [active, goTo])
@@ -78,34 +86,46 @@ export default function CardStack({
       <div className={`${styles.deck} ${deckClassName}`}>
         {items.map((item, index) => {
           const pos = getStackPosition(index, active, total)
-          if (pos === null) return null
+          if (pos >= visibleCount) return null
 
           const isFront = pos === 0
+          const isLeaving = isFront && exiting
 
           return (
             <motion.article
               key={item.id ?? index}
               className={`${styles.card} ${variant === 'glass' ? styles.cardGlass : ''} ${isFront ? styles.cardFront : ''}`}
-              animate={{
-                zIndex: total - pos,
-                scale: 1 - pos * 0.038,
-                y: pos * 18,
-                x: pos * 6,
-                opacity: isFront ? 1 : Math.max(0.25, 0.88 - pos * 0.14),
-                rotateX: pos * -2,
-                filter: isFront ? 'brightness(1)' : `brightness(${0.82 - pos * 0.08})`,
-              }}
-              transition={EASE_SPRING}
+              animate={
+                isLeaving
+                  ? {
+                      x: direction > 0 ? -140 : 140,
+                      opacity: 0,
+                      scale: 0.94,
+                      rotateZ: direction > 0 ? -6 : 6,
+                      zIndex: total + 1,
+                    }
+                  : {
+                      zIndex: total - pos,
+                      scale: 1 - pos * 0.048,
+                      y: pos * 28,
+                      x: pos * 14,
+                      opacity: isFront ? 1 : Math.max(0.35, 0.92 - pos * 0.11),
+                      rotateX: pos * -1.5,
+                      rotateZ: pos * 0.4,
+                      filter: isFront ? 'brightness(1)' : `brightness(${0.78 - pos * 0.07})`,
+                    }
+              }
+              transition={isLeaving ? { duration: 0.32, ease: EASE_SMOOTH } : EASE_SPRING}
               style={{ transformOrigin: 'top center' }}
-              drag={isFront ? 'x' : false}
+              drag={isFront && !exiting ? 'x' : false}
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.12}
+              dragElastic={0.1}
               onDragEnd={isFront ? onDragEnd : undefined}
-              onClick={() => !isFront && goTo(index, index > active ? 1 : -1)}
-              whileTap={isFront ? { scale: 0.995 } : { scale: 0.98 }}
+              onClick={() => !isFront && !exiting && goTo(index, index > active ? 1 : -1)}
+              whileTap={isFront && !exiting ? { scale: 0.992 } : { scale: 0.98 }}
             >
               <div className={styles.cardInner}>
-                {renderCard(item, isFront, index)}
+                {renderCard(item, isFront, index, active)}
               </div>
             </motion.article>
           )
@@ -129,7 +149,7 @@ export default function CardStack({
       )}
 
       <div className={styles.controls}>
-        <button type="button" className={styles.navBtn} onClick={goPrev} aria-label="Önceki">
+        <button type="button" className={styles.navBtn} onClick={goPrev} disabled={exiting} aria-label="Önceki">
           <CaretLeft size={20} weight="bold" />
         </button>
 
@@ -145,7 +165,7 @@ export default function CardStack({
           ))}
         </div>
 
-        <button type="button" className={styles.navBtn} onClick={goNext} aria-label="Sonraki">
+        <button type="button" className={styles.navBtn} onClick={goNext} disabled={exiting} aria-label="Sonraki">
           <CaretRight size={20} weight="bold" />
         </button>
       </div>
@@ -162,9 +182,10 @@ export default function CardStack({
 
       {showManualProgress && !autoPlay && total > 1 && (
         <div className={styles.manualBar}>
-          <div
+          <motion.div
             className={styles.manualProgress}
-            style={{ transform: `scaleX(${(active + 1) / total})` }}
+            animate={{ scaleX: (active + 1) / total }}
+            transition={{ duration: 0.45, ease: EASE_SMOOTH }}
           />
         </div>
       )}

@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import CardStack from '../CardStack/CardStack'
 import LightBulb from '../LightBulb/LightBulb'
 import { RevealGroup, RevealItem } from '../Reveal/Reveal'
 import { useRef } from 'react'
+import { EASE_SMOOTH } from '../../utils/motion'
 import styles from './About.module.css'
 
 export default function About() {
@@ -42,25 +43,66 @@ export default function About() {
         </RevealGroup>
 
         <motion.div
+          className={styles.stackWrap}
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, ease: EASE_SMOOTH }}
         >
           <CardStack
             items={items}
             showManualProgress
-            visual={() => <LightBulb active size="lg" />}
-            renderCard={(item, isFront) => (
+            stackDepth={6}
+            className={styles.stack}
+            deckClassName={styles.deck}
+            renderCard={(item, isFront, _index, active) => (
               <div className={styles.cardContent}>
                 <div className={`${styles.cardBg} ${styles[`tone${item.tone ?? 0}`]}`} />
-                <div className={styles.cardBody}>
-                  <span className={styles.tag}>{item.tag}</span>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
-                  {item.lead && <p className={styles.lead}>{item.lead}</p>}
-                  <div className={styles.cols}>
-                    {item.body && <p className={styles.body}>{item.body}</p>}
-                    {item.body2 && <p className={styles.bodyMuted}>{item.body2}</p>}
+                <div className={styles.cardGrid}>
+                  <div className={styles.cardBody}>
+                    <AnimatePresence mode="wait">
+                      {isFront && (
+                        <motion.div
+                          key={active}
+                          initial={{ opacity: 0, x: 24 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -24 }}
+                          transition={{ duration: 0.4, ease: EASE_SMOOTH }}
+                        >
+                          <span className={styles.tag}>{item.tag}</span>
+                          <h3 className={styles.cardTitle}>{item.title}</h3>
+                          {item.lead && <p className={styles.lead}>{item.lead}</p>}
+                          <div className={styles.cols}>
+                            {item.body && <p className={styles.body}>{item.body}</p>}
+                            {item.body2 && <p className={styles.bodyMuted}>{item.body2}</p>}
+                          </div>
+                        </motion.div>
+                      )}
+                      {!isFront && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 0.6 }}
+                        >
+                          <span className={styles.tag}>{item.tag}</span>
+                          <h3 className={styles.cardTitle}>{item.title}</h3>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  <div className={styles.cardVisual}>
+                    {isFront ? (
+                      <motion.div
+                        key={`bulb-${active}`}
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.55, ease: EASE_SMOOTH }}
+                      >
+                        <LightBulb active size="lg" />
+                      </motion.div>
+                    ) : (
+                      <div className={styles.orbitPeek} aria-hidden="true" />
+                    )}
                   </div>
                 </div>
                 {isFront && <div className={styles.cardGlow} />}
