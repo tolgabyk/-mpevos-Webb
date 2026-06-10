@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import { Lightning } from '@phosphor-icons/react'
+import LightBulb from '../LightBulb/LightBulb'
 import styles from './VisionStatement.module.css'
 
 export default function VisionStatement() {
@@ -22,15 +23,8 @@ export default function VisionStatement() {
           <h2 className={styles.quote}>{t('vision.quote')}</h2>
           <p className={styles.sub}>{t('vision.sub')}</p>
 
-          <div className={styles.orbWrap}>
-            <motion.div
-              className={styles.orbRing}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-            />
-            <div className={styles.orbCore}>
-              <div className={styles.orbInner} />
-            </div>
+          <div className={styles.bulbWrap}>
+            <LightBulb active size="lg" />
             <Lightning className={styles.sparkLeft} size={28} weight="fill" />
             <Lightning className={styles.sparkRight} size={22} weight="fill" />
           </div>

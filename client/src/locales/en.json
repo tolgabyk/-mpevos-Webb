@@ -74,7 +74,57 @@
     "trust": {
       "title": "We believe in the power of transparent communication.",
       "lead": "We move your brand forward with the technological tools we develop and strategic partnerships."
-    }
+    },
+    "stack": [
+      {
+        "tag": "First Impression",
+        "title": "First impression might be your last chance.",
+        "lead": "Every pixel, every color defines the character of design and tells a story to its visitor.",
+        "body": "Your corporate identity is the soul of your brand, and reflecting it correctly in the digital world is vital.",
+        "body2": "A premium digital experience is the most effective way to showcase your brand elegantly and impressively.",
+        "tone": 0
+      },
+      {
+        "tag": "Communication",
+        "title": "We believe in the power of transparent communication.",
+        "lead": "We move your brand forward with the technological tools we develop and strategic partnerships.",
+        "body": "IMPEVOS TECHNOLOGY delivers pioneering solutions in AI, advanced software, and digital transformation.",
+        "body2": "We combine corporate transparency with startup innovation to build the future today.",
+        "tone": 1
+      },
+      {
+        "tag": "Artificial Intelligence",
+        "title": "Smart systems, real results.",
+        "lead": "We unlock your business potential with machine learning and automation.",
+        "body": "We develop end-to-end AI solutions in NLP, computer vision, and data analytics.",
+        "body2": "Every project reflects our passion for creating measurable value through technology.",
+        "tone": 2
+      },
+      {
+        "tag": "Software",
+        "title": "Modern software, solid infrastructure.",
+        "lead": "We build scalable solutions across web, mobile, and cloud platforms.",
+        "body": "We accelerate your digital transformation with secure, performant, and sustainable architectures.",
+        "body2": "Our global vision and local expertise deliver smart solutions to complex problems.",
+        "tone": 3
+      },
+      {
+        "tag": "Trust",
+        "title": "Corporate trust, startup speed.",
+        "lead": "We deliver your projects safely with professional processes and agile methodology.",
+        "body": "Transparent communication, clear timelines, and continuous feedback form the core of our culture.",
+        "body2": "We protect our clients' digital assets with cybersecurity standards.",
+        "tone": 4
+      },
+      {
+        "tag": "Vision",
+        "title": "We build the future today.",
+        "lead": "We believe technology is a universal language.",
+        "body": "We continue to create innovative solutions that transform businesses across industries.",
+        "body2": "Every project is a product of our passion for creating value through technology.",
+        "tone": 5
+      }
+    ]
   },
   "services": {
     "label": "Our Services",

@@ -56,40 +56,12 @@
   margin-bottom: 56px;
 }
 
-.orbWrap {
+.bulbWrap {
   position: relative;
-  width: 140px;
-  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.orbRing {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 255, 0, 0.25);
-  border-top-color: rgba(0, 255, 0, 0.7);
-  box-shadow: 0 0 40px rgba(0, 255, 0, 0.15);
-}
-
-.orbCore {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, rgba(0, 255, 0, 0.9), rgba(0, 120, 40, 0.4) 55%, rgba(0, 0, 0, 0.8) 100%);
-  box-shadow:
-    0 0 60px rgba(0, 255, 0, 0.45),
-    inset 0 0 30px rgba(0, 255, 0, 0.3);
-  animation: orbPulse 3s ease-in-out infinite;
-}
-
-.orbInner {
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.35), transparent 50%);
+  min-height: 220px;
 }
 
 .sparkLeft,
@@ -98,22 +70,18 @@
   color: var(--color-accent);
   filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
   animation: sparkFloat 2.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .sparkLeft {
-  top: 10%;
-  left: -8%;
+  top: 18%;
+  left: 22%;
 }
 
 .sparkRight {
-  bottom: 15%;
-  right: -10%;
+  bottom: 22%;
+  right: 20%;
   animation-delay: 1.2s;
-}
-
-@keyframes orbPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.06); }
 }
 
 @keyframes sparkFloat {

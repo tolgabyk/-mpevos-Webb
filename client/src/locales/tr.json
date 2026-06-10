@@ -74,7 +74,57 @@
     "trust": {
       "title": "Şeffaf iletişimin gücüne inanıyoruz.",
       "lead": "Geliştirdiğimiz teknolojik araçlar ve stratejik iş ortaklıkları ile markanızı ileriye taşıyoruz."
-    }
+    },
+    "stack": [
+      {
+        "tag": "İlk İzlenim",
+        "title": "İlk izlenim son şansınız olabilir.",
+        "lead": "Her bir piksel, her bir renk, tasarımın karakterini belirler ve ziyaretçisine bir hikaye anlatır.",
+        "body": "Kurumsal kimliğiniz, markanızın ruhudur ve bu ruhu dijital dünyada doğru yansıtmak hayati öneme sahiptir.",
+        "body2": "Premium bir dijital deneyim, markanızı zarif ve etkileyici biçimde sergilemenin en etkili yoludur.",
+        "tone": 0
+      },
+      {
+        "tag": "İletişim",
+        "title": "Şeffaf iletişimin gücüne inanıyoruz.",
+        "lead": "Geliştirdiğimiz teknolojik araçlar ve stratejik iş ortaklıkları ile markanızı ileriye taşıyoruz.",
+        "body": "IMPEVOS TEKNOLOJİ, yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunar.",
+        "body2": "Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
+        "tone": 1
+      },
+      {
+        "tag": "Yapay Zeka",
+        "title": "Akıllı sistemler, gerçek sonuçlar.",
+        "lead": "Makine öğrenmesi ve otomasyon ile işletmenizin potansiyelini açığa çıkarıyoruz.",
+        "body": "Doğal dil işleme, bilgisayarlı görme ve veri analitiği alanlarında uçtan uca AI çözümleri geliştiriyoruz.",
+        "body2": "Her proje, teknoloji ile ölçülebilir değer yaratma tutkumuzun bir yansımasıdır.",
+        "tone": 2
+      },
+      {
+        "tag": "Yazılım",
+        "title": "Modern yazılım, sağlam altyapı.",
+        "lead": "Web, mobil ve bulut platformlarında ölçeklenebilir çözümler üretiyoruz.",
+        "body": "Güvenli, performanslı ve sürdürülebilir yazılım mimarileri ile dijital dönüşümünüzü hızlandırıyoruz.",
+        "body2": "Global vizyonumuz ve yerel tecrübemizle karmaşık problemlere akıllı çözümler sunuyoruz.",
+        "tone": 3
+      },
+      {
+        "tag": "Güven",
+        "title": "Kurumsal güven, startup hızı.",
+        "lead": "Profesyonel süreçler ve çevik metodoloji ile projelerinizi güvenle teslim ediyoruz.",
+        "body": "Şeffaf iletişim, net zaman çizelgeleri ve sürekli geri bildirim kültürümüzün temelini oluşturur.",
+        "body2": "Müşterilerimizin dijital varlıklarını siber güvenlik standartlarıyla koruyoruz.",
+        "tone": 4
+      },
+      {
+        "tag": "Vizyon",
+        "title": "Geleceği bugünden inşa ediyoruz.",
+        "lead": "Teknolojinin evrensel bir dil olduğuna inanıyoruz.",
+        "body": "Farklı sektörlerdeki işletmeleri dönüştüren yenilikçi çözümler üretmeye devam ediyoruz.",
+        "body2": "Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
+        "tone": 5
+      }
+    ]
   },
   "services": {
     "label": "Hizmetlerimiz",

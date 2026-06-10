@@ -1,32 +1,20 @@
-import { useRef, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
+import CardStack from '../CardStack/CardStack'
+import LightBulb from '../LightBulb/LightBulb'
 import styles from './Services.module.css'
 
 export default function Services() {
   const { t } = useTranslation()
-  const items = t('services.items', { returnObjects: true })
-  const trackRef = useRef(null)
-  const [progress, setProgress] = useState(0)
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return undefined
-
-    const onScroll = () => {
-      const max = track.scrollWidth - track.clientWidth
-      setProgress(max > 0 ? track.scrollLeft / max : 0)
-    }
-
-    track.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => track.removeEventListener('scroll', onScroll)
-  }, [items.length])
+  const rawItems = t('services.items', { returnObjects: true })
+  const items = rawItems.map((item, i) => ({ ...item, id: `service-${i}` }))
 
   return (
     <section id="services" className={styles.section}>
       <div className={styles.bgGlow} />
+      <div className={styles.bgText} aria-hidden="true">{t('services.bgText')}</div>
+
       <div className="container">
         <motion.div
           className={styles.header}
@@ -42,39 +30,41 @@ export default function Services() {
           <p className={styles.lead}>{t('services.lead')}</p>
         </motion.div>
 
-        <div className={styles.carouselWrap}>
-          <div ref={trackRef} className={styles.track}>
-            {items.map((item, i) => {
-              const Icon = Icons[item.icon]
-              return (
-                <motion.article
-                  key={i}
-                  className={styles.card}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.6, delay: i * 0.05 }}
-                >
-                  <div className={styles.cardBg} />
-                  <div className={styles.cardShine} />
-                  <div className={styles.cardBody}>
-                    <div className={styles.iconCircle}>
-                      {Icon && <Icon size={26} weight="duotone" />}
-                    </div>
-                    <h3 className={styles.cardTitle}>{item.title}</h3>
-                    <p className={styles.cardDesc}>{item.desc}</p>
+        <CardStack
+          items={items}
+          autoPlay
+          autoPlayInterval={5000}
+          className={styles.stack}
+          visual={(_activeIndex, item) => {
+            const Icon = Icons[item.icon]
+            return (
+              <div className={styles.visualWrap}>
+                <LightBulb active size="md" />
+                <div className={styles.visualIcon}>
+                  {Icon && <Icon size={28} weight="duotone" />}
+                </div>
+              </div>
+            )
+          }}
+          renderCard={(item, isFront) => {
+            const Icon = Icons[item.icon]
+            return (
+              <div className={styles.cardContent}>
+                <div className={styles.cardBg} />
+                <div className={styles.cardShine} />
+                <div className={styles.cardBody}>
+                  <span className={styles.cardTag}>{t('services.cardTag')}</span>
+                  <div className={styles.iconCircle}>
+                    {Icon && <Icon size={32} weight="duotone" />}
                   </div>
-                </motion.article>
-              )
-            })}
-          </div>
-        </div>
-
-        <div className={styles.progressWrap}>
-          <div className={styles.progressTrack}>
-            <div className={styles.progressBar} style={{ transform: `scaleX(${Math.max(progress, 0.08)})` }} />
-          </div>
-        </div>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.cardDesc}>{item.desc}</p>
+                </div>
+                {isFront && <div className={styles.cardPulse} />}
+              </div>
+            )
+          }}
+        />
       </div>
     </section>
   )

@@ -7,39 +7,33 @@
 .bgGlow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(0, 255, 0, 0.05) 0%, transparent 50%);
+  background:
+    radial-gradient(circle at 25% 40%, rgba(0, 255, 0, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 75% 70%, rgba(0, 180, 60, 0.04) 0%, transparent 40%);
   pointer-events: none;
 }
 
-.featuredCard {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-  padding: clamp(32px, 5vw, 56px);
-  border-radius: 32px;
-  overflow: hidden;
-  border: 1px solid rgba(0, 255, 0, 0.15);
-  margin-bottom: 32px;
-  min-height: 420px;
-}
-
-.featuredBg {
+.bgText {
   position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(125deg, rgba(0, 80, 30, 0.95) 0%, rgba(0, 30, 15, 0.98) 45%, #000 100%),
-    radial-gradient(circle at 80% 20%, rgba(0, 255, 0, 0.2) 0%, transparent 50%);
-  z-index: 0;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(4rem, 14vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.02);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
 }
 
-.featuredContent {
-  position: relative;
-  z-index: 1;
+.header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 56px;
 }
 
-.featuredTag {
+.label {
   display: inline-block;
   font-size: 0.6875rem;
   font-weight: 700;
@@ -49,142 +43,154 @@
   margin-bottom: 16px;
 }
 
-.featuredTitle {
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+.title {
+  font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   color: #fff;
   margin-bottom: 16px;
 }
 
-.featuredLead {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 28px;
-  max-width: 520px;
-}
-
-.featuredCols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.featuredBody {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-}
-
-.featuredBodyMuted {
-  font-size: 0.875rem;
+.subtitle {
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.5);
   margin: 0;
 }
 
-.featuredVisual {
+.cardContent {
+  position: relative;
+  height: 100%;
+  min-height: inherit;
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+.cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.tone0 {
+  background:
+    linear-gradient(125deg, rgba(0, 80, 30, 0.95) 0%, rgba(0, 30, 15, 0.98) 45%, #000 100%),
+    radial-gradient(circle at 85% 15%, rgba(0, 255, 0, 0.22) 0%, transparent 50%);
+}
+
+.tone1 {
+  background:
+    linear-gradient(145deg, rgba(0, 50, 25, 0.9) 0%, rgba(0, 0, 0, 0.95) 100%),
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 0, 0.12) 0%, transparent 45%);
+}
+
+.tone2 {
+  background:
+    linear-gradient(160deg, rgba(0, 60, 35, 0.85) 0%, #000 70%),
+    radial-gradient(circle at 70% 30%, rgba(0, 255, 0, 0.15) 0%, transparent 50%);
+}
+
+.tone3 {
+  background:
+    linear-gradient(135deg, rgba(0, 40, 20, 0.92) 0%, rgba(0, 0, 0, 0.98) 100%),
+    radial-gradient(circle at 50% 0%, rgba(0, 255, 0, 0.1) 0%, transparent 40%);
+}
+
+.tone4 {
+  background:
+    linear-gradient(120deg, rgba(0, 70, 30, 0.88) 0%, #000 60%),
+    radial-gradient(circle at 90% 70%, rgba(0, 255, 0, 0.14) 0%, transparent 45%);
+}
+
+.tone5 {
+  background:
+    linear-gradient(155deg, rgba(0, 55, 28, 0.9) 0%, rgba(0, 0, 0, 0.96) 100%),
+    radial-gradient(circle at 30% 20%, rgba(0, 255, 0, 0.18) 0%, transparent 50%);
+}
+
+.cardBody {
   position: relative;
   z-index: 1;
+  padding: clamp(32px, 5vw, 52px);
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  min-height: 280px;
+  max-width: 680px;
 }
 
-.orbitRing {
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 1px dashed rgba(0, 255, 0, 0.25);
-  animation: spin 20s linear infinite;
-}
-
-.visualOrb {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 30% 25%, rgba(0, 255, 0, 0.9), rgba(0, 60, 30, 0.6));
-  color: #000;
-  box-shadow: 0 0 60px rgba(0, 255, 0, 0.4);
-  animation: float 4s ease-in-out infinite;
-}
-
-.trustCard {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 48px;
-  padding: clamp(28px, 4vw, 48px);
-  border-radius: 28px;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-}
-
-.trustIcon {
+.tag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.trustLeft h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+.cardTitle {
+  font-size: clamp(1.375rem, 3vw, 2rem);
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
   color: #fff;
-  margin-bottom: 12px;
+  margin: 0 0 14px;
 }
 
-.trustLeft p {
+.lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 24px;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.body {
   font-size: 0.9375rem;
+  font-weight: 600;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.88);
   margin: 0;
 }
 
-.trustRight p {
-  font-size: 0.9375rem;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.55);
-  margin: 0 0 16px;
+.bodyMuted {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.48);
+  margin: 0;
 }
 
-.trustRight p:last-child {
-  margin-bottom: 0;
+.cardGlow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  animation: glowShift 4s ease-in-out infinite;
 }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+@keyframes glowShift {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
 }
 
 @media (max-width: 900px) {
-  .featuredCard {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .featuredVisual {
-    min-height: 180px;
-  }
-
-  .featuredCols {
+  .cols {
     grid-template-columns: 1fr;
   }
+}
 
-  .trustCard {
-    grid-template-columns: 1fr;
-    gap: 28px;
+@media (max-width: 768px) {
+  .section {
+    padding: 96px 0;
   }
 }
