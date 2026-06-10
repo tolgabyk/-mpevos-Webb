@@ -26,7 +26,6 @@ export default function Contact() {
               <Phone size={20} weight="duotone" />
               <span>{t('contact.info.help.phone')}</span>
             </a>
-            <p className={styles.rep}>{t('contact.rep')}</p>
           </div>
         </motion.div>
       </div>

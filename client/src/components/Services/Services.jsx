@@ -6,7 +6,7 @@ import { RevealGroup, RevealItem } from '../Reveal/Reveal'
 import { EASE_SMOOTH, fadeUp, VIEWPORT_TIGHT } from '../../utils/motion'
 import styles from './Services.module.css'
 
-const AUTO_INTERVAL = 5000
+const AUTO_INTERVAL = 4500
 const GAP = 20
 
 export default function Services() {
@@ -15,7 +15,6 @@ export default function Services() {
   const wrapRef = useRef(null)
   const [activeIdx, setActiveIdx] = useState(0)
   const [step, setStep] = useState(340)
-  const [paused, setPaused] = useState(false)
 
   const measure = useCallback(() => {
     const card = wrapRef.current?.querySelector('[data-service-card]')
@@ -29,12 +28,14 @@ export default function Services() {
   }, [measure, items.length])
 
   useEffect(() => {
-    if (paused || items.length <= 1) return undefined
-    const id = setInterval(() => {
+    if (!Array.isArray(items) || items.length <= 1) return undefined
+
+    const id = window.setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % items.length)
     }, AUTO_INTERVAL)
-    return () => clearInterval(id)
-  }, [paused, items.length])
+
+    return () => window.clearInterval(id)
+  }, [items.length])
 
   const goTo = (index) => setActiveIdx(index)
 
@@ -61,8 +62,6 @@ export default function Services() {
         <div
           ref={wrapRef}
           className={styles.carouselWrap}
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
         >
           <div className={styles.fadeLeft} aria-hidden="true" />
           <div className={styles.fadeRight} aria-hidden="true" />
@@ -127,7 +126,7 @@ export default function Services() {
             <div className={styles.progressTrack}>
               <div
                 key={activeIdx}
-                className={`${styles.autoProgress} ${paused ? styles.autoPaused : ''}`}
+                className={styles.autoProgress}
                 style={{ animationDuration: `${AUTO_INTERVAL}ms` }}
               />
             </div>

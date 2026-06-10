@@ -216,10 +216,6 @@
   opacity: 0.7;
 }
 
-.autoPaused {
-  animation-play-state: paused;
-}
-
 @keyframes autoFill {
   to { transform: scaleX(1); }
 }
