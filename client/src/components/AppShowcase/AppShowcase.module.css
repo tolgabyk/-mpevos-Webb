@@ -519,7 +519,15 @@
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
-  will-change: opacity;
+  will-change: transform, opacity, filter;
+}
+
+.phoneWrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Soft animated glare */
@@ -676,6 +684,201 @@
   white-space: nowrap;
 }
 
+/* ---------- Mehir-style decorative noise ---------- */
+.noiseA,
+.noiseB {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
+}
+
+.noiseA {
+  width: 420px;
+  height: 420px;
+  top: 8%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.12) 0%, transparent 70%);
+  animation: noiseDrift 14s ease-in-out infinite;
+}
+
+.noiseB {
+  width: 320px;
+  height: 320px;
+  bottom: 12%;
+  left: 4%;
+  background: radial-gradient(circle, rgba(0, 255, 100, 0.08) 0%, transparent 70%);
+  animation: noiseDrift 18s ease-in-out infinite reverse;
+}
+
+@keyframes noiseDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(24px, -18px) scale(1.08); }
+}
+
+/* ---------- Scroll-driven mockup (Mehir-style) ---------- */
+.scrollShowcase {
+  position: relative;
+  margin-top: 140px;
+  padding-bottom: 80px;
+  z-index: 1;
+}
+
+.scrollHeader {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 72px;
+}
+
+.scrollLabel {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.scrollTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+}
+
+.scrollGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.stepsCol {
+  position: relative;
+}
+
+.stepBlock {
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  padding-left: 32px;
+  transition: border-color 0.5s ease;
+}
+
+.stepBlockActive {
+  border-left-color: rgba(0, 255, 0, 0.35);
+}
+
+.stepMeta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stepNum {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  opacity: 0.9;
+}
+
+.stepLine {
+  flex: 1;
+  max-width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  opacity: 0.5;
+}
+
+.stepTitle {
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #fff;
+  margin: 0 0 16px;
+}
+
+.stepDesc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  max-width: 480px;
+}
+
+.mockupCol {
+  position: relative;
+}
+
+.stickyMockup {
+  position: sticky;
+  top: calc(var(--navbar-height) + 32px);
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+}
+
+.stickyStage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.phoneCompact {
+  width: 240px;
+  height: 500px;
+  border-radius: 40px;
+  padding: 10px;
+  animation: none;
+}
+
+.phoneCompact .phoneBody {
+  border-radius: 30px;
+}
+
+.stepTabs {
+  display: flex;
+  gap: 10px;
+}
+
+.stepTab {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.stepTab:hover {
+  border-color: rgba(0, 255, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stepTabActive {
+  border-color: rgba(0, 255, 0, 0.45);
+  background: rgba(0, 255, 0, 0.1);
+  color: var(--color-accent);
+  box-shadow: 0 0 24px rgba(0, 255, 0, 0.15);
+}
+
 /* ============================================
    Responsive
    ============================================ */
@@ -691,6 +894,25 @@
   .storeRow { justify-content: center; }
   .metaRow { justify-content: center; }
   .phoneStage { max-width: 380px; }
+
+  .scrollGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .stepBlock {
+    min-height: auto;
+    padding: 32px 0 32px 24px;
+  }
+
+  .stickyMockup {
+    position: relative;
+    top: auto;
+  }
+
+  .mockupCol {
+    order: -1;
+  }
 }
 
 @media (max-width: 600px) {

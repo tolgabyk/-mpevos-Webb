@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
 import { RevealGroup, RevealItem } from '../Reveal/Reveal'
-import { EASE_SMOOTH, fadeUp, VIEWPORT_TIGHT } from '../../utils/motion'
+import { fadeUp, VIEWPORT_TIGHT, mockupSpring } from '../../utils/motion'
 import styles from './Services.module.css'
 
 const AUTO_INTERVAL = 4500
@@ -69,7 +69,7 @@ export default function Services() {
           <motion.div
             className={styles.track}
             animate={{ x: -activeIdx * step }}
-            transition={{ duration: 0.85, ease: EASE_SMOOTH }}
+            transition={mockupSpring}
           >
             {items.map((item, i) => {
               const Icon = Icons[item.icon]
@@ -90,10 +90,11 @@ export default function Services() {
                     },
                   }}
                   animate={{
-                    scale: isActive ? 1 : 0.96,
-                    opacity: isActive ? 1 : 0.6,
+                    scale: isActive ? 1 : 0.94,
+                    opacity: isActive ? 1 : 0.55,
+                    y: isActive ? 0 : 12,
                   }}
-                  transition={{ duration: 0.6, ease: EASE_SMOOTH }}
+                  transition={mockupSpring}
                   onClick={() => goTo(i)}
                 >
                   <div className={styles.cardBg} />

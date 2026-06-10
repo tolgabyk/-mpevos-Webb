@@ -38,3 +38,34 @@ export const scaleIn = {
     transition: { duration: 0.9, ease: EASE_SMOOTH },
   },
 }
+
+/** Mehir-style mockup screen transitions (slide + blur + scale) */
+export const mockupSlide = {
+  enter: (direction = 1) => ({
+    y: direction > 0 ? 64 : -64,
+    opacity: 0,
+    scale: 0.93,
+    filter: 'blur(12px)',
+  }),
+  center: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.72, ease: EASE_SMOOTH },
+  },
+  exit: (direction = 1) => ({
+    y: direction > 0 ? -40 : 40,
+    opacity: 0,
+    scale: 1.02,
+    filter: 'blur(8px)',
+    transition: { duration: 0.48, ease: EASE_CURTAIN },
+  }),
+}
+
+export const mockupSpring = {
+  type: 'spring',
+  stiffness: 140,
+  damping: 24,
+  mass: 0.85,
+}

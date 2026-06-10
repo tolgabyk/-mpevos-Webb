@@ -213,7 +213,27 @@
     "float2Desc": "Notunu kulaktan dinle",
     "float3Title": "Quiz tamamlandı",
     "float3Desc": "10/10 doğru cevap",
-    "updateShort": "Güncellemeleri ve Yenilikleri Takip Et"
+    "updateShort": "Güncellemeleri ve Yenilikleri Takip Et",
+    "scrollLabel": "Uygulama Deneyimi",
+    "scrollTitle": "Not Ortağım'ı",
+    "scrollTitleAccent": "adım adım keşfedin",
+    "scrollSteps": [
+      {
+        "title": "AI ile Anında Özet",
+        "desc": "PDF yükleyin; yapay zeka saniyeler içinde özet, quiz ve çalışma planı oluştursun.",
+        "screen": 2
+      },
+      {
+        "title": "Binlerce Notu Keşfedin",
+        "desc": "Paylaşılan notlara göz atın, filtreleyin ve ihtiyacınız olanı tek dokunuşla indirin.",
+        "screen": 1
+      },
+      {
+        "title": "Sesli Özet ile Öğrenin",
+        "desc": "Notunuzu podcast'e dönüştürün; hareket halindeyken kulaktan öğrenin.",
+        "screen": 4
+      }
+    ]
   },
   "team": {
     "label": "Ekibimiz",
