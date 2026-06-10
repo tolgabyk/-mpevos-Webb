@@ -51,6 +51,11 @@
     "cta2": "Contact Us",
     "scroll": "Scroll Down"
   },
+  "vision": {
+    "quote": "We believe technology is a universal language!",
+    "sub": "Great design and powerful software can transform businesses across every industry.",
+    "bgText": "Vision"
+  },
   "about": {
     "label": "About Us",
     "title": "A Vision That Creates",
@@ -58,7 +63,18 @@
     "subtitle": "Discover who we are and where we're heading.",
     "h3": "Our Story",
     "p1": "IMPEVOS TECHNOLOGY is a pioneering technology company providing innovative solutions in AI, advanced software technologies, and digital transformation. We combine corporate reliability with startup innovation to build the future today.",
-    "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology."
+    "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology.",
+    "featured": {
+      "tag": "First Impression",
+      "title": "First impression might be your last chance.",
+      "lead": "Every pixel, every color defines the character of design and tells a story to its visitor.",
+      "body1": "Your corporate identity is the soul of your brand, and reflecting it correctly in the digital world is vital.",
+      "body2": "A premium digital experience is the most effective way to showcase your brand elegantly and impressively."
+    },
+    "trust": {
+      "title": "We believe in the power of transparent communication.",
+      "lead": "We move your brand forward with the technological tools we develop and strategic partnerships."
+    }
   },
   "services": {
     "label": "Our Services",

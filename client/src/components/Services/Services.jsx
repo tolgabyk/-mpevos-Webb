@@ -1,105 +1,80 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
-import { ArrowUpRight } from '@phosphor-icons/react'
 import styles from './Services.module.css'
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 48, rotateX: 8 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
-  },
-}
 
 export default function Services() {
   const { t } = useTranslation()
   const items = t('services.items', { returnObjects: true })
-  const containerRef = useRef(null)
+  const trackRef = useRef(null)
+  const [progress, setProgress] = useState(0)
 
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return
-    const cards = containerRef.current.getElementsByClassName(styles.card)
-    for (const card of cards) {
-      const rect = card.getBoundingClientRect()
-      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`)
-      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`)
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return undefined
+
+    const onScroll = () => {
+      const max = track.scrollWidth - track.clientWidth
+      setProgress(max > 0 ? track.scrollLeft / max : 0)
     }
-  }
+
+    track.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => track.removeEventListener('scroll', onScroll)
+  }, [items.length])
 
   return (
     <section id="services" className={styles.section}>
-      <div className={styles.bgText} aria-hidden="true">{t('services.bgText')}</div>
-      <div className={styles.bgDecoration} />
+      <div className={styles.bgGlow} />
       <div className="container">
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="section-label">{t('services.label')}</div>
-          <h2 className="section-title">
+          <h2 className={styles.title}>
             {t('services.title')}{' '}
-            <span className="text-accent">{t('services.titleAccent')}</span>{' '}
-            {t('services.titleEnd')}
+            <span className="text-accent">{t('services.titleAccent')}</span>
           </h2>
           <p className={styles.lead}>{t('services.lead')}</p>
-          <p className="section-subtitle">{t('services.subtitle')}</p>
         </motion.div>
 
-        <motion.div
-          ref={containerRef}
-          className={styles.grid}
-          onMouseMove={handleMouseMove}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-        >
-          {items.map((item, i) => {
-            const Icon = Icons[item.icon]
-            const num = String(i + 1).padStart(2, '0')
-            return (
-              <motion.article key={i} className={styles.card} variants={cardVariants}>
-                <div className={styles.cardGlow} />
-                <div className={styles.cardShine} />
-
-                <div className={styles.cardTop}>
-                  <span className={styles.cardNum}>{num}</span>
-                  <div className={styles.arrowIcon}>
-                    <ArrowUpRight size={22} weight="bold" />
+        <div className={styles.carouselWrap}>
+          <div ref={trackRef} className={styles.track}>
+            {items.map((item, i) => {
+              const Icon = Icons[item.icon]
+              return (
+                <motion.article
+                  key={i}
+                  className={styles.card}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.6, delay: i * 0.05 }}
+                >
+                  <div className={styles.cardBg} />
+                  <div className={styles.cardShine} />
+                  <div className={styles.cardBody}>
+                    <div className={styles.iconCircle}>
+                      {Icon && <Icon size={26} weight="duotone" />}
+                    </div>
+                    <h3 className={styles.cardTitle}>{item.title}</h3>
+                    <p className={styles.cardDesc}>{item.desc}</p>
                   </div>
-                </div>
+                </motion.article>
+              )
+            })}
+          </div>
+        </div>
 
-                <div className={styles.iconWrap}>
-                  {Icon && <Icon size={32} weight="duotone" />}
-                </div>
-
-                <div className={styles.cardContent}>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <p className={styles.cardDesc}>{item.desc}</p>
-                </div>
-
-                <div className={styles.cardFooter}>
-                  <span className={styles.cardTag}>{t('services.cardTag')}</span>
-                  <span className={styles.cardLine} />
-                </div>
-
-                <div className={styles.cardBorder} />
-              </motion.article>
-            )
-          })}
-        </motion.div>
+        <div className={styles.progressWrap}>
+          <div className={styles.progressTrack}>
+            <div className={styles.progressBar} style={{ transform: `scaleX(${Math.max(progress, 0.08)})` }} />
+          </div>
+        </div>
       </div>
     </section>
   )

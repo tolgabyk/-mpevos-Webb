@@ -51,6 +51,11 @@
     "cta2": "Bize Ulaşın",
     "scroll": "Aşağı Kaydır"
   },
+  "vision": {
+    "quote": "Teknolojinin evrensel bir dil olduğuna inanıyoruz!",
+    "sub": "İyi bir tasarım ve güçlü yazılım, farklı sektörlerdeki işletmeleri bile dönüştürmeyi başarır.",
+    "bgText": "Vizyon"
+  },
   "about": {
     "label": "Hakkımızda",
     "title": "Teknolojiyle Değer Yaratan",
@@ -58,14 +63,25 @@
     "subtitle": "Kim olduğumuzu ve nereye gittiğimizi keşfedin.",
     "h3": "Hikayemiz",
     "p1": "IMPEVOS TEKNOLOJİ, yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunan bir teknoloji şirketidir. Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
-    "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür."
+    "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
+    "featured": {
+      "tag": "İlk İzlenim",
+      "title": "İlk izlenim son şansınız olabilir.",
+      "lead": "Her bir piksel, her bir renk, tasarımın karakterini belirler ve ziyaretçisine bir hikaye anlatır.",
+      "body1": "Kurumsal kimliğiniz, markanızın ruhudur ve bu ruhu dijital dünyada doğru yansıtmak hayati öneme sahiptir.",
+      "body2": "Premium bir dijital deneyim, markanızı zarif ve etkileyici biçimde sergilemenin en etkili yoludur."
+    },
+    "trust": {
+      "title": "Şeffaf iletişimin gücüne inanıyoruz.",
+      "lead": "Geliştirdiğimiz teknolojik araçlar ve stratejik iş ortaklıkları ile markanızı ileriye taşıyoruz."
+    }
   },
   "services": {
     "label": "Hizmetlerimiz",
     "title": "Hizmetlerimizi",
     "titleAccent": "Keşfedin",
     "titleEnd": "",
-    "lead": "Büyük bir ekip, küresel bir vizyon! İşletmenizin dijital ihtiyaçlarını tek çatı altında topluyoruz.",
+    "lead": "Büyük bir ekip, küresel bir vizyon! 360 derece dijital hizmetlerimizle işletmenizin tüm ihtiyaçlarını tek çatı altında topluyoruz.",
     "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.",
     "bgText": "Hizmetler",
     "cardTag": "Keşfet",

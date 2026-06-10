@@ -1,284 +1,198 @@
 .section {
   position: relative;
+  padding: 120px 0 100px;
   overflow: hidden;
-  background: var(--color-primary);
-  padding: 120px 0;
+  background: #000;
 }
 
-.bgText {
+.bgGlow {
   position: absolute;
-  top: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: clamp(4rem, 14vw, 10rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.025);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  z-index: 0;
-}
-
-.bgDecoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background:
-    radial-gradient(circle at 15% 20%, rgba(0, 255, 0, 0.06) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(0, 255, 0, 0.04) 0%, transparent 40%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 255, 0, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 80%, rgba(0, 200, 80, 0.05) 0%, transparent 40%);
   pointer-events: none;
-  z-index: 0;
 }
 
 .header {
   position: relative;
   z-index: 1;
-  max-width: 780px;
-  margin-bottom: 64px;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 56px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  color: #fff;
 }
 
 .lead {
-  font-size: clamp(1.125rem, 2.2vw, 1.375rem);
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--color-secondary);
-  margin: 20px 0 12px;
-  max-width: 640px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.grid {
+.carouselWrap {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  perspective: 1200px;
+  margin: 0 calc(var(--container-padding) * -1);
+  padding: 0 var(--container-padding);
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
 }
 
 .card {
   position: relative;
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 20px;
-  padding: 28px 28px 24px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
+  flex: 0 0 min(320px, 78vw);
+  min-height: 380px;
+  scroll-snap-align: start;
+  border-radius: 24px;
   overflow: hidden;
-  cursor: default;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.4s ease,
-    box-shadow 0.55s ease;
-  transform-style: preserve-3d;
+    box-shadow 0.5s ease;
+  cursor: default;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(0, 255, 0, 0.28);
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 0, 0.35);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(0, 255, 0, 0.08);
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 255, 0, 0.08);
 }
 
-.cardGlow {
+.cardBg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    520px circle at var(--mouse-x) var(--mouse-y),
-    rgba(0, 255, 0, 0.09),
-    transparent 42%
+  background: linear-gradient(
+    165deg,
+    rgba(0, 255, 0, 0.06) 0%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.4) 100%
   );
-  opacity: 0;
-  transition: opacity 0.45s ease;
   pointer-events: none;
-}
-
-.card:hover .cardGlow {
-  opacity: 1;
 }
 
 .cardShine {
   position: absolute;
   top: 0;
-  left: -120%;
-  width: 60%;
+  left: -100%;
+  width: 50%;
   height: 100%;
-  background: linear-gradient(
-    105deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.06) 50%,
-    transparent 60%
-  );
-  transform: skewX(-18deg);
-  transition: left 0.75s ease;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  transform: skewX(-15deg);
+  transition: left 0.7s ease;
   pointer-events: none;
 }
 
 .card:hover .cardShine {
-  left: 140%;
+  left: 150%;
 }
 
-.cardTop {
+.cardBody {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 28px;
-  position: relative;
-  z-index: 1;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.cardNum {
-  font-size: 0.8125rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: rgba(0, 255, 0, 0.55);
-}
-
-.arrowIcon {
-  width: 40px;
-  height: 40px;
+.iconCircle {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-secondary-muted);
-  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.card:hover .arrowIcon {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #000;
-  transform: rotate(-45deg);
-}
-
-.iconWrap {
-  position: relative;
-  z-index: 1;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 24px;
-  background: rgba(0, 255, 0, 0.08);
-  border: 1px solid rgba(0, 255, 0, 0.15);
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(0, 255, 0, 0.25);
   color: var(--color-accent);
-  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.4s ease;
 }
 
-.card:hover .iconWrap {
+.card:hover .iconCircle {
   background: var(--color-accent);
   color: #000;
-  transform: scale(1.05);
-  box-shadow: 0 12px 32px rgba(0, 255, 0, 0.25);
-}
-
-.cardContent {
-  position: relative;
-  z-index: 1;
-  flex: 1;
+  box-shadow: 0 0 24px rgba(0, 255, 0, 0.4);
 }
 
 .cardTitle {
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 12px;
-  color: var(--color-secondary);
-  transition: color 0.3s ease;
-}
-
-.card:hover .cardTitle {
   color: #fff;
-}
-
-.cardDesc {
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  color: var(--color-secondary-dim);
   margin: 0;
 }
 
-.cardFooter {
+.cardDesc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.progressWrap {
   position: relative;
   z-index: 1;
-  margin-top: 28px;
+  margin-top: 36px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  justify-content: center;
 }
 
-.cardTag {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-secondary-muted);
-}
-
-.cardLine {
-  display: block;
+.progressTrack {
+  width: min(280px, 60%);
   height: 2px;
-  width: 36px;
-  background: var(--color-accent);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 100px;
-  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
 }
 
-.card:hover .cardLine {
+.progressBar {
+  height: 100%;
   width: 100%;
-}
-
-.cardBorder {
-  position: absolute;
-  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
   border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 255, 0, 0.45),
-    transparent 42%,
-    transparent 58%,
-    rgba(0, 255, 0, 0.2)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.45s ease;
-  pointer-events: none;
-}
-
-.card:hover .cardBorder {
-  opacity: 1;
-}
-
-@media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  transform-origin: left;
+  transition: transform 0.15s ease-out;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 96px 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
+    padding: 96px 0 72px;
   }
 
   .card {
-    min-height: auto;
-    padding: 24px;
+    min-height: 340px;
   }
 }
