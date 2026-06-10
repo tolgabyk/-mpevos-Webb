@@ -25,14 +25,19 @@ export default function Footer() {
               <li><a href="#about">{t('nav.about')}</a></li>
               <li><a href="#services">{t('nav.services')}</a></li>
               <li><a href="#projects">{t('nav.projects')}</a></li>
+              <li><a href="#team">{t('nav.team')}</a></li>
+              <li><Link to="/ekibe-katil">{t('nav.joinTeam')}</Link></li>
               <li><a href="#contact">{t('nav.contact')}</a></li>
             </ul>
           </div>
 
           <div className={styles.column}>
-            <h4>{t('footer.careers')}</h4>
+            <h4>{t('footer.services')}</h4>
             <ul>
-              <li><Link to="/ekibe-katil">{t('nav.joinTeam')}</Link></li>
+              <li><a href="#services">{t('services.items.0.title')}</a></li>
+              <li><a href="#services">{t('services.items.1.title')}</a></li>
+              <li><a href="#services">{t('services.items.2.title')}</a></li>
+              <li><a href="#services">{t('services.items.3.title')}</a></li>
             </ul>
           </div>
 
