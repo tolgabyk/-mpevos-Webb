@@ -51,41 +51,83 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
-.stack {
+.carouselWrap {
   position: relative;
   z-index: 1;
+  margin: 0 calc(var(--container-padding) * -1);
+  padding: 0 var(--container-padding);
 }
 
-.deck {
-  min-height: 400px;
+.track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 12px 0 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: grab;
 }
 
-.cardContent {
+.track:active {
+  cursor: grabbing;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
   position: relative;
-  height: 100%;
-  min-height: inherit;
+  flex: 0 0 min(320px, 78vw);
+  min-height: 400px;
+  scroll-snap-align: start;
+  border-radius: 24px;
   overflow: hidden;
-  border-radius: inherit;
-}
-
-.cardBg {
-  position: absolute;
-  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  transition:
+    border-color 0.45s ease,
+    box-shadow 0.5s ease;
 }
 
-.cardAmbient {
+.cardActive {
+  border-color: rgba(0, 255, 0, 0.35);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 255, 0, 0.1);
+}
+
+.cardBg {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     165deg,
     rgba(0, 255, 0, 0.06) 0%,
     transparent 45%,
-    rgba(0, 0, 0, 0.35) 100%
+    rgba(0, 0, 0, 0.4) 100%
   );
   pointer-events: none;
+}
+
+.cardTopGlow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 0, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.cardActive .cardTopGlow,
+.card:hover .cardTopGlow {
+  opacity: 1;
 }
 
 .cardShine {
@@ -96,12 +138,12 @@
   height: 100%;
   background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.04), transparent);
   transform: skewX(-15deg);
+  transition: left 0.7s ease;
   pointer-events: none;
 }
 
-.cardContent:hover .cardShine {
+.card:hover .cardShine {
   left: 150%;
-  transition: left 0.7s ease;
 }
 
 .cardBody {
@@ -113,7 +155,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  z-index: 1;
 }
 
 .iconCircle {
@@ -129,7 +170,8 @@
   transition: all 0.4s ease;
 }
 
-.cardContent:hover .iconCircle {
+.card:hover .iconCircle,
+.cardActive .iconCircle {
   background: var(--color-accent);
   color: #000;
   box-shadow: 0 0 24px rgba(0, 255, 0, 0.4);
@@ -152,12 +194,62 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  animation: descIn 0.45s ease;
 }
 
-@keyframes descIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+.footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.dotActive {
+  width: 28px;
+  border-radius: 100px;
+  background: var(--color-accent);
+  box-shadow: 0 0 16px rgba(0, 255, 0, 0.5);
+}
+
+.progressWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.progressTrack {
+  width: min(280px, 60%);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  border-radius: inherit;
+  transform-origin: left;
 }
 
 @media (max-width: 768px) {
@@ -165,7 +257,7 @@
     padding: 96px 0 72px;
   }
 
-  .deck {
+  .card {
     min-height: 360px;
   }
 }

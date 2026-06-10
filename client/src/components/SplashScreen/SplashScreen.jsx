@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { EASE_CURTAIN, EASE_SMOOTH } from '../../utils/motion'
 import styles from './SplashScreen.module.css'
 
 const SPLASH_KEY = 'impevos-splash-seen'
@@ -16,13 +17,13 @@ export default function SplashScreen({ onComplete }) {
 
     document.body.style.overflow = 'hidden'
 
-    const t1 = setTimeout(() => setPhase('curtain'), 1600)
+    const t1 = setTimeout(() => setPhase('curtain'), 1800)
     const t2 = setTimeout(() => {
       sessionStorage.setItem(SPLASH_KEY, '1')
       setVisible(false)
       document.body.style.overflow = ''
       onComplete?.()
-    }, 2600)
+    }, 2900)
 
     return () => {
       clearTimeout(t1)
@@ -37,7 +38,7 @@ export default function SplashScreen({ onComplete }) {
         <motion.div
           className={styles.overlay}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.55, ease: EASE_SMOOTH }}
         >
           {phase === 'curtain' && (
             <>
@@ -45,13 +46,13 @@ export default function SplashScreen({ onComplete }) {
                 className={styles.curtainTop}
                 initial={{ scaleY: 1 }}
                 animate={{ scaleY: 0 }}
-                transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+                transition={{ duration: 1, ease: EASE_CURTAIN }}
               />
               <motion.div
                 className={styles.curtainBottom}
                 initial={{ scaleY: 1 }}
                 animate={{ scaleY: 0 }}
-                transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+                transition={{ duration: 1, ease: EASE_CURTAIN }}
               />
             </>
           )}
@@ -64,7 +65,7 @@ export default function SplashScreen({ onComplete }) {
                 ? { opacity: 0, scale: 1.08 }
                 : { opacity: 1, scale: 1 }
             }
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, ease: EASE_SMOOTH }}
           >
             <div className={styles.logoWrap}>
               <motion.div
@@ -87,7 +88,7 @@ export default function SplashScreen({ onComplete }) {
                 className={styles.progressBar}
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 1.5, ease: EASE_SMOOTH }}
               />
             </div>
 

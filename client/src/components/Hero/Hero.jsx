@@ -132,7 +132,7 @@ export default function Hero({ ready = true }) {
           type="button"
           className={styles.scrollIndicator}
           variants={itemVariants}
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('vision')?.scrollIntoView({ behavior: 'smooth' })}
         >
           <span>{t('hero.scroll')}</span>
           <div className={styles.scrollMouse}>

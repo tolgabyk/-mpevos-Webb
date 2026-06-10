@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CaretLeft, CaretRight } from '@phosphor-icons/react'
+import { EASE_SMOOTH, EASE_SPRING } from '../../utils/motion'
 import styles from './CardStack.module.css'
 
 const VISIBLE = 5
 const SWIPE_THRESHOLD = 60
+const DRAG_THRESHOLD = 70
 
 function getStackPosition(index, active, total) {
   let diff = index - active
@@ -60,6 +62,11 @@ export default function CardStack({
     touchStart.current = null
   }
 
+  const onDragEnd = (_, info) => {
+    if (info.offset.x < -DRAG_THRESHOLD) goNext()
+    else if (info.offset.x > DRAG_THRESHOLD) goPrev()
+  }
+
   return (
     <div
       className={`${styles.stack} ${visual ? '' : styles.stackSingle} ${className}`}
@@ -83,18 +90,19 @@ export default function CardStack({
                 zIndex: total - pos,
                 scale: 1 - pos * 0.038,
                 y: pos * 18,
-                x: pos * 6 * direction,
+                x: pos * 6,
                 opacity: isFront ? 1 : Math.max(0.25, 0.88 - pos * 0.14),
                 rotateX: pos * -2,
+                filter: isFront ? 'brightness(1)' : `brightness(${0.82 - pos * 0.08})`,
               }}
-              transition={{
-                type: 'spring',
-                stiffness: 260,
-                damping: 28,
-                mass: 0.9,
-              }}
+              transition={EASE_SPRING}
               style={{ transformOrigin: 'top center' }}
+              drag={isFront ? 'x' : false}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.12}
+              onDragEnd={isFront ? onDragEnd : undefined}
               onClick={() => !isFront && goTo(index, index > active ? 1 : -1)}
+              whileTap={isFront ? { scale: 0.995 } : { scale: 0.98 }}
             >
               <div className={styles.cardInner}>
                 {renderCard(item, isFront, index)}
@@ -109,10 +117,10 @@ export default function CardStack({
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
-              initial={{ opacity: 0, scale: 0.85, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: -10 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, scale: 0.88, rotate: -8 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 0.92, rotate: 8 }}
+              transition={{ duration: 0.55, ease: EASE_SMOOTH }}
             >
               {typeof visual === 'function' ? visual(active, items[active]) : visual}
             </motion.div>
