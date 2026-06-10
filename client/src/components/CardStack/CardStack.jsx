@@ -21,6 +21,9 @@ export default function CardStack({
   renderCard,
   visual,
   className = '',
+  deckClassName = '',
+  showManualProgress = false,
+  variant = 'accent',
 }) {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
@@ -59,13 +62,13 @@ export default function CardStack({
 
   return (
     <div
-      className={`${styles.stack} ${className}`}
+      className={`${styles.stack} ${visual ? '' : styles.stackSingle} ${className}`}
       onMouseEnter={() => pauseOnHover && setPaused(true)}
       onMouseLeave={() => pauseOnHover && setPaused(false)}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <div className={styles.deck}>
+      <div className={`${styles.deck} ${deckClassName}`}>
         {items.map((item, index) => {
           const pos = getStackPosition(index, active, total)
           if (pos === null) return null
@@ -75,7 +78,7 @@ export default function CardStack({
           return (
             <motion.article
               key={item.id ?? index}
-              className={`${styles.card} ${isFront ? styles.cardFront : ''}`}
+              className={`${styles.card} ${variant === 'glass' ? styles.cardGlass : ''} ${isFront ? styles.cardFront : ''}`}
               animate={{
                 zIndex: total - pos,
                 scale: 1 - pos * 0.038,
@@ -145,6 +148,15 @@ export default function CardStack({
             key={active}
             className={`${styles.autoProgress} ${paused ? styles.autoPaused : ''}`}
             style={{ animationDuration: `${autoPlayInterval}ms` }}
+          />
+        </div>
+      )}
+
+      {showManualProgress && !autoPlay && total > 1 && (
+        <div className={styles.manualBar}>
+          <div
+            className={styles.manualProgress}
+            style={{ transform: `scaleX(${(active + 1) / total})` }}
           />
         </div>
       )}

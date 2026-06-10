@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+.stackSingle {
+  grid-template-columns: 1fr;
+  max-width: min(420px, 92vw);
+  margin: 0 auto;
+}
+
 .deck {
   position: relative;
   min-height: clamp(380px, 52vw, 460px);
@@ -33,6 +39,22 @@
 
 .card:not(.cardFront):hover {
   border-color: rgba(0, 255, 0, 0.22);
+}
+
+.cardGlass {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cardGlass.cardFront {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0, 255, 0, 0.06);
+}
+
+.cardGlass:not(.cardFront):hover {
+  border-color: rgba(0, 255, 0, 0.3);
 }
 
 .cardInner {
@@ -124,6 +146,23 @@
 
 @keyframes autoFill {
   to { transform: scaleX(1); }
+}
+
+.manualBar {
+  grid-column: 1 / -1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.manualProgress {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (max-width: 900px) {

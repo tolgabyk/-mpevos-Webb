@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import * as Icons from '@phosphor-icons/react'
 import CardStack from '../CardStack/CardStack'
-import LightBulb from '../LightBulb/LightBulb'
 import styles from './Services.module.css'
 
 export default function Services() {
@@ -32,35 +31,24 @@ export default function Services() {
 
         <CardStack
           items={items}
-          autoPlay
-          autoPlayInterval={5000}
+          variant="glass"
+          showManualProgress
           className={styles.stack}
-          visual={(_activeIndex, item) => {
-            const Icon = Icons[item.icon]
-            return (
-              <div className={styles.visualWrap}>
-                <LightBulb active size="md" />
-                <div className={styles.visualIcon}>
-                  {Icon && <Icon size={28} weight="duotone" />}
-                </div>
-              </div>
-            )
-          }}
+          deckClassName={styles.deck}
           renderCard={(item, isFront) => {
             const Icon = Icons[item.icon]
             return (
               <div className={styles.cardContent}>
                 <div className={styles.cardBg} />
                 <div className={styles.cardShine} />
+                <div className={styles.cardAmbient} />
                 <div className={styles.cardBody}>
-                  <span className={styles.cardTag}>{t('services.cardTag')}</span>
                   <div className={styles.iconCircle}>
-                    {Icon && <Icon size={32} weight="duotone" />}
+                    {Icon && <Icon size={26} weight="duotone" />}
                   </div>
                   <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <p className={styles.cardDesc}>{item.desc}</p>
+                  {isFront && <p className={styles.cardDesc}>{item.desc}</p>}
                 </div>
-                {isFront && <div className={styles.cardPulse} />}
               </div>
             )
           }}
