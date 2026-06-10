@@ -53,59 +53,57 @@ export default function About() {
             items={items}
             showManualProgress
             stackDepth={6}
+            stackMode="deck"
+            fullWidth
             className={styles.stack}
             deckClassName={styles.deck}
-            renderCard={(item, isFront, _index, active) => (
+            renderCard={(item, isFront, index, active) => (
               <div className={styles.cardContent}>
                 <div className={`${styles.cardBg} ${styles[`tone${item.tone ?? 0}`]}`} />
-                <div className={styles.cardGrid}>
-                  <div className={styles.cardBody}>
-                    <AnimatePresence mode="wait">
-                      {isFront && (
-                        <motion.div
-                          key={active}
-                          initial={{ opacity: 0, x: 24 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -24 }}
-                          transition={{ duration: 0.4, ease: EASE_SMOOTH }}
-                        >
-                          <span className={styles.tag}>{item.tag}</span>
-                          <h3 className={styles.cardTitle}>{item.title}</h3>
-                          {item.lead && <p className={styles.lead}>{item.lead}</p>}
-                          <div className={styles.cols}>
-                            {item.body && <p className={styles.body}>{item.body}</p>}
-                            {item.body2 && <p className={styles.bodyMuted}>{item.body2}</p>}
-                          </div>
-                        </motion.div>
-                      )}
-                      {!isFront && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 0.6 }}
-                        >
-                          <span className={styles.tag}>{item.tag}</span>
-                          <h3 className={styles.cardTitle}>{item.title}</h3>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
 
-                  <div className={styles.cardVisual}>
-                    {isFront ? (
-                      <motion.div
-                        key={`bulb-${active}`}
-                        initial={{ opacity: 0, scale: 0.85 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.55, ease: EASE_SMOOTH }}
-                      >
-                        <LightBulb active size="lg" />
-                      </motion.div>
-                    ) : (
-                      <div className={styles.orbitPeek} aria-hidden="true" />
-                    )}
+                {!isFront && (
+                  <div className={styles.peekTab}>
+                    <span className={styles.peekTag}>{item.tag}</span>
                   </div>
-                </div>
-                {isFront && <div className={styles.cardGlow} />}
+                )}
+
+                {isFront && (
+                  <>
+                    <div className={styles.cardGrid}>
+                      <div className={styles.cardBody}>
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={active}
+                            initial={{ opacity: 0, x: 24 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -24 }}
+                            transition={{ duration: 0.4, ease: EASE_SMOOTH }}
+                          >
+                            <span className={styles.tag}>{item.tag}</span>
+                            <h3 className={styles.cardTitle}>{item.title}</h3>
+                            {item.lead && <p className={styles.lead}>{item.lead}</p>}
+                            <div className={styles.cols}>
+                              {item.body && <p className={styles.body}>{item.body}</p>}
+                              {item.body2 && <p className={styles.bodyMuted}>{item.body2}</p>}
+                            </div>
+                          </motion.div>
+                        </AnimatePresence>
+                      </div>
+
+                      <div className={styles.cardVisual}>
+                        <motion.div
+                          key={`bulb-${active}`}
+                          initial={{ opacity: 0, scale: 0.85 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.55, ease: EASE_SMOOTH }}
+                        >
+                          <LightBulb active size="lg" />
+                        </motion.div>
+                      </div>
+                    </div>
+                    <div className={styles.cardGlow} />
+                  </>
+                )}
               </div>
             )}
           />

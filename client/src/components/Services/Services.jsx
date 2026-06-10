@@ -6,7 +6,7 @@ import { RevealGroup, RevealItem } from '../Reveal/Reveal'
 import { EASE_SMOOTH, fadeUp, VIEWPORT_TIGHT } from '../../utils/motion'
 import styles from './Services.module.css'
 
-const AUTO_INTERVAL = 4500
+const AUTO_INTERVAL = 5000
 const GAP = 20
 
 export default function Services() {
@@ -41,10 +41,12 @@ export default function Services() {
   return (
     <section id="services" className={styles.section}>
       <div className={styles.bgGlow} />
-      <div className={styles.bgText} aria-hidden="true">{t('services.bgText')}</div>
 
       <div className="container">
         <RevealGroup className={styles.header}>
+          <RevealItem>
+            <span className={styles.label}>{t('services.label')}</span>
+          </RevealItem>
           <RevealItem>
             <h2 className={styles.title}>
               {t('services.title')}{' '}
@@ -61,9 +63,10 @@ export default function Services() {
           className={styles.carouselWrap}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
-          onTouchStart={() => setPaused(true)}
-          onTouchEnd={() => setTimeout(() => setPaused(false), AUTO_INTERVAL)}
         >
+          <div className={styles.fadeLeft} aria-hidden="true" />
+          <div className={styles.fadeRight} aria-hidden="true" />
+
           <motion.div
             className={styles.track}
             animate={{ x: -activeIdx * step }}
@@ -84,19 +87,17 @@ export default function Services() {
                     hidden: fadeUp.hidden,
                     visible: {
                       ...fadeUp.visible,
-                      transition: { ...fadeUp.visible.transition, delay: i * 0.06 },
+                      transition: { ...fadeUp.visible.transition, delay: i * 0.04 },
                     },
                   }}
                   animate={{
                     scale: isActive ? 1 : 0.96,
-                    opacity: isActive ? 1 : 0.65,
+                    opacity: isActive ? 1 : 0.6,
                   }}
                   transition={{ duration: 0.6, ease: EASE_SMOOTH }}
-                  whileHover={isActive ? { y: -10 } : undefined}
+                  onClick={() => goTo(i)}
                 >
                   <div className={styles.cardBg} />
-                  <div className={styles.cardShine} />
-                  <div className={styles.cardTopGlow} />
                   <div className={styles.cardBody}>
                     <div className={styles.iconCircle}>
                       {Icon && <Icon size={26} weight="duotone" />}

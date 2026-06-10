@@ -6,11 +6,23 @@ import styles from './CardStack.module.css'
 
 const SWIPE_THRESHOLD = 60
 const DRAG_THRESHOLD = 70
+const TAB_HEIGHT = 54
+const STAGGER_X = 14
 
 function getStackPosition(index, active, total) {
   let diff = index - active
   if (diff < 0) diff += total
   return diff
+}
+
+function getDeckLayout(pos, visibleCount) {
+  return {
+    top: (visibleCount - 1 - pos) * TAB_HEIGHT,
+    left: pos * STAGGER_X,
+    right: pos * STAGGER_X,
+    scale: 1 - pos * 0.022,
+    zIndex: visibleCount - pos,
+  }
 }
 
 export default function CardStack({
@@ -25,6 +37,8 @@ export default function CardStack({
   showManualProgress = false,
   variant = 'accent',
   stackDepth = 6,
+  fullWidth = false,
+  stackMode = 'default',
 }) {
   const [active, setActive] = useState(0)
   const [direction, setDirection] = useState(1)
@@ -34,6 +48,7 @@ export default function CardStack({
 
   const total = items.length
   const visibleCount = Math.min(stackDepth, total)
+  const isDeck = stackMode === 'deck'
 
   const goTo = useCallback((index, dir = 1) => {
     if (exiting) return
@@ -75,54 +90,77 @@ export default function CardStack({
     else if (info.offset.x > DRAG_THRESHOLD) goPrev()
   }
 
+  const deckStyle = isDeck
+    ? { '--stack-tabs': visibleCount - 1, '--tab-height': `${TAB_HEIGHT}px` }
+    : undefined
+
   return (
     <div
-      className={`${styles.stack} ${visual ? '' : styles.stackSingle} ${className}`}
+      className={`${styles.stack} ${visual ? '' : (!fullWidth && styles.stackSingle)} ${isDeck ? styles.stackDeck : ''} ${className}`}
       onMouseEnter={() => pauseOnHover && setPaused(true)}
       onMouseLeave={() => pauseOnHover && setPaused(false)}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <div className={`${styles.deck} ${deckClassName}`}>
+      <div
+        className={`${styles.deck} ${deckClassName} ${isDeck ? styles.deckLayered : ''}`}
+        style={deckStyle}
+      >
         {items.map((item, index) => {
           const pos = getStackPosition(index, active, total)
           if (pos >= visibleCount) return null
 
           const isFront = pos === 0
           const isLeaving = isFront && exiting
+          const deckLayout = isDeck ? getDeckLayout(pos, visibleCount) : null
+
+          let animateProps
+          if (isLeaving) {
+            animateProps = {
+              x: direction > 0 ? -160 : 160,
+              opacity: 0,
+              scale: 0.96,
+              rotateZ: direction > 0 ? -5 : 5,
+              zIndex: total + 1,
+            }
+          } else if (isDeck && deckLayout) {
+            animateProps = {
+              top: deckLayout.top,
+              left: deckLayout.left,
+              right: deckLayout.right,
+              scale: deckLayout.scale,
+              zIndex: deckLayout.zIndex,
+              x: 0,
+              opacity: 1,
+              rotateZ: 0,
+              rotateX: 0,
+            }
+          } else {
+            animateProps = {
+              zIndex: total - pos,
+              scale: 1 - pos * 0.048,
+              y: pos * 28,
+              x: pos * 14,
+              opacity: isFront ? 1 : Math.max(0.35, 0.92 - pos * 0.11),
+              rotateX: pos * -1.5,
+              rotateZ: pos * 0.4,
+              filter: isFront ? 'brightness(1)' : `brightness(${0.78 - pos * 0.07})`,
+            }
+          }
 
           return (
             <motion.article
               key={item.id ?? index}
-              className={`${styles.card} ${variant === 'glass' ? styles.cardGlass : ''} ${isFront ? styles.cardFront : ''}`}
-              animate={
-                isLeaving
-                  ? {
-                      x: direction > 0 ? -140 : 140,
-                      opacity: 0,
-                      scale: 0.94,
-                      rotateZ: direction > 0 ? -6 : 6,
-                      zIndex: total + 1,
-                    }
-                  : {
-                      zIndex: total - pos,
-                      scale: 1 - pos * 0.048,
-                      y: pos * 28,
-                      x: pos * 14,
-                      opacity: isFront ? 1 : Math.max(0.35, 0.92 - pos * 0.11),
-                      rotateX: pos * -1.5,
-                      rotateZ: pos * 0.4,
-                      filter: isFront ? 'brightness(1)' : `brightness(${0.78 - pos * 0.07})`,
-                    }
-              }
+              className={`${styles.card} ${isDeck ? styles.cardDeck : ''} ${variant === 'glass' ? styles.cardGlass : ''} ${isFront ? styles.cardFront : styles.cardBack} ${isDeck && !isFront ? styles.cardTab : ''}`}
+              animate={animateProps}
               transition={isLeaving ? { duration: 0.32, ease: EASE_SMOOTH } : EASE_SPRING}
-              style={{ transformOrigin: 'top center' }}
+              style={{ transformOrigin: isDeck ? 'top center' : 'top center' }}
               drag={isFront && !exiting ? 'x' : false}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.1}
               onDragEnd={isFront ? onDragEnd : undefined}
               onClick={() => !isFront && !exiting && goTo(index, index > active ? 1 : -1)}
-              whileTap={isFront && !exiting ? { scale: 0.992 } : { scale: 0.98 }}
+              whileTap={isFront && !exiting ? { scale: 0.995 } : undefined}
             >
               <div className={styles.cardInner}>
                 {renderCard(item, isFront, index, active)}

@@ -12,11 +12,23 @@
   margin: 0 auto;
 }
 
+.stackDeck {
+  grid-template-columns: 1fr;
+  max-width: 100%;
+}
+
 .deck {
   position: relative;
   min-height: clamp(380px, 52vw, 460px);
   perspective: 1400px;
   transform-style: preserve-3d;
+}
+
+.deckLayered {
+  --stack-tabs: 5;
+  --tab-height: 54px;
+  min-height: calc(420px + var(--stack-tabs) * var(--tab-height));
+  padding-top: 4px;
 }
 
 .card {
@@ -26,19 +38,48 @@
   overflow: hidden;
   border: 1px solid rgba(0, 255, 0, 0.12);
   cursor: pointer;
-  will-change: transform, opacity;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  will-change: transform, top, left, right;
+}
+
+.cardDeck {
+  inset: auto;
+  bottom: 0;
 }
 
 .cardFront {
   cursor: default;
-  border-color: rgba(0, 255, 0, 0.28);
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.55),
-    0 0 60px rgba(0, 255, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
-.card:not(.cardFront):hover {
+.cardBack {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.cardTab {
+  cursor: pointer;
+}
+
+.cardTab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-accent);
+  opacity: 0.35;
+  z-index: 4;
+}
+
+.cardTab:hover {
+  border-color: rgba(0, 255, 0, 0.45);
+  box-shadow: 0 0 24px rgba(0, 255, 0, 0.15);
+}
+
+.card:not(.cardFront):not(.cardTab):hover {
   border-color: rgba(0, 255, 0, 0.22);
 }
 
@@ -181,7 +222,7 @@
     min-height: 160px;
   }
 
-  .deck {
-    min-height: 420px;
+  .deckLayered {
+    min-height: calc(400px + var(--stack-tabs) * var(--tab-height));
   }
 }
