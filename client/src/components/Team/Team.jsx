@@ -115,9 +115,17 @@ export default function Team() {
           viewport={{ once: true, margin: '-80px' }}
         >
           <div className="section-label">{t('team.label')}</div>
-          <h2 className="section-title">
-            {t('team.title')} <span className="text-accent">{t('team.titleAccent')}</span> {t('team.titleEnd')}
-          </h2>
+          {(t('team.titleAccent') || (t('team.title') && t('team.title') !== t('team.label'))) && (
+            <h2 className="section-title">
+              {t('team.titleAccent') ? (
+                <>
+                  {t('team.title')} <span className="text-accent">{t('team.titleAccent')}</span> {t('team.titleEnd')}
+                </>
+              ) : (
+                t('team.title')
+              )}
+            </h2>
+          )}
           <p className="section-subtitle">{t('team.subtitle')}</p>
 
           <div className={styles.statsRow}>

@@ -25,7 +25,6 @@ export default function Footer() {
               <li><a href="#about">{t('nav.about')}</a></li>
               <li><a href="#services">{t('nav.services')}</a></li>
               <li><a href="#projects">{t('nav.projects')}</a></li>
-              <li><a href="#team">{t('nav.team')}</a></li>
               <li><Link to="/ekibe-katil">{t('nav.joinTeam')}</Link></li>
               <li><a href="#contact">{t('nav.contact')}</a></li>
             </ul>
