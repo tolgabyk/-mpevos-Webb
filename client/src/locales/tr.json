@@ -53,11 +53,7 @@
     "subtitle": "Kim olduğumuzu ve nereye gittiğimizi keşfedin.",
     "h3": "Hikayemiz",
     "p1": "IMPEVOS TEKNOLOJİ, yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunan bir teknoloji şirketidir. Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
-    "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
-    "metric1": { "value": 50, "suffix": "+", "label": "Tamamlanan Proje" },
-    "metric2": { "value": 30, "suffix": "+", "label": "Mutlu Müşteri" },
-    "metric3": { "value": 3, "suffix": "", "label": "Kurucu Ortak" },
-    "metric4": { "value": 8, "suffix": "+", "label": "Yıllık Deneyim" }
+    "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür."
   },
   "services": {
     "label": "Hizmetlerimiz",
@@ -205,32 +201,12 @@
     ]
   },
   "contact": {
-    "label": "İletişim",
-    "title": "Bizimle",
-    "titleAccent": "İletişime",
-    "titleEnd": "Geçin",
-    "subtitle": "Projeleriniz için konuşalım. Size en uygun çözümü birlikte bulalım.",
+    "headline": "Aradığını bulamadın mı?",
+    "headlineAccent": "İletişime geç",
     "info": {
-      "title": "Konuşalım",
-      "desc": "Yeni bir proje, iş birliği veya sadece merhaba demek için bize ulaşın. En kısa sürede size dönüş yapalım.",
-      "email": { "label": "E-posta", "value": "info@impevos.com" },
-      "phone": { "label": "Telefon", "value": "+90 (212) 000 00 00" },
-      "address": { "label": "Adres", "value": "İstanbul, Türkiye" },
       "help": {
-        "text": "Aradığını bulamadın mı?",
-        "cta": "Nuray'a yaz:",
         "phone": "0534 495 23 32"
       }
-    },
-    "form": {
-      "name": "Adınız Soyadınız",
-      "email": "E-posta Adresiniz",
-      "subject": "Konu",
-      "message": "Mesajınız",
-      "submit": "Mesaj Gönder",
-      "sending": "Gönderiliyor...",
-      "success": "Mesajınız başarıyla gönderildi! En kısa sürede dönüş yapacağız.",
-      "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin."
     }
   },
   "internship": {

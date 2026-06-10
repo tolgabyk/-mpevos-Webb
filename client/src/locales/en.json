@@ -53,11 +53,7 @@
     "subtitle": "Discover who we are and where we're heading.",
     "h3": "Our Story",
     "p1": "IMPEVOS TECHNOLOGY is a pioneering technology company providing innovative solutions in AI, advanced software technologies, and digital transformation. We combine corporate reliability with startup innovation to build the future today.",
-    "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology.",
-    "metric1": { "value": 50, "suffix": "+", "label": "Projects Completed" },
-    "metric2": { "value": 30, "suffix": "+", "label": "Happy Clients" },
-    "metric3": { "value": 3, "suffix": "", "label": "Co-Founders" },
-    "metric4": { "value": 8, "suffix": "+", "label": "Years Experience" }
+    "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology."
   },
   "services": {
     "label": "Our Services",
@@ -205,32 +201,12 @@
     ]
   },
   "contact": {
-    "label": "Contact",
-    "title": "Get in",
-    "titleAccent": "Touch",
-    "titleEnd": "With Us",
-    "subtitle": "Let's talk about your projects. Together, we'll find the best solution for you.",
+    "headline": "Couldn't find what you're looking for?",
+    "headlineAccent": "Get in touch",
     "info": {
-      "title": "Let's Talk",
-      "desc": "Reach out for a new project, collaboration, or just to say hello. We'll get back to you as soon as possible.",
-      "email": { "label": "Email", "value": "info@impevos.com" },
-      "phone": { "label": "Phone", "value": "+90 (212) 000 00 00" },
-      "address": { "label": "Address", "value": "Istanbul, Turkey" },
       "help": {
-        "text": "Couldn't find what you're looking for?",
-        "cta": "Contact Nuray:",
         "phone": "0534 495 23 32"
       }
-    },
-    "form": {
-      "name": "Your Full Name",
-      "email": "Your Email Address",
-      "subject": "Subject",
-      "message": "Your Message",
-      "submit": "Send Message",
-      "sending": "Sending...",
-      "success": "Your message was sent successfully! We'll get back to you shortly.",
-      "error": "Failed to send message. Please try again."
     }
   },
   "internship": {
