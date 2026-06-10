@@ -42,9 +42,14 @@
     "titleAccent": "Bugün",
     "titleEnd": "İnşa Ediyoruz",
     "subtitle": "Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.",
+    "typewriter": [
+      "Yapay zeka ile geleceği inşa ediyoruz",
+      "Gerçek projeler, gerçek çözümler",
+      "Global vizyon, yerel güç"
+    ],
     "cta1": "Projeleri Keşfet",
     "cta2": "Bize Ulaşın",
-    "scroll": "kaydır"
+    "scroll": "Aşağı Kaydır"
   },
   "about": {
     "label": "Hakkımızda",
@@ -57,10 +62,13 @@
   },
   "services": {
     "label": "Hizmetlerimiz",
-    "title": "Uçtan Uca",
-    "titleAccent": "Teknoloji",
-    "titleEnd": "Çözümleri",
+    "title": "Hizmetlerimizi",
+    "titleAccent": "Keşfedin",
+    "titleEnd": "",
+    "lead": "Büyük bir ekip, küresel bir vizyon! İşletmenizin dijital ihtiyaçlarını tek çatı altında topluyoruz.",
     "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.",
+    "bgText": "Hizmetler",
+    "cardTag": "Keşfet",
     "items": [
       { "icon": "Brain", "title": "Yapay Zeka Çözümleri", "desc": "Makine öğrenmesi, doğal dil işleme ve bilgisayarlı görme teknolojileriyle akıllı sistemler geliştiriyoruz." },
       { "icon": "Code", "title": "Yazılım Geliştirme", "desc": "Web, mobil ve masaüstü platformlar için modern, ölçeklenebilir ve güvenli yazılım çözümleri üretiyoruz." },

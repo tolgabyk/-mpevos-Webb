@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import { useTypewriter } from '../../hooks/useTypewriter'
 import styles from './Hero.module.css'
 
 function initParticles(canvas) {
@@ -79,9 +80,11 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } }
 }
 
-export default function Hero() {
+export default function Hero({ ready = true }) {
   const { t } = useTranslation()
   const canvasRef = useRef(null)
+  const phrases = t('hero.typewriter', { returnObjects: true })
+  const typed = useTypewriter(ready ? phrases : [], 48, 2400)
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -98,7 +101,7 @@ export default function Hero() {
         className={styles.content}
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={ready ? 'visible' : 'hidden'}
       >
         <motion.div className={styles.badge} variants={itemVariants}>
           <span className={styles.badgeDot} />
@@ -111,6 +114,11 @@ export default function Hero() {
           {' '}{t('hero.titleEnd')}
         </motion.h1>
 
+        <motion.p className={styles.typewriter} variants={itemVariants}>
+          <span className={styles.typewriterText}>{typed}</span>
+          <span className={styles.cursor} aria-hidden="true" />
+        </motion.p>
+
         <motion.p className={styles.subtitle} variants={itemVariants}>
           {t('hero.subtitle')}
         </motion.p>
@@ -120,10 +128,17 @@ export default function Hero() {
           <a href="#contact" className="btn btn-secondary">{t('hero.cta2')}</a>
         </motion.div>
 
-        <motion.div className={styles.scrollIndicator} variants={itemVariants}>
-          <div className={styles.scrollLine} />
+        <motion.button
+          type="button"
+          className={styles.scrollIndicator}
+          variants={itemVariants}
+          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        >
           <span>{t('hero.scroll')}</span>
-        </motion.div>
+          <div className={styles.scrollMouse}>
+            <div className={styles.scrollWheel} />
+          </div>
+        </motion.button>
       </motion.div>
     </section>
   )

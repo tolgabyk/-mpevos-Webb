@@ -1,4 +1,6 @@
+import { useState, useCallback } from 'react'
 import Navbar from '../components/Navbar/Navbar'
+import SplashScreen from '../components/SplashScreen/SplashScreen'
 import Hero from '../components/Hero/Hero'
 import AppShowcase from '../components/AppShowcase/AppShowcase'
 import About from '../components/About/About'
@@ -10,11 +12,15 @@ import Contact from '../components/Contact/Contact'
 import Footer from '../components/Footer/Footer'
 
 export default function HomePage() {
+  const [splashDone, setSplashDone] = useState(() => !!sessionStorage.getItem('impevos-splash-seen'))
+  const handleSplashComplete = useCallback(() => setSplashDone(true), [])
+
   return (
     <>
+      <SplashScreen onComplete={handleSplashComplete} />
       <Navbar />
       <main>
-        <Hero />
+        <Hero ready={splashDone} />
         <AppShowcase />
         <About />
         <Services />

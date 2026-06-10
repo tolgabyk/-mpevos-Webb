@@ -42,9 +42,14 @@
     "titleAccent": "of Tomorrow",
     "titleEnd": "Today",
     "subtitle": "We empower your business with AI, automation, and advanced software solutions. Global vision, local strength.",
+    "typewriter": [
+      "Building the future with artificial intelligence",
+      "Real projects, real solutions",
+      "Global vision, local strength"
+    ],
     "cta1": "Explore Projects",
     "cta2": "Contact Us",
-    "scroll": "scroll"
+    "scroll": "Scroll Down"
   },
   "about": {
     "label": "About Us",
@@ -57,10 +62,13 @@
   },
   "services": {
     "label": "Our Services",
-    "title": "End-to-End",
-    "titleAccent": "Technology",
-    "titleEnd": "Solutions",
+    "title": "Discover Our",
+    "titleAccent": "Services",
+    "titleEnd": "",
+    "lead": "A large team, a global vision! We bring all your digital needs under one roof.",
     "subtitle": "We offer scalable and innovative solutions tailored to your business needs.",
+    "bgText": "Services",
+    "cardTag": "Explore",
     "items": [
       { "icon": "Brain", "title": "AI Solutions", "desc": "We develop intelligent systems with machine learning, natural language processing, and computer vision technologies." },
       { "icon": "Code", "title": "Software Development", "desc": "We create modern, scalable, and secure software solutions for web, mobile, and desktop platforms." },
