@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle, UploadSimple } from '@phosphor-icons/react'
-import { submitInternshipApplication } from '../../utils/internshipSubmit'
+import { submitInternshipApplication, isInternshipSubmitSuccess } from '../../utils/internshipSubmit'
 import styles from './InternshipForm.module.css'
 
 const INITIAL_FORM = {
@@ -131,8 +131,7 @@ export default function InternshipForm() {
 
     try {
       const { res, result } = await submitInternshipApplication(form, cvFile)
-      const ok = res.ok && result.ok !== false && !result.error
-      if (ok) {
+      if (isInternshipSubmitSuccess(res, result)) {
         setStatus('success')
       } else {
         setError(result.message || result.error || t('internship.form.error'))

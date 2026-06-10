@@ -44,9 +44,9 @@ export default async function handler(req, res) {
     const emailOk = notifyResults.email?.sent || notifyResults.email?.applicantSent
     const panelOk = notifyResults.panel?.synced
 
-    if (!emailOk && !panelOk) {
+    if (!panelOk) {
       return sendJson(res, 502, {
-        error: 'Başvuru alındı ancak iletilemedi. Lütfen tekrar deneyin.',
+        error: notifyResults.panel?.error || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
         details: {
           email: notifyResults.email?.error || null,
           panel: notifyResults.panel?.error || null,
@@ -57,8 +57,9 @@ export default async function handler(req, res) {
     return sendJson(res, 201, {
       ok: true,
       id: application.id,
+      panelId: notifyResults.panel?.panelId,
       message: 'Başvuru alındı',
-      notified: { email: !!emailOk, panel: !!panelOk },
+      notified: { email: !!emailOk, panel: true },
     })
   } catch (err) {
     const message = err.message || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.'

@@ -42,6 +42,16 @@ function aiLevel(val) {
   return val || 'yok'
 }
 
+function buildMessage(form) {
+  const typeLabel = TYPE_LABELS[form.applicationType] || form.applicationType
+  const lines = [`[EKİP BAŞVURUSU] — ${typeLabel}`, '']
+  for (const [key, val] of Object.entries(form)) {
+    if (key === 'website' || val === '' || val === false) continue
+    lines.push(`${key}: ${val}`)
+  }
+  return lines.join('\n')
+}
+
 function buildTeamFormData(form, cvFile) {
   const fd = new FormData()
   const weekly =
@@ -57,6 +67,7 @@ function buildTeamFormData(form, cvFile) {
   fd.append('linkedin_url', form.linkedin?.trim() || '')
   fd.append('github_url', form.githubPortfolio?.trim() || '')
   fd.append('availability', weekly)
+  fd.append('message', buildMessage(form))
   fd.append('volunteer_consent', form.voluntaryConsent ? 'true' : 'false')
   fd.append('source', 'impevos.com')
   fd.append('website', '')
@@ -72,21 +83,21 @@ function buildTeamFormData(form, cvFile) {
 }
 
 export function getJoinTeamSubmitUrl() {
-  if (import.meta.env.VITE_JOIN_TEAM_API_URL) return import.meta.env.VITE_JOIN_TEAM_API_URL
-  return apiUrl('/api/join-team/apply')
+  if (import.meta.env.DEV) return apiUrl('/api/join-team/apply')
+  return TEAM_SUBMIT_URL
 }
 
-async function submitViaFormData(form, cvFile) {
+async function submitViaLocalApi(form, cvFile) {
   const payload = { ...form, voluntaryConsent: form.voluntaryConsent ? 'true' : 'false' }
   const data = new FormData()
   Object.entries(payload).forEach(([key, val]) => data.append(key, val))
   data.append('cv', cvFile)
-  const res = await fetch(getJoinTeamSubmitUrl(), { method: 'POST', body: data })
+  const res = await fetch(apiUrl('/api/join-team/apply'), { method: 'POST', body: data })
   const result = await parseJsonResponse(res)
   return { res, result }
 }
 
-async function submitViaPanelDirect(form, cvFile) {
+async function submitViaPanel(form, cvFile) {
   const res = await fetch(TEAM_SUBMIT_URL, {
     method: 'POST',
     body: buildTeamFormData(form, cvFile),
@@ -96,13 +107,12 @@ async function submitViaPanelDirect(form, cvFile) {
 }
 
 export async function submitJoinTeamApplication(form, cvFile) {
-  try {
-    const { res, result } = await submitViaFormData(form, cvFile)
-    const success = res.ok && (result.ok === true || (result.ok !== false && !result.error))
-    if (success) return { res, result }
-  } catch {
-    /* API erişilemezse doğrudan panele gönder */
+  if (import.meta.env.DEV) {
+    return submitViaLocalApi(form, cvFile)
   }
+  return submitViaPanel(form, cvFile)
+}
 
-  return submitViaPanelDirect(form, cvFile)
+export function isJoinTeamSubmitSuccess(res, result) {
+  return res.ok && result.ok === true
 }

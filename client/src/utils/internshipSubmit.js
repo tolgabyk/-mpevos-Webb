@@ -142,3 +142,7 @@ export async function submitInternshipApplication(form, cvFile) {
   const result = await parseJsonResponse(res)
   return { res, result }
 }
+
+export function isInternshipSubmitSuccess(res, result) {
+  return res.ok && result.ok === true
+}

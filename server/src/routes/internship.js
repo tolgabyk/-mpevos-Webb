@@ -116,12 +116,12 @@ async function handleApply(req, res) {
 
     const notifyResults = await notifyApplication(application, cvPath)
 
-    if (!notifyResults.email?.sent && !notifyResults.panel?.synced) {
+    if (!notifyResults.panel?.synced) {
       if (req.file) {
         fs.unlink(path.join(UPLOAD_DIR, req.file.filename), () => {})
       }
       return res.status(502).json({
-        error: 'Başvuru alındı ancak e-posta ve panele iletilemedi. Lütfen tekrar deneyin.',
+        error: notifyResults.panel?.error || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
         details: {
           email: notifyResults.email?.error || null,
           panel: notifyResults.panel?.error || null,
@@ -130,11 +130,13 @@ async function handleApply(req, res) {
     }
 
     res.status(201).json({
+      ok: true,
       id: application.id,
+      panelId: notifyResults.panel?.panelId,
       message: 'Başvuru alındı',
       notified: {
         email: !!notifyResults.email?.sent,
-        panel: !!notifyResults.panel?.synced,
+        panel: true,
       },
     })
   } catch (err) {

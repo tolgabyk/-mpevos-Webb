@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle, UploadSimple } from '@phosphor-icons/react'
-import { submitJoinTeamApplication } from '../../utils/joinTeamSubmit'
+import { submitJoinTeamApplication, isJoinTeamSubmitSuccess } from '../../utils/joinTeamSubmit'
 import {
   INITIAL_FORM,
   STEPS,
@@ -117,8 +117,7 @@ export default function JoinTeamForm() {
 
     try {
       const { res, result } = await submitJoinTeamApplication(form, cvFile)
-      const success = res.ok && (result.ok === true || (result.ok !== false && !result.error))
-      if (success) {
+      if (isJoinTeamSubmitSuccess(res, result)) {
         setStatus('success')
       } else {
         setError(result.message || result.error || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.')

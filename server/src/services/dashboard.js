@@ -62,7 +62,7 @@ function toPanelPayload(application, cvPath) {
     field_of_study: application.department || FIELD_LABELS[application.field] || application.field || '',
     grade_year: application.grade || '',
     linkedin_url: application.linkedin || application.github || '',
-    source: 'impevos-web',
+    source: 'impevos.com',
     message: buildMessage(application),
     cv_url: '',
     cv_filename: application.cvOriginalName || 'cv.pdf',
@@ -76,32 +76,27 @@ function toPanelPayload(application, cvPath) {
 }
 
 export async function syncToDashboard(application, cvPath) {
-  const webhookUrl = process.env.DASHBOARD_WEBHOOK_URL || 'https://impevosekip.me/api/internship-applications'
-  const apiKey = process.env.DASHBOARD_API_KEY || process.env.INTERNSHIP_APPLICATIONS_WEBHOOK_SECRET
-
-  if (!apiKey) {
-    console.warn('⚠️  DASHBOARD_API_KEY tanımlı değil → impevosekip.me paneline gönderilemedi')
-    return { skipped: true }
-  }
+  const submitUrl =
+    process.env.INTERNSHIP_SUBMIT_URL ||
+    process.env.PANEL_SUBMIT_URL ||
+    'https://impevosekip.me/api/internship-applications/submit'
 
   const payload = toPanelPayload(application, cvPath)
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${apiKey}`,
-    'x-impevos-webhook-secret': apiKey,
-  }
 
-  const res = await fetch(webhookUrl, {
+  const res = await fetch(submitUrl, {
     method: 'POST',
-    headers,
+    headers: {
+      'Content-Type': 'application/json',
+      Origin: 'https://impevos.com',
+    },
     body: JSON.stringify(payload),
   })
 
   const result = await res.json().catch(() => ({}))
 
-  if (!res.ok) {
+  if (!res.ok || result.ok === false) {
     const msg = result.message || result.error || res.statusText
-    throw new Error(`Panel webhook hatası (${res.status}): ${msg}`)
+    throw new Error(`Panel submit hatası (${res.status}): ${msg}`)
   }
 
   console.log(`✅ Başvuru impevosekip.me paneline gönderildi: ${application.fullName} (id: ${result.id || '—'})`)
