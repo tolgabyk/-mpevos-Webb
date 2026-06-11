@@ -215,22 +215,29 @@
     "float3Desc": "10/10 correct answers",
     "updateShort": "Follow Latest Updates & Innovations",
     "scrollLabel": "App Experience",
-    "scrollTitle": "Explore Not Ortağım",
-    "scrollTitleAccent": "step by step",
+    "scrollTitle": "All the power",
+    "scrollTitleAccent": "in one app",
+    "scrollSubtitle": "AI summaries, note discovery and voice learning — every study tool united in Not Ortağım.",
     "scrollSteps": [
       {
         "title": "Instant AI Summaries",
         "desc": "Upload a PDF and let AI generate summaries, quizzes and a study plan in seconds.",
+        "chip": "AI Summary",
+        "icon": "Sparkle",
         "screen": 2
       },
       {
         "title": "Discover Thousands of Notes",
         "desc": "Browse shared notes, filter what you need and download with a single tap.",
+        "chip": "Discover",
+        "icon": "Compass",
         "screen": 1
       },
       {
         "title": "Learn with Voice Summaries",
         "desc": "Turn your notes into a podcast and learn on the go.",
+        "chip": "Podcast",
+        "icon": "Microphone",
         "screen": 4
       }
     ]

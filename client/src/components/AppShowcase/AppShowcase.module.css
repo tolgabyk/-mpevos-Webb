@@ -717,18 +717,205 @@
   50% { transform: translate(24px, -18px) scale(1.08); }
 }
 
-/* ---------- Scroll-driven mockup (Mehir-style) ---------- */
-.scrollShowcase {
+/* ---------- Unified hub panel (Mehir-style side-by-side) ---------- */
+.hubShowcase {
   position: relative;
   margin-top: 140px;
   padding-bottom: 80px;
   z-index: 1;
 }
 
-.scrollHeader {
+.hubHeader {
   text-align: center;
-  max-width: 640px;
-  margin: 0 auto 72px;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+
+.hubSubtitle {
+  margin: 16px 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.hubPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) 100px minmax(0, 1fr);
+  gap: 0 12px;
+  align-items: center;
+  min-height: 480px;
+}
+
+.hubLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.chipGrid {
+  position: relative;
+  height: 220px;
+}
+
+.chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.chip:hover {
+  border-color: rgba(0, 255, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.chipActive {
+  border-color: rgba(0, 255, 0, 0.45);
+  background: rgba(0, 255, 0, 0.1);
+  color: #fff;
+  box-shadow: 0 12px 32px rgba(0, 255, 0, 0.15);
+  transform: scale(1.04);
+}
+
+.chipPos0 { top: 8%; left: 4%; }
+.chipPos1 { top: 42%; left: 28%; }
+.chipPos2 { top: 72%; left: 0; }
+
+.chipIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(0, 255, 0, 0.1);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.chipActive .chipIcon {
+  background: var(--color-accent);
+  color: #000;
+}
+
+.chipLabel {
+  white-space: nowrap;
+}
+
+.hubContent {
+  position: relative;
+  min-height: 160px;
+  overflow: hidden;
+}
+
+.hubContentInner {
+  position: absolute;
+  inset: 0;
+}
+
+.hubCenter {
+  position: relative;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hubSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.hubPath {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke 0.45s ease, stroke-width 0.45s ease;
+}
+
+.hubPathActive {
+  stroke: rgba(0, 255, 0, 0.55);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.4));
+}
+
+.hubPathOut {
+  fill: none;
+  stroke: rgba(0, 255, 0, 0.25);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 4 6;
+  animation: hubDash 1.2s linear infinite;
+}
+
+@keyframes hubDash {
+  to { stroke-dashoffset: -20; }
+}
+
+.hubLogo {
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #111 0%, #000 100%);
+  border: 1px solid rgba(0, 255, 0, 0.35);
+  color: var(--color-accent);
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.2);
+}
+
+.hubRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.hubPhoneStage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hubPhoneStage .ring1 {
+  width: 80%;
+  height: 80%;
+}
+
+.hubProgressTrack {
+  width: min(200px, 60%);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.hubProgress {
+  height: 100%;
+  width: 100%;
+  background: var(--color-accent);
+  transform-origin: left;
+  opacity: 0.75;
 }
 
 .scrollLabel {
@@ -748,32 +935,6 @@
   line-height: 1.2;
   color: #fff;
   margin: 0;
-}
-
-.scrollGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.stepsCol {
-  position: relative;
-}
-
-.stepBlock {
-  min-height: 72vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 48px 0;
-  border-left: 1px solid rgba(255, 255, 255, 0.06);
-  padding-left: 32px;
-  transition: border-color 0.5s ease;
-}
-
-.stepBlockActive {
-  border-left-color: rgba(0, 255, 0, 0.35);
 }
 
 .stepMeta {
@@ -816,38 +977,6 @@
   max-width: 480px;
 }
 
-.mockupCol {
-  position: relative;
-}
-
-.stickyMockup {
-  position: sticky;
-  top: calc(var(--navbar-height) + 32px);
-  display: flex;
-  justify-content: center;
-  will-change: transform;
-}
-
-.stickyStage {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 28px;
-}
-
-.phoneCompact {
-  width: 240px;
-  height: 500px;
-  border-radius: 40px;
-  padding: 10px;
-  animation: none;
-}
-
-.phoneCompact .phoneBody {
-  border-radius: 30px;
-}
-
 .stepTabs {
   display: flex;
   gap: 10px;
@@ -879,6 +1008,18 @@
   box-shadow: 0 0 24px rgba(0, 255, 0, 0.15);
 }
 
+.phoneCompact {
+  width: 240px;
+  height: 500px;
+  border-radius: 40px;
+  padding: 10px;
+  animation: none;
+}
+
+.phoneCompact .phoneBody {
+  border-radius: 30px;
+}
+
 /* ============================================
    Responsive
    ============================================ */
@@ -895,23 +1036,43 @@
   .metaRow { justify-content: center; }
   .phoneStage { max-width: 380px; }
 
-  .scrollGrid {
+  .hubPanel {
     grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
-  .stepBlock {
+    gap: 40px;
     min-height: auto;
-    padding: 32px 0 32px 24px;
   }
 
-  .stickyMockup {
+  .hubCenter {
+    display: none;
+  }
+
+  .chipGrid {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .chip {
+    position: static;
+  }
+
+  .hubContent {
+    text-align: center;
+    min-height: 140px;
+  }
+
+  .hubContentInner {
     position: relative;
-    top: auto;
   }
 
-  .mockupCol {
-    order: -1;
+  .stepMeta {
+    justify-content: center;
+  }
+
+  .stepDesc {
+    margin: 0 auto;
   }
 }
 

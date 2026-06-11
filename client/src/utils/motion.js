@@ -69,3 +69,24 @@ export const mockupSpring = {
   damping: 24,
   mass: 0.85,
 }
+
+/** Side-by-side content panel slide */
+export const contentSlide = {
+  enter: (direction = 1) => ({
+    x: direction > 0 ? 56 : -56,
+    opacity: 0,
+    filter: 'blur(6px)',
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.55, ease: EASE_SMOOTH },
+  },
+  exit: (direction = 1) => ({
+    x: direction > 0 ? -56 : 56,
+    opacity: 0,
+    filter: 'blur(6px)',
+    transition: { duration: 0.4, ease: EASE_CURTAIN },
+  }),
+}

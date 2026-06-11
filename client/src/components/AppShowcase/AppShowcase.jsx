@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   AppleLogo,
   Sparkle,
@@ -12,15 +12,25 @@ import {
   ArrowSquareOut,
   CheckCircle,
   ArrowRight,
+  Compass,
 } from '@phosphor-icons/react'
 import styles from './AppShowcase.module.css'
 import { NOT_ORTAGIM_SCREENS as screens } from '../../data/notOrtagimScreens'
-import { EASE_SMOOTH, mockupSlide } from '../../utils/motion'
+import { EASE_SMOOTH, mockupSlide, contentSlide } from '../../utils/motion'
 
 const APP_STORE_URL =
   'https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814?l=tr'
 
 const SCREEN_ROTATION_MS = 3400
+const HUB_INTERVAL = 5000
+
+const CHIP_ICONS = { Sparkle, Compass, Microphone, Camera, FilePdf, Lightning }
+
+const HUB_PATHS = [
+  'M 4 52 Q 50 52 58 160',
+  'M 4 160 L 58 160',
+  'M 4 268 Q 50 268 58 160',
+]
 
 function useSlideDirection(active) {
   const prev = useRef(active)
@@ -31,40 +41,24 @@ function useSlideDirection(active) {
   return direction
 }
 
-function useScrollActiveStep(stepCount) {
-  const stepRefs = useRef([])
-  const [active, setActive] = useState(0)
-
-  useEffect(() => {
-    stepRefs.current = stepRefs.current.slice(0, stepCount)
-  }, [stepCount])
-
-  useEffect(() => {
-    const elements = stepRefs.current.filter(Boolean)
-    if (!elements.length) return undefined
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const best = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (best) setActive(Number(best.target.dataset.index))
-      },
-      { threshold: [0.35, 0.5, 0.65], rootMargin: '-38% 0px -38% 0px' }
-    )
-
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [stepCount])
-
-  const setStepRef = useCallback(
-    (index) => (el) => {
-      stepRefs.current[index] = el
-    },
-    []
+function HubConnectors({ active }) {
+  return (
+    <svg
+      className={styles.hubSvg}
+      viewBox="0 0 120 320"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+      {HUB_PATHS.map((d, i) => (
+        <path
+          key={d}
+          d={d}
+          className={`${styles.hubPath} ${i === active ? styles.hubPathActive : ''}`}
+        />
+      ))}
+      <path d="M 58 160 L 116 160" className={styles.hubPathOut} />
+    </svg>
   )
-
-  return { active, setStepRef }
 }
 
 function PhoneMockup({
@@ -155,21 +149,14 @@ export default function AppShowcase() {
   const { t } = useTranslation()
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
-  const scrollRef = useRef(null)
+  const [hubActive, setHubActive] = useState(0)
+  const [hubPaused, setHubPaused] = useState(false)
 
-  const scrollSteps = t('appShowcase.scrollSteps', { returnObjects: true }) || []
-  const { active: scrollActive, setStepRef } = useScrollActiveStep(scrollSteps.length)
-
+  const hubSteps = t('appShowcase.scrollSteps', { returnObjects: true }) || []
   const heroDirection = useSlideDirection(active)
-  const scrollDirection = useSlideDirection(scrollActive)
-  const scrollScreenIndex = scrollSteps[scrollActive]?.screen ?? 0
-
-  const { scrollYProgress } = useScroll({
-    target: scrollRef,
-    offset: ['start end', 'end start'],
-  })
-  const mockupY = useTransform(scrollYProgress, [0, 1], [40, -40])
-  const mockupRotate = useTransform(scrollYProgress, [0, 0.5, 1], [-2, 0, 2])
+  const hubDirection = useSlideDirection(hubActive)
+  const hubScreenIndex = hubSteps[hubActive]?.screen ?? 0
+  const currentHubStep = hubSteps[hubActive]
 
   useEffect(() => {
     if (paused) return undefined
@@ -178,6 +165,14 @@ export default function AppShowcase() {
     }, SCREEN_ROTATION_MS)
     return () => clearInterval(id)
   }, [paused])
+
+  useEffect(() => {
+    if (hubPaused || !Array.isArray(hubSteps) || hubSteps.length <= 1) return undefined
+    const id = setInterval(() => {
+      setHubActive((prev) => (prev + 1) % hubSteps.length)
+    }, HUB_INTERVAL)
+    return () => clearInterval(id)
+  }, [hubPaused, hubSteps.length])
 
   useEffect(() => {
     screens.forEach((s) => {
@@ -363,13 +358,17 @@ export default function AppShowcase() {
         </motion.div>
       </div>
 
-      {/* Mehir-style scroll-driven mockup section */}
-      {Array.isArray(scrollSteps) && scrollSteps.length > 0 && (
-        <div className={styles.scrollShowcase} ref={scrollRef}>
+      {/* Mehir-style unified hub: chips + connectors + mockup side-by-side */}
+      {Array.isArray(hubSteps) && hubSteps.length > 0 && (
+        <div
+          className={styles.hubShowcase}
+          onMouseEnter={() => setHubPaused(true)}
+          onMouseLeave={() => setHubPaused(false)}
+        >
           <div className="container">
             <motion.div
-              className={styles.scrollHeader}
-              initial={{ opacity: 0, y: 32 }}
+              className={styles.hubHeader}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, ease: EASE_SMOOTH }}
@@ -379,66 +378,96 @@ export default function AppShowcase() {
                 {t('appShowcase.scrollTitle')}{' '}
                 <span className={styles.titleAccent}>{t('appShowcase.scrollTitleAccent')}</span>
               </h3>
+              <p className={styles.hubSubtitle}>{t('appShowcase.scrollSubtitle')}</p>
             </motion.div>
 
-            <div className={styles.scrollGrid}>
-              <div className={styles.stepsCol}>
-                {scrollSteps.map((step, i) => (
-                  <article
-                    key={step.title}
-                    ref={setStepRef(i)}
-                    data-index={i}
-                    className={`${styles.stepBlock} ${i === scrollActive ? styles.stepBlockActive : ''}`}
-                  >
-                    <div className={styles.stepMeta}>
-                      <span className={styles.stepNum}>0{i + 1}</span>
-                      <span className={styles.stepLine} aria-hidden="true" />
-                    </div>
-                    <motion.h4
-                      className={styles.stepTitle}
-                      animate={{ opacity: i === scrollActive ? 1 : 0.45 }}
-                      transition={{ duration: 0.45 }}
-                    >
-                      {step.title}
-                    </motion.h4>
-                    <motion.p
-                      className={styles.stepDesc}
-                      animate={{ opacity: i === scrollActive ? 1 : 0.35 }}
-                      transition={{ duration: 0.45 }}
-                    >
-                      {step.desc}
-                    </motion.p>
-                  </article>
-                ))}
+            <div className={styles.hubPanel}>
+              <div className={styles.hubLeft}>
+                <div className={styles.chipGrid}>
+                  {hubSteps.map((step, i) => {
+                    const Icon = CHIP_ICONS[step.icon] || Sparkle
+                    return (
+                      <button
+                        key={step.title}
+                        type="button"
+                        className={`${styles.chip} ${styles[`chipPos${i}`]} ${i === hubActive ? styles.chipActive : ''}`}
+                        onClick={() => setHubActive(i)}
+                        aria-label={step.title}
+                      >
+                        <span className={styles.chipIcon}>
+                          <Icon size={18} weight="duotone" />
+                        </span>
+                        <span className={styles.chipLabel}>{step.chip}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+
+                <div className={styles.hubContent}>
+                  <AnimatePresence mode="wait" custom={hubDirection}>
+                    {currentHubStep && (
+                      <motion.div
+                        key={hubActive}
+                        custom={hubDirection}
+                        variants={contentSlide}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        className={styles.hubContentInner}
+                      >
+                        <div className={styles.stepMeta}>
+                          <span className={styles.stepNum}>0{hubActive + 1}</span>
+                          <span className={styles.stepLine} aria-hidden="true" />
+                        </div>
+                        <h4 className={styles.stepTitle}>{currentHubStep.title}</h4>
+                        <p className={styles.stepDesc}>{currentHubStep.desc}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
 
-              <div className={styles.mockupCol}>
-                <motion.div
-                  className={styles.stickyMockup}
-                  style={{ y: mockupY, rotate: mockupRotate }}
-                >
-                  <div className={styles.stickyStage}>
-                    <PhoneMockup
-                      active={scrollScreenIndex}
-                      direction={scrollDirection}
-                      compact
-                      showDots={false}
-                    />
-                    <div className={styles.stepTabs}>
-                      {scrollSteps.map((step, i) => (
-                        <button
-                          key={step.title}
-                          type="button"
-                          className={`${styles.stepTab} ${i === scrollActive ? styles.stepTabActive : ''}`}
-                          onClick={() => stepRefsScrollTo(i)}
-                          aria-label={step.title}
-                        >
-                          0{i + 1}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+              <div className={styles.hubCenter}>
+                <HubConnectors active={hubActive} />
+                <div className={styles.hubLogo}>
+                  <Lightning size={28} weight="fill" />
+                </div>
+              </div>
+
+              <div className={styles.hubRight}>
+                <div className={styles.hubPhoneStage}>
+                  <PhoneMockup
+                    active={hubScreenIndex}
+                    direction={hubDirection}
+                    compact
+                    showDots={false}
+                  />
+                  <div className={styles.ring1} />
+                </div>
+
+                <div className={styles.stepTabs}>
+                  {hubSteps.map((step, i) => (
+                    <button
+                      key={step.title}
+                      type="button"
+                      className={`${styles.stepTab} ${i === hubActive ? styles.stepTabActive : ''}`}
+                      onClick={() => setHubActive(i)}
+                      aria-label={step.title}
+                    >
+                      0{i + 1}
+                    </button>
+                  ))}
+                </div>
+
+                <div className={styles.hubProgressTrack}>
+                  <motion.div
+                    key={hubActive}
+                    className={styles.hubProgress}
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: HUB_INTERVAL / 1000, ease: 'linear' }}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -446,11 +475,4 @@ export default function AppShowcase() {
       )}
     </section>
   )
-}
-
-function stepRefsScrollTo(index) {
-  document.querySelector(`[data-index="${index}"]`)?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'center',
-  })
 }
