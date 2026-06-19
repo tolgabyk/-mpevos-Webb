@@ -119,12 +119,19 @@ async function postToPanel(fd) {
 }
 
 export async function submitToTeamPanel(body, cvFile) {
-  try {
-    return await postToPanel(buildFormData(body, cvFile, {}))
-  } catch (err) {
-    if (/zorunlu/i.test(String(err.message))) {
-      return await postToPanel(buildFormData(body, cvFile, { forceDefaults: true }))
+  const attempts = [{}, { forceDefaults: true }]
+  let lastError = null
+
+  for (const crmOptions of attempts) {
+    try {
+      return await postToPanel(buildFormData(body, cvFile, crmOptions))
+    } catch (err) {
+      lastError = err
+      if (!/zorunlu/i.test(String(err.message))) {
+        throw err
+      }
     }
-    throw err
   }
+
+  throw lastError || new Error('Başvuru gönderilemedi. Lütfen tekrar deneyin.')
 }

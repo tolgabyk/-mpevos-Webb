@@ -124,13 +124,21 @@ async function postToPanel(fd) {
 }
 
 export async function syncToTeamPanel(body, cvBuffer, cvName) {
-  try {
-    return await postToPanel(buildFormData(body, cvBuffer, cvName, {}))
-  } catch (err) {
-    if (/zorunlu/i.test(String(err.message))) {
-      console.warn('[join-team] CRM alan hatası, varsayılanlarla tekrar deneniyor:', err.message)
-      return await postToPanel(buildFormData(body, cvBuffer, cvName, { forceDefaults: true }))
+  const attempts = [{}, { forceDefaults: true }]
+  let lastError = null
+
+  for (const crmOptions of attempts) {
+    try {
+      return await postToPanel(buildFormData(body, cvBuffer, cvName, crmOptions))
+    } catch (err) {
+      lastError = err
+      if (/zorunlu/i.test(String(err.message))) {
+        console.warn('[join-team] CRM alan hatası, tekrar deneniyor:', err.message)
+        continue
+      }
+      throw err
     }
-    throw err
   }
+
+  throw lastError || new Error('Başvuru panele iletilemedi')
 }

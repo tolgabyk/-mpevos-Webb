@@ -8,6 +8,14 @@ export function getJoinTeamSubmitUrl() {
   )
 }
 
+function friendlyError(message) {
+  const text = String(message || '')
+  if (/zorunlu|required|geçersiz/i.test(text)) {
+    return 'Başvuru şu an iletilemedi. Lütfen birkaç dakika sonra tekrar deneyin.'
+  }
+  return text || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.'
+}
+
 export async function submitJoinTeamApplication(form, cvFile) {
   if (!cvFile) {
     return {
@@ -32,10 +40,9 @@ export async function submitJoinTeamApplication(form, cvFile) {
       },
     }
   } catch (err) {
-    const message = err?.message || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.'
     return {
       res: { ok: false, status: 502 },
-      result: { error: message },
+      result: { error: friendlyError(err?.message) },
     }
   }
 }

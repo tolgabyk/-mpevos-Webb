@@ -1,15 +1,26 @@
 import { getCrmKind, getDepartment, getQuestionSet } from './join-team-departments.js'
 
-function yesNoEn(val) {
-  if (val === 'yes' || val === true) return 'yes'
-  if (val === 'no' || val === false) return 'no'
-  return 'yes'
+const MARKETING_ROLE_LABELS = {
+  'sales-rep': 'Satış Temsilcisi',
+  'business-dev': 'İş Geliştirme',
+  'customer-meetings': 'Müşteri Görüşmeleri',
+  'social-media': 'Sosyal Medya',
+  'content-creator': 'İçerik Üreticisi',
+  'digital-marketing': 'Dijital Pazarlama',
+  campaign: 'Reklam ve Kampanya',
+  brand: 'Marka İletişimi',
 }
 
-function yesNoTr(val) {
+function yesNoEn(val, fallback = 'yes') {
+  if (val === 'yes' || val === true) return 'yes'
+  if (val === 'no' || val === false) return 'no'
+  return fallback
+}
+
+function yesNoTr(val, fallback = 'Evet') {
   if (val === 'yes' || val === true) return 'Evet'
   if (val === 'no' || val === false) return 'Hayır'
-  return 'Evet'
+  return fallback
 }
 
 function firstText(...values) {
@@ -40,7 +51,7 @@ function buildB2bB2cExperience(app, force) {
   )
 }
 
-function buildCustomerMeetingText(app, force) {
+function buildCustomerMeetingDescription(app, force) {
   return firstText(
     app.phoneFaceToFace === 'yes' ? 'Telefon ve yüz yüze müşteri görüşmesi yapabilirim.' : '',
     app.businessMeetings === 'yes' ? 'İşletmelerle görüşme yapabilirim.' : '',
@@ -49,6 +60,23 @@ function buildCustomerMeetingText(app, force) {
     force ? 'Müşteri görüşmesi yapabilirim.' : '',
     'Müşteri görüşmesi yapabilirim.',
   )
+}
+
+function buildCustomerMeetingChoice(app, force) {
+  const hasExplicitNo =
+    app.phoneFaceToFace === 'no' &&
+    app.businessMeetings === 'no' &&
+    !force
+
+  if (hasExplicitNo) {
+    return { en: 'no', tr: 'Hayır' }
+  }
+
+  if (app.phoneFaceToFace === 'yes' || app.businessMeetings === 'yes' || force) {
+    return { en: 'yes', tr: 'Evet' }
+  }
+
+  return { en: 'yes', tr: 'Evet' }
 }
 
 function appendField(fd, names, value) {
@@ -65,11 +93,12 @@ export function appendMarketingCrmFields(fd, app, { forceDefaults = false } = {}
   if (!isMarketing) return
 
   const dept = getDepartment(app.applicationType)
-  const marketingRole = app.marketingRole || dept?.marketingRole || app.applicationType || 'genel'
+  const roleSlug = app.marketingRole || dept?.marketingRole || app.applicationType || 'genel'
+  const marketingRole = MARKETING_ROLE_LABELS[roleSlug] || roleSlug
   const salesExperience = buildSalesExperience(app, forceDefaults)
   const b2bB2cExperience = buildB2bB2cExperience(app, forceDefaults)
-  const customerMeetingText = buildCustomerMeetingText(app, forceDefaults)
-  const customerMeetingYesEn = yesNoEn(app.phoneFaceToFace || app.businessMeetings)
+  const customerMeeting = buildCustomerMeetingChoice(app, forceDefaults)
+  const customerMeetingDescription = buildCustomerMeetingDescription(app, forceDefaults)
 
   appendField(fd, ['sales_experience', 'salesExperience'], salesExperience)
   appendField(fd, ['b2b_b2c_experience', 'b2b_b2c', 'b2b_experience', 'b2bB2cExperience'], b2bB2cExperience)
@@ -78,20 +107,20 @@ export function appendMarketingCrmFields(fd, app, { forceDefaults = false } = {}
   appendField(fd, ['communication_score', 'communicationScore'], firstText(app.communicationScore, '5'))
   appendField(fd, ['how_to_market', 'howToMarketImpevos'], firstText(app.howToMarketImpevos, 'Başvuru formunda belirtildi'))
 
+  appendField(fd, ['customer_meetings', 'customer_meeting', 'customerMeetings'], customerMeeting.en)
+  appendField(fd, ['musteri_gorusmesi', 'musteri_gorusme', 'musteri_gorusme_evet_hayir'], customerMeeting.tr)
+  appendField(fd, ['phone_face_to_face', 'phoneFaceToFace'], yesNoEn(app.phoneFaceToFace, customerMeeting.en))
+  appendField(fd, ['business_meetings', 'businessMeetings'], yesNoEn(app.businessMeetings, customerMeeting.en))
+  appendField(fd, ['phone_meetings', 'phoneMeetings'], yesNoEn(app.phoneFaceToFace || app.businessMeetings, customerMeeting.en))
+
   appendField(fd, [
-    'musteri_gorusme',
-    'musteri_gorusmesi',
-    'customer_meetings',
-    'customer_meeting',
-    'customer_interview',
+    'musteri_gorusme_aciklama',
+    'customer_meeting_experience',
+    'customer_meeting_description',
     'client_meetings',
     'client_meeting',
-  ], customerMeetingText)
+  ], customerMeetingDescription)
 
-  appendField(fd, ['phone_face_to_face', 'phoneFaceToFace'], customerMeetingYesEn)
-  appendField(fd, ['business_meetings', 'businessMeetings'], yesNoEn(app.businessMeetings))
-  appendField(fd, ['phone_meetings', 'phoneMeetings'], yesNoEn(app.phoneFaceToFace || app.businessMeetings))
-  appendField(fd, ['musteri_gorusme_evet_hayir'], yesNoTr(app.phoneFaceToFace || app.businessMeetings))
   appendField(fd, ['cold_calling', 'coldCalling'], yesNoEn(app.coldCallingComfort))
   appendField(fd, ['sales_targets', 'salesTargets'], yesNoEn(app.salesTargets))
   appendField(fd, ['customer_tracking', 'customerTracking'], yesNoEn(app.customerTracking))
