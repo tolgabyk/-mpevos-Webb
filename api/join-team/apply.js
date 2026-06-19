@@ -90,7 +90,7 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('[join-team] apply hatası:', err)
     const msg = String(err.message || '')
-    if (/zorunlu/i.test(msg)) {
+    if (/zorunlu|required|geçersiz|invalid/i.test(msg)) {
       return sendJson(res, 502, {
         error: 'Başvuru şu an iletilemedi. Lütfen birkaç dakika sonra tekrar deneyin.',
       })
