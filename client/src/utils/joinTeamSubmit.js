@@ -1,31 +1,43 @@
-import { apiUrl, parseJsonResponse } from './api'
+import { submitToTeamPanel } from '../lib/joinTeamPanelSync.js'
 
 export function getJoinTeamSubmitUrl() {
-  return apiUrl('/api/join-team/apply')
+  return (
+    import.meta.env.VITE_JOIN_TEAM_SUBMIT_URL ||
+    import.meta.env.VITE_TEAM_APPLICATION_SUBMIT_URL ||
+    'https://impevosekip.me/api/team-applications/submit'
+  )
 }
 
 export async function submitJoinTeamApplication(form, cvFile) {
   if (!cvFile) {
-    throw new Error('CV yüklemeniz gerekmektedir.')
+    return {
+      res: { ok: false, status: 400 },
+      result: { error: 'CV yüklemeniz gerekmektedir.' },
+    }
   }
 
-  const payload = { ...form, voluntaryConsent: form.voluntaryConsent ? 'true' : 'false' }
-  const data = new FormData()
-  Object.entries(payload).forEach(([key, val]) => {
-    if (val === undefined || val === null) return
-    data.append(key, typeof val === 'boolean' ? (val ? 'true' : 'false') : String(val))
-  })
-  data.append('cv', cvFile)
+  const payload = {
+    ...form,
+    voluntaryConsent: form.voluntaryConsent ? 'true' : 'false',
+  }
 
-  let res
   try {
-    res = await fetch(apiUrl('/api/join-team/apply'), { method: 'POST', body: data })
+    const panelResult = await submitToTeamPanel(payload, cvFile)
+    return {
+      res: { ok: true, status: 201 },
+      result: {
+        ok: true,
+        id: panelResult.panelId,
+        message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
+      },
+    }
   } catch (err) {
-    throw new Error('Sunucuya ulaşılamadı. İnternet bağlantınızı kontrol edip tekrar deneyin.')
+    const message = err?.message || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.'
+    return {
+      res: { ok: false, status: 502 },
+      result: { error: message },
+    }
   }
-
-  const result = await parseJsonResponse(res)
-  return { res, result }
 }
 
 export function isJoinTeamSubmitSuccess(res, result) {
