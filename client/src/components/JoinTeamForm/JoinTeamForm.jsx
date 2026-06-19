@@ -129,20 +129,20 @@ export default function JoinTeamForm() {
   const handleSubmit = async () => {
     if (!validateStep(3) || !validateStep(2) || !validateStep(1) || !validateStep(0)) return
 
-    setStatus('loading')
     setError('')
+    setStatus('success')
 
     try {
       const { res, result } = await submitJoinTeamApplication(form, cvFile)
-      if (isJoinTeamSubmitSuccess(res, result)) {
-        setStatus('success')
-      } else {
-        setError(result.message || result.error || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.')
+      if (!isJoinTeamSubmitSuccess(res, result)) {
         setStatus('idle')
+        setError(result.message || result.error || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.')
+        document.body.style.overflow = ''
       }
     } catch {
-      setError('Bağlantı hatası. Lütfen tekrar deneyin.')
       setStatus('idle')
+      setError('Bağlantı hatası. Lütfen tekrar deneyin.')
+      document.body.style.overflow = ''
     }
   }
 
