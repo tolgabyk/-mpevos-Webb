@@ -89,6 +89,12 @@ export default async function handler(req, res) {
     })
   } catch (err) {
     console.error('[join-team] apply hatası:', err)
+    const msg = String(err.message || '')
+    if (/zorunlu/i.test(msg)) {
+      return sendJson(res, 502, {
+        error: 'Başvuru şu an iletilemedi. Lütfen birkaç dakika sonra tekrar deneyin.',
+      })
+    }
     return sendJson(res, 502, { error: err.message || 'Başvuru gönderilemedi' })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})

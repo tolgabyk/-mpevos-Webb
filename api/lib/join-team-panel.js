@@ -59,7 +59,7 @@ function guessMime(filename) {
   return 'application/octet-stream'
 }
 
-export async function syncToTeamPanel(body, cvBuffer, cvName) {
+function buildFormData(body, cvBuffer, cvName, crmOptions) {
   const fd = new FormData()
   const weekly =
     body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || '10'
@@ -83,16 +83,20 @@ export async function syncToTeamPanel(body, cvBuffer, cvName) {
   fd.append('cursor', aiLevel(body.cursorUsed))
   fd.append('claude', aiLevel(body.claudeUsed))
   fd.append('antigravity', aiLevel(body.antigravityUsed))
-  if (body.aiToolsUsage) fd.append('chatgpt', 'orta')
-  if (body.technologies) fd.append('technologies', body.technologies)
-  if (body.whyImpevos) fd.append('why_impevos', body.whyImpevos)
-  if (body.differentiator) fd.append('differentiator', body.differentiator)
-  appendMarketingCrmFields(fd, body)
+  fd.append('chatgpt', body.aiToolsUsage ? 'orta' : 'yok')
+  fd.append('technologies', body.technologies || '-')
+  fd.append('why_impevos', body.whyImpevos || '-')
+  fd.append('differentiator', body.differentiator || '-')
+  appendMarketingCrmFields(fd, body, crmOptions)
 
   if (cvBuffer?.length) {
     fd.append('cv', new Blob([cvBuffer], { type: guessMime(cvName) }), cvName)
   }
 
+  return fd
+}
+
+async function postToPanel(fd) {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), 25000)
 
@@ -116,5 +120,17 @@ export async function syncToTeamPanel(body, cvBuffer, cvName) {
     throw err
   } finally {
     clearTimeout(timeout)
+  }
+}
+
+export async function syncToTeamPanel(body, cvBuffer, cvName) {
+  try {
+    return await postToPanel(buildFormData(body, cvBuffer, cvName, {}))
+  } catch (err) {
+    if (/zorunlu/i.test(String(err.message))) {
+      console.warn('[join-team] CRM alan hatası, varsayılanlarla tekrar deneniyor:', err.message)
+      return await postToPanel(buildFormData(body, cvBuffer, cvName, { forceDefaults: true }))
+    }
+    throw err
   }
 }

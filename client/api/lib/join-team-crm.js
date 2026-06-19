@@ -1,10 +1,15 @@
-import { getQuestionSet, getDepartment } from './join-team-departments.js'
+import { getCrmKind, getDepartment, getQuestionSet } from './join-team-departments.js'
 
-/** CRM boş alan kabul etmiyor — cevap yoksa varsayılan 'yes' */
-function yesNoDefault(val) {
+function yesNoEn(val) {
   if (val === 'yes' || val === true) return 'yes'
   if (val === 'no' || val === false) return 'no'
   return 'yes'
+}
+
+function yesNoTr(val) {
+  if (val === 'yes' || val === true) return 'Evet'
+  if (val === 'no' || val === false) return 'Hayır'
+  return 'Evet'
 }
 
 function firstText(...values) {
@@ -15,62 +20,89 @@ function firstText(...values) {
   return ''
 }
 
-function buildSalesExperience(app) {
+function buildSalesExperience(app, force) {
   return firstText(
     app.marketingExperience,
     app.b2bSalesExperience,
     app.departmentExperience,
+    force ? 'Başvuru formunda belirtildi' : '',
     'Başvuru formunda belirtildi',
   )
 }
 
-function buildB2bB2cExperience(app) {
+function buildB2bB2cExperience(app, force) {
   return firstText(
     app.b2bSalesExperience,
     app.marketingExperience,
     app.departmentExperience,
+    force ? 'Başvuru formunda belirtildi' : '',
     'Başvuru formunda belirtildi',
   )
 }
 
-function buildCustomerMeetings(app) {
-  if (app.phoneFaceToFace === 'yes' || app.businessMeetings === 'yes') return 'yes'
-  if (app.phoneFaceToFace === 'no' || app.businessMeetings === 'no') return 'no'
-  return 'yes'
+function buildCustomerMeetingText(app, force) {
+  return firstText(
+    app.phoneFaceToFace === 'yes' ? 'Telefon ve yüz yüze müşteri görüşmesi yapabilirim.' : '',
+    app.businessMeetings === 'yes' ? 'İşletmelerle görüşme yapabilirim.' : '',
+    app.b2bSalesExperience,
+    app.marketingExperience,
+    force ? 'Müşteri görüşmesi yapabilirim.' : '',
+    'Müşteri görüşmesi yapabilirim.',
+  )
+}
+
+function appendField(fd, names, value) {
+  for (const name of names) {
+    fd.append(name, value)
+  }
 }
 
 /** CRM panelinin pazarlama başvurularında beklediği ek alanlar */
-export function appendMarketingCrmFields(fd, app) {
-  if (getQuestionSet(app.applicationType) !== 'marketing') return
+export function appendMarketingCrmFields(fd, app, { forceDefaults = false } = {}) {
+  const isMarketing =
+    getQuestionSet(app.applicationType) === 'marketing' ||
+    getCrmKind(app.applicationType) === 'pazarlama'
+  if (!isMarketing) return
 
   const dept = getDepartment(app.applicationType)
   const marketingRole = app.marketingRole || dept?.marketingRole || app.applicationType || 'genel'
-  const salesExperience = buildSalesExperience(app)
-  const b2bB2cExperience = buildB2bB2cExperience(app)
-  const customerMeetings = buildCustomerMeetings(app)
+  const salesExperience = buildSalesExperience(app, forceDefaults)
+  const b2bB2cExperience = buildB2bB2cExperience(app, forceDefaults)
+  const customerMeetingText = buildCustomerMeetingText(app, forceDefaults)
+  const customerMeetingYesEn = yesNoEn(app.phoneFaceToFace || app.businessMeetings)
+  const customerMeetingYesTr = yesNoTr(app.phoneFaceToFace || app.businessMeetings)
 
-  fd.append('sales_experience', salesExperience)
-  fd.append('b2b_b2c_experience', b2bB2cExperience)
-  fd.append('b2b_b2c', b2bB2cExperience)
-  fd.append('b2b_experience', b2bB2cExperience)
-  fd.append('marketing_experience', firstText(app.marketingExperience, salesExperience))
-  fd.append('marketing_role', marketingRole)
-  fd.append('communication_score', firstText(app.communicationScore, '5'))
-  fd.append('how_to_market', firstText(app.howToMarketImpevos, 'Başvuru formunda belirtildi'))
+  appendField(fd, ['sales_experience', 'salesExperience'], salesExperience)
+  appendField(fd, ['b2b_b2c_experience', 'b2b_b2c', 'b2b_experience', 'b2bB2cExperience'], b2bB2cExperience)
+  appendField(fd, ['marketing_experience', 'marketingExperience'], firstText(app.marketingExperience, salesExperience))
+  appendField(fd, ['marketing_role', 'marketingRole'], marketingRole)
+  appendField(fd, ['communication_score', 'communicationScore'], firstText(app.communicationScore, '5'))
+  appendField(fd, ['how_to_market', 'howToMarketImpevos'], firstText(app.howToMarketImpevos, 'Başvuru formunda belirtildi'))
 
-  fd.append('customer_meetings', customerMeetings)
-  fd.append('musteri_gorusmesi', customerMeetings)
-  fd.append('customer_meeting', customerMeetings)
-  fd.append('business_meetings', yesNoDefault(app.businessMeetings))
-  fd.append('phone_meetings', yesNoDefault(app.phoneFaceToFace))
-  fd.append('cold_calling', yesNoDefault(app.coldCallingComfort))
-  fd.append('sales_targets', yesNoDefault(app.salesTargets))
-  fd.append('customer_tracking', yesNoDefault(app.customerTracking))
-  fd.append('crm_tracking', yesNoDefault(app.crmTrackingSales))
-  fd.append('social_media_content', yesNoDefault(app.socialMediaContent))
+  // Müşteri görüşmesi — CRM farklı alan adları deneyebilir
+  appendField(fd, [
+    'musteri_gorusme',
+    'musteri_gorusmesi',
+    'customer_meetings',
+    'customer_meeting',
+    'customer_interview',
+    'client_meetings',
+    'client_meeting',
+  ], customerMeetingText)
 
-  fd.append('campaign_experience', app.campaignExperience || '-')
-  fd.append('design_tools', app.designTools || '-')
-  fd.append('content_examples', app.contentExamples || '-')
-  fd.append('platform_experience', app.platformExperience || '-')
+  appendField(fd, ['phone_face_to_face', 'phoneFaceToFace'], customerMeetingYesEn)
+  appendField(fd, ['business_meetings', 'businessMeetings'], yesNoEn(app.businessMeetings))
+  appendField(fd, ['phone_meetings', 'phoneMeetings'], yesNoEn(app.phoneFaceToFace || app.businessMeetings))
+
+  appendField(fd, ['musteri_gorusme_evet_hayir'], customerMeetingYesTr)
+  appendField(fd, ['cold_calling', 'coldCalling'], yesNoEn(app.coldCallingComfort))
+  appendField(fd, ['sales_targets', 'salesTargets'], yesNoEn(app.salesTargets))
+  appendField(fd, ['customer_tracking', 'customerTracking'], yesNoEn(app.customerTracking))
+  appendField(fd, ['crm_tracking', 'crmTracking'], yesNoEn(app.crmTrackingSales))
+  appendField(fd, ['social_media_content', 'socialMediaContent'], yesNoEn(app.socialMediaContent))
+
+  appendField(fd, ['campaign_experience', 'campaignExperience'], app.campaignExperience || 'Başvuru formunda belirtildi')
+  appendField(fd, ['design_tools', 'designTools'], app.designTools || 'Başvuru formunda belirtildi')
+  appendField(fd, ['content_examples', 'contentExamples'], app.contentExamples || 'Başvuru formunda belirtildi')
+  appendField(fd, ['platform_experience', 'platformExperience'], app.platformExperience || 'Başvuru formunda belirtildi')
 }
