@@ -43,6 +43,7 @@ export function appendMarketingCrmFields(fd, app) {
 
   fd.append('sales_experience', salesExperience)
   fd.append('b2b_b2c_experience', b2bB2cExperience)
+  fd.append('b2b_b2c', b2bB2cExperience)
   fd.append('b2b_experience', b2bB2cExperience)
   fd.append('marketing_experience', firstText(app.marketingExperience, salesExperience))
   fd.append('marketing_role', marketingRole)

@@ -1,11 +1,21 @@
-import formidable from 'formidable'
+import crypto from 'crypto'
 import fs from 'fs'
-import { parseJoinTeamForm, notifyJoinTeamApplication } from '../lib/join-team-apply.js'
+import formidable from 'formidable'
+import { sendJoinTeamNotifications } from '../lib/join-team-email.js'
+import { syncToTeamPanel } from '../lib/join-team-panel.js'
 
 export const config = {
-  api: {
-    bodyParser: false,
-  },
+  api: { bodyParser: false },
+}
+
+function fieldValue(fields, name) {
+  const raw = fields[name]
+  if (Array.isArray(raw)) return (raw[0] ?? '').trim()
+  return (raw ?? '').trim()
+}
+
+function parseBool(val) {
+  return val === 'true' || val === true || val === 'yes' || val === 'on'
 }
 
 function setCors(res) {
@@ -19,6 +29,19 @@ function sendJson(res, status, body) {
   res.status(status).json(body)
 }
 
+function buildApplication(body, cvName, panelId) {
+  return {
+    id: crypto.randomUUID(),
+    createdAt: new Date().toISOString(),
+    status: 'Yeni Başvuru',
+    source: 'Web Sitesi',
+    ...body,
+    voluntaryConsent: parseBool(body.voluntaryConsent),
+    cvOriginalName: cvName || 'cv.pdf',
+    panelId,
+  }
+}
+
 export default async function handler(req, res) {
   setCors(res)
 
@@ -28,48 +51,52 @@ export default async function handler(req, res) {
   let cvPath = null
 
   try {
-    const form = formidable({
-      maxFileSize: 5 * 1024 * 1024,
-      keepExtensions: true,
-    })
-
+    const form = formidable({ maxFileSize: 5 * 1024 * 1024, keepExtensions: true })
     const [fields, files] = await form.parse(req)
-    const cvFile = files.cv?.[0] || files.CV?.[0] || Object.values(files)[0]?.[0]
+    const cvFile = files.cv?.[0] || files.CV?.[0]
 
-    const { application, cvPath: parsedCvPath } = parseJoinTeamForm(fields, cvFile)
-    cvPath = parsedCvPath
+    if (!cvFile) return sendJson(res, 400, { error: 'CV yüklemeniz gerekmektedir' })
 
-    const notifyResults = await notifyJoinTeamApplication(application, cvPath)
-
-    const emailOk = notifyResults.email?.sent || notifyResults.email?.applicantSent
-    const panelOk = notifyResults.panel?.synced
-
-    if (!panelOk) {
-      return sendJson(res, 502, {
-        error: notifyResults.panel?.error || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
-      })
+    const body = {}
+    for (const key of Object.keys(fields)) {
+      body[key] = fieldValue(fields, key)
     }
+
+    if (body.website) return sendJson(res, 400, { error: 'Spam algılandı' })
+    if (!body.fullName || !body.email || !body.phone || !body.applicationType) {
+      return sendJson(res, 400, { error: 'Zorunlu alanlar eksik' })
+    }
+    if (!parseBool(body.voluntaryConsent)) {
+      return sendJson(res, 400, { error: 'Gönüllü çalışma onayı gereklidir' })
+    }
+
+    cvPath = cvFile.filepath
+    const cvName = cvFile.originalFilename || 'cv.pdf'
+    const cvBuffer = fs.readFileSync(cvPath)
+
+    const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
+    const application = buildApplication(body, cvName, panelResult.panelId)
+
+    await sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
+      console.error('[join-team] e-posta hatası:', err.message)
+    })
 
     return sendJson(res, 201, {
       ok: true,
-      id: application.id,
-      panelId: notifyResults.panel?.panelId,
+      id: panelResult.panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
-      notified: { email: !!emailOk, panel: true },
+      notified: { panel: true },
     })
   } catch (err) {
-    const message = err.message || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.'
+    const message = err.message || 'Başvuru gönderilemedi'
     const isClientError =
       message.includes('zorunlu') ||
       message.includes('Geçerli') ||
       message.includes('CV') ||
-      message.includes('dosya') ||
       message.includes('Spam') ||
       message.includes('onay')
-    return sendJson(res, isClientError ? 400 : 500, { error: message })
+    return sendJson(res, isClientError ? 400 : 502, { error: message })
   } finally {
-    if (cvPath && fs.existsSync(cvPath)) {
-      fs.unlink(cvPath, () => {})
-    }
+    if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
   }
 }

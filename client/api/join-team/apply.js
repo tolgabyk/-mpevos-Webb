@@ -1,7 +1,9 @@
+import crypto from 'crypto'
 import fs from 'fs'
 import formidable from 'formidable'
 import { waitUntil } from '@vercel/functions'
-import { notifyJoinTeamInBackground } from '../lib/join-team-notify.js'
+import { sendJoinTeamNotifications } from '../lib/join-team-email.js'
+import { syncToTeamPanel } from '../lib/join-team-panel.js'
 
 export const config = {
   api: { bodyParser: false },
@@ -22,6 +24,19 @@ function sendJson(res, status, body) {
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
   res.status(status).json(body)
+}
+
+function buildApplication(body, cvName, panelId) {
+  return {
+    id: crypto.randomUUID(),
+    createdAt: new Date().toISOString(),
+    status: 'Yeni Başvuru',
+    source: 'Web Sitesi',
+    ...body,
+    voluntaryConsent: parseBool(body.voluntaryConsent),
+    cvOriginalName: cvName || 'cv.pdf',
+    panelId,
+  }
 }
 
 export default async function handler(req, res) {
@@ -57,17 +72,31 @@ export default async function handler(req, res) {
     const cvName = cvFile.originalFilename || 'cv.pdf'
     const cvBuffer = fs.readFileSync(cvPath)
 
-    if (cvPath && fs.existsSync(cvPath)) fs.unlinkSync(cvPath)
-    cvPath = null
+    const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
+    const application = buildApplication(body, cvName, panelResult.panelId)
 
-    waitUntil(notifyJoinTeamInBackground(body, cvBuffer, cvName))
+    waitUntil(
+      sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
+        console.error('[join-team] e-posta hatası:', err.message)
+      }),
+    )
 
     return sendJson(res, 201, {
       ok: true,
+      id: panelResult.panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
+      notified: { panel: true },
     })
   } catch (err) {
+    const message = err.message || 'Başvuru gönderilemedi'
+    const isClientError =
+      message.includes('zorunlu') ||
+      message.includes('Geçerli') ||
+      message.includes('CV') ||
+      message.includes('Spam') ||
+      message.includes('onay')
+    return sendJson(res, isClientError ? 400 : 502, { error: message })
+  } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
-    return sendJson(res, 500, { error: err.message || 'Başvuru gönderilemedi' })
   }
 }
