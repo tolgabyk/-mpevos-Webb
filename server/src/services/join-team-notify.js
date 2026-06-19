@@ -23,22 +23,21 @@ async function withRetry(fn, label, retries = 2) {
 export async function notifyJoinTeamApplication(application, cvPath) {
   const results = { email: null, panel: null }
 
-  try {
-    results.email = await withRetry(
-      () => sendJoinTeamNotifications(application, cvPath),
-      'E-posta',
-    )
-  } catch (err) {
-    results.email = { failed: true, error: err.message }
+  const [emailResult, panelResult] = await Promise.allSettled([
+    withRetry(() => sendJoinTeamNotifications(application, cvPath), 'E-posta', 1),
+    withRetry(() => syncJoinTeamToDashboard(application, cvPath), 'CRM Panel', 1),
+  ])
+
+  if (emailResult.status === 'fulfilled') {
+    results.email = emailResult.value
+  } else {
+    results.email = { failed: true, error: emailResult.reason?.message }
   }
 
-  try {
-    results.panel = await withRetry(
-      () => syncJoinTeamToDashboard(application, cvPath),
-      'CRM Panel',
-    )
-  } catch (err) {
-    results.panel = { failed: true, error: err.message }
+  if (panelResult.status === 'fulfilled') {
+    results.panel = panelResult.value
+  } else {
+    results.panel = { failed: true, error: panelResult.reason?.message }
   }
 
   if (results.email?.sent) {

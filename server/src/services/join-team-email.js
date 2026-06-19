@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import { getDepartmentLabel } from '../../api/lib/join-team-departments.js'
 
 function getTransporter() {
   if (!process.env.SMTP_HOST || !process.env.SMTP_USER) return null
@@ -14,23 +15,14 @@ function getTransporter() {
   })
 }
 
-const APPLICATION_TYPE_LABELS = {
-  'software-team': 'Yazılım Ekibi',
-  'marketing-team': 'Pazarlama Ekibi',
-  'active-project-team': 'Aktif Proje Ekibi',
-  'other-departments': 'Diğer Departmanlar',
-  'intern-junior': 'Stajyer / Junior Geliştirici',
-  volunteer: 'Gönüllü / Deneyim Kazanmak İstiyorum',
+function typeLabel(type) {
+  return getDepartmentLabel(type) || type || '—'
 }
 
 function yesNo(val) {
   if (val === 'yes' || val === true) return 'Evet'
   if (val === 'no' || val === false) return 'Hayır'
   return val || '—'
-}
-
-function typeLabel(type) {
-  return APPLICATION_TYPE_LABELS[type] || type || '—'
 }
 
 function panelUrl(id) {
@@ -41,8 +33,8 @@ function panelUrl(id) {
 function buildCompanyHtml(app) {
   const rows = [
     ['Ad Soyad', app.fullName],
-    ['Başvuru Türü', typeLabel(app.applicationType)],
-    ['Departman / Alan', app.department || app.softwareRole || app.departmentInterest || '—'],
+    ['Başvuru Departmanı', typeLabel(app.applicationType)],
+    ['Alt Alan', app.marketingRole || app.softwareRole || '—'],
     ['E-posta', app.email],
     ['Telefon', app.phone],
     ['Şehir', app.city],
@@ -80,8 +72,8 @@ function buildCompanyText(app) {
     `Yeni İmpevos Ekip Başvurusu — ${app.fullName}`,
     '',
     `Ad Soyad: ${app.fullName}`,
-    `Başvuru Türü: ${typeLabel(app.applicationType)}`,
-    `Departman: ${app.department || app.softwareRole || app.departmentInterest || '—'}`,
+    `Başvuru Departmanı: ${typeLabel(app.applicationType)}`,
+    `Alt Alan: ${app.marketingRole || app.softwareRole || '—'}`,
     `E-posta: ${app.email}`,
     `Telefon: ${app.phone}`,
     `Şehir: ${app.city}`,

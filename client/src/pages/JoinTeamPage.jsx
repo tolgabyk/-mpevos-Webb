@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import JoinTeamForm from '../components/JoinTeamForm/JoinTeamForm'
-import { CATEGORIES } from '../components/JoinTeamForm/constants'
+import { DEPARTMENTS, DEPARTMENT_GROUPS } from '../components/JoinTeamForm/constants'
 import styles from './JoinTeamPage.module.css'
 
 export default function JoinTeamPage() {
@@ -21,9 +21,8 @@ export default function JoinTeamPage() {
               <span className={styles.badge}>Ekibe Katıl</span>
               <h1 className={styles.title}>İmpevos Ekibine Katıl</h1>
               <p className={styles.subtitle}>
-                Yazılım, yapay zeka, mobil uygulama, web geliştirme, pazarlama ve operasyon
-                alanlarında bizimle birlikte gerçek projelerde deneyim kazanmak ve aktif
-                ekiplerde yer almak isteyen ekip arkadaşları arıyoruz.
+                Yazılım, satış, pazarlama, tasarım, operasyon ve daha birçok departmanda
+                gerçek projelerde deneyim kazanmak isteyen ekip arkadaşları arıyoruz.
               </p>
             </motion.div>
           </div>
@@ -38,12 +37,9 @@ export default function JoinTeamPage() {
               viewport={{ once: true }}
             >
               <p>
-                İmpevos olarak şu an gönüllü çalışma modeliyle gerçek yazılım ve teknoloji
-                projeleri geliştiriyoruz. Ekibimize katılan kişiler aktif projelerde görev alarak
-                deneyim kazanır, ekip çalışmasını öğrenir ve modern yazılım süreçlerine dahil olur.
-                Özellikle Claude, Cursor, Antigravity, ChatGPT, GitHub ve yapay zeka destekli
-                geliştirme araçlarını kullanabilen veya öğrenmeye açık adaylar öncelikli olarak
-                değerlendirilecektir.
+                İmpevos olarak gönüllü çalışma modeliyle gerçek yazılım ve teknoloji
+                projeleri geliştiriyoruz. Aşağıdaki departmanlardan birini seçerek
+                başvurunu tamamlayabilirsin.
               </p>
             </motion.div>
           </div>
@@ -57,34 +53,46 @@ export default function JoinTeamPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="section-label">Başvuru Kategorileri</div>
-              <h2 className="section-title">Hangi Alanda Katılmak İstiyorsun?</h2>
+              <div className="section-label">Departmanlar</div>
+              <h2 className="section-title">Hangi Departmanda Yer Almak İstiyorsun?</h2>
               <p className="section-subtitle">
-                Aşağıdaki kategorilerden birini seçerek başvuru formunu doldurabilirsin.
+                {DEPARTMENTS.length} farklı departmana başvurabilirsin. Formda ilgili departmanı seçmen yeterli.
               </p>
             </motion.div>
 
-            <div className={styles.categoryGrid}>
-              {CATEGORIES.map((cat, i) => (
-                <motion.div
-                  key={cat.id}
-                  className={styles.categoryCard}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                >
-                  <h3>{cat.title}</h3>
-                  {cat.leader && <p className={styles.leader}>{cat.leader}</p>}
-                  <p>{cat.description}</p>
-                  <div className={styles.roleTags}>
-                    {cat.roles.map(role => (
-                      <span key={role} className={styles.roleTag}>{role}</span>
+            {DEPARTMENT_GROUPS.map((group, gi) => {
+              const items = DEPARTMENTS.filter(d => d.group === group.id)
+              return (
+                <div key={group.id} className={styles.deptGroup}>
+                  <motion.div
+                    className={styles.deptGroupHeader}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: gi * 0.05 }}
+                  >
+                    <h3>{group.title}</h3>
+                    <p>{group.subtitle}</p>
+                  </motion.div>
+                  <div className={styles.categoryGrid}>
+                    {items.map((dept, i) => (
+                      <motion.div
+                        key={dept.value}
+                        className={styles.categoryCard}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.04 }}
+                      >
+                        <h3>{dept.label}</h3>
+                        {dept.leader && <p className={styles.leader}>{dept.leader}</p>}
+                        <p>{dept.description}</p>
+                      </motion.div>
                     ))}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              )
+            })}
           </div>
         </section>
 
@@ -99,7 +107,7 @@ export default function JoinTeamPage() {
               <div className="section-label">Başvuru Formu</div>
               <h2 className="section-title">Başvurunu Tamamla</h2>
               <p className="section-subtitle">
-                Tüm alanları eksiksiz doldur. Başvurun ekibimiz tarafından incelenecektir.
+                Departmanını seç, alan sorularını doldur ve başvurunu gönder.
               </p>
             </motion.div>
           </div>
@@ -116,8 +124,7 @@ export default function JoinTeamPage() {
             >
               <p>
                 İmpevos&apos;ta sadece izleyen değil, üreten bir ekibin parçası olursun.
-                Gerçek projelerde görev alır, modern araçlarla çalışır, ekip deneyimi kazanır
-                ve kendini profesyonel dünyaya hazırlarsın.
+                Gerçek projelerde görev alır, modern araçlarla çalışır ve kendini profesyonel dünyaya hazırlarsın.
               </p>
             </motion.div>
           </div>

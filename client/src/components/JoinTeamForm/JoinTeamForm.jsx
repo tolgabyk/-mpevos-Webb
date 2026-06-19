@@ -5,16 +5,20 @@ import { submitJoinTeamApplication, isJoinTeamSubmitSuccess } from '../../utils/
 import {
   INITIAL_FORM,
   STEPS,
-  APPLICATION_TYPES,
+  DEPARTMENT_OPTIONS,
   SOFTWARE_ROLES,
+  MARKETING_ROLES,
   YES_NO_OPTIONS,
-  OTHER_DEPARTMENTS,
   getQuestionSet,
   getRequiredFields,
+  getMarketingRoleGroup,
+  getDepartment,
+  getDepartmentLabel,
+  getPresetRoles,
 } from './constants'
 import styles from './JoinTeamForm.module.css'
 
-const STEP_LABELS = ['Kişisel Bilgiler', 'Başvuru Türü', 'Alan Soruları', 'Genel Değerlendirme']
+const STEP_LABELS = ['Kişisel Bilgiler', 'Departman Seçimi', 'Alan Soruları', 'Genel Değerlendirme']
 
 const PHONE_REGEX = /^(\+90|0)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$|^\+?[0-9]{10,15}$/
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -26,7 +30,19 @@ export default function JoinTeamForm() {
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
 
-  const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }))
+  const update = (field, value) => {
+    if (field === 'applicationType') {
+      const presets = getPresetRoles(value)
+      setForm(prev => ({
+        ...prev,
+        applicationType: value,
+        softwareRole: presets.softwareRole,
+        marketingRole: presets.marketingRole,
+      }))
+      return
+    }
+    setForm(prev => ({ ...prev, [field]: value }))
+  }
 
   const closeSuccess = () => {
     setStatus('idle')
@@ -166,9 +182,14 @@ export default function JoinTeamForm() {
     </div>
   )
 
-  const renderSoftwareQuestions = () => (
-    <div className={styles.fields}>
-      {renderSelect('softwareRole', 'Hangi alanda çalışmak istiyorsun?', SOFTWARE_ROLES, true)}
+  const renderSoftwareQuestions = () => {
+    const dept = getDepartment(form.applicationType)
+    return (
+      <div className={styles.fields}>
+        {!dept?.softwareRole && renderSelect('softwareRole', 'Hangi alanda çalışmak istiyorsun?', SOFTWARE_ROLES, true)}
+        {dept?.softwareRole && (
+          <p className={styles.consentInfo}>Seçilen departman: <strong>{dept.label}</strong></p>
+        )}
       {renderField('technologies', 'Bildiğin teknolojiler nelerdir?', 'textarea', true)}
       {renderSelect('cursorUsed', 'Cursor kullandın mı?', YES_NO_OPTIONS, true)}
       {renderSelect('claudeUsed', 'Claude kullandın mı?', YES_NO_OPTIONS, true)}
@@ -185,59 +206,78 @@ export default function JoinTeamForm() {
       {renderField('technicalScore', 'Kendini 1-10 arasında teknik olarak kaç puan verirsin?', 'number')}
       {renderField('projectExample', 'Kısa bir örnek proje veya yaptığın işi anlat', 'textarea', true)}
       {renderField('portfolioLinks', 'Portfolyo, GitHub veya canlı proje linkin varsa paylaş', 'textarea')}
-    </div>
-  )
+      </div>
+    )
+  }
 
-  const renderMarketingQuestions = () => (
-    <div className={styles.fields}>
-      {renderField('marketingExperience', 'Daha önce satış, pazarlama veya sosyal medya işi yaptın mı?', 'textarea', true)}
-      {renderSelect('businessMeetings', 'İşletmelerle görüşme yapabilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('phoneFaceToFace', 'Telefonda veya yüz yüze müşteriyle konuşabilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('socialMediaContent', 'Sosyal medya içerik üretimi yapabilir misin?', YES_NO_OPTIONS)}
-      {renderField('campaignExperience', 'Reklam, kampanya veya marka yönetimi deneyimin var mı?', 'textarea')}
-      {renderField('designTools', 'Canva, CapCut, Meta Business Suite veya benzeri araçlar kullandın mı?', 'textarea')}
-      {renderField('hoursPerWeekMarketing', 'Haftada kaç saat ayırabilirsin?', 'text', true)}
-      {renderField('communicationScore', 'Kendini iletişim konusunda 1-10 arası kaç puan verirsin?', 'number', true)}
-      {renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini işletmelere nasıl pazarlarsın?', 'textarea', true)}
-      {renderSelect('salesTargets', 'Satış hedefleriyle çalışabilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('customerTracking', 'Müşteri takibi ve raporlama yapabilir misin?', YES_NO_OPTIONS)}
-    </div>
-  )
+  const renderMarketingQuestions = () => {
+    const dept = getDepartment(form.applicationType)
+    const marketingRole = form.marketingRole || dept?.marketingRole || ''
+    const roleGroup = getMarketingRoleGroup(marketingRole)
 
-  const renderActiveProjectQuestions = () => (
-    <div className={styles.fields}>
-      {renderField('interestedProjects', 'Hangi projelerde görev almak istersin?', 'textarea', true)}
-      {renderField('bestPosition', 'Hangi pozisyonda daha iyisin?', 'text', true)}
-      {renderSelect('deliveryProcessSeen', 'Daha önce proje teslim süreci gördün mü?', YES_NO_OPTIONS)}
-      {renderSelect('deadlineWork', 'Proje teslim tarihleriyle çalışabilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('dailyReportAP', 'Günlük rapor verebilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('crmTrackingAP', 'CRM panel üzerinden görev takibi yapabilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('regularMeetings', 'Ekip toplantılarına düzenli katılabilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('onTimeDelivery', 'Sana verilen görevi zamanında teslim edebilir misin?', YES_NO_OPTIONS, true)}
-      {renderField('toolsUsedAP', 'Hangi araçları kullanabiliyorsun?', 'textarea')}
-      {renderField('weeklyHoursAP', 'Haftalık aktif çalışma süren nedir?', 'text', true)}
-    </div>
-  )
+    return (
+      <div className={styles.fields}>
+        {!dept?.marketingRole && renderSelect('marketingRole', 'Hangi alanda çalışmak istiyorsun?', MARKETING_ROLES, true)}
+        {dept?.marketingRole && (
+          <p className={styles.consentInfo}>Seçilen departman: <strong>{dept.label}</strong></p>
+        )}
+        {renderField('marketingExperience', 'Satış / pazarlama deneyimin nedir?', 'textarea', true)}
 
-  const renderOtherQuestions = () => (
-    <div className={styles.fields}>
-      {renderSelect('departmentInterest', 'Hangi departmanda görev almak istiyorsun?', OTHER_DEPARTMENTS.map(d => ({ value: d, label: d })), true)}
-      {renderField('departmentExperience', 'Daha önce bu alanda deneyimin var mı?', 'textarea')}
-      {renderField('organizationSkills', 'Organizasyon ve takip becerin nasıl?', 'textarea')}
-      {renderSelect('regularReporting', 'Düzenli rapor verebilir misin?', YES_NO_OPTIONS)}
-      {renderSelect('teamCommunication', 'Ekip içi iletişimde aktif olabilir misin?', YES_NO_OPTIONS)}
-      {renderField('toolsUsedOther', 'Hangi araçları kullanabiliyorsun?', 'textarea')}
-      {renderField('hoursPerWeekOther', 'Haftada kaç saat ayırabilirsin?', 'text', true)}
-      {renderField('contributionIdea', 'Bu departmanda İmpevos\'a nasıl katkı sağlayabileceğini düşünüyorsun?', 'textarea', true)}
-    </div>
-  )
+        {roleGroup === 'sales' && (
+          <>
+            {renderSelect('businessMeetings', 'İşletmelerle görüşme yapabilir misin?', YES_NO_OPTIONS, true)}
+            {renderSelect('phoneFaceToFace', 'Telefonda veya yüz yüze müşteriyle konuşabilir misin?', YES_NO_OPTIONS, true)}
+            {renderField('b2bSalesExperience', 'B2B satış veya yazılım ürünü satış deneyimin var mı?', 'textarea')}
+            {renderSelect('coldCallingComfort', 'Soğuk arama / ilk temas görüşmeleri yapabilir misin?', YES_NO_OPTIONS)}
+            {renderSelect('salesTargets', 'Satış hedefleriyle çalışabilir misin?', YES_NO_OPTIONS, true)}
+            {renderSelect('customerTracking', 'Müşteri takibi ve raporlama yapabilir misin?', YES_NO_OPTIONS)}
+            {renderSelect('crmTrackingSales', 'CRM panel üzerinden müşteri ve görev takibi yapabilir misin?', YES_NO_OPTIONS)}
+            {renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini işletmelere nasıl pazarlarsın?', 'textarea', true)}
+          </>
+        )}
+
+        {roleGroup === 'content' && (
+          <>
+            {renderSelect('socialMediaContent', 'Sosyal medya içerik üretimi yapabilir misin?', YES_NO_OPTIONS, true)}
+            {renderField('campaignExperience', 'Reklam, kampanya veya marka yönetimi deneyimin var mı?', 'textarea')}
+            {renderField('designTools', 'Canva, CapCut, Meta Business Suite veya benzeri araçlar kullandın mı?', 'textarea', true)}
+            {renderField('contentExamples', 'Daha önce ürettiğin içerik örneklerini veya hesap linklerini paylaş', 'textarea')}
+            {renderField('platformExperience', 'Hangi platformlarda (Instagram, LinkedIn, TikTok vb.) deneyimin var?', 'textarea')}
+            {renderField('howToMarketImpevos', 'İmpevos\'u dijital kanallarda nasıl tanıtırsın?', 'textarea', true)}
+          </>
+        )}
+
+        {!roleGroup && marketingRole && (
+          renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini nasıl tanıtırsın?', 'textarea', true)
+        )}
+
+        {renderField('hoursPerWeekMarketing', 'Haftada kaç saat ayırabilirsin?', 'text', true)}
+        {renderField('communicationScore', 'Kendini iletişim konusunda 1-10 arası kaç puan verirsin?', 'number', true)}
+      </div>
+    )
+  }
+
+  const renderGeneralDepartmentQuestions = () => {
+    const deptLabel = getDepartmentLabel(form.applicationType)
+    return (
+      <div className={styles.fields}>
+        <p className={styles.consentInfo}>Başvurduğun departman: <strong>{deptLabel}</strong></p>
+        {renderField('departmentExperience', 'Bu alanda deneyimin var mı? Kısaca anlat', 'textarea', true)}
+        {renderField('organizationSkills', 'Organizasyon ve takip becerin nasıl?', 'textarea')}
+        {renderSelect('regularReporting', 'Düzenli rapor verebilir misin?', YES_NO_OPTIONS)}
+        {renderSelect('teamCommunication', 'Ekip içi iletişimde aktif olabilir misin?', YES_NO_OPTIONS)}
+        {renderField('toolsUsedOther', 'Hangi araçları kullanabiliyorsun?', 'textarea')}
+        {renderField('hoursPerWeekOther', 'Haftada kaç saat ayırabilirsin?', 'text', true)}
+        {renderField('contributionIdea', 'Bu departmanda İmpevos\'a nasıl katkı sağlayabileceğini düşünüyorsun?', 'textarea', true)}
+      </div>
+    )
+  }
 
   const renderSpecificQuestions = () => {
     const set = getQuestionSet(form.applicationType)
     if (set === 'software') return renderSoftwareQuestions()
     if (set === 'marketing') return renderMarketingQuestions()
-    if (set === 'active-project') return renderActiveProjectQuestions()
-    return renderOtherQuestions()
+    return renderGeneralDepartmentQuestions()
   }
 
   const renderStep = () => {
@@ -290,7 +330,7 @@ export default function JoinTeamForm() {
       case 1:
         return (
           <div className={styles.fields}>
-            {renderSelect('applicationType', 'Başvuru Türü', APPLICATION_TYPES, true)}
+            {renderSelect('applicationType', 'Departman', DEPARTMENT_OPTIONS, true)}
             <div className={styles.consentBox}>
               <p className={styles.consentInfo}>
                 İmpevos&apos;ta şu an birçok ekip ve proje gönüllü çalışma modeliyle ilerlemektedir.
@@ -314,7 +354,7 @@ export default function JoinTeamForm() {
         )
       case 2:
         return form.applicationType ? renderSpecificQuestions() : (
-          <p className={styles.consentInfo}>Lütfen önce başvuru türünü seçin.</p>
+          <p className={styles.consentInfo}>Lütfen önce departman seçin.</p>
         )
       case 3:
         return (

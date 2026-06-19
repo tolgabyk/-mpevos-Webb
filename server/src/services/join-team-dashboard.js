@@ -1,22 +1,13 @@
 import fs from 'fs'
+import { appendMarketingCrmFields } from '../../api/lib/join-team-crm.js'
+import {
+  DEPARTMENTS,
+  getDepartmentLabel,
+  getCrmKind,
+  getDepartment as getDeptConfig,
+} from '../../api/lib/join-team-departments.js'
 
-const APPLICATION_TYPE_LABELS = {
-  'software-team': 'Yazılım Ekibi',
-  'marketing-team': 'Pazarlama Ekibi',
-  'active-project-team': 'Aktif Proje Ekibi',
-  'other-departments': 'Diğer Departmanlar',
-  'intern-junior': 'Stajyer / Junior Geliştirici',
-  volunteer: 'Gönüllü / Deneyim Kazanmak İstiyorum',
-}
-
-const APPLICATION_KIND_MAP = {
-  'software-team': 'yazilim',
-  'marketing-team': 'pazarlama',
-  'active-project-team': 'aktif_proje',
-  'other-departments': 'diger',
-  'intern-junior': 'stajyer_junior',
-  volunteer: 'gonullu',
-}
+const APPLICATION_TYPE_LABELS = Object.fromEntries(DEPARTMENTS.map(d => [d.value, d.label]))
 
 const SOFTWARE_ROLE_LABELS = {
   frontend: 'Frontend Developer',
@@ -30,6 +21,17 @@ const SOFTWARE_ROLE_LABELS = {
   'ui-ux': 'UI/UX Designer',
   devops: 'DevOps / Deployment',
   qa: 'QA / Test',
+}
+
+const MARKETING_ROLE_LABELS = {
+  'sales-rep': 'Satış Temsilcisi',
+  'business-dev': 'İş Geliştirme',
+  'customer-meetings': 'Müşteri Görüşmeleri',
+  'social-media': 'Sosyal Medya',
+  'content-creator': 'İçerik Üreticisi',
+  'digital-marketing': 'Dijital Pazarlama',
+  campaign: 'Reklam ve Kampanya',
+  brand: 'Marka İletişimi',
 }
 
 const TEAM_SUBMIT_URL =
@@ -52,7 +54,7 @@ function aiLevel(val) {
 
 function buildMessage(app) {
   const lines = [
-    ['Başvuru Türü', APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType],
+    ['Başvuru Departmanı', getDepartmentLabel(app.applicationType) || app.applicationType],
     ['Yaş', app.age],
     ['Üniversite / Bölüm / Mezuniyet', app.universityInfo],
     ['LinkedIn', app.linkedin],
@@ -76,16 +78,22 @@ function buildMessage(app) {
     ['Teknik Puan (1-10)', app.technicalScore],
     ['Örnek Proje', app.projectExample],
     ['Portfolyo Linkleri', app.portfolioLinks],
+    ['Pazarlama / Satış Rolü', MARKETING_ROLE_LABELS[app.marketingRole] || app.marketingRole],
     ['Pazarlama Deneyimi', app.marketingExperience],
     ['İşletme Görüşmeleri', yesNo(app.businessMeetings)],
     ['Telefon / Yüz Yüze', yesNo(app.phoneFaceToFace)],
+    ['B2B Satış Deneyimi', app.b2bSalesExperience],
+    ['Soğuk Arama', yesNo(app.coldCallingComfort)],
     ['Sosyal Medya İçerik', yesNo(app.socialMediaContent)],
     ['Kampanya Deneyimi', app.campaignExperience],
     ['Tasarım Araçları', app.designTools],
+    ['İçerik Örnekleri', app.contentExamples],
+    ['Platform Deneyimi', app.platformExperience],
     ['İletişim Puanı (1-10)', app.communicationScore],
-    ['İmpevos Pazarlama Fikri', app.howToMarketImpevos],
+    ['İmpevos Tanıtım Fikri', app.howToMarketImpevos],
     ['Satış Hedefleri', yesNo(app.salesTargets)],
     ['Müşteri Takibi', yesNo(app.customerTracking)],
+    ['CRM Müşteri Takibi', yesNo(app.crmTrackingSales)],
     ['İlgilenilen Projeler', app.interestedProjects],
     ['En İyi Pozisyon', app.bestPosition],
     ['Teslim Süreci Deneyimi', yesNo(app.deliveryProcessSeen)],
@@ -116,10 +124,11 @@ function buildMessage(app) {
 }
 
 function getDepartment(app) {
+  const dept = getDeptConfig(app.applicationType)
+  if (dept) return dept.label
+  if (app.marketingRole) return MARKETING_ROLE_LABELS[app.marketingRole] || app.marketingRole
   if (app.softwareRole) return SOFTWARE_ROLE_LABELS[app.softwareRole] || app.softwareRole
-  if (app.departmentInterest) return app.departmentInterest
-  if (app.bestPosition) return app.bestPosition
-  return APPLICATION_TYPE_LABELS[app.applicationType] || app.applicationType
+  return getDepartmentLabel(app.applicationType) || app.applicationType
 }
 
 function guessMime(filename) {
@@ -132,7 +141,7 @@ function guessMime(filename) {
 
 function buildTeamFormData(app, cvPath) {
   const fd = new FormData()
-  const kind = APPLICATION_KIND_MAP[app.applicationType] || 'diger'
+  const kind = getCrmKind(app.applicationType)
   const weekly =
     app.hoursPerWeek || app.hoursPerWeekMarketing || app.weeklyHoursAP || app.hoursPerWeekOther || ''
 
@@ -160,6 +169,7 @@ function buildTeamFormData(app, cvPath) {
   if (app.technologies) fd.append('technologies', app.technologies)
   if (app.whyImpevos) fd.append('why_impevos', app.whyImpevos)
   if (app.differentiator) fd.append('differentiator', app.differentiator)
+  appendMarketingCrmFields(fd, app)
 
   if (cvPath && fs.existsSync(cvPath)) {
     const buf = fs.readFileSync(cvPath)
@@ -183,7 +193,8 @@ export async function syncJoinTeamToDashboard(application, cvPath) {
 
   if (!res.ok || result.ok === false) {
     const msg = result.message || result.error || res.statusText
-    throw new Error(`CRM panel hatası (${res.status}): ${msg}`)
+    console.error(`CRM panel hatası (${res.status}): ${msg}`)
+    throw new Error(msg)
   }
 
   console.log(`✅ Ekip başvurusu CRM paneline gönderildi: ${application.fullName} (id: ${result.id || '—'})`)

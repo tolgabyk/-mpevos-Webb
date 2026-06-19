@@ -1,4 +1,9 @@
 import crypto from 'crypto'
+import {
+  getQuestionSet,
+  getDepartment,
+  getMarketingRoleGroup,
+} from '../../api/lib/join-team-departments.js'
 
 const PERSONAL_FIELDS = ['fullName', 'email', 'phone', 'city', 'age', 'universityInfo', 'linkedin', 'githubPortfolio']
 const CONSENT_FIELDS = ['applicationType', 'voluntaryConsent']
@@ -13,37 +18,22 @@ const SOFTWARE_FIELDS = [
   'technicalScore', 'projectExample', 'portfolioLinks',
 ]
 const MARKETING_FIELDS = [
-  'marketingExperience', 'businessMeetings', 'phoneFaceToFace', 'socialMediaContent',
-  'campaignExperience', 'designTools', 'hoursPerWeekMarketing', 'communicationScore',
+  'marketingRole', 'marketingExperience', 'businessMeetings', 'phoneFaceToFace',
+  'b2bSalesExperience', 'coldCallingComfort', 'crmTrackingSales',
+  'socialMediaContent', 'campaignExperience', 'designTools', 'contentExamples',
+  'platformExperience', 'hoursPerWeekMarketing', 'communicationScore',
   'howToMarketImpevos', 'salesTargets', 'customerTracking',
 ]
-const ACTIVE_PROJECT_FIELDS = [
-  'interestedProjects', 'bestPosition', 'deliveryProcessSeen', 'deadlineWork',
-  'dailyReportAP', 'crmTrackingAP', 'regularMeetings', 'onTimeDelivery',
-  'toolsUsedAP', 'weeklyHoursAP',
-]
+
 const OTHER_FIELDS = [
-  'departmentInterest', 'departmentExperience', 'organizationSkills', 'regularReporting',
+  'departmentExperience', 'organizationSkills', 'regularReporting',
   'teamCommunication', 'toolsUsedOther', 'hoursPerWeekOther', 'contributionIdea',
 ]
 
 const ALL_OPTIONAL_FIELDS = [
-  ...SOFTWARE_FIELDS, ...MARKETING_FIELDS, ...ACTIVE_PROJECT_FIELDS, ...OTHER_FIELDS,
+  ...SOFTWARE_FIELDS, ...MARKETING_FIELDS, ...OTHER_FIELDS,
   'website',
 ]
-
-export const QUESTION_SET_MAP = {
-  'software-team': 'software',
-  'intern-junior': 'software',
-  'marketing-team': 'marketing',
-  'active-project-team': 'active-project',
-  'other-departments': 'other',
-  volunteer: 'other',
-}
-
-export function getQuestionSet(applicationType) {
-  return QUESTION_SET_MAP[applicationType] || 'other'
-}
 
 function trimOrEmpty(v) {
   return (v ?? '').trim()
@@ -64,18 +54,59 @@ function validatePhone(phone) {
   return /^(\+90|0)?[0-9]{10,11}$/.test(cleaned) || /^\+?[0-9]{10,15}$/.test(cleaned)
 }
 
-function getRequiredCategoryFields(applicationType) {
-  const set = getQuestionSet(applicationType)
+const FIELD_ERROR_LABELS = {
+  marketingRole: 'Pozisyon seçimi',
+  applicationType: 'Departman',
+  marketingExperience: 'Satış / pazarlama deneyimi',
+  hoursPerWeekMarketing: 'Haftalık çalışma süresi',
+  howToMarketImpevos: 'İmpevos tanıtım fikri',
+  communicationScore: 'İletişim puanı',
+  businessMeetings: 'İşletme görüşmeleri',
+  phoneFaceToFace: 'Telefon / yüz yüze görüşme',
+  salesTargets: 'Satış hedefleri',
+  socialMediaContent: 'Sosyal medya içerik üretimi',
+  designTools: 'Tasarım araçları',
+  softwareRole: 'Yazılım alanı',
+  technologies: 'Teknolojiler',
+  hoursPerWeek: 'Haftalık çalışma süresi',
+  projectExample: 'Örnek proje',
+  interestedProjects: 'İlgilenilen projeler',
+  bestPosition: 'Pozisyon',
+  weeklyHoursAP: 'Haftalık çalışma süresi',
+  departmentInterest: 'Departman seçimi',
+  hoursPerWeekOther: 'Haftalık çalışma süresi',
+  departmentExperience: 'Departman deneyimi',
+  contributionIdea: 'Katkı fikri',
+}
+
+function fieldErrorMessage(field) {
+  const label = FIELD_ERROR_LABELS[field] || field
+  return `${label} alanı zorunludur`
+}
+
+function getRequiredCategoryFields(body) {
+  const set = getQuestionSet(body.applicationType)
+  const dept = getDepartment(body.applicationType)
+  const marketingRole = body.marketingRole || dept?.marketingRole || ''
+
   if (set === 'software') {
-    return ['softwareRole', 'technologies', 'hoursPerWeek', 'projectExample']
+    const fields = ['technologies', 'hoursPerWeek', 'projectExample']
+    if (!dept?.softwareRole) fields.unshift('softwareRole')
+    return fields
   }
   if (set === 'marketing') {
-    return ['marketingExperience', 'hoursPerWeekMarketing', 'howToMarketImpevos']
+    const base = ['marketingExperience', 'hoursPerWeekMarketing', 'howToMarketImpevos', 'communicationScore']
+    if (!dept?.marketingRole) base.unshift('marketingRole')
+    const group = getMarketingRoleGroup(marketingRole)
+    if (group === 'sales') {
+      return [...base, 'businessMeetings', 'phoneFaceToFace', 'salesTargets']
+    }
+    if (group === 'content') {
+      return [...base, 'socialMediaContent', 'designTools']
+    }
+    return base
   }
-  if (set === 'active-project') {
-    return ['interestedProjects', 'bestPosition', 'weeklyHoursAP']
-  }
-  return ['departmentInterest', 'hoursPerWeekOther', 'contributionIdea']
+  return ['departmentExperience', 'hoursPerWeekOther', 'contributionIdea']
 }
 
 export function parseJoinTeamForm(fields, file) {
@@ -90,7 +121,7 @@ export function parseJoinTeamForm(fields, file) {
     if (!body[field]) throw new Error(`${field} alanı zorunludur`)
   }
 
-  if (!body.applicationType) throw new Error('Başvuru türü seçilmelidir')
+  if (!body.applicationType) throw new Error('Departman seçilmelidir')
   if (!body.voluntaryConsent) throw new Error('Gönüllü çalışma modelini onaylamanız gerekmektedir')
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -106,8 +137,8 @@ export function parseJoinTeamForm(fields, file) {
     if (!body[field]) throw new Error(`${field} alanı zorunludur`)
   }
 
-  for (const field of getRequiredCategoryFields(body.applicationType)) {
-    if (!body[field]) throw new Error(`${field} alanı zorunludur`)
+  for (const field of getRequiredCategoryFields(body)) {
+    if (!body[field]) throw new Error(fieldErrorMessage(field))
   }
 
   if (!file) throw new Error('CV yüklemeniz gerekmektedir')

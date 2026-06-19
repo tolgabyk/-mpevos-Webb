@@ -1,31 +1,26 @@
 import fs from 'fs'
+import { appendMarketingCrmFields } from '../../api/lib/join-team-crm.js'
+import { getDepartmentLabel, getCrmKind } from '../../api/lib/join-team-departments.js'
 
 export const config = {
   api: { bodyParser: false },
-}
-
-const TYPE_LABELS = {
-  'software-team': 'Yazılım Ekibi',
-  'marketing-team': 'Pazarlama Ekibi',
-  'active-project-team': 'Aktif Proje Ekibi',
-  'other-departments': 'Diğer Departmanlar',
-  'intern-junior': 'Stajyer / Junior Geliştirici',
-  volunteer: 'Gönüllü / Deneyim Kazanmak İstiyorum',
-}
-
-const KIND_MAP = {
-  'software-team': 'yazilim',
-  'marketing-team': 'pazarlama',
-  'active-project-team': 'aktif_proje',
-  'other-departments': 'diger',
-  'intern-junior': 'stajyer_junior',
-  volunteer: 'gonullu',
 }
 
 const SOFTWARE_ROLE_LABELS = {
   frontend: 'Frontend', backend: 'Backend', ios: 'iOS', android: 'Android',
   flutter: 'Flutter', 'react-native': 'React Native', 'ui-ux': 'UI/UX',
   ai: 'AI', devops: 'DevOps', fullstack: 'Full Stack', qa: 'QA / Test',
+}
+
+const MARKETING_ROLE_LABELS = {
+  'sales-rep': 'Satış Temsilcisi',
+  'business-dev': 'İş Geliştirme',
+  'customer-meetings': 'Müşteri Görüşmeleri',
+  'social-media': 'Sosyal Medya',
+  'content-creator': 'İçerik Üreticisi',
+  'digital-marketing': 'Dijital Pazarlama',
+  campaign: 'Reklam ve Kampanya',
+  brand: 'Marka İletişimi',
 }
 
 const TEAM_SUBMIT_URL =
@@ -44,14 +39,15 @@ function parseBool(val) {
 }
 
 function getDepartment(body) {
+  const label = getDepartmentLabel(body.applicationType)
+  if (label) return label
+  if (body.marketingRole) return MARKETING_ROLE_LABELS[body.marketingRole] || body.marketingRole
   if (body.softwareRole) return SOFTWARE_ROLE_LABELS[body.softwareRole] || body.softwareRole
-  if (body.departmentInterest) return body.departmentInterest
-  if (body.bestPosition) return body.bestPosition
-  return TYPE_LABELS[body.applicationType] || body.applicationType
+  return body.applicationType
 }
 
 function buildMessage(body) {
-  const typeLabel = TYPE_LABELS[body.applicationType] || body.applicationType
+  const typeLabel = getDepartmentLabel(body.applicationType) || body.applicationType
   const lines = [`[EKİP BAŞVURUSU] — ${typeLabel}`, '']
   for (const [key, val] of Object.entries(body)) {
     if (key === 'website' || val === '' || val === false) continue
@@ -77,9 +73,9 @@ function guessMime(filename) {
 async function syncToTeamPanel(body, cvFile) {
   const fd = new FormData()
   const weekly =
-    body.hoursPerWeek || body.hoursPerWeekMarketing || body.weeklyHoursAP || body.hoursPerWeekOther || ''
+    body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || ''
 
-  fd.append('application_kind', KIND_MAP[body.applicationType] || 'diger')
+  fd.append('application_kind', getCrmKind(body.applicationType))
   fd.append('full_name', body.fullName)
   fd.append('email', body.email)
   fd.append('phone', body.phone || '')
@@ -98,6 +94,7 @@ async function syncToTeamPanel(body, cvFile) {
   fd.append('cursor', aiLevel(body.cursorUsed))
   fd.append('claude', aiLevel(body.claudeUsed))
   fd.append('antigravity', aiLevel(body.antigravityUsed))
+  appendMarketingCrmFields(fd, body)
 
   if (cvFile?.filepath) {
     const buf = fs.readFileSync(cvFile.filepath)
