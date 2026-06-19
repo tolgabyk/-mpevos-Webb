@@ -18,7 +18,7 @@ export default function JoinTeamPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <span className={styles.badge}>Ekibe Katıl</span>
+              <span className={styles.badge}>Ekibe Katıl · 31 Departman</span>
               <h1 className={styles.title}>İmpevos Ekibine Katıl</h1>
               <p className={styles.subtitle}>
                 Yazılım, satış, pazarlama, tasarım, operasyon ve daha birçok departmanda
@@ -28,6 +28,15 @@ export default function JoinTeamPage() {
                 Başvuru Formuna Git
               </a>
             </motion.div>
+          </div>
+        </section>
+
+        <section className={styles.updateBanner}>
+          <div className="container">
+            <p>
+              Başvuru formu güncellendi — Teknoloji, Satış &amp; Pazarlama, Operasyon ve Tasarım
+              departmanlarından birini seçerek başvurabilirsin.
+            </p>
           </div>
         </section>
 
