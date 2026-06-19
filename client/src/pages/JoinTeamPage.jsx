@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import JoinTeamForm from '../components/JoinTeamForm/JoinTeamForm'
-import { DEPARTMENTS, DEPARTMENT_GROUPS } from '../components/JoinTeamForm/constants'
+import { DEPARTMENTS, DEPARTMENT_GROUPS, getDepartmentsByGroup } from '../components/JoinTeamForm/constants'
 import styles from './JoinTeamPage.module.css'
 
 export default function JoinTeamPage() {
@@ -30,64 +30,41 @@ export default function JoinTeamPage() {
 
         <section className={styles.infoBanner}>
           <div className="container">
-            <motion.div
-              className={styles.infoCard}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <div className={styles.infoCard}>
               <p>
                 İmpevos olarak gönüllü çalışma modeliyle gerçek yazılım ve teknoloji
-                projeleri geliştiriyoruz. Aşağıdaki departmanlardan birini seçerek
+                projeleri geliştiriyoruz. Aşağıdaki {DEPARTMENTS.length} departmandan birini seçerek
                 başvurunu tamamlayabilirsin.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        <section className={styles.categories}>
+        <section className={styles.categories} id="departments">
           <div className="container">
-            <motion.div
-              className="section-header"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <div className="section-header">
               <div className="section-label">Departmanlar</div>
               <h2 className="section-title">Hangi Departmanda Yer Almak İstiyorsun?</h2>
               <p className="section-subtitle">
-                {DEPARTMENTS.length} farklı departmana başvurabilirsin. Formda ilgili departmanı seçmen yeterli.
+                4 ana grupta toplam {DEPARTMENTS.length} departmana başvurabilirsin.
               </p>
-            </motion.div>
+            </div>
 
-            {DEPARTMENT_GROUPS.map((group, gi) => {
-              const items = DEPARTMENTS.filter(d => d.group === group.id)
+            {DEPARTMENT_GROUPS.map(group => {
+              const items = getDepartmentsByGroup(group.id)
               return (
                 <div key={group.id} className={styles.deptGroup}>
-                  <motion.div
-                    className={styles.deptGroupHeader}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: gi * 0.05 }}
-                  >
-                    <h3>{group.title}</h3>
+                  <div className={styles.deptGroupHeader}>
+                    <h3>{group.title} ({items.length})</h3>
                     <p>{group.subtitle}</p>
-                  </motion.div>
+                  </div>
                   <div className={styles.categoryGrid}>
-                    {items.map((dept, i) => (
-                      <motion.div
-                        key={dept.value}
-                        className={styles.categoryCard}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.04 }}
-                      >
-                        <h3>{dept.label}</h3>
+                    {items.map(dept => (
+                      <div key={dept.value} className={styles.categoryCard}>
+                        <h4>{dept.label}</h4>
                         {dept.leader && <p className={styles.leader}>{dept.leader}</p>}
                         <p>{dept.description}</p>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -96,37 +73,27 @@ export default function JoinTeamPage() {
           </div>
         </section>
 
-        <section className={styles.formSection}>
+        <section className={styles.formSection} id="join-team-form">
           <div className="container">
-            <motion.div
-              className={styles.formSectionHeader}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <div className={styles.formSectionHeader}>
               <div className="section-label">Başvuru Formu</div>
               <h2 className="section-title">Başvurunu Tamamla</h2>
               <p className="section-subtitle">
                 Departmanını seç, alan sorularını doldur ve başvurunu gönder.
               </p>
-            </motion.div>
+            </div>
           </div>
           <JoinTeamForm />
         </section>
 
         <section className={styles.motivation}>
           <div className="container">
-            <motion.div
-              className={styles.motivationCard}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <div className={styles.motivationCard}>
               <p>
                 İmpevos&apos;ta sadece izleyen değil, üreten bir ekibin parçası olursun.
                 Gerçek projelerde görev alır, modern araçlarla çalışır ve kendini profesyonel dünyaya hazırlarsın.
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
       </main>

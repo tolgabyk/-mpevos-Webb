@@ -5,7 +5,7 @@ import { submitJoinTeamApplication, isJoinTeamSubmitSuccess } from '../../utils/
 import {
   INITIAL_FORM,
   STEPS,
-  DEPARTMENT_OPTIONS,
+  DEPARTMENT_GROUPS,
   SOFTWARE_ROLES,
   MARKETING_ROLES,
   YES_NO_OPTIONS,
@@ -15,6 +15,7 @@ import {
   getDepartment,
   getDepartmentLabel,
   getPresetRoles,
+  getDepartmentsByGroup,
 } from './constants'
 import styles from './JoinTeamForm.module.css'
 
@@ -182,6 +183,29 @@ export default function JoinTeamForm() {
     </div>
   )
 
+  const renderDepartmentSelect = () => (
+    <div className={styles.field}>
+      <label htmlFor="applicationType">Departman *</label>
+      <select
+        id="applicationType"
+        value={form.applicationType}
+        onChange={e => update('applicationType', e.target.value)}
+      >
+        <option value="">Departman seçin</option>
+        {DEPARTMENT_GROUPS.map(group => {
+          const items = getDepartmentsByGroup(group.id)
+          return (
+            <optgroup key={group.id} label={`${group.title} (${items.length})`}>
+              {items.map(dept => (
+                <option key={dept.value} value={dept.value}>{dept.label}</option>
+              ))}
+            </optgroup>
+          )
+        })}
+      </select>
+    </div>
+  )
+
   const renderSoftwareQuestions = () => {
     const dept = getDepartment(form.applicationType)
     return (
@@ -330,7 +354,7 @@ export default function JoinTeamForm() {
       case 1:
         return (
           <div className={styles.fields}>
-            {renderSelect('applicationType', 'Departman', DEPARTMENT_OPTIONS, true)}
+            {renderDepartmentSelect()}
             <div className={styles.consentBox}>
               <p className={styles.consentInfo}>
                 İmpevos&apos;ta şu an birçok ekip ve proje gönüllü çalışma modeliyle ilerlemektedir.

@@ -10,7 +10,8 @@ import {
   getCrmKind,
   getMarketingRoleGroup,
   getPresetRoles,
-} from '../../../../api/lib/join-team-departments.js'
+  getDepartmentsByGroup,
+} from '../../data/joinTeamDepartments.js'
 
 export {
   DEPARTMENTS,
@@ -24,6 +25,7 @@ export {
   getCrmKind,
   getMarketingRoleGroup,
   getPresetRoles,
+  getDepartmentsByGroup,
 }
 
 /** @deprecated use DEPARTMENT_OPTIONS */
