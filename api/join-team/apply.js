@@ -77,7 +77,7 @@ export default async function handler(req, res) {
     const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
     const application = buildApplication(body, cvName, panelResult.panelId)
 
-    await sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
+    sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
       console.error('[join-team] e-posta hatası:', err.message)
     })
 
@@ -88,14 +88,8 @@ export default async function handler(req, res) {
       notified: { panel: true },
     })
   } catch (err) {
-    const message = err.message || 'Başvuru gönderilemedi'
-    const isClientError =
-      message.includes('zorunlu') ||
-      message.includes('Geçerli') ||
-      message.includes('CV') ||
-      message.includes('Spam') ||
-      message.includes('onay')
-    return sendJson(res, isClientError ? 400 : 502, { error: message })
+    console.error('[join-team] apply hatası:', err)
+    return sendJson(res, 502, { error: err.message || 'Başvuru gönderilemedi' })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
   }

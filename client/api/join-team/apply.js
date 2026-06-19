@@ -1,7 +1,6 @@
 import crypto from 'crypto'
 import fs from 'fs'
 import formidable from 'formidable'
-import { waitUntil } from '@vercel/functions'
 import { sendJoinTeamNotifications } from '../lib/join-team-email.js'
 import { syncToTeamPanel } from '../lib/join-team-panel.js'
 
@@ -75,11 +74,9 @@ export default async function handler(req, res) {
     const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
     const application = buildApplication(body, cvName, panelResult.panelId)
 
-    waitUntil(
-      sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
-        console.error('[join-team] e-posta hatası:', err.message)
-      }),
-    )
+    sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
+      console.error('[join-team] e-posta hatası:', err.message)
+    })
 
     return sendJson(res, 201, {
       ok: true,
@@ -88,8 +85,8 @@ export default async function handler(req, res) {
       notified: { panel: true },
     })
   } catch (err) {
-    const message = err.message || 'Başvuru gönderilemedi'
-    return sendJson(res, 502, { error: message })
+    console.error('[join-team] apply hatası:', err)
+    return sendJson(res, 502, { error: err.message || 'Başvuru gönderilemedi' })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
   }

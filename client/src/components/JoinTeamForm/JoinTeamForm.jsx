@@ -140,8 +140,8 @@ export default function JoinTeamForm() {
         setError(result.message || result.error || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.')
         setStatus('idle')
       }
-    } catch {
-      setError('Bağlantı hatası. Lütfen tekrar deneyin.')
+    } catch (err) {
+      setError(err?.message || 'Bağlantı hatası. Lütfen tekrar deneyin.')
       setStatus('idle')
     }
   }

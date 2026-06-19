@@ -62,7 +62,7 @@ function guessMime(filename) {
 export async function syncToTeamPanel(body, cvBuffer, cvName) {
   const fd = new FormData()
   const weekly =
-    body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || ''
+    body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || '10'
 
   fd.append('application_kind', getCrmKind(body.applicationType))
   fd.append('full_name', body.fullName)
@@ -93,15 +93,28 @@ export async function syncToTeamPanel(body, cvBuffer, cvName) {
     fd.append('cv', new Blob([cvBuffer], { type: guessMime(cvName) }), cvName)
   }
 
-  const res = await fetch(TEAM_SUBMIT_URL, {
-    method: 'POST',
-    headers: { Origin: 'https://impevos.com' },
-    body: fd,
-  })
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 25000)
 
-  const result = await res.json().catch(() => ({}))
-  if (!res.ok || result.ok === false) {
-    throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+  try {
+    const res = await fetch(TEAM_SUBMIT_URL, {
+      method: 'POST',
+      headers: { Origin: 'https://impevos.com' },
+      body: fd,
+      signal: controller.signal,
+    })
+
+    const result = await res.json().catch(() => ({}))
+    if (!res.ok || result.ok === false) {
+      throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+    }
+    return { synced: true, panelId: result.id }
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      throw new Error('Panel yanıt vermedi. Lütfen tekrar deneyin.')
+    }
+    throw err
+  } finally {
+    clearTimeout(timeout)
   }
-  return { synced: true, panelId: result.id }
 }
