@@ -1,4 +1,6 @@
 import fs from 'fs'
+import formidable from 'formidable'
+import { waitUntil } from '@vercel/functions'
 import { appendMarketingCrmFields } from '../lib/join-team-crm.js'
 import { getDepartmentLabel, getCrmKind } from '../lib/join-team-departments.js'
 
@@ -132,7 +134,6 @@ export default async function handler(req, res) {
   let cvPath = null
 
   try {
-    const { default: formidable } = await import('formidable')
     const form = formidable({ maxFileSize: 5 * 1024 * 1024, keepExtensions: true })
     const [fields, files] = await form.parse(req)
     const cvFile = files.cv?.[0] || files.CV?.[0]
@@ -153,17 +154,21 @@ export default async function handler(req, res) {
     }
 
     cvPath = cvFile.filepath
-    const crmResult = await syncToTeamPanel(body, cvFile)
+    waitUntil(
+      syncToTeamPanel(body, cvFile)
+        .catch(err => console.error('CRM arka plan hatası:', err.message))
+        .finally(() => {
+          if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
+        }),
+    )
 
     return sendJson(res, 201, {
       ok: true,
-      id: crmResult.panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
-      notified: { panel: true },
+      notified: { panel: 'pending' },
     })
   } catch (err) {
-    return sendJson(res, 500, { error: err.message || 'Başvuru gönderilemedi' })
-  } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
+    return sendJson(res, 500, { error: err.message || 'Başvuru gönderilemedi' })
   }
 }

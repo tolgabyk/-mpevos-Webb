@@ -245,7 +245,7 @@ export default function JoinTeamForm() {
         {dept?.marketingRole && (
           <p className={styles.consentInfo}>Seçilen departman: <strong>{dept.label}</strong></p>
         )}
-        {renderField('marketingExperience', 'Satış / pazarlama deneyimin nedir?', 'textarea', true)}
+        {renderField('marketingExperience', 'Satış / pazarlama deneyimin nedir?', 'textarea')}
 
         {roleGroup === 'sales' && (
           <>
@@ -253,30 +253,30 @@ export default function JoinTeamForm() {
             {renderSelect('phoneFaceToFace', 'Telefonda veya yüz yüze müşteriyle konuşabilir misin?', YES_NO_OPTIONS, true)}
             {renderField('b2bSalesExperience', 'B2B satış veya yazılım ürünü satış deneyimin var mı?', 'textarea')}
             {renderSelect('coldCallingComfort', 'Soğuk arama / ilk temas görüşmeleri yapabilir misin?', YES_NO_OPTIONS)}
-            {renderSelect('salesTargets', 'Satış hedefleriyle çalışabilir misin?', YES_NO_OPTIONS, true)}
+            {renderSelect('salesTargets', 'Satış hedefleriyle çalışabilir misin?', YES_NO_OPTIONS)}
             {renderSelect('customerTracking', 'Müşteri takibi ve raporlama yapabilir misin?', YES_NO_OPTIONS)}
             {renderSelect('crmTrackingSales', 'CRM panel üzerinden müşteri ve görev takibi yapabilir misin?', YES_NO_OPTIONS)}
-            {renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini işletmelere nasıl pazarlarsın?', 'textarea', true)}
+            {renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini işletmelere nasıl pazarlarsın?', 'textarea')}
           </>
         )}
 
         {roleGroup === 'content' && (
           <>
-            {renderSelect('socialMediaContent', 'Sosyal medya içerik üretimi yapabilir misin?', YES_NO_OPTIONS, true)}
+            {renderSelect('socialMediaContent', 'Sosyal medya içerik üretimi yapabilir misin?', YES_NO_OPTIONS)}
             {renderField('campaignExperience', 'Reklam, kampanya veya marka yönetimi deneyimin var mı?', 'textarea')}
-            {renderField('designTools', 'Canva, CapCut, Meta Business Suite veya benzeri araçlar kullandın mı?', 'textarea', true)}
+            {renderField('designTools', 'Canva, CapCut, Meta Business Suite veya benzeri araçlar kullandın mı?', 'textarea')}
             {renderField('contentExamples', 'Daha önce ürettiğin içerik örneklerini veya hesap linklerini paylaş', 'textarea')}
             {renderField('platformExperience', 'Hangi platformlarda (Instagram, LinkedIn, TikTok vb.) deneyimin var?', 'textarea')}
-            {renderField('howToMarketImpevos', 'İmpevos\'u dijital kanallarda nasıl tanıtırsın?', 'textarea', true)}
+            {renderField('howToMarketImpevos', 'İmpevos\'u dijital kanallarda nasıl tanıtırsın?', 'textarea')}
           </>
         )}
 
         {!roleGroup && marketingRole && (
-          renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini nasıl tanıtırsın?', 'textarea', true)
+          renderField('howToMarketImpevos', 'İmpevos\'un yazılım ürünlerini nasıl tanıtırsın?', 'textarea')
         )}
 
         {renderField('hoursPerWeekMarketing', 'Haftada kaç saat ayırabilirsin?', 'text', true)}
-        {renderField('communicationScore', 'Kendini iletişim konusunda 1-10 arası kaç puan verirsin?', 'number', true)}
+        {renderField('communicationScore', 'Kendini iletişim konusunda 1-10 arası kaç puan verirsin?', 'number')}
       </div>
     )
   }

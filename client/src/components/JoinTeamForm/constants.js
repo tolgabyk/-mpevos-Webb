@@ -152,14 +152,14 @@ export function getRequiredFields(step, form) {
     return fields
   }
   if (set === 'marketing') {
-    const base = ['marketingExperience', 'hoursPerWeekMarketing', 'howToMarketImpevos', 'communicationScore']
+    const base = ['hoursPerWeekMarketing']
     if (!dept?.marketingRole) base.unshift('marketingRole')
     const group = getMarketingRoleGroup(marketingRole)
     if (group === 'sales') {
-      return [...base, 'businessMeetings', 'phoneFaceToFace', 'salesTargets']
+      return [...base, 'businessMeetings', 'phoneFaceToFace']
     }
     if (group === 'content') {
-      return [...base, 'socialMediaContent', 'designTools']
+      return base
     }
     return base
   }
