@@ -1,6 +1,6 @@
 import fs from 'fs'
-import { appendMarketingCrmFields } from '../../../api/lib/join-team-crm.js'
-import { getDepartmentLabel, getCrmKind } from '../../../api/lib/join-team-departments.js'
+import { appendMarketingCrmFields } from '../lib/join-team-crm.js'
+import { getDepartmentLabel, getCrmKind } from '../lib/join-team-departments.js'
 
 export const config = {
   api: { bodyParser: false },
