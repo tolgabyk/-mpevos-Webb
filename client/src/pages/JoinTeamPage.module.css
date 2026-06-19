@@ -50,7 +50,23 @@
   color: var(--color-secondary-dim);
   line-height: 1.75;
   max-width: 680px;
-  margin: 0 auto;
+  margin: 0 auto 24px;
+}
+
+.heroCta {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--color-accent);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity var(--ease-base);
+}
+
+.heroCta:hover {
+  opacity: 0.9;
 }
 
 .infoBanner {
@@ -92,17 +108,6 @@
 .deptGroupHeader p {
   font-size: 0.875rem;
   color: var(--color-secondary-dim);
-}
-
-.deployTag {
-  display: inline-block;
-  margin-left: 8px;
-  padding: 2px 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  background: var(--color-accent-dim);
-  border-radius: 4px;
 }
 
 .categoryGrid {
@@ -167,6 +172,7 @@
 
 .formSection {
   padding: 60px 0 80px;
+  scroll-margin-top: 100px;
 }
 
 .formSectionHeader {

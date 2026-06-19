@@ -24,6 +24,9 @@ export default function JoinTeamPage() {
                 Yazılım, satış, pazarlama, tasarım, operasyon ve daha birçok departmanda
                 gerçek projelerde deneyim kazanmak isteyen ekip arkadaşları arıyoruz.
               </p>
+              <a href="#join-team-form" className={styles.heroCta}>
+                Başvuru Formuna Git
+              </a>
             </motion.div>
           </div>
         </section>
@@ -47,7 +50,6 @@ export default function JoinTeamPage() {
               <h2 className="section-title">Hangi Departmanda Yer Almak İstiyorsun?</h2>
               <p className="section-subtitle">
                 4 ana grupta toplam {DEPARTMENTS.length} departmana başvurabilirsin.
-                <span className={styles.deployTag}>Güncel sürüm: v2026.06</span>
               </p>
             </div>
 
