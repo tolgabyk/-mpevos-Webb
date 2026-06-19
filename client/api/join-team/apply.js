@@ -89,13 +89,7 @@ export default async function handler(req, res) {
     })
   } catch (err) {
     const message = err.message || 'Başvuru gönderilemedi'
-    const isClientError =
-      message.includes('zorunlu') ||
-      message.includes('Geçerli') ||
-      message.includes('CV') ||
-      message.includes('Spam') ||
-      message.includes('onay')
-    return sendJson(res, isClientError ? 400 : 502, { error: message })
+    return sendJson(res, 502, { error: message })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
   }

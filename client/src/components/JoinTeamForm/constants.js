@@ -156,7 +156,7 @@ export function getRequiredFields(step, form) {
     if (!dept?.marketingRole) base.unshift('marketingRole')
     const group = getMarketingRoleGroup(marketingRole)
     if (group === 'sales') {
-      return [...base, 'businessMeetings', 'phoneFaceToFace']
+      return base
     }
     if (group === 'content') {
       return base

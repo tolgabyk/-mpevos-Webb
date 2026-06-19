@@ -99,7 +99,7 @@ function getRequiredCategoryFields(body) {
     if (!dept?.marketingRole) base.unshift('marketingRole')
     const group = getMarketingRoleGroup(marketingRole)
     if (group === 'sales') {
-      return [...base, 'businessMeetings', 'phoneFaceToFace']
+      return base
     }
     return base
   }

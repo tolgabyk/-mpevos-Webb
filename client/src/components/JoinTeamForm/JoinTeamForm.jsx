@@ -249,8 +249,8 @@ export default function JoinTeamForm() {
 
         {roleGroup === 'sales' && (
           <>
-            {renderSelect('businessMeetings', 'İşletmelerle görüşme yapabilir misin?', YES_NO_OPTIONS, true)}
-            {renderSelect('phoneFaceToFace', 'Telefonda veya yüz yüze müşteriyle konuşabilir misin?', YES_NO_OPTIONS, true)}
+            {renderSelect('businessMeetings', 'İşletmelerle görüşme yapabilir misin?', YES_NO_OPTIONS)}
+            {renderSelect('phoneFaceToFace', 'Telefonda veya yüz yüze müşteriyle konuşabilir misin?', YES_NO_OPTIONS)}
             {renderField('b2bSalesExperience', 'B2B satış veya yazılım ürünü satış deneyimin var mı?', 'textarea')}
             {renderSelect('coldCallingComfort', 'Soğuk arama / ilk temas görüşmeleri yapabilir misin?', YES_NO_OPTIONS)}
             {renderSelect('salesTargets', 'Satış hedefleriyle çalışabilir misin?', YES_NO_OPTIONS)}
