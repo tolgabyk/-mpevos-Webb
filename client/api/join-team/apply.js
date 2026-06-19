@@ -1,6 +1,5 @@
 import fs from 'fs'
 import formidable from 'formidable'
-import { waitUntil } from '@vercel/functions'
 import { appendMarketingCrmFields } from '../lib/join-team-crm.js'
 import { getDepartmentLabel, getCrmKind } from '../lib/join-team-departments.js'
 
@@ -72,7 +71,7 @@ function guessMime(filename) {
   return 'application/octet-stream'
 }
 
-async function syncToTeamPanel(body, cvFile) {
+async function syncToTeamPanel(body, cvBuffer, cvName) {
   const fd = new FormData()
   const weekly =
     body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || ''
@@ -96,25 +95,35 @@ async function syncToTeamPanel(body, cvFile) {
   fd.append('cursor', aiLevel(body.cursorUsed))
   fd.append('claude', aiLevel(body.claudeUsed))
   fd.append('antigravity', aiLevel(body.antigravityUsed))
+  if (body.aiToolsUsage) fd.append('chatgpt', 'orta')
+  if (body.technologies) fd.append('technologies', body.technologies)
+  if (body.whyImpevos) fd.append('why_impevos', body.whyImpevos)
+  if (body.differentiator) fd.append('differentiator', body.differentiator)
   appendMarketingCrmFields(fd, body)
 
-  if (cvFile?.filepath) {
-    const buf = fs.readFileSync(cvFile.filepath)
-    const name = cvFile.originalFilename || 'cv.pdf'
-    fd.append('cv', new Blob([buf], { type: guessMime(name) }), name)
+  if (cvBuffer?.length) {
+    fd.append('cv', new Blob([cvBuffer], { type: guessMime(cvName) }), cvName)
   }
 
-  const res = await fetch(TEAM_SUBMIT_URL, {
-    method: 'POST',
-    headers: { Origin: 'https://impevos.com' },
-    body: fd,
-  })
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 28000)
 
-  const result = await res.json().catch(() => ({}))
-  if (!res.ok || result.ok === false) {
-    throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+  try {
+    const res = await fetch(TEAM_SUBMIT_URL, {
+      method: 'POST',
+      headers: { Origin: 'https://impevos.com' },
+      body: fd,
+      signal: controller.signal,
+    })
+
+    const result = await res.json().catch(() => ({}))
+    if (!res.ok || result.ok === false) {
+      throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+    }
+    return { synced: true, panelId: result.id }
+  } finally {
+    clearTimeout(timeout)
   }
-  return { synced: true, panelId: result.id }
 }
 
 function sendJson(res, status, body) {
@@ -154,21 +163,29 @@ export default async function handler(req, res) {
     }
 
     cvPath = cvFile.filepath
-    waitUntil(
-      syncToTeamPanel(body, cvFile)
-        .catch(err => console.error('CRM arka plan hatası:', err.message))
-        .finally(() => {
-          if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
-        }),
-    )
+    const cvName = cvFile.originalFilename || 'cv.pdf'
+    const cvBuffer = fs.readFileSync(cvPath)
+
+    const crmResult = await syncToTeamPanel(body, cvBuffer, cvName)
 
     return sendJson(res, 201, {
       ok: true,
+      id: crmResult.panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
-      notified: { panel: 'pending' },
+      notified: { panel: true },
     })
   } catch (err) {
+    const message = err.name === 'AbortError'
+      ? 'Panel yanıt vermedi. Lütfen tekrar deneyin.'
+      : (err.message || 'Başvuru gönderilemedi')
+    const isClientError =
+      message.includes('zorunlu') ||
+      message.includes('Geçerli') ||
+      message.includes('CV') ||
+      message.includes('Spam') ||
+      message.includes('onay')
+    return sendJson(res, isClientError ? 400 : 502, { error: message })
+  } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
-    return sendJson(res, 500, { error: err.message || 'Başvuru gönderilemedi' })
   }
 }

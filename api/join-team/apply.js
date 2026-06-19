@@ -45,7 +45,9 @@ export default async function handler(req, res) {
     const panelOk = notifyResults.panel?.synced
 
     if (!panelOk) {
-      console.error('CRM panel hatası:', notifyResults.panel?.error)
+      return sendJson(res, 502, {
+        error: notifyResults.panel?.error || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
+      })
     }
 
     return sendJson(res, 201, {
@@ -53,7 +55,7 @@ export default async function handler(req, res) {
       id: application.id,
       panelId: notifyResults.panel?.panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
-      notified: { email: !!emailOk, panel: !!panelOk },
+      notified: { email: !!emailOk, panel: true },
     })
   } catch (err) {
     const message = err.message || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.'
