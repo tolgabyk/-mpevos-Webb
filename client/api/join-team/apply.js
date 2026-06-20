@@ -1,7 +1,6 @@
 import crypto from 'crypto'
 import fs from 'fs'
 import formidable from 'formidable'
-import { waitUntil } from '@vercel/functions'
 import { sendJoinTeamNotifications } from '../lib/join-team-email.js'
 import { syncToTeamPanel } from '../lib/join-team-panel.js'
 
@@ -39,25 +38,6 @@ function buildApplication(body, cvName, panelId) {
   }
 }
 
-async function notifyInBackground(body, cvBuffer, cvName) {
-  let panelId = null
-  try {
-    const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
-    panelId = panelResult.panelId
-    console.log('[join-team] panel OK:', body.email, panelId)
-  } catch (err) {
-    console.error('[join-team] panel hatası:', err.message)
-  }
-
-  try {
-    const application = buildApplication(body, cvName, panelId)
-    await sendJoinTeamNotifications(application, cvBuffer, cvName)
-    console.log('[join-team] e-posta OK:', body.email)
-  } catch (err) {
-    console.error('[join-team] e-posta hatası:', err.message)
-  }
-}
-
 export default async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Origin', '*')
@@ -91,18 +71,33 @@ export default async function handler(req, res) {
     const cvName = cvFile.originalFilename || 'cv.pdf'
     const cvBuffer = fs.readFileSync(cvPath)
 
-    if (cvPath && fs.existsSync(cvPath)) fs.unlinkSync(cvPath)
-    cvPath = null
+    const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
+    const application = buildApplication(body, cvName, panelResult.panelId)
 
-    waitUntil(notifyInBackground(body, cvBuffer, cvName))
+    sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
+      console.error('[join-team] e-posta hatası:', err.message)
+    })
 
     return sendJson(res, 201, {
       ok: true,
+      id: panelResult.panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
+      notified: { panel: true },
     })
   } catch (err) {
-    console.error('[join-team] apply hatası:', err)
-    return sendJson(res, 500, { error: err.message || 'Başvuru gönderilemedi' })
+    console.error('[join-team] apply hatası:', err.message)
+    const msg = String(err.message || '')
+    if (/zorunlu|required|geçersiz|invalid/i.test(msg)) {
+      return sendJson(res, 502, {
+        error: 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
+      })
+    }
+    if (/yanıt vermedi|timeout|abort/i.test(msg)) {
+      return sendJson(res, 504, {
+        error: 'Panel yanıt vermedi. Lütfen birkaç dakika sonra tekrar deneyin.',
+      })
+    }
+    return sendJson(res, 502, { error: msg || 'Başvuru gönderilemedi' })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
   }

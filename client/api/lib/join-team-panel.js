@@ -5,7 +5,7 @@ const TEAM_SUBMIT_URL =
   process.env.TEAM_APPLICATION_SUBMIT_URL ||
   'https://impevosekip.me/api/team-applications/submit'
 
-const REQUEST_TIMEOUT_MS = 55000
+const REQUEST_TIMEOUT_MS = 45000
 
 const SOFTWARE_ROLE_LABELS = {
   frontend: 'Frontend', backend: 'Backend', ios: 'iOS', android: 'Android',
@@ -65,7 +65,7 @@ function guessMime(filename) {
   return 'application/octet-stream'
 }
 
-function buildJsonPayload(body, cvBuffer, cvName) {
+function buildFields(body) {
   const weekly =
     body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || '10'
 
@@ -93,47 +93,18 @@ function buildJsonPayload(body, cvBuffer, cvName) {
     technologies: body.technologies || '-',
     why_impevos: body.whyImpevos || '-',
     differentiator: body.differentiator || '-',
-    cv_base64: cvBuffer?.length ? cvBuffer.toString('base64') : '',
-    cv_filename: cvName || 'cv.pdf',
   }
 }
 
 function buildFormData(body, cvBuffer, cvName) {
   const fd = new FormData()
-  const payload = buildJsonPayload(body, cvBuffer, cvName)
-  for (const [key, value] of Object.entries(payload)) {
-    if (key === 'cv_base64' || key === 'cv_filename') continue
+  for (const [key, value] of Object.entries(buildFields(body))) {
     fd.append(key, value)
   }
   if (cvBuffer?.length) {
     fd.append('cv', new Blob([cvBuffer], { type: guessMime(cvName) }), cvName)
   }
   return fd
-}
-
-async function postJson(body, cvBuffer, cvName) {
-  const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
-
-  try {
-    const res = await fetch(TEAM_SUBMIT_URL, {
-      method: 'POST',
-      headers: {
-        Origin: 'https://impevos.com',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(buildJsonPayload(body, cvBuffer, cvName)),
-      signal: controller.signal,
-    })
-
-    const result = await res.json().catch(() => ({}))
-    if (!res.ok || result.ok === false) {
-      throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
-    }
-    return { synced: true, panelId: result.id }
-  } finally {
-    clearTimeout(timeout)
-  }
 }
 
 async function postFormData(body, cvBuffer, cvName) {
@@ -153,6 +124,45 @@ async function postFormData(body, cvBuffer, cvName) {
       throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
     }
     return { synced: true, panelId: result.id }
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      throw new Error('Panel yanıt vermedi')
+    }
+    throw err
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+async function postJson(body, cvBuffer, cvName) {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+  try {
+    const res = await fetch(TEAM_SUBMIT_URL, {
+      method: 'POST',
+      headers: {
+        Origin: 'https://impevos.com',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...buildFields(body),
+        cv_base64: cvBuffer?.length ? cvBuffer.toString('base64') : '',
+        cv_filename: cvName || 'cv.pdf',
+      }),
+      signal: controller.signal,
+    })
+
+    const result = await res.json().catch(() => ({}))
+    if (!res.ok || result.ok === false) {
+      throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+    }
+    return { synced: true, panelId: result.id }
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      throw new Error('Panel yanıt vermedi')
+    }
+    throw err
   } finally {
     clearTimeout(timeout)
   }
@@ -160,9 +170,9 @@ async function postFormData(body, cvBuffer, cvName) {
 
 export async function syncToTeamPanel(body, cvBuffer, cvName) {
   try {
-    return await postJson(body, cvBuffer, cvName)
-  } catch (jsonErr) {
-    console.warn('[join-team] JSON panel hatası, FormData deneniyor:', jsonErr.message)
-    return postFormData(body, cvBuffer, cvName)
+    return await postFormData(body, cvBuffer, cvName)
+  } catch (formErr) {
+    console.warn('[join-team] FormData panel hatası, JSON deneniyor:', formErr.message)
+    return postJson(body, cvBuffer, cvName)
   }
 }
