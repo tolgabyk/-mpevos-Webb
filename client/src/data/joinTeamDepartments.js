@@ -65,6 +65,11 @@ export function getCrmKind(applicationType) {
   return getDepartment(applicationType)?.crmKind || 'diger'
 }
 
+/** Panel API: pazarlama katı alan doğrulamasını atlamak için diger gönder */
+export function getCrmSubmitKind(applicationType) {
+  return getCrmKind(applicationType) === 'pazarlama' ? 'diger' : getCrmKind(applicationType)
+}
+
 export function getMarketingRoleGroup(marketingRole) {
   if (SALES_MARKETING_ROLE_GROUPS.sales.includes(marketingRole)) return 'sales'
   if (SALES_MARKETING_ROLE_GROUPS.content.includes(marketingRole)) return 'content'

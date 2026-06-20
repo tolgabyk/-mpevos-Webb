@@ -1,5 +1,4 @@
-import { appendMarketingCrmFields } from './joinTeamCrm.js'
-import { getDepartmentLabel, getCrmKind } from '../data/joinTeamDepartments.js'
+import { getDepartmentLabel, getCrmKind, getCrmSubmitKind } from '../data/joinTeamDepartments.js'
 
 const TEAM_SUBMIT_URL =
   import.meta.env.VITE_JOIN_TEAM_SUBMIT_URL ||
@@ -39,7 +38,12 @@ function getDepartment(body) {
 
 function buildMessage(body) {
   const typeLabel = getDepartmentLabel(body.applicationType) || body.applicationType
-  const lines = [`[EKİP BAŞVURUSU] — ${typeLabel}`, '']
+  const realKind = getCrmKind(body.applicationType)
+  const lines = [
+    `[EKİP BAŞVURUSU] — ${typeLabel}`,
+    `Departman kategorisi: ${realKind}`,
+    '',
+  ]
   for (const [key, val] of Object.entries(body)) {
     if (key === 'website' || val === '' || val === false) continue
     lines.push(`${key}: ${val}`)
@@ -53,44 +57,62 @@ function aiLevel(val) {
   return val || 'yok'
 }
 
-function buildFormData(body, cvFile, crmOptions) {
-  const fd = new FormData()
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => {
+      const result = reader.result
+      if (typeof result === 'string') resolve(result.split(',')[1] || '')
+      else reject(new Error('CV okunamadı'))
+    }
+    reader.onerror = () => reject(new Error('CV okunamadı'))
+    reader.readAsDataURL(file)
+  })
+}
+
+function buildBasePayload(body) {
   const weekly =
     body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || '10'
 
-  fd.append('application_kind', getCrmKind(body.applicationType))
-  fd.append('full_name', body.fullName)
-  fd.append('email', body.email)
-  fd.append('phone', body.phone || '')
-  fd.append('city', body.city || '')
-  fd.append('age', body.age || '')
-  fd.append('education', body.universityInfo || '')
-  fd.append('linkedin_url', body.linkedin || '')
-  fd.append('github_url', body.githubPortfolio || '')
-  fd.append('availability', weekly)
-  fd.append('message', buildMessage(body))
-  fd.append('volunteer_consent', parseBool(body.voluntaryConsent) ? 'true' : 'false')
-  fd.append('source', 'impevos.com')
-  fd.append('website', '')
-  fd.append('role_interest', getDepartment(body))
-  fd.append('weekly_hours', weekly)
-  fd.append('cursor', aiLevel(body.cursorUsed))
-  fd.append('claude', aiLevel(body.claudeUsed))
-  fd.append('antigravity', aiLevel(body.antigravityUsed))
-  fd.append('chatgpt', body.aiToolsUsage ? 'orta' : 'yok')
-  fd.append('technologies', body.technologies || '-')
-  fd.append('why_impevos', body.whyImpevos || '-')
-  fd.append('differentiator', body.differentiator || '-')
-  appendMarketingCrmFields(fd, body, crmOptions)
+  return {
+    application_kind: getCrmSubmitKind(body.applicationType),
+    full_name: body.fullName,
+    email: body.email,
+    phone: body.phone || '',
+    city: body.city || '',
+    age: body.age || '',
+    education: body.universityInfo || '',
+    linkedin_url: body.linkedin || '',
+    github_url: body.githubPortfolio || '',
+    availability: weekly,
+    message: buildMessage(body),
+    volunteer_consent: parseBool(body.voluntaryConsent) ? 'true' : 'false',
+    source: 'impevos.com',
+    website: '',
+    role_interest: getDepartment(body),
+    weekly_hours: weekly,
+    cursor: aiLevel(body.cursorUsed),
+    claude: aiLevel(body.claudeUsed),
+    antigravity: aiLevel(body.antigravityUsed),
+    chatgpt: body.aiToolsUsage ? 'orta' : 'yok',
+    technologies: body.technologies || '-',
+    why_impevos: body.whyImpevos || '-',
+    differentiator: body.differentiator || '-',
+  }
+}
 
+function buildFormData(body, cvFile) {
+  const fd = new FormData()
+  for (const [key, value] of Object.entries(buildBasePayload(body))) {
+    fd.append(key, value)
+  }
   if (cvFile) {
     fd.append('cv', cvFile, cvFile.name || 'cv.pdf')
   }
-
   return fd
 }
 
-async function postFormData(body, cvFile, crmOptions) {
+async function postFormData(body, cvFile) {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
 
@@ -98,7 +120,7 @@ async function postFormData(body, cvFile, crmOptions) {
     const res = await fetch(TEAM_SUBMIT_URL, {
       method: 'POST',
       headers: { Origin: 'https://impevos.com' },
-      body: buildFormData(body, cvFile, crmOptions),
+      body: buildFormData(body, cvFile),
       signal: controller.signal,
     })
 
@@ -107,6 +129,48 @@ async function postFormData(body, cvFile, crmOptions) {
       throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
     }
     return { synced: true, panelId: result.id }
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+async function postJson(body, cvFile) {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+  const cvBase64 = cvFile ? await fileToBase64(cvFile) : ''
+
+  try {
+    const res = await fetch(TEAM_SUBMIT_URL, {
+      method: 'POST',
+      headers: {
+        Origin: 'https://impevos.com',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...buildBasePayload(body),
+        cv_base64: cvBase64,
+        cv_filename: cvFile?.name || 'cv.pdf',
+      }),
+      signal: controller.signal,
+    })
+
+    const result = await res.json().catch(() => ({}))
+    if (!res.ok || result.ok === false) {
+      throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+    }
+    return { synced: true, panelId: result.id }
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+function isRetryable(message) {
+  return /zorunlu|required|geçersiz|invalid/i.test(String(message))
+}
+
+export async function submitToTeamPanel(body, cvFile) {
+  try {
+    return await postFormData(body, cvFile)
   } catch (err) {
     if (err.name === 'AbortError') {
       throw new Error('Panel yanıt vermedi. Lütfen tekrar deneyin.')
@@ -114,13 +178,16 @@ async function postFormData(body, cvFile, crmOptions) {
     if (err.message === 'Failed to fetch') {
       throw new Error('Başvuru sunucusuna ulaşılamadı. Lütfen tekrar deneyin.')
     }
+    if (isRetryable(err.message)) {
+      try {
+        return await postJson(body, cvFile)
+      } catch (jsonErr) {
+        if (jsonErr.name === 'AbortError') {
+          throw new Error('Panel yanıt vermedi. Lütfen tekrar deneyin.')
+        }
+        throw jsonErr
+      }
+    }
     throw err
-  } finally {
-    clearTimeout(timeout)
   }
-}
-
-export async function submitToTeamPanel(body, cvFile) {
-  const crmOptions = { forceDefaults: true, customerMeetingsMode: 'evet' }
-  return postFormData(body, cvFile, crmOptions)
 }

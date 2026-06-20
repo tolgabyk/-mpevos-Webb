@@ -1,5 +1,4 @@
-import { appendMarketingCrmFields } from './join-team-crm.js'
-import { getDepartmentLabel, getCrmKind } from './join-team-departments.js'
+import { getDepartmentLabel, getCrmKind, getCrmSubmitKind } from './join-team-departments.js'
 
 const TEAM_SUBMIT_URL =
   process.env.JOIN_TEAM_SUBMIT_URL ||
@@ -39,7 +38,12 @@ function getDepartment(body) {
 
 function buildMessage(body) {
   const typeLabel = getDepartmentLabel(body.applicationType) || body.applicationType
-  const lines = [`[EKİP BAŞVURUSU] — ${typeLabel}`, '']
+  const realKind = getCrmKind(body.applicationType)
+  const lines = [
+    `[EKİP BAŞVURUSU] — ${typeLabel}`,
+    `Departman kategorisi: ${realKind}`,
+    '',
+  ]
   for (const [key, val] of Object.entries(body)) {
     if (key === 'website' || val === '' || val === false) continue
     lines.push(`${key}: ${val}`)
@@ -61,44 +65,49 @@ function guessMime(filename) {
   return 'application/octet-stream'
 }
 
-function buildFormData(body, cvBuffer, cvName, crmOptions) {
-  const fd = new FormData()
+function buildBasePayload(body) {
   const weekly =
     body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || '10'
 
-  fd.append('application_kind', getCrmKind(body.applicationType))
-  fd.append('full_name', body.fullName)
-  fd.append('email', body.email)
-  fd.append('phone', body.phone || '')
-  fd.append('city', body.city || '')
-  fd.append('age', body.age || '')
-  fd.append('education', body.universityInfo || '')
-  fd.append('linkedin_url', body.linkedin || '')
-  fd.append('github_url', body.githubPortfolio || '')
-  fd.append('availability', weekly)
-  fd.append('message', buildMessage(body))
-  fd.append('volunteer_consent', parseBool(body.voluntaryConsent) ? 'true' : 'false')
-  fd.append('source', 'impevos.com')
-  fd.append('website', '')
-  fd.append('role_interest', getDepartment(body))
-  fd.append('weekly_hours', weekly)
-  fd.append('cursor', aiLevel(body.cursorUsed))
-  fd.append('claude', aiLevel(body.claudeUsed))
-  fd.append('antigravity', aiLevel(body.antigravityUsed))
-  fd.append('chatgpt', body.aiToolsUsage ? 'orta' : 'yok')
-  fd.append('technologies', body.technologies || '-')
-  fd.append('why_impevos', body.whyImpevos || '-')
-  fd.append('differentiator', body.differentiator || '-')
-  appendMarketingCrmFields(fd, body, crmOptions)
+  return {
+    application_kind: getCrmSubmitKind(body.applicationType),
+    full_name: body.fullName,
+    email: body.email,
+    phone: body.phone || '',
+    city: body.city || '',
+    age: body.age || '',
+    education: body.universityInfo || '',
+    linkedin_url: body.linkedin || '',
+    github_url: body.githubPortfolio || '',
+    availability: weekly,
+    message: buildMessage(body),
+    volunteer_consent: parseBool(body.voluntaryConsent) ? 'true' : 'false',
+    source: 'impevos.com',
+    website: '',
+    role_interest: getDepartment(body),
+    weekly_hours: weekly,
+    cursor: aiLevel(body.cursorUsed),
+    claude: aiLevel(body.claudeUsed),
+    antigravity: aiLevel(body.antigravityUsed),
+    chatgpt: body.aiToolsUsage ? 'orta' : 'yok',
+    technologies: body.technologies || '-',
+    why_impevos: body.whyImpevos || '-',
+    differentiator: body.differentiator || '-',
+  }
+}
 
+function buildFormData(body, cvBuffer, cvName) {
+  const fd = new FormData()
+  for (const [key, value] of Object.entries(buildBasePayload(body))) {
+    fd.append(key, value)
+  }
   if (cvBuffer?.length) {
     fd.append('cv', new Blob([cvBuffer], { type: guessMime(cvName) }), cvName)
   }
-
   return fd
 }
 
-async function postFormData(body, cvBuffer, cvName, crmOptions) {
+async function postFormData(body, cvBuffer, cvName) {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
 
@@ -106,7 +115,7 @@ async function postFormData(body, cvBuffer, cvName, crmOptions) {
     const res = await fetch(TEAM_SUBMIT_URL, {
       method: 'POST',
       headers: { Origin: 'https://impevos.com' },
-      body: buildFormData(body, cvBuffer, cvName, crmOptions),
+      body: buildFormData(body, cvBuffer, cvName),
       signal: controller.signal,
     })
 
@@ -115,16 +124,61 @@ async function postFormData(body, cvBuffer, cvName, crmOptions) {
       throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
     }
     return { synced: true, panelId: result.id }
-  } catch (err) {
-    if (err.name === 'AbortError') {
-      throw new Error('Panel yanıt vermedi. Lütfen tekrar deneyin.')
-    }
-    throw err
   } finally {
     clearTimeout(timeout)
   }
 }
 
+async function postJson(body, cvBuffer, cvName) {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+  try {
+    const res = await fetch(TEAM_SUBMIT_URL, {
+      method: 'POST',
+      headers: {
+        Origin: 'https://impevos.com',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...buildBasePayload(body),
+        cv_base64: cvBuffer?.length ? cvBuffer.toString('base64') : '',
+        cv_filename: cvName || 'cv.pdf',
+      }),
+      signal: controller.signal,
+    })
+
+    const result = await res.json().catch(() => ({}))
+    if (!res.ok || result.ok === false) {
+      throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
+    }
+    return { synced: true, panelId: result.id }
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+function isRetryable(message) {
+  return /zorunlu|required|geçersiz|invalid/i.test(String(message))
+}
+
 export async function syncToTeamPanel(body, cvBuffer, cvName) {
-  return postFormData(body, cvBuffer, cvName, { forceDefaults: true, customerMeetingsMode: 'evet' })
+  try {
+    return await postFormData(body, cvBuffer, cvName)
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      throw new Error('Panel yanıt vermedi. Lütfen tekrar deneyin.')
+    }
+    if (isRetryable(err.message)) {
+      try {
+        return await postJson(body, cvBuffer, cvName)
+      } catch (jsonErr) {
+        if (jsonErr.name === 'AbortError') {
+          throw new Error('Panel yanıt vermedi. Lütfen tekrar deneyin.')
+        }
+        throw jsonErr
+      }
+    }
+    throw err
+  }
 }
