@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
+    "@vercel/functions": "^2.0.0",
     "formidable": "^3.5.4",
     "framer-motion": "^11.3.19",
     "i18next": "^23.14.0",
