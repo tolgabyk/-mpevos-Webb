@@ -90,11 +90,6 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error('[join-team] apply hatası:', err.message)
     const msg = String(err.message || '')
-    if (/zorunlu|required|geçersiz|invalid/i.test(msg)) {
-      return sendJson(res, 502, {
-        error: 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
-      })
-    }
     if (/yanıt vermedi|timeout|abort/i.test(msg)) {
       return sendJson(res, 504, {
         error: 'Panel yanıt vermedi. Lütfen birkaç dakika sonra tekrar deneyin.',
