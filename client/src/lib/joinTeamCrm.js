@@ -158,5 +158,4 @@ export function appendMarketingCrmFields(fd, app, options = {}) {
   const payload = buildMarketingPayload(app, options)
   if (!Object.keys(payload).length) return
   appendObjectFields(fd, payload)
-  fd.append('form_data', JSON.stringify(payload))
 }

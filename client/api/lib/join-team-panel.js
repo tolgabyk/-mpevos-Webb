@@ -1,10 +1,12 @@
-import { appendMarketingCrmFields, buildMarketingPayload } from './join-team-crm.js'
+import { appendMarketingCrmFields } from './join-team-crm.js'
 import { getDepartmentLabel, getCrmKind } from './join-team-departments.js'
 
 const TEAM_SUBMIT_URL =
   process.env.JOIN_TEAM_SUBMIT_URL ||
   process.env.TEAM_APPLICATION_SUBMIT_URL ||
   'https://impevosekip.me/api/team-applications/submit'
+
+const REQUEST_TIMEOUT_MS = 35000
 
 const SOFTWARE_ROLE_LABELS = {
   frontend: 'Frontend', backend: 'Backend', ios: 'iOS', android: 'Android',
@@ -22,13 +24,6 @@ const MARKETING_ROLE_LABELS = {
   campaign: 'Reklam ve Kampanya',
   brand: 'Marka İletişimi',
 }
-
-const CRM_ATTEMPTS = [
-  {},
-  { forceDefaults: true },
-  { forceDefaults: true, customerMeetingsMode: 'evet' },
-  { forceDefaults: true, customerMeetingsMode: 'text' },
-]
 
 function parseBool(val) {
   return val === 'true' || val === true || val === 'yes' || val === 'on'
@@ -66,43 +61,34 @@ function guessMime(filename) {
   return 'application/octet-stream'
 }
 
-function buildBaseFields(body) {
+function buildFormData(body, cvBuffer, cvName, crmOptions) {
+  const fd = new FormData()
   const weekly =
     body.hoursPerWeek || body.hoursPerWeekMarketing || body.hoursPerWeekOther || '10'
 
-  return {
-    application_kind: getCrmKind(body.applicationType),
-    full_name: body.fullName,
-    email: body.email,
-    phone: body.phone || '',
-    city: body.city || '',
-    age: body.age || '',
-    education: body.universityInfo || '',
-    linkedin_url: body.linkedin || '',
-    github_url: body.githubPortfolio || '',
-    availability: weekly,
-    message: buildMessage(body),
-    volunteer_consent: parseBool(body.voluntaryConsent) ? 'true' : 'false',
-    source: 'impevos.com',
-    website: '',
-    role_interest: getDepartment(body),
-    weekly_hours: weekly,
-    cursor: aiLevel(body.cursorUsed),
-    claude: aiLevel(body.claudeUsed),
-    antigravity: aiLevel(body.antigravityUsed),
-    chatgpt: body.aiToolsUsage ? 'orta' : 'yok',
-    technologies: body.technologies || '-',
-    why_impevos: body.whyImpevos || '-',
-    differentiator: body.differentiator || '-',
-  }
-}
-
-function buildFormData(body, cvBuffer, cvName, crmOptions) {
-  const fd = new FormData()
-  const base = buildBaseFields(body)
-  for (const [key, value] of Object.entries(base)) {
-    fd.append(key, value)
-  }
+  fd.append('application_kind', getCrmKind(body.applicationType))
+  fd.append('full_name', body.fullName)
+  fd.append('email', body.email)
+  fd.append('phone', body.phone || '')
+  fd.append('city', body.city || '')
+  fd.append('age', body.age || '')
+  fd.append('education', body.universityInfo || '')
+  fd.append('linkedin_url', body.linkedin || '')
+  fd.append('github_url', body.githubPortfolio || '')
+  fd.append('availability', weekly)
+  fd.append('message', buildMessage(body))
+  fd.append('volunteer_consent', parseBool(body.voluntaryConsent) ? 'true' : 'false')
+  fd.append('source', 'impevos.com')
+  fd.append('website', '')
+  fd.append('role_interest', getDepartment(body))
+  fd.append('weekly_hours', weekly)
+  fd.append('cursor', aiLevel(body.cursorUsed))
+  fd.append('claude', aiLevel(body.claudeUsed))
+  fd.append('antigravity', aiLevel(body.antigravityUsed))
+  fd.append('chatgpt', body.aiToolsUsage ? 'orta' : 'yok')
+  fd.append('technologies', body.technologies || '-')
+  fd.append('why_impevos', body.whyImpevos || '-')
+  fd.append('differentiator', body.differentiator || '-')
   appendMarketingCrmFields(fd, body, crmOptions)
 
   if (cvBuffer?.length) {
@@ -112,38 +98,19 @@ function buildFormData(body, cvBuffer, cvName, crmOptions) {
   return fd
 }
 
-function buildJsonPayload(body, cvBuffer, cvName, crmOptions) {
-  const marketing = buildMarketingPayload(body, crmOptions)
-  return {
-    ...buildBaseFields(body),
-    ...marketing,
-    cv_base64: cvBuffer?.length ? cvBuffer.toString('base64') : '',
-    cv_filename: cvName || 'cv.pdf',
-    form_data: marketing,
-  }
-}
-
-async function postToPanel(body, cvBuffer, cvName, crmOptions, useJson) {
+async function postFormData(body, cvBuffer, cvName, crmOptions) {
   const controller = new AbortController()
-  const timeout = setTimeout(() => controller.abort(), 45000)
+  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
 
   try {
-    const fetchOptions = {
+    const res = await fetch(TEAM_SUBMIT_URL, {
       method: 'POST',
       headers: { Origin: 'https://impevos.com' },
+      body: buildFormData(body, cvBuffer, cvName, crmOptions),
       signal: controller.signal,
-    }
+    })
 
-    if (useJson) {
-      fetchOptions.headers['Content-Type'] = 'application/json'
-      fetchOptions.body = JSON.stringify(buildJsonPayload(body, cvBuffer, cvName, crmOptions))
-    } else {
-      fetchOptions.body = buildFormData(body, cvBuffer, cvName, crmOptions)
-    }
-
-    const res = await fetch(TEAM_SUBMIT_URL, fetchOptions)
     const result = await res.json().catch(() => ({}))
-
     if (!res.ok || result.ok === false) {
       throw new Error(result.message || result.error || `Panel hatası (${res.status})`)
     }
@@ -158,31 +125,6 @@ async function postToPanel(body, cvBuffer, cvName, crmOptions, useJson) {
   }
 }
 
-function isRetryableCrmError(message) {
-  return /zorunlu|required|geçersiz|invalid/i.test(String(message))
-}
-
 export async function syncToTeamPanel(body, cvBuffer, cvName) {
-  const plans = []
-  for (const crmOptions of CRM_ATTEMPTS) {
-    plans.push({ crmOptions, useJson: false })
-    plans.push({ crmOptions, useJson: true })
-  }
-
-  let lastError = null
-
-  for (const plan of plans) {
-    try {
-      return await postToPanel(body, cvBuffer, cvName, plan.crmOptions, plan.useJson)
-    } catch (err) {
-      lastError = err
-      if (isRetryableCrmError(err.message)) {
-        console.warn('[join-team] CRM denemesi başarısız:', err.message)
-        continue
-      }
-      throw err
-    }
-  }
-
-  throw lastError || new Error('Başvuru panele iletilemedi')
+  return postFormData(body, cvBuffer, cvName, { forceDefaults: true, customerMeetingsMode: 'evet' })
 }
