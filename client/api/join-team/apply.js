@@ -94,7 +94,7 @@ export default async function handler(req, res) {
     }
     if (/zorunlu|required|geçersiz|invalid/i.test(msg)) {
       return sendJson(res, 502, {
-        error: msg || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
+        error: 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
       })
     }
     return sendJson(res, 502, { error: msg || 'Başvuru gönderilemedi' })

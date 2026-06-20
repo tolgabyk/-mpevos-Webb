@@ -17,12 +17,6 @@ function yesNoEn(val, fallback = 'yes') {
   return fallback
 }
 
-function yesNoTr(val, fallback = 'Evet') {
-  if (val === 'yes' || val === true) return 'Evet'
-  if (val === 'no' || val === false) return 'Hayır'
-  return fallback
-}
-
 function firstText(...values) {
   for (const v of values) {
     const s = String(v ?? '').trim()
@@ -69,94 +63,49 @@ function buildCustomerMeetingChoice(app, force) {
   return { en: 'yes', tr: 'Evet' }
 }
 
-function meetingValues(mode, meeting, description) {
-  if (mode === 'evet') {
-    return { en: 'Evet', tr: 'Evet', text: description }
+function appendField(fd, names, value) {
+  const text = String(value ?? '').trim()
+  if (!text) return
+  for (const name of names) {
+    fd.append(name, text)
   }
-  if (mode === 'text') {
-    return { en: description, tr: description, text: description }
-  }
-  return { en: meeting.en, tr: meeting.tr, text: description }
 }
 
-export function buildMarketingPayload(app, { forceDefaults = false, customerMeetingsMode = 'yes' } = {}) {
+/** CRM panelinin pazarlama başvurularında beklediği alanlar */
+export function appendMarketingCrmFields(fd, app, { forceDefaults = false } = {}) {
   const isMarketing =
     getQuestionSet(app.applicationType) === 'marketing' ||
     getCrmKind(app.applicationType) === 'pazarlama'
-  if (!isMarketing) return {}
+  if (!isMarketing) return
 
   const dept = getDepartment(app.applicationType)
-  const roleSlug = app.marketingRole || dept?.marketingRole || app.applicationType || 'genel'
-  const roleLabel = MARKETING_ROLE_LABELS[roleSlug] || roleSlug
+  const roleSlug = app.marketingRole || dept?.marketingRole || ''
+  const marketingRole = MARKETING_ROLE_LABELS[roleSlug] || roleSlug || 'Genel'
   const salesExperience = buildSalesExperience(app, forceDefaults)
   const b2bB2cExperience = buildB2bB2cExperience(app, forceDefaults)
-  const meeting = buildCustomerMeetingChoice(app, forceDefaults)
-  const description = buildCustomerMeetingDescription(app, forceDefaults)
-  const values = meetingValues(customerMeetingsMode, meeting, description)
+  const customerMeeting = buildCustomerMeetingChoice(app, forceDefaults)
+  const customerMeetingDescription = buildCustomerMeetingDescription(app, forceDefaults)
 
-  return {
-    sales_experience: salesExperience,
-    salesExperience,
-    b2b_b2c_experience: b2bB2cExperience,
-    b2b_b2c: b2bB2cExperience,
-    b2b_experience: b2bB2cExperience,
-    b2bB2cExperience: b2bB2cExperience,
-    marketing_experience: firstText(app.marketingExperience, salesExperience),
-    marketingExperience: firstText(app.marketingExperience, salesExperience),
-    marketing_role: roleSlug,
-    marketingRole: roleSlug,
-    marketing_role_label: roleLabel,
-    communication_score: firstText(app.communicationScore, '5'),
-    communicationScore: firstText(app.communicationScore, '5'),
-    how_to_market: firstText(app.howToMarketImpevos, 'Başvuru formunda belirtildi'),
-    howToMarketImpevos: firstText(app.howToMarketImpevos, 'Başvuru formunda belirtildi'),
-    customer_meetings: values.en,
-    customer_meeting: values.en,
-    customerMeetings: values.en,
-    musteri_gorusmesi: values.tr,
-    musteri_gorusme: values.tr,
-    musteri_gorusme_evet_hayir: values.tr,
-    musteri_gorusme_aciklama: values.text,
-    customer_meeting_experience: values.text,
-    customer_meeting_description: values.text,
-    phone_face_to_face: yesNoEn(app.phoneFaceToFace, meeting.en),
-    phoneFaceToFace: yesNoEn(app.phoneFaceToFace, meeting.en),
-    business_meetings: yesNoEn(app.businessMeetings, meeting.en),
-    businessMeetings: yesNoEn(app.businessMeetings, meeting.en),
-    phone_meetings: yesNoEn(app.phoneFaceToFace || app.businessMeetings, meeting.en),
-    phoneMeetings: yesNoEn(app.phoneFaceToFace || app.businessMeetings, meeting.en),
-    cold_calling: yesNoEn(app.coldCallingComfort),
-    coldCalling: yesNoEn(app.coldCallingComfort),
-    sales_targets: yesNoEn(app.salesTargets),
-    salesTargets: yesNoEn(app.salesTargets),
-    customer_tracking: yesNoEn(app.customerTracking),
-    customerTracking: yesNoEn(app.customerTracking),
-    crm_tracking: yesNoEn(app.crmTrackingSales),
-    crmTracking: yesNoEn(app.crmTrackingSales),
-    social_media_content: yesNoEn(app.socialMediaContent),
-    socialMediaContent: yesNoEn(app.socialMediaContent),
-    campaign_experience: app.campaignExperience || 'Başvuru formunda belirtildi',
-    campaignExperience: app.campaignExperience || 'Başvuru formunda belirtildi',
-    design_tools: app.designTools || 'Başvuru formunda belirtildi',
-    designTools: app.designTools || 'Başvuru formunda belirtildi',
-    content_examples: app.contentExamples || 'Başvuru formunda belirtildi',
-    contentExamples: app.contentExamples || 'Başvuru formunda belirtildi',
-    platform_experience: app.platformExperience || 'Başvuru formunda belirtildi',
-    platformExperience: app.platformExperience || 'Başvuru formunda belirtildi',
-  }
-}
-
-function appendObjectFields(fd, payload) {
-  for (const [key, value] of Object.entries(payload)) {
-    if (value !== undefined && value !== null && String(value).trim() !== '') {
-      fd.append(key, String(value))
-    }
-  }
-}
-
-/** CRM panelinin pazarlama başvurularında beklediği ek alanlar */
-export function appendMarketingCrmFields(fd, app, options = {}) {
-  const payload = buildMarketingPayload(app, options)
-  if (!Object.keys(payload).length) return
-  appendObjectFields(fd, payload)
+  appendField(fd, ['sales_experience', 'salesExperience'], salesExperience)
+  appendField(fd, ['b2b_b2c_experience', 'b2b_b2c', 'b2b_experience'], b2bB2cExperience)
+  appendField(fd, ['marketing_experience', 'marketingExperience'], firstText(app.marketingExperience, salesExperience))
+  appendField(fd, ['marketing_role', 'marketingRole'], marketingRole)
+  appendField(fd, ['communication_score', 'communicationScore'], firstText(app.communicationScore, '5'))
+  appendField(fd, ['how_to_market', 'howToMarketImpevos'], firstText(app.howToMarketImpevos, 'Başvuru formunda belirtildi'))
+  appendField(fd, ['customer_meetings', 'customer_meeting', 'customerMeetings'], customerMeeting.en)
+  appendField(fd, ['musteri_gorusmesi', 'musteri_gorusme'], customerMeetingDescription)
+  appendField(fd, ['musteri_gorusme_evet_hayir'], customerMeeting.tr)
+  appendField(fd, ['musteri_gorusme_aciklama', 'customer_meeting_experience'], customerMeetingDescription)
+  appendField(fd, ['phone_face_to_face', 'phoneFaceToFace'], yesNoEn(app.phoneFaceToFace, customerMeeting.en))
+  appendField(fd, ['business_meetings', 'businessMeetings'], yesNoEn(app.businessMeetings, customerMeeting.en))
+  appendField(fd, ['phone_meetings', 'phoneMeetings'], yesNoEn(app.phoneFaceToFace || app.businessMeetings, customerMeeting.en))
+  appendField(fd, ['cold_calling', 'coldCalling'], yesNoEn(app.coldCallingComfort))
+  appendField(fd, ['sales_targets', 'salesTargets'], yesNoEn(app.salesTargets))
+  appendField(fd, ['customer_tracking', 'customerTracking'], yesNoEn(app.customerTracking))
+  appendField(fd, ['crm_tracking', 'crmTracking'], yesNoEn(app.crmTrackingSales))
+  appendField(fd, ['social_media_content', 'socialMediaContent'], yesNoEn(app.socialMediaContent))
+  appendField(fd, ['campaign_experience', 'campaignExperience'], app.campaignExperience || 'Başvuru formunda belirtildi')
+  appendField(fd, ['design_tools', 'designTools'], app.designTools || 'Başvuru formunda belirtildi')
+  appendField(fd, ['content_examples', 'contentExamples'], app.contentExamples || 'Başvuru formunda belirtildi')
+  appendField(fd, ['platform_experience', 'platformExperience'], app.platformExperience || 'Başvuru formunda belirtildi')
 }

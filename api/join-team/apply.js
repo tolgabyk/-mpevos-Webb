@@ -95,6 +95,11 @@ export default async function handler(req, res) {
         error: 'Panel yanıt vermedi. Lütfen birkaç dakika sonra tekrar deneyin.',
       })
     }
+    if (/zorunlu|required|geçersiz|invalid/i.test(msg)) {
+      return sendJson(res, 502, {
+        error: 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
+      })
+    }
     return sendJson(res, 502, { error: msg || 'Başvuru gönderilemedi' })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
