@@ -95,7 +95,7 @@ async function insertViaSupabase(app, cvBuffer, cvName) {
     },
     cv_storage_path: cvStoragePath,
     volunteer_consent: app.voluntaryConsent,
-    source: 'impevos.com',
+    source: 'Web Sitesi',
   }
 
   const res = await fetch(`${config.url}/rest/v1/rpc/submit_team_application`, {
