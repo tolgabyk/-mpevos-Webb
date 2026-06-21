@@ -31,15 +31,6 @@ export default function JoinTeamPage() {
           </div>
         </section>
 
-        <section className={styles.updateBanner}>
-          <div className="container">
-            <p>
-              Başvuru formu güncellendi — Teknoloji, Satış &amp; Pazarlama, Operasyon ve Tasarım
-              departmanlarından birini seçerek başvurabilirsin.
-            </p>
-          </div>
-        </section>
-
         <section className={styles.infoBanner}>
           <div className="container">
             <div className={styles.infoCard}>

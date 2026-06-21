@@ -6,21 +6,19 @@ import {
 } from './join-team-payload.js'
 import { getCrmKind } from './join-team-departments.js'
 
+const DEFAULT_SUPABASE_URL = 'https://qlzkqvzrlzginrwngjrr.supabase.co'
+const DEFAULT_SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsemtxdnpybHpnaW5yd25nanJyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNjg1MTEsImV4cCI6MjA5Mzg0NDUxMX0.yn-vq040V89n9ffq9nR-pxLVlNf6g0qBZoLwQYEQkLw'
+
 function getSupabaseConfig() {
-  const url = process.env.SUPABASE_URL?.trim()
+  const url = (process.env.SUPABASE_URL || DEFAULT_SUPABASE_URL).trim()
   const key = (
     process.env.SUPABASE_SERVICE_ROLE_KEY ||
     process.env.SUPABASE_ANON_KEY ||
     process.env.SUPABASE_PUBLISHABLE_KEY ||
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-    ''
+    DEFAULT_SUPABASE_ANON_KEY
   ).trim()
-
-  if (!url || !key) {
-    throw new Error(
-      'Supabase yapılandırması eksik. Vercel\'de SUPABASE_URL ve SUPABASE_ANON_KEY tanımlayın.',
-    )
-  }
 
   return { url, key }
 }
