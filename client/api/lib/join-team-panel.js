@@ -6,19 +6,22 @@ import {
 } from './join-team-payload.js'
 import { getCrmKind } from './join-team-departments.js'
 
-const DEFAULT_SUPABASE_URL = 'https://fgegxtyabtojsupxjdiw.supabase.co'
-// Anon key — RLS ile yalnızca team_applications insert izni var (public)
-const DEFAULT_SUPABASE_ANON_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZnZWd4dHlhYnRvanN1cHhqZGl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE4OTA2NDAsImV4cCI6MjA5NzQ2NjY0MH0.Ytb8KriHH_eR-7683_bTu3QEXri02_0XceKd777EBbM'
-
 function getSupabaseConfig() {
-  const url = process.env.SUPABASE_URL || DEFAULT_SUPABASE_URL
-  const key =
+  const url = process.env.SUPABASE_URL?.trim()
+  const key = (
     process.env.SUPABASE_SERVICE_ROLE_KEY ||
     process.env.SUPABASE_ANON_KEY ||
     process.env.SUPABASE_PUBLISHABLE_KEY ||
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-    DEFAULT_SUPABASE_ANON_KEY
+    ''
+  ).trim()
+
+  if (!url || !key) {
+    throw new Error(
+      'Supabase yapılandırması eksik. Vercel\'de SUPABASE_URL ve SUPABASE_ANON_KEY tanımlayın.',
+    )
+  }
+
   return { url, key }
 }
 
