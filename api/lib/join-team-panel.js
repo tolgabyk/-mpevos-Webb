@@ -12,15 +12,19 @@ const DEFAULT_SUPABASE_ANON_KEY =
 
 function getSupabaseConfig() {
   const url = (process.env.SUPABASE_URL || DEFAULT_SUPABASE_URL).trim()
-  const key = (
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+  const anonKey = (
     process.env.SUPABASE_ANON_KEY ||
     process.env.SUPABASE_PUBLISHABLE_KEY ||
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
     DEFAULT_SUPABASE_ANON_KEY
   ).trim()
+  const storageKey = (
+    process.env.SUPABASE_SERVICE_ROLE_KEY ||
+    process.env.SUPABASE_SECRET_KEY ||
+    anonKey
+  ).trim()
 
-  return { url, key }
+  return { url, key: anonKey, storageKey }
 }
 
 function guessMime(filename) {
@@ -34,12 +38,13 @@ function guessMime(filename) {
 async function uploadCvToStorage(config, applicationId, cvBuffer, cvName) {
   const safeName = String(cvName || 'cv.pdf').replace(/[^\w.\-()+]/g, '_')
   const path = `${applicationId}/${safeName}`
+  const uploadKey = config.storageKey || config.key
 
   const res = await fetch(`${config.url}/storage/v1/object/team-cvs/${path}`, {
     method: 'POST',
     headers: {
-      apikey: config.key,
-      Authorization: `Bearer ${config.key}`,
+      apikey: uploadKey,
+      Authorization: `Bearer ${uploadKey}`,
       'Content-Type': guessMime(safeName),
       'x-upsert': 'true',
     },
