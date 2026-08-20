@@ -1,11 +1,11 @@
 import fs from 'fs'
-import { appendMarketingCrmFields } from '../../api/lib/join-team-crm.js'
+import { appendMarketingCrmFields } from '../../../api/lib/join-team-crm.js'
 import {
   DEPARTMENTS,
   getDepartmentLabel,
   getCrmKind,
   getDepartment as getDeptConfig,
-} from '../../api/lib/join-team-departments.js'
+} from '../../../api/lib/join-team-departments.js'
 
 const APPLICATION_TYPE_LABELS = Object.fromEntries(DEPARTMENTS.map(d => [d.value, d.label]))
 

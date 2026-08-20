@@ -128,17 +128,7 @@ export default function Hero({ ready = true }) {
           <a href="#contact" className="btn btn-secondary">{t('hero.cta2')}</a>
         </motion.div>
 
-        <motion.button
-          type="button"
-          className={styles.scrollIndicator}
-          variants={itemVariants}
-          onClick={() => document.getElementById('vision')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          <span>{t('hero.scroll')}</span>
-          <div className={styles.scrollMouse}>
-            <div className={styles.scrollWheel} />
-          </div>
-        </motion.button>
+
       </motion.div>
     </section>
   )

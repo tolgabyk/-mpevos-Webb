@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { List, X } from '@phosphor-icons/react'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
+import { INTERNSHIP_APPLICATIONS_OPEN } from '../../data/config'
 import styles from './Navbar.module.css'
 
 const NAV_IDS = ['hero', 'about', 'services', 'projects', 'internship-details', 'internship-apply', 'contact']
@@ -94,13 +95,15 @@ export default function Navbar() {
             >
               {t('nav.joinTeam')}
             </Link>
-            <button
-              type="button"
-              className={styles.applyBtnSecondary}
-              onClick={() => handleNavClick('internship-apply')}
-            >
-              {t('nav.internshipApply')}
-            </button>
+            {INTERNSHIP_APPLICATIONS_OPEN && (
+              <button
+                type="button"
+                className={styles.applyBtnSecondary}
+                onClick={() => handleNavClick('internship-apply')}
+              >
+                {t('nav.internshipApply')}
+              </button>
+            )}
 
             {/* Lang Toggle */}
             <div className={styles.langToggle}>
@@ -150,19 +153,21 @@ export default function Navbar() {
                   {t('nav.joinTeam')}
                 </Link>
               </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.03 }}
-              >
-                <button
-                  type="button"
-                  className={styles.mobileNavLink}
-                  onClick={() => handleNavClick('internship-apply')}
+              {INTERNSHIP_APPLICATIONS_OPEN && (
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.03 }}
                 >
-                  {t('nav.internshipApply')}
-                </button>
-              </motion.li>
+                  <button
+                    type="button"
+                    className={styles.mobileNavLink}
+                    onClick={() => handleNavClick('internship-apply')}
+                  >
+                    {t('nav.internshipApply')}
+                  </button>
+                </motion.li>
+              )}
               {navItems.map(({ id, label }, i) => (
                 <motion.li
                   key={id}

@@ -3,7 +3,7 @@ import {
   getQuestionSet,
   getDepartment,
   getMarketingRoleGroup,
-} from '../../api/lib/join-team-departments.js'
+} from '../../../api/lib/join-team-departments.js'
 
 const PERSONAL_FIELDS = ['fullName', 'email', 'phone', 'city', 'age', 'universityInfo', 'linkedin', 'githubPortfolio']
 const CONSENT_FIELDS = ['applicationType', 'voluntaryConsent']

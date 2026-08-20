@@ -22,7 +22,7 @@ export default function Contact() {
           <p className={styles.subtitle}>{t('contact.subtitle')}</p>
 
           <div className={styles.actions}>
-            <a href="tel:+905344952332" className={styles.phoneBtn}>
+            <a href="tel:+908506400098" className={styles.phoneBtn}>
               <Phone size={20} weight="duotone" />
               <span>{t('contact.info.help.phone')}</span>
             </a>

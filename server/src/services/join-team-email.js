@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import { getDepartmentLabel } from '../../api/lib/join-team-departments.js'
+import { getDepartmentLabel } from '../../../api/lib/join-team-departments.js'
 
 function getTransporter() {
   if (!process.env.SMTP_HOST || !process.env.SMTP_USER) return null

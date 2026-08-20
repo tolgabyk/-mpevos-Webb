@@ -308,7 +308,7 @@
     "fab": "İletişim",
     "info": {
       "help": {
-        "phone": "0534 495 23 32"
+        "phone": "0850 640 00 98"
       }
     }
   },
@@ -431,6 +431,8 @@
       "label": "Başvuru",
       "title": "Staj Başvuru Formu",
       "subtitle": "Zorunlu alanlar * ile işaretlidir.",
+      "closedTitle": "Başvurular Kapandı",
+      "closedDesc": "Bu dönem için staj başvurularımız kapanmıştır. İlginiz için teşekkür ederiz.",
       "steps": [
         "Kişisel Bilgiler",
         "Eğitim Bilgileri",

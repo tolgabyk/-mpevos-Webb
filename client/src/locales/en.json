@@ -308,7 +308,7 @@
     "fab": "Contact",
     "info": {
       "help": {
-        "phone": "0534 495 23 32"
+        "phone": "0850 640 00 98"
       }
     }
   },
@@ -431,6 +431,8 @@
       "label": "Application",
       "title": "Internship Application Form",
       "subtitle": "Required fields are marked with *.",
+      "closedTitle": "Applications Closed",
+      "closedDesc": "Internship applications are closed for this term. Thank you for your interest.",
       "steps": [
         "Personal Info",
         "Education Info",

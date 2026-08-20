@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle, UploadSimple } from '@phosphor-icons/react'
 import { submitInternshipApplication, isInternshipSubmitSuccess } from '../../utils/internshipSubmit'
+import { INTERNSHIP_APPLICATIONS_OPEN } from '../../data/config'
 import styles from './InternshipForm.module.css'
 
 const INITIAL_FORM = {
@@ -49,6 +50,40 @@ const STEPS = ['personal', 'education', 'internship', 'technical', 'links', 'con
 
 export default function InternshipForm() {
   const { t } = useTranslation()
+
+  if (!INTERNSHIP_APPLICATIONS_OPEN) {
+    return (
+      <section id="internship-apply" style={{ padding: '80px 0' }}>
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            style={{ textAlign: 'center', marginBottom: '40px' }}
+          >
+            <div className="section-label">{t('internship.form.label')}</div>
+            <h2 className="section-title">{t('internship.form.title')}</h2>
+          </motion.div>
+          
+          <div style={{
+            maxWidth: '600px',
+            margin: '0 auto',
+            background: 'rgba(0, 255, 0, 0.02)',
+            border: '1px solid rgba(0, 255, 0, 0.1)',
+            borderRadius: '16px',
+            padding: '40px',
+            textAlign: 'center',
+            backdropFilter: 'blur(10px)'
+          }}>
+            <h3 style={{ color: '#00ff00', fontSize: '24px', marginBottom: '16px' }}>{t('internship.form.closedTitle')}</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}>{t('internship.form.closedDesc')}</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   const [step, setStep] = useState(0)
   const [form, setForm] = useState(INITIAL_FORM)
   const [cvFile, setCvFile] = useState(null)
