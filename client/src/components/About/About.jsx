@@ -21,6 +21,7 @@ export default function About() {
 
   return (
     <section id="about" ref={sectionRef} className={styles.section}>
+      <div className={styles.gridBg} aria-hidden="true" />
       <div className={styles.bgGlow} />
       <motion.div className={styles.bgText} style={{ y: bgY }} aria-hidden="true">
         {t('about.label')}
@@ -28,17 +29,36 @@ export default function About() {
 
       <div className="container">
         <RevealGroup className={styles.header}>
+          {/* Tech frame around header */}
+          <div className={styles.headerFrame} aria-hidden="true">
+            <span className={styles.frameLine} />
+          </div>
+
           <RevealItem>
-            <span className={styles.label}>{t('about.label')}</span>
+            <div className={styles.labelRow}>
+              <span className={styles.labelDot} />
+              <span className={styles.label}>{t('about.label')}</span>
+              <span className={styles.labelCode}>// 01</span>
+            </div>
           </RevealItem>
+
           <RevealItem>
             <h2 className={styles.title}>
               {t('about.title')}{' '}
-              <span className="text-accent">{t('about.titleAccent')}</span>
+              <span className={styles.titleAccent}>{t('about.titleAccent')}</span>
             </h2>
           </RevealItem>
+
           <RevealItem>
             <p className={styles.subtitle}>{t('about.subtitle')}</p>
+          </RevealItem>
+
+          <RevealItem>
+            <div className={styles.dividerRow}>
+              <span className={styles.dividerLine} />
+              <span className={styles.dividerDot} />
+              <span className={styles.dividerLine} />
+            </div>
           </RevealItem>
         </RevealGroup>
 

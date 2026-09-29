@@ -61,23 +61,13 @@ async function handleApply(req, res) {
     const emailOk = notifyResults.email?.sent || notifyResults.email?.applicantSent
     const panelOk = notifyResults.panel?.synced
 
-    if (!panelOk) {
-      if (req.file) fs.unlink(cvPath, () => {})
-      return res.status(502).json({
-        error: notifyResults.panel?.error || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
-        details: {
-          email: notifyResults.email?.error || null,
-          panel: notifyResults.panel?.error || null,
-        },
-      })
-    }
-
+    // CRM paneli kapalı olduğu için birincil bildirim kariyer@impevos.com.tr adresinedir
     res.status(201).json({
       ok: true,
       id: saved.id,
-      panelId: notifyResults.panel?.panelId,
+      panelId: notifyResults.panel?.panelId || saved.id,
       message: 'Başvuru alındı',
-      notified: { email: !!emailOk, panel: true },
+      notified: { email: !!emailOk, panel: !!panelOk },
     })
   } catch (err) {
     if (req.file) fs.unlink(path.join(UPLOAD_DIR, req.file.filename), () => {})

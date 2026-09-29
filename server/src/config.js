@@ -31,18 +31,18 @@ export function logConfigStatus() {
   if (!process.env.SMTP_PASS || process.env.SMTP_PASS.includes('BURAYA')) {
     issues.push('SMTP_PASS geçersiz → e-posta gönderilemez (Gmail Uygulama Şifresi gerekli)')
   }
-  if (!process.env.INTERNSHIP_EMAIL) {
-    issues.push('INTERNSHIP_EMAIL tanımlı değil → varsayılan impevos@gmail.com kullanılacak')
+  if (!process.env.INTERNSHIP_EMAIL && !process.env.JOIN_TEAM_EMAIL) {
+    issues.push('INTERNSHIP_EMAIL / JOIN_TEAM_EMAIL tanımlı değil → varsayılan kariyer@impevos.com.tr kullanılacak')
   }
   if (!process.env.DASHBOARD_API_KEY && !process.env.INTERNSHIP_APPLICATIONS_WEBHOOK_SECRET) {
-    issues.push('DASHBOARD_API_KEY tanımlı değil → impevosekip.me paneline gönderilmeyecek')
+    issues.push('DASHBOARD_API_KEY tanımlı değil → CRM paneli kapalı, e-postalar doğrudan kariyer@impevos.com.tr adresine iletilecek')
   }
 
   console.log('')
-  console.log('📋 Staj Başvuru Sistemi')
+  console.log('📋 İmpevos Başvuru Sistemi')
   console.log(`   Veritabanı : ${DB_FILE}`)
   console.log(`   CV klasörü : ${CV_DIR}`)
-  console.log(`   E-posta    : ${process.env.INTERNSHIP_EMAIL || 'impevos@gmail.com'}`)
+  console.log(`   E-posta    : ${process.env.JOIN_TEAM_EMAIL || process.env.INTERNSHIP_EMAIL || 'kariyer@impevos.com.tr'}`)
   console.log(`   Admin panel: http://localhost:5173/admin/login`)
 
   if (issues.length) {

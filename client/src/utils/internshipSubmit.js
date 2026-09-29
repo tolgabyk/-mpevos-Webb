@@ -114,31 +114,17 @@ function buildPanelPayload(form, cvBase64, cvFilename) {
 }
 
 export function getInternshipSubmitUrl() {
-  if (import.meta.env.DEV) {
-    return apiUrl('/api/internship/apply')
-  }
-  return PANEL_SUBMIT_URL
+  return apiUrl('/api/internship/apply')
 }
 
 export async function submitInternshipApplication(form, cvFile) {
   const url = getInternshipSubmitUrl()
-
-  if (import.meta.env.DEV) {
-    const data = new FormData()
-    Object.entries(form).forEach(([key, val]) => data.append(key, val))
+  const data = new FormData()
+  Object.entries(form).forEach(([key, val]) => data.append(key, val))
+  if (cvFile) {
     data.append('cv', cvFile)
-    const res = await fetch(url, { method: 'POST', body: data })
-    const result = await parseJsonResponse(res)
-    return { res, result }
   }
-
-  const cvBase64 = await fileToBase64(cvFile)
-  const payload = buildPanelPayload(form, cvBase64, cvFile.name)
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
+  const res = await fetch(url, { method: 'POST', body: data })
   const result = await parseJsonResponse(res)
   return { res, result }
 }

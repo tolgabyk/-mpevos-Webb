@@ -1,10 +1,8 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Lightning } from '@phosphor-icons/react'
-import LightBulb from '../LightBulb/LightBulb'
 import { RevealGroup, RevealItem } from '../Reveal/Reveal'
-import { scaleIn } from '../../utils/motion'
+import { EASE_SMOOTH } from '../../utils/motion'
 import styles from './VisionStatement.module.css'
 
 export default function VisionStatement() {
@@ -16,36 +14,63 @@ export default function VisionStatement() {
   })
 
   const bgY = useTransform(scrollYProgress, [0, 1], ['8%', '-8%'])
-  const glowScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.05, 0.95])
+  const lineWidth = useTransform(scrollYProgress, [0.15, 0.5], ['0%', '100%'])
 
   return (
     <section id="vision" ref={sectionRef} className={styles.section}>
+      {/* Background layers */}
+      <div className={styles.gridBg} aria-hidden="true" />
       <div className={styles.bgGlow} />
+      <div className={styles.scanLine} aria-hidden="true" />
       <motion.div className={styles.bgText} style={{ y: bgY }} aria-hidden="true">
         {t('vision.bgText')}
       </motion.div>
 
       <div className="container">
         <RevealGroup className={styles.inner}>
+          {/* Tech frame — top corners */}
+          <div className={styles.techFrame} aria-hidden="true">
+            <span className={styles.cornerTL} />
+            <span className={styles.cornerTR} />
+            <span className={styles.cornerBL} />
+            <span className={styles.cornerBR} />
+          </div>
+
+          {/* Status indicator */}
           <RevealItem>
-            <h2 className={styles.quote}>{t('vision.quote')}</h2>
+            <div className={styles.statusRow}>
+              <span className={styles.statusDot} />
+              <span className={styles.statusText}>SYSTEM.VISION</span>
+            </div>
           </RevealItem>
+
+          {/* Animated line */}
+          <RevealItem>
+            <div className={styles.lineTrack}>
+              <motion.div className={styles.lineFill} style={{ width: lineWidth }} />
+            </div>
+          </RevealItem>
+
+          {/* Main quote */}
+          <RevealItem>
+            <h2 className={styles.quote}>
+              {t('vision.quote')}
+            </h2>
+          </RevealItem>
+
+          {/* Sub text */}
           <RevealItem>
             <p className={styles.sub}>{t('vision.sub')}</p>
           </RevealItem>
-          <motion.div
-            className={styles.bulbWrap}
-            variants={scaleIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-          >
-            <motion.div style={{ scale: glowScale }}>
-              <LightBulb active size="lg" />
-            </motion.div>
-            <Lightning className={styles.sparkLeft} size={28} weight="fill" />
-            <Lightning className={styles.sparkRight} size={22} weight="fill" />
-          </motion.div>
+
+          {/* Bottom accent */}
+          <RevealItem>
+            <div className={styles.bottomAccent}>
+              <span className={styles.accentDash} />
+              <span className={styles.accentDot} />
+              <span className={styles.accentDash} />
+            </div>
+          </RevealItem>
         </RevealGroup>
       </div>
     </section>

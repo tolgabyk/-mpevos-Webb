@@ -46,24 +46,14 @@ export default async function handler(req, res) {
 
     const notifyResults = await notifyApplication(application, cvPath)
 
-    if (!notifyResults.panel?.synced) {
-      return sendJson(res, 502, {
-        error: notifyResults.panel?.error || 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
-        details: {
-          email: notifyResults.email?.error || null,
-          panel: notifyResults.panel?.error || null,
-        },
-      })
-    }
-
     return sendJson(res, 201, {
       ok: true,
       id: application.id,
-      panelId: notifyResults.panel?.panelId,
+      panelId: notifyResults.panel?.panelId || application.id,
       message: 'Başvuru alındı',
       notified: {
         email: !!notifyResults.email?.sent,
-        panel: true,
+        panel: !!notifyResults.panel?.synced,
       },
     })
   } catch (err) {

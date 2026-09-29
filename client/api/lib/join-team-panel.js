@@ -49,6 +49,7 @@ async function uploadCvToStorage(config, applicationId, cvBuffer, cvName) {
       'x-upsert': 'true',
     },
     body: cvBuffer,
+    signal: AbortSignal.timeout(8000),
   })
 
   if (!res.ok) {
@@ -112,6 +113,7 @@ async function insertViaSupabase(app, cvBuffer, cvName) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ payload }),
+    signal: AbortSignal.timeout(8000),
   })
 
   const data = await res.json().catch(() => null)

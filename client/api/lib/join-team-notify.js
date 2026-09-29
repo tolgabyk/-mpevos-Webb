@@ -23,7 +23,7 @@ export async function notifyJoinTeamInBackground(body, cvBuffer, cvName) {
   const application = buildApplication(body, cvName)
 
   const panelResult = await syncToTeamPanel(body, cvBuffer, cvName).catch(err => {
-    console.error('[join-team] CRM hatası:', err.message)
+    console.warn('[join-team] CRM panel kapalı veya ulaşılamadı (atlandı):', err.message)
     return null
   })
 

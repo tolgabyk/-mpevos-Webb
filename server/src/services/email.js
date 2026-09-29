@@ -104,7 +104,7 @@ function buildText(application) {
 
 export async function sendInternshipNotification(application, cvPath) {
   const transporter = getTransporter()
-  const to = process.env.INTERNSHIP_EMAIL || 'impevos@gmail.com'
+  const to = process.env.INTERNSHIP_EMAIL || process.env.CAREER_EMAIL || process.env.JOIN_TEAM_EMAIL || 'kariyer@impevos.com.tr'
 
   const mailOptions = {
     from: `"İmpevos Staj Başvuruları" <${process.env.SMTP_USER || to}>`,

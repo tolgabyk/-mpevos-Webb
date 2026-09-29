@@ -74,33 +74,37 @@ export default async function handler(req, res) {
     const cvName = cvFile.originalFilename || 'cv.pdf'
     const cvBuffer = fs.readFileSync(cvPath)
 
-    const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
-    const application = buildApplication(body, cvName, panelResult.panelId)
+    const applicationId = crypto.randomUUID()
+    let panelId = applicationId
 
-    sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
-      console.error('[join-team] e-posta hatası:', err.message)
+    // CRM paneli kapalı olduğu için birincil hedef kariyer@impevos.com.tr e-postasıdır.
+    // Panel/Supabase denenir, kapalıysa veya hata verirse başvurunun iletilmesini engellemez.
+    try {
+      const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
+      if (panelResult?.panelId) {
+        panelId = panelResult.panelId
+      }
+    } catch (crmErr) {
+      console.warn('[join-team] CRM panel kapalı veya ulaşılamadı (kariyer@impevos.com.tr adresine iletiliyor):', crmErr.message)
+    }
+
+    const application = buildApplication(body, cvName, panelId)
+
+    const emailResult = await sendJoinTeamNotifications(application, cvBuffer, cvName).catch(err => {
+      console.error('[join-team] e-posta gönderim hatası:', err.message)
+      return { failed: true, error: err.message }
     })
 
     return sendJson(res, 201, {
       ok: true,
-      id: panelResult.panelId,
+      id: panelId,
       message: 'Başvurun alındı. İmpevos ekibine ilgin için teşekkürler.',
-      notified: { panel: true },
+      notified: { email: !emailResult?.failed, panel: false },
     })
   } catch (err) {
     console.error('[join-team] apply hatası:', err.message)
     const msg = String(err.message || '')
-    if (/yanıt vermedi|timeout|abort/i.test(msg)) {
-      return sendJson(res, 504, {
-        error: 'Panel yanıt vermedi. Lütfen birkaç dakika sonra tekrar deneyin.',
-      })
-    }
-    if (/zorunlu|required|geçersiz|invalid/i.test(msg)) {
-      return sendJson(res, 502, {
-        error: 'Başvuru panele iletilemedi. Lütfen tekrar deneyin.',
-      })
-    }
-    return sendJson(res, 502, { error: msg || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.' })
+    return sendJson(res, 500, { error: msg || 'Başvuru gönderilemedi. Lütfen tekrar deneyin.' })
   } finally {
     if (cvPath && fs.existsSync(cvPath)) fs.unlink(cvPath, () => {})
   }

@@ -24,11 +24,6 @@ function yesNo(val) {
   return val || '—'
 }
 
-function panelUrl(id) {
-  const base = process.env.JOIN_TEAM_PANEL_URL || 'https://impevosekip.me/ekip-basvurulari'
-  return id ? `${base}?id=${id}` : base
-}
-
 function buildCompanyHtml(app) {
   const rows = [
     ['Ad Soyad', app.fullName],
@@ -56,16 +51,20 @@ function buildCompanyHtml(app) {
       <h2 style="color:#000;">Yeni İmpevos Ekip Başvurusu</h2>
       <p style="color:#666;">Web sitesinden yeni bir ekip başvurusu alındı.</p>
       <table style="border-collapse:collapse;width:100%;font-size:14px;">${tableRows}</table>
-      <p style="margin-top:24px;">
-        <a href="${panelUrl(app.panelId)}" style="color:#00aa00;font-weight:600;">CRM panelde başvuruyu görüntüle →</a>
-      </p>
+      <div style="margin-top:24px;padding:12px 16px;background:#f9fafb;border-left:4px solid #00aa00;border-radius:4px;">
+        <p style="margin:0;font-size:13px;color:#333;line-height:1.5;">
+          <strong>CRM Paneli Durumu:</strong> CRM paneli kapalı olduğu için ekip başvuruları doğrudan 
+          <a href="mailto:kariyer@impevos.com.tr" style="color:#00aa00;font-weight:600;">kariyer@impevos.com.tr</a> 
+          adresine yönlendirilmiştir. Aday ile iletişime geçmek için bu e-postayı doğrudan yanıtlayabilirsiniz.
+        </p>
+      </div>
     </div>
   `
 }
 
 export async function sendJoinTeamNotifications(application, cvBuffer, cvName) {
   const transporter = getTransporter()
-  const companyTo = process.env.JOIN_TEAM_EMAIL || process.env.INTERNSHIP_EMAIL || 'impevos@gmail.com'
+  const companyTo = process.env.JOIN_TEAM_EMAIL || process.env.CAREER_EMAIL || process.env.INTERNSHIP_EMAIL || 'kariyer@impevos.com.tr'
   const from = process.env.SMTP_USER || companyTo
 
   if (!transporter) {
@@ -90,14 +89,16 @@ export async function sendJoinTeamNotifications(application, cvBuffer, cvName) {
 
   await transporter.sendMail({
     from: `"İmpevos" <${from}>`,
+    replyTo: companyTo,
     to: application.email,
     subject: 'İmpevos Başvurun Alındı',
-    text: `Merhaba ${application.fullName},\n\nİmpevos ekibine yaptığın başvuru başarıyla alınmıştır. Başvurun ekibimiz tarafından incelenecek ve uygun görülmesi halinde seninle iletişime geçilecektir.\n\nİlgine teşekkür ederiz.\n\nİmpevos Teknoloji`,
+    text: `Merhaba ${application.fullName},\n\nİmpevos ekibine yaptığın başvuru başarıyla alınmıştır. Başvurun ekibimiz tarafından incelenecek ve uygun görülmesi halinde seninle iletişime geçilecektir.\n\nSoruların için kariyer@impevos.com.tr adresinden bize ulaşabilirsin.\n\nİlgine teşekkür ederiz.\n\nİmpevos Teknoloji`,
     html: `
       <div style="font-family:Inter,Arial,sans-serif;max-width:560px;">
         <h2>İmpevos Başvurun Alındı</h2>
         <p>Merhaba ${application.fullName},</p>
         <p>İmpevos ekibine yaptığın başvuru başarıyla alınmıştır. Başvurun ekibimiz tarafından incelenecek ve uygun görülmesi halinde seninle iletişime geçilecektir.</p>
+        <p>Herhangi bir sorunuz olması durumunda <a href="mailto:kariyer@impevos.com.tr" style="color:#00aa00;">kariyer@impevos.com.tr</a> adresinden bize ulaşabilirsiniz.</p>
         <p>İlgine teşekkür ederiz.</p>
         <p style="color:#888;font-size:12px;margin-top:32px;">İmpevos Teknoloji</p>
       </div>
