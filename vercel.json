@@ -11,6 +11,10 @@
     "api/join-team/apply.js": {
       "maxDuration": 60,
       "memory": 1024
+    },
+    "api/test-email.js": {
+      "maxDuration": 30,
+      "memory": 1024
     }
   },
   "headers": [

@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 import { getDepartmentLabel } from '../../../api/lib/join-team-departments.js'
 
 function getTransporter() {
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER) return null
+  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) return null
 
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST,
@@ -11,6 +11,9 @@ function getTransporter() {
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false,
     },
   })
 }

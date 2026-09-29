@@ -2,7 +2,10 @@ import nodemailer from 'nodemailer'
 import { getDepartmentLabel } from './join-team-departments.js'
 
 function getTransporter() {
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER) return null
+  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.warn('[join-team-email] SMTP ortam değişkenleri eksik: SMTP_HOST, SMTP_USER veya SMTP_PASS tanımlı değil.')
+    return null
+  }
   return nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT) || 587,
@@ -10,6 +13,9 @@ function getTransporter() {
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
+    },
+    tls: {
+      rejectUnauthorized: false,
     },
   })
 }
