@@ -139,10 +139,26 @@
     "bgText": "Hizmetler",
     "cardTag": "Keşfet",
     "items": [
-      { "icon": "DeviceMobile", "title": "Mobil uygulama geliştirme", "desc": "iOS ve Android için yayınlanabilir mobil ürünler tasarlıyor ve geliştiriyoruz." },
-      { "icon": "Brain", "title": "Yapay zeka entegrasyonu", "desc": "Mevcut iş akışlarına model, asistan ve özetleme adımlarını ekliyoruz." },
-      { "icon": "GearSix", "title": "Süreç otomasyonu", "desc": "Tekrarlayan operasyonları yazılımla kısaltıyor, onay adımlarını yerinde bırakıyoruz." },
-      { "icon": "Code", "title": "Özel yazılım geliştirme", "desc": "Şirkete özel paneller, iç araçlar ve entegrasyonlar geliştiriyoruz." }
+      {
+        "icon": "DeviceMobile",
+        "title": "Mobil uygulama geliştirme",
+        "desc": "iOS ve Android için yayınlanabilir mobil ürünler tasarlıyor ve geliştiriyoruz."
+      },
+      {
+        "icon": "Brain",
+        "title": "Yapay zeka entegrasyonu",
+        "desc": "Mevcut iş akışlarına model, asistan ve özetleme adımlarını ekliyoruz."
+      },
+      {
+        "icon": "GearSix",
+        "title": "Süreç otomasyonu",
+        "desc": "Tekrarlayan operasyonları yazılımla kısaltıyor, onay adımlarını yerinde bırakıyoruz."
+      },
+      {
+        "icon": "Code",
+        "title": "Özel yazılım geliştirme",
+        "desc": "Şirkete özel paneller, iç araçlar ve entegrasyonlar geliştiriyoruz."
+      }
     ]
   },
   "projects": {
@@ -151,15 +167,19 @@
     "titleAccent": "",
     "subtitle": "Her ürünün kısa açıklaması, görseli ve bağlantısı.",
     "imagePlaceholder": "Görsel eklenecek",
-    "tabs": { "all": "Tümü", "ongoing": "Devam Eden", "completed": "Tamamlanan" },
+    "tabs": {
+      "all": "Tümü",
+      "ongoing": "Devam Eden",
+      "completed": "Tamamlanan"
+    },
     "details": "Detaylar",
     "items": [
       {
         "id": "not-ortagim",
         "status": "completed",
-        "statusLabel": "App Store'da yayında",
+        "statusLabel": "App Store ve Google Play'de yayında",
         "title": "Not Ortağım",
-        "desc": "Öğrenciler için yapay zeka destekli not ve çalışma asistanı.",
+        "desc": "Öğrenciler için yapay zeka destekli not ve çalışma asistanı. App Store ve Google Play'de yayında.",
         "type": "app",
         "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
         "cta": "App Store",
@@ -176,29 +196,55 @@
       {
         "id": "inffy",
         "status": "completed",
-        "statusLabel": "Web",
+        "statusLabel": "Yayında",
         "title": "İnffy",
-        "desc": "Yapay zeka destekli dijital ürün.",
-        "type": "placeholder",
-        "href": "https://inffyai.com",
-        "cta": "inffyai.com"
+        "desc": "İçerik üreticileri için anlaşma, içerik, finans ve AI araçlarını tek yerde toplayan Creator OS. Markalar için influencer keşfi ve kampanya yönetimi.",
+        "type": "web",
+        "url": "https://www.inffyai.com",
+        "linkLabel": "Siteyi Ziyaret Et",
+        "screens": [
+          "/app-screens/inffy-web1.jpg",
+          "/app-screens/inffy-web2.jpg",
+          "/app-screens/inffy-web3.jpg"
+        ]
       },
       {
         "id": "awyron-ai",
         "status": "ongoing",
-        "statusLabel": "Ön talep",
+        "statusLabel": "Demo & Ön Talep",
         "title": "Awyron AI",
-        "desc": "İş araçlarını tek platformda toplayan yapay zeka katmanı.",
-        "type": "placeholder",
-        "href": "https://awyronai.com",
-        "cta": "Demo / Ön talep bırak"
+        "desc": "Modern şirketler için yapay zeka işletim sistemi. Araçlarınızı bağlar, şirketinizi anlar ve her departman için AI ajanları oluşturur.",
+        "type": "web",
+        "url": "https://www.awyronai.com",
+        "linkLabel": "Siteyi Ziyaret Et",
+        "screens": [
+          "/app-screens/awyron-web1.jpg",
+          "/app-screens/awyron-web2.jpg",
+          "/app-screens/awyron-web3.jpg",
+          "/app-screens/awyron-web4.jpg",
+          "/app-screens/awyron-web5.jpg",
+          "/app-screens/awyron-web6.jpg"
+        ]
       }
-    ]
+    ],
+    "more": {
+      "count": "+20",
+      "title": "Tamamlanan 20'den fazla proje daha",
+      "desc": "Not Ortağım, İnffy ve Awyron AI'ın yanında kurumsal web siteleri, mobil uygulamalar, yapay zeka entegrasyonları ve otomasyon çözümlerinden oluşan 20'yi aşkın projeyi hayata geçirdik.",
+      "tags": [
+        "Kurumsal Web Siteleri",
+        "Mobil Uygulamalar",
+        "Yapay Zeka Entegrasyonları",
+        "Otomasyon",
+        "E-Ticaret",
+        "Yönetim Panelleri"
+      ]
+    }
   },
   "appShowcase": {
-    "badge": "App Store'da Yayında",
+    "badge": "App Store ve Google Play'de Yayında",
     "titleAccent": "Not Ortağım",
-    "titleEnd": "App Store'da yayında!",
+    "titleEnd": "App Store ve Google Play'de yayında!",
     "subtitle": "Yapay zeka destekli not paylaşma platformu. PDF yükle, AI ile özet ve quiz oluştur, podcast olarak dinle ya da fotoğraf modu ile soruyu çekip anında çöz — Not Ortağım her zaman yanında.",
     "features": [
       "AI özet, quiz ve çalışma planı tek dokunuşla",
@@ -207,7 +253,6 @@
       "PDF paylaş, binlerce öğrenci notuna ulaş"
     ],
     "storeTopApple": "İndir",
-    "androidSoon": "Android çok yakında",
     "metaRating": "App Store puanı",
     "metaAge": "yaş sınırı",
     "metaCategoryValue": "Eğitim",
@@ -245,7 +290,8 @@
         "icon": "Microphone",
         "screen": 4
       }
-    ]
+    ],
+    "storeTopGoogle": "İndir"
   },
   "team": {
     "label": "Ekibimiz",
@@ -255,9 +301,24 @@
     "subtitle": "Kurucular. Fotoğraflar hazır olduğunda yer tutucuların yerine geçecek.",
     "photoPlaceholder": "Fotoğraf eklenecek",
     "founders": [
-      { "name": "Göktuğ Eryılmaz", "role": "Kurucu Ortak, CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/" },
-      { "name": "Burak Gökçe", "role": "Kurucu Ortak, CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/" },
-      { "name": "Tolga Bıyık", "role": "Kurucu Ortak, CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/" }
+      {
+        "name": "Göktuğ Eryılmaz",
+        "role": "Kurucu Ortak, CEO",
+        "photo": "/team/goktug-eryilmaz.jpeg",
+        "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/"
+      },
+      {
+        "name": "Burak Gökçe",
+        "role": "Kurucu Ortak, CTO",
+        "photo": "/team/burak-gokce.jpeg",
+        "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
+      },
+      {
+        "name": "Tolga Bıyık",
+        "role": "Kurucu Ortak, CPO",
+        "photo": "/team/tolga-biyik.png",
+        "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/"
+      }
     ],
     "leaderLabel": "Lider",
     "deputyLabel": "Yardımcı",
@@ -271,9 +332,28 @@
         "iconKey": "leadership",
         "name": "Yönetim Kurulu",
         "members": [
-          { "name": "Göktuğ ERYILMAZ", "role": "Kurucu Ortak — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
-          { "name": "Tolga BIYIK", "role": "Kurucu Ortak — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
-          { "name": "Burak GÖKCE", "role": "Kurucu Ortak — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
+          {
+            "name": "Göktuğ ERYILMAZ",
+            "role": "Kurucu Ortak — CEO",
+            "photo": "/team/goktug-eryilmaz.jpeg",
+            "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/",
+            "instagram": "https://www.instagram.com/goktugery/"
+          },
+          {
+            "name": "Tolga BIYIK",
+            "role": "Kurucu Ortak — CPO",
+            "photo": "/team/tolga-biyik.png",
+            "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/",
+            "instagram": "https://www.instagram.com/tolgapytech/"
+          },
+          {
+            "name": "Burak GÖKCE",
+            "role": "Kurucu Ortak — CTO",
+            "photo": "/team/burak-gokce.jpeg",
+            "linkedin": "https://www.linkedin.com/in/burak-gokcee/",
+            "instagram": "https://www.instagram.com/burakgokkce/",
+            "secondaryType": "github"
+          }
         ]
       },
       {
@@ -281,12 +361,39 @@
         "iconKey": "rd",
         "name": "Ar-Ge Ekibi",
         "members": [
-          { "isLeader": true, "name": "Kübra Utanğaç", "role": "Ar-Ge Lideri", "photo": "/team/kubra-utangac.png" },
-          { "name": "Dilara Özcan", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
-          { "isDeputyLeader": true, "name": "Esra Özekin", "role": "Ar-Ge Lider Yardımcısı", "photo": "/team/esra-ozekin.png" },
-          { "name": "Ümmü Altın", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/ummu-altin.png" },
-          { "name": "Mustafa Eren Kabaca", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/mustafa-eren-kabaca.png" },
-          { "name": "Beyza Civcik", "role": "Ar-Ge Ekip Üyesi", "photo": "/team/beyza.jpeg" }
+          {
+            "isLeader": true,
+            "name": "Kübra Utanğaç",
+            "role": "Ar-Ge Lideri",
+            "photo": "/team/kubra-utangac.png"
+          },
+          {
+            "name": "Dilara Özcan",
+            "role": "Ar-Ge Ekip Üyesi",
+            "photo": "/team/dilara-ozcan.jpeg",
+            "objectPosition": "center 15%"
+          },
+          {
+            "isDeputyLeader": true,
+            "name": "Esra Özekin",
+            "role": "Ar-Ge Lider Yardımcısı",
+            "photo": "/team/esra-ozekin.png"
+          },
+          {
+            "name": "Ümmü Altın",
+            "role": "Ar-Ge Ekip Üyesi",
+            "photo": "/team/ummu-altin.png"
+          },
+          {
+            "name": "Mustafa Eren Kabaca",
+            "role": "Ar-Ge Ekip Üyesi",
+            "photo": "/team/mustafa-eren-kabaca.png"
+          },
+          {
+            "name": "Beyza Civcik",
+            "role": "Ar-Ge Ekip Üyesi",
+            "photo": "/team/beyza.jpeg"
+          }
         ]
       },
       {
@@ -294,10 +401,29 @@
         "iconKey": "business",
         "name": "İş Geliştirme ve Ortaklıklar",
         "members": [
-          { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "İş Ortaklıkları Lideri", "photo": "/team/sukru-ata-erenkus.png" },
-          { "isLeader": true, "name": "Timur Ceyhan", "role": "Uluslararası İş Geliştirme Lideri", "photo": "/team/timur_ceyhan.jpeg" },
-          { "name": "Sema Kayalı", "role": "İş Ortaklıkları Ekip Üyesi", "photo": "/team/sema.jpeg" },
-          { "name": "Dilara Çavuş", "role": "İş Ortaklıkları Ekip Üyesi", "photo": "/team/dilara_cavus.jpeg", "objectPosition": "70% 50%" }
+          {
+            "isLeader": true,
+            "name": "Şükrü Ata Erenkuş",
+            "role": "İş Ortaklıkları Lideri",
+            "photo": "/team/sukru-ata-erenkus.png"
+          },
+          {
+            "isLeader": true,
+            "name": "Timur Ceyhan",
+            "role": "Uluslararası İş Geliştirme Lideri",
+            "photo": "/team/timur_ceyhan.jpeg"
+          },
+          {
+            "name": "Sema Kayalı",
+            "role": "İş Ortaklıkları Ekip Üyesi",
+            "photo": "/team/sema.jpeg"
+          },
+          {
+            "name": "Dilara Çavuş",
+            "role": "İş Ortaklıkları Ekip Üyesi",
+            "photo": "/team/dilara_cavus.jpeg",
+            "objectPosition": "70% 50%"
+          }
         ]
       },
       {
@@ -305,9 +431,22 @@
         "iconKey": "marketing",
         "name": "Pazarlama Ekibi",
         "members": [
-          { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Pazarlama Takım Lideri", "photo": "/team/mehmet-efe-dur.png" },
-          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Pazarlama Lider Yardımcısı", "photo": "/team/semra-aslan.jpeg" },
-          { "name": "Özlem Gültekin", "role": "Pazarlama Ekip Üyesi" }
+          {
+            "isLeader": true,
+            "name": "Mehmet Efe Dur",
+            "role": "Pazarlama Takım Lideri",
+            "photo": "/team/mehmet-efe-dur.png"
+          },
+          {
+            "isDeputyLeader": true,
+            "name": "Semra Aslan",
+            "role": "Pazarlama Lider Yardımcısı",
+            "photo": "/team/semra-aslan.jpeg"
+          },
+          {
+            "name": "Özlem Gültekin",
+            "role": "Pazarlama Ekip Üyesi"
+          }
         ]
       }
     ]
@@ -333,9 +472,9 @@
   },
   "internship": {
     "hero": {
-      "badge": "Stajyer Alımları 2026",
-      "title": "İmpevos Stajyer Alımları Başladı",
-      "subtitle": "Zorunlu yaz stajı olan öğrenciler için staj başvurularımız açıldı. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri ekibimize bekliyoruz.",
+      "badge": "Stajyer Alımları 2027",
+      "title": "Stajyer Başvuruları Ocak'ta Açılıyor",
+      "subtitle": "2027 yaz dönemi staj başvurularımız Ocak 2027'de açılacak. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri bekliyoruz.",
       "slides": [
         {
           "type": "team",
@@ -378,28 +517,28 @@
       "label": "Staj duyurusu",
       "cta": "Başvur",
       "messages": [
-        "Stajyer alımlarımız başladı — Yaz stajı başvuruları açık",
-        "Yazılım, tasarım ve mobil geliştirmede staj fırsatı",
+        "Stajyer başvuruları Ocak 2027'de açılacak",
+        "2026 yaz döneminde 10 stajyerle 6 proje geliştirdik",
         "Zorunlu stajı olan öğrenciler için gerçek proje deneyimi",
-        "İmpevos yaz staj programına hemen başvur"
+        "2027 yaz staj programı için takipte kal"
       ]
     },
     "popup": {
       "badge": "Staj Duyurusu",
-      "title": "Stajyer Alımlarımız Başladı!",
-      "desc": "Zorunlu yaz stajı olan öğrenciler için İmpevos staj programı başvuruları açıldı. Yazılım, tasarım ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri bekliyoruz.",
-      "cta": "Staj Başvuru Formuna Git",
+      "title": "Stajyer Başvuruları Ocak'ta Açılıyor!",
+      "desc": "2027 yaz dönemi staj başvuruları Ocak 2027'de açılacak. Yazılım, tasarım ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri bekliyoruz.",
+      "cta": "Staj Detaylarını Gör",
       "later": "Daha Sonra",
       "close": "Kapat"
     },
     "midBanner": {
-      "title": "Stajyer Alımlarımız Başladı",
-      "desc": "Zorunlu yaz stajı olan öğrenciler için İmpevos staj programı başvuruları devam ediyor. Yazılım, tasarım ve dijital projelerde kendini geliştirmek isteyen öğrencileri arıyoruz.",
-      "cta": "Hemen Başvur"
+      "title": "Stajyer Başvuruları Ocak 2027'de Açılıyor",
+      "desc": "2027 yaz dönemi staj başvuruları Ocak ayında başlayacak. Yazılım, tasarım ve dijital projelerde kendini geliştirmek isteyen öğrencileri bekliyoruz.",
+      "cta": "Detayları Gör"
     },
     "highlight": {
-      "title": "Stajyer Alımları Başladı",
-      "desc": "Zorunlu yaz stajı olan öğrenciler için İmpevos staj programı başvuruları açıldı.",
+      "title": "Stajyer Başvuruları Ocak'ta Açılıyor",
+      "desc": "2027 yaz dönemi staj başvuruları Ocak 2027'de açılacak.",
       "cta": "Başvuru Yap",
       "cards": [
         "Gerçek Proje Deneyimi",
@@ -423,8 +562,8 @@
       "label": "Staj Programı",
       "title": "İmpevos Yaz Stajı Programı",
       "intro": [
-        "İmpevos olarak zorunlu yaz stajı olan öğrenciler için staj programımızı başlatıyoruz.",
-        "Bu süreçte öğrenciler yalnızca izleyici olarak değil, gerçek proje süreçlerinde aktif rol alarak deneyim kazanacak.",
+        "İmpevos olarak zorunlu yaz stajı olan üniversite öğrencileri için staj programı yürütüyoruz.",
+        "Stajyerlerimiz yalnızca izleyici olarak değil, gerçek ürün ve proje süreçlerinde aktif rol alarak deneyim kazanıyor.",
         "Amacımız genç yeteneklere yazılım, tasarım, proje yönetimi ve ekip çalışması konusunda gerçek bir çalışma ortamı sunmak."
       ],
       "eligibleTitle": "Kimler Başvurabilir",
@@ -444,14 +583,61 @@
         "Yapay Zeka ve Otomasyon",
         "Sosyal Medya ve Dijital İçerik",
         "Proje Yönetimi ve Operasyon"
+      ],
+      "notice": {
+        "badge": "Duyuru",
+        "title": "Stajyer başvuruları Ocak 2027'de açılacak",
+        "desc": "2027 yaz dönemi staj başvuruları Ocak ayında bu sayfadan alınmaya başlanacak. Zorunlu yaz stajı olan öğrenciler başvuru tarihini takip edebilir."
+      },
+      "stats": [
+        {
+          "value": "10",
+          "label": "Stajyer · 2026 Yaz"
+        },
+        {
+          "value": "6",
+          "label": "Birlikte geliştirilen proje"
+        },
+        {
+          "value": "Ocak 2027",
+          "label": "Yeni başvuru dönemi"
+        }
+      ],
+      "supportTitle": "Başvurular ve Stajyerler İçin Neler Yapıyoruz",
+      "supportIntro": "Başvuru yapan her adayı ve aramıza katılan her stajyeri süreç boyunca yalnız bırakmıyoruz.",
+      "support": [
+        {
+          "title": "Her başvuruyu tek tek inceliyoruz",
+          "desc": "Formdan gelen başvurular ekibimiz tarafından okunur; uygun adaylarla e-posta veya telefonla iletişime geçilir."
+        },
+        {
+          "title": "Tanışma görüşmesi yapıyoruz",
+          "desc": "Kısa bir online görüşmeyle ilgi alanını, hedeflerini ve staj takvimini birlikte netleştiriyoruz."
+        },
+        {
+          "title": "Her stajyere bir mentor atıyoruz",
+          "desc": "Alanında deneyimli bir ekip üyesi staj boyunca sorularını yanıtlar ve işini takip eder."
+        },
+        {
+          "title": "Gerçek projelerde görev veriyoruz",
+          "desc": "Stajyerler Not Ortağım, İnffy ve Awyron AI gibi yayındaki ürünlerimizde ve yeni projelerde çalışır."
+        },
+        {
+          "title": "Düzenli ekip toplantıları yapıyoruz",
+          "desc": "Haftalık toplantılarla ilerlemeyi birlikte değerlendiriyor, geri bildirim veriyoruz."
+        },
+        {
+          "title": "Staj evraklarını tamamlıyoruz",
+          "desc": "Zorunlu staj için gereken staj defteri ve belge süreçlerinde stajyerlerimize destek oluyoruz."
+        }
       ]
     },
     "form": {
       "label": "Başvuru",
       "title": "Staj Başvuru Formu",
       "subtitle": "Zorunlu alanlar * ile işaretlidir.",
-      "closedTitle": "Başvurular Kapandı",
-      "closedDesc": "Bu dönem için staj başvurularımız kapanmıştır. İlginiz için teşekkür ederiz.",
+      "closedTitle": "Başvurular Ocak 2027'de Açılıyor",
+      "closedDesc": "2026 yaz dönemi staj programımız tamamlandı. 2027 yaz stajı başvuruları Ocak ayında bu form üzerinden alınmaya başlanacak.",
       "steps": [
         "Kişisel Bilgiler",
         "Eğitim Bilgileri",
@@ -493,49 +679,142 @@
       },
       "options": {
         "mandatory": [
-          { "value": "yes", "label": "Evet" },
-          { "value": "no", "label": "Hayır" },
-          { "value": "unsure", "label": "Emin değilim" }
+          {
+            "value": "yes",
+            "label": "Evet"
+          },
+          {
+            "value": "no",
+            "label": "Hayır"
+          },
+          {
+            "value": "unsure",
+            "label": "Emin değilim"
+          }
         ],
         "previousInternship": [
-          { "value": "yes", "label": "Evet" },
-          { "value": "no", "label": "Hayır" }
+          {
+            "value": "yes",
+            "label": "Evet"
+          },
+          {
+            "value": "no",
+            "label": "Hayır"
+          }
         ],
         "english": [
-          { "value": "beginner", "label": "Başlangıç" },
-          { "value": "intermediate", "label": "Orta" },
-          { "value": "good", "label": "İyi" },
-          { "value": "advanced", "label": "İleri" }
+          {
+            "value": "beginner",
+            "label": "Başlangıç"
+          },
+          {
+            "value": "intermediate",
+            "label": "Orta"
+          },
+          {
+            "value": "good",
+            "label": "İyi"
+          },
+          {
+            "value": "advanced",
+            "label": "İleri"
+          }
         ],
         "hearAbout": [
-          { "value": "instagram", "label": "Instagram" },
-          { "value": "linkedin", "label": "LinkedIn" },
-          { "value": "friend", "label": "Arkadaş / Tanıdık" },
-          { "value": "university", "label": "Üniversite" },
-          { "value": "google", "label": "Google / Arama" },
-          { "value": "other", "label": "Diğer" }
+          {
+            "value": "instagram",
+            "label": "Instagram"
+          },
+          {
+            "value": "linkedin",
+            "label": "LinkedIn"
+          },
+          {
+            "value": "friend",
+            "label": "Arkadaş / Tanıdık"
+          },
+          {
+            "value": "university",
+            "label": "Üniversite"
+          },
+          {
+            "value": "google",
+            "label": "Google / Arama"
+          },
+          {
+            "value": "other",
+            "label": "Diğer"
+          }
         ],
         "field": [
-          { "value": "web-frontend", "label": "Web Frontend" },
-          { "value": "backend", "label": "Backend" },
-          { "value": "mobile-ios", "label": "Mobil iOS" },
-          { "value": "mobile-android", "label": "Mobil Android" },
-          { "value": "ui-ux", "label": "UI/UX Tasarım" },
-          { "value": "ai", "label": "Yapay Zeka" },
-          { "value": "digital-marketing", "label": "Dijital Pazarlama" },
-          { "value": "social-media", "label": "Sosyal Medya" },
-          { "value": "project-management", "label": "Proje Yönetimi" },
-          { "value": "undecided", "label": "Henüz karar vermedim" }
+          {
+            "value": "web-frontend",
+            "label": "Web Frontend"
+          },
+          {
+            "value": "backend",
+            "label": "Backend"
+          },
+          {
+            "value": "mobile-ios",
+            "label": "Mobil iOS"
+          },
+          {
+            "value": "mobile-android",
+            "label": "Mobil Android"
+          },
+          {
+            "value": "ui-ux",
+            "label": "UI/UX Tasarım"
+          },
+          {
+            "value": "ai",
+            "label": "Yapay Zeka"
+          },
+          {
+            "value": "digital-marketing",
+            "label": "Dijital Pazarlama"
+          },
+          {
+            "value": "social-media",
+            "label": "Sosyal Medya"
+          },
+          {
+            "value": "project-management",
+            "label": "Proje Yönetimi"
+          },
+          {
+            "value": "undecided",
+            "label": "Henüz karar vermedim"
+          }
         ],
         "remote": [
-          { "value": "yes", "label": "Evet" },
-          { "value": "no", "label": "Hayır" },
-          { "value": "partial", "label": "Kısmen" }
+          {
+            "value": "yes",
+            "label": "Evet"
+          },
+          {
+            "value": "no",
+            "label": "Hayır"
+          },
+          {
+            "value": "partial",
+            "label": "Kısmen"
+          }
         ],
         "meetings": [
-          { "value": "yes", "label": "Evet" },
-          { "value": "no", "label": "Hayır" },
-          { "value": "depends", "label": "Duruma göre" }
+          {
+            "value": "yes",
+            "label": "Evet"
+          },
+          {
+            "value": "no",
+            "label": "Hayır"
+          },
+          {
+            "value": "depends",
+            "label": "Duruma göre"
+          }
         ]
       },
       "select": "Seçiniz",
@@ -570,9 +849,21 @@
     "videoTitle": "Şirketi Nasıl Kurduk?",
     "videoText": "Video alanı. Seri hazır olduğunda bu kareye gömülecek.",
     "events": [
-      { "date": "9 Mart 2026", "title": "Not Ortağım App Store’da", "text": "Uygulama Apple App Store’da yayınlandı." },
-      { "date": "Yaklaşık 10 gün sonra", "title": "Yatırım teklifi", "text": "Yayından kısa süre sonra bir yatırım teklifi alındı." },
-      { "date": "2026 · İstanbul", "title": "IMPEVOS A.Ş. kuruldu", "text": "Şirket İstanbul’da kuruldu." }
+      {
+        "date": "9 Mart 2026",
+        "title": "Not Ortağım App Store’da",
+        "text": "Uygulama Apple App Store’da yayınlandı."
+      },
+      {
+        "date": "Yaklaşık 10 gün sonra",
+        "title": "Yatırım teklifi",
+        "text": "Yayından kısa süre sonra bir yatırım teklifi alındı."
+      },
+      {
+        "date": "2026 · İstanbul",
+        "title": "IMPEVOS A.Ş. kuruldu",
+        "text": "Şirket İstanbul’da kuruldu."
+      }
     ]
   },
   "careerSection": {
@@ -587,7 +878,9 @@
     "submit": "Başvuruyu gönder",
     "sending": "Gönderiliyor",
     "success": "Başvuru alındı. Uygun görülürse sizinle iletişime geçilir.",
-    "error": "Başvuru iletilemedi. kariyer@impevos.com.tr adresine yazabilirsiniz."
+    "error": "Başvuru iletilemedi. kariyer@impevos.com.tr adresine yazabilirsiniz.",
+    "closedTitle": "Başvurular Ocak 2027'de açılacak",
+    "closedText": "2027 yaz dönemi zorunlu staj başvuruları Ocak ayında bu bölümden alınmaya başlanacak."
   },
   "cookie": {
     "text": "Site, tercihlerinizi hatırlamak için zorunlu bir çerez kullanır.",
@@ -600,23 +893,44 @@
     "kvkk": {
       "title": "KVKK Aydınlatma Metni",
       "blocks": [
-        { "heading": "Veri sorumlusu", "text": "Bu metin IMPEVOS A.Ş. adına hazırlanmıştır. Adres, MERSİS numarası ve vergi numarası kayıtlar netleştikçe eklenecektir. Bu alanlar şu an yer tutucudur." },
-        { "heading": "Amaç", "text": "İletişim formunda ad, e-posta, şirket ve mesaj; staj formunda ad, üniversite, bölüm ve CV, talebi yanıtlamak ve başvuruyu değerlendirmek için işlenir." },
-        { "heading": "Haklarınız", "text": "KVKK madde 11 kapsamındaki başvurular için info@impevos.com.tr adresine yazabilirsiniz." }
+        {
+          "heading": "Veri sorumlusu",
+          "text": "Bu metin IMPEVOS A.Ş. adına hazırlanmıştır. Adres, MERSİS numarası ve vergi numarası kayıtlar netleştikçe eklenecektir. Bu alanlar şu an yer tutucudur."
+        },
+        {
+          "heading": "Amaç",
+          "text": "İletişim formunda ad, e-posta, şirket ve mesaj; staj formunda ad, üniversite, bölüm ve CV, talebi yanıtlamak ve başvuruyu değerlendirmek için işlenir."
+        },
+        {
+          "heading": "Haklarınız",
+          "text": "KVKK madde 11 kapsamındaki başvurular için info@impevos.com.tr adresine yazabilirsiniz."
+        }
       ]
     },
     "privacy": {
       "title": "Gizlilik Politikası",
       "blocks": [
-        { "heading": "Kapsam", "text": "Bu politika impevos.com sitesini kapsar. Ürün uygulamaları kendi metinlerini yayımlayabilir." },
-        { "heading": "Toplanan bilgiler", "text": "Siteyi gezmek hesap açmayı gerektirmez. Form gönderdiğinizde yazdığınız bilgiler işlenir. Bu sitede ödeme alınmaz." }
+        {
+          "heading": "Kapsam",
+          "text": "Bu politika impevos.com sitesini kapsar. Ürün uygulamaları kendi metinlerini yayımlayabilir."
+        },
+        {
+          "heading": "Toplanan bilgiler",
+          "text": "Siteyi gezmek hesap açmayı gerektirmez. Form gönderdiğinizde yazdığınız bilgiler işlenir. Bu sitede ödeme alınmaz."
+        }
       ]
     },
     "cookies": {
       "title": "Çerez Politikası",
       "blocks": [
-        { "heading": "Zorunlu çerez", "text": "impevos-consent çerezi, çerez bildirimindeki seçiminizi bu tarayıcıda tutar. Analiz veya reklam çerezi yüklenmez." },
-        { "heading": "Seçim", "text": "Kabul et ve Yalnızca zorunlu aynı zorunlu çerezi yazar. Seçimi tarayıcı ayarlarından silebilirsiniz." }
+        {
+          "heading": "Zorunlu çerez",
+          "text": "impevos-consent çerezi, çerez bildirimindeki seçiminizi bu tarayıcıda tutar. Analiz veya reklam çerezi yüklenmez."
+        },
+        {
+          "heading": "Seçim",
+          "text": "Kabul et ve Yalnızca zorunlu aynı zorunlu çerezi yazar. Seçimi tarayıcı ayarlarından silebilirsiniz."
+        }
       ]
     }
   },

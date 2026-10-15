@@ -61,7 +61,7 @@ async function handleApply(req, res) {
     const emailOk = notifyResults.email?.sent || notifyResults.email?.applicantSent
     const panelOk = notifyResults.panel?.synced
 
-    // CRM paneli kapalı olduğu için birincil bildirim kariyer@impevos.com.tr adresinedir
+    // CRM paneli kapalı olduğu için birincil bildirim burak.gokce@impevos.com.tr adresinedir
     res.status(201).json({
       ok: true,
       id: saved.id,

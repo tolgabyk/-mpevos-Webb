@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { Check, UserFocus, Compass, Stack } from '@phosphor-icons/react'
+import { Check, UserFocus, Compass, Stack, CalendarBlank, HandHeart } from '@phosphor-icons/react'
 import styles from './InternshipDetails.module.css'
 
 export default function InternshipDetails() {
@@ -9,6 +9,9 @@ export default function InternshipDetails() {
   const eligible = t('internship.details.eligible', { returnObjects: true })
   const areas = t('internship.details.areas', { returnObjects: true })
   const expectations = t('internship.expectations.items', { returnObjects: true })
+  const notice = t('internship.details.notice', { returnObjects: true })
+  const stats = t('internship.details.stats', { returnObjects: true })
+  const support = t('internship.details.support', { returnObjects: true })
 
   return (
     <section id="internship-details" className={styles.sectionWrapper}>
@@ -32,6 +35,36 @@ export default function InternshipDetails() {
             ))}
           </div>
         </motion.div>
+
+        {notice?.title && (
+          <motion.div
+            className={styles.notice}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            <div className={styles.noticeIcon}>
+              <CalendarBlank weight="duotone" />
+            </div>
+            <div className={styles.noticeText}>
+              <span className={styles.noticeBadge}>{notice.badge}</span>
+              <h3>{notice.title}</h3>
+              <p>{notice.desc}</p>
+            </div>
+          </motion.div>
+        )}
+
+        {Array.isArray(stats) && stats.length > 0 && (
+          <div className={styles.stats}>
+            {stats.map(stat => (
+              <div key={stat.label} className={styles.stat}>
+                <span className={styles.statValue}>{stat.value}</span>
+                <span className={styles.statLabel}>{stat.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         <div className={styles.grid}>
           <motion.div
@@ -103,6 +136,35 @@ export default function InternshipDetails() {
             ))}
           </div>
         </motion.div>
+
+        {Array.isArray(support) && support.length > 0 && (
+          <motion.div
+            className={styles.support}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ delay: 0.1, duration: 0.5, ease: 'easeOut' }}
+          >
+            <div className={styles.blockHeaderCentered}>
+              <div className={styles.iconWrapper}>
+                <HandHeart weight="light" />
+              </div>
+              <h3>{t('internship.details.supportTitle')}</h3>
+            </div>
+            <p className={styles.supportIntro}>{t('internship.details.supportIntro')}</p>
+            <div className={styles.supportGrid}>
+              {support.map(item => (
+                <div key={item.title} className={styles.supportItem}>
+                  <Check weight="bold" className={styles.checkIcon} />
+                  <div>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   )

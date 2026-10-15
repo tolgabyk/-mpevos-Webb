@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { INTERNSHIP_APPLICATIONS_OPEN } from '../../data/config'
 import styles from './Career.module.css'
 
 export default function Career() {
@@ -30,6 +31,12 @@ export default function Career() {
             <h2 id="career-title" className="section-title">{t('careerSection.title')}</h2>
             <p>{t('careerSection.subtitle')}</p>
           </div>
+          {!INTERNSHIP_APPLICATIONS_OPEN ? (
+            <div className={styles.form} role="status">
+              <h3 className={styles.closedTitle}>{t('careerSection.closedTitle')}</h3>
+              <p className={styles.hint}>{t('careerSection.closedText')}</p>
+            </div>
+          ) : (
           <form className={styles.form} onSubmit={onSubmit}>
             {status === 'success' ? (
               <p className={styles.success} role="status">{t('careerSection.success')}</p>
@@ -59,6 +66,7 @@ export default function Career() {
               </>
             )}
           </form>
+          )}
         </div>
       </div>
     </section>

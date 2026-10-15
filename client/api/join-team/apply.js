@@ -74,7 +74,7 @@ export default async function handler(req, res) {
     const applicationId = crypto.randomUUID()
     let panelId = applicationId
 
-    // CRM paneli kapalı olduğu için birincil hedef kariyer@impevos.com.tr e-postasıdır.
+    // CRM paneli kapalı olduğu için birincil hedef burak.gokce@impevos.com.tr e-postasıdır.
     // Panel/Supabase denenir, kapalıysa veya hata verirse başvurunun iletilmesini engellemez.
     try {
       const panelResult = await syncToTeamPanel(body, cvBuffer, cvName)
@@ -82,7 +82,7 @@ export default async function handler(req, res) {
         panelId = panelResult.panelId
       }
     } catch (crmErr) {
-      console.warn('[join-team] CRM panel kapalı veya ulaşılamadı (kariyer@impevos.com.tr adresine iletiliyor):', crmErr.message)
+      console.warn('[join-team] CRM panel kapalı veya ulaşılamadı (burak.gokce@impevos.com.tr adresine iletiliyor):', crmErr.message)
     }
 
     const application = buildApplication(body, cvName, panelId)

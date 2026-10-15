@@ -6,11 +6,11 @@ import styles from './Stats.module.css'
 const ITEMS = [
   { key: 'products', value: 3 },
   { key: 'interns', value: 10 },
-  { key: 'projects', value: 6 },
+  { key: 'projects', value: 20, suffix: '+' },
   { key: 'founded', value: 2026 },
 ]
 
-function Stat({ value, label }) {
+function Stat({ value, label, suffix = '' }) {
   const ref = useRef(null)
   const [start, setStart] = useState(false)
   const count = useCountUp(value, value > 2000 ? 900 : 1200, start)
@@ -27,7 +27,7 @@ function Stat({ value, label }) {
 
   return (
     <div ref={ref} className={styles.item}>
-      <span className={styles.value}>{start ? count : value}</span>
+      <span className={styles.value}>{start ? count : value}{suffix}</span>
       <span className={styles.label}>{label}</span>
     </div>
   )
@@ -45,7 +45,7 @@ export default function Stats() {
         </div>
         <div className={styles.row}>
           {ITEMS.map((item) => (
-            <Stat key={item.key} value={item.value} label={t(`stats.${item.key}`)} />
+            <Stat key={item.key} value={item.value} suffix={item.suffix} label={t(`stats.${item.key}`)} />
           ))}
         </div>
       </div>

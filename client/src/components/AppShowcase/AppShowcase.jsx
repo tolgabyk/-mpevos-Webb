@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   AppleLogo,
+  GooglePlayLogo,
   Sparkle,
   Camera,
   Microphone,
@@ -20,6 +21,9 @@ import { EASE_SMOOTH, mockupSlide, contentSlide } from '../../utils/motion'
 
 const APP_STORE_URL =
   'https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814?l=tr'
+
+const GOOGLE_PLAY_URL =
+  'https://play.google.com/store/apps/details?id=com.notortagim.android'
 
 const SCREEN_ROTATION_MS = 3400
 const HUB_INTERVAL = 5000
@@ -262,10 +266,20 @@ export default function AppShowcase() {
               <ArrowSquareOut size={16} weight="bold" className={styles.storeBtnArrow} />
             </a>
 
-            <div className={styles.androidPill}>
-              <span className={styles.androidDot} />
-              <span>{t('appShowcase.androidSoon')}</span>
-            </div>
+            <a
+              href={GOOGLE_PLAY_URL}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.storeBtn}
+              aria-label="Google Play'den indir"
+            >
+              <GooglePlayLogo size={30} weight="fill" />
+              <div className={styles.storeBtnText}>
+                <span className={styles.storeBtnTop}>{t('appShowcase.storeTopGoogle')}</span>
+                <span className={styles.storeBtnBottom}>Google Play</span>
+              </div>
+              <ArrowSquareOut size={16} weight="bold" className={styles.storeBtnArrow} />
+            </a>
           </div>
 
           <div className={styles.metaRow}>

@@ -139,10 +139,26 @@
     "bgText": "Services",
     "cardTag": "Explore",
     "items": [
-      { "icon": "DeviceMobile", "title": "Mobile app development", "desc": "We design and ship mobile products for iOS and Android." },
-      { "icon": "Brain", "title": "AI integration", "desc": "We add models, assistants, and summary steps to existing workflows." },
-      { "icon": "GearSix", "title": "Process automation", "desc": "We shorten repetitive operations in software and keep approval steps in place." },
-      { "icon": "Code", "title": "Custom software", "desc": "We build company-specific panels, internal tools, and integrations." }
+      {
+        "icon": "DeviceMobile",
+        "title": "Mobile app development",
+        "desc": "We design and ship mobile products for iOS and Android."
+      },
+      {
+        "icon": "Brain",
+        "title": "AI integration",
+        "desc": "We add models, assistants, and summary steps to existing workflows."
+      },
+      {
+        "icon": "GearSix",
+        "title": "Process automation",
+        "desc": "We shorten repetitive operations in software and keep approval steps in place."
+      },
+      {
+        "icon": "Code",
+        "title": "Custom software",
+        "desc": "We build company-specific panels, internal tools, and integrations."
+      }
     ]
   },
   "projects": {
@@ -151,15 +167,19 @@
     "titleAccent": "",
     "subtitle": "A short description, a visual, and a link for each product.",
     "imagePlaceholder": "Image to be added",
-    "tabs": { "all": "All", "ongoing": "Ongoing", "completed": "Completed" },
+    "tabs": {
+      "all": "All",
+      "ongoing": "Ongoing",
+      "completed": "Completed"
+    },
     "details": "Details",
     "items": [
       {
         "id": "not-ortagim",
         "status": "completed",
-        "statusLabel": "Live on the App Store",
+        "statusLabel": "Live on App Store & Google Play",
         "title": "Not Ortağım",
-        "desc": "An AI study assistant for students’ notes.",
+        "desc": "AI-powered PDF summarization and interactive study assistant. Live on the App Store and Google Play.",
         "type": "app",
         "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
         "cta": "App Store",
@@ -176,29 +196,55 @@
       {
         "id": "inffy",
         "status": "completed",
-        "statusLabel": "Web",
+        "statusLabel": "Live",
         "title": "İnffy",
-        "desc": "An AI digital product.",
-        "type": "placeholder",
-        "href": "https://inffyai.com",
-        "cta": "inffyai.com"
+        "desc": "A Creator OS that brings deals, content, finance and AI tools together for content creators — plus influencer discovery and campaign management for brands.",
+        "type": "web",
+        "url": "https://www.inffyai.com",
+        "linkLabel": "Visit Website",
+        "screens": [
+          "/app-screens/inffy-web1.jpg",
+          "/app-screens/inffy-web2.jpg",
+          "/app-screens/inffy-web3.jpg"
+        ]
       },
       {
         "id": "awyron-ai",
         "status": "ongoing",
-        "statusLabel": "Early access",
+        "statusLabel": "Demo & Early Access",
         "title": "Awyron AI",
-        "desc": "An AI layer that brings work tools into one place.",
-        "type": "placeholder",
-        "href": "https://awyronai.com",
-        "cta": "Demo / Request early access"
+        "desc": "The AI operating system for modern companies. Connects your tools, understands your business and deploys AI agents for every department.",
+        "type": "web",
+        "url": "https://www.awyronai.com",
+        "linkLabel": "Visit Website",
+        "screens": [
+          "/app-screens/awyron-web1.jpg",
+          "/app-screens/awyron-web2.jpg",
+          "/app-screens/awyron-web3.jpg",
+          "/app-screens/awyron-web4.jpg",
+          "/app-screens/awyron-web5.jpg",
+          "/app-screens/awyron-web6.jpg"
+        ]
       }
-    ]
+    ],
+    "more": {
+      "count": "+20",
+      "title": "20+ more completed projects",
+      "desc": "Alongside Not Ortağım, İnffy and Awyron AI, we have delivered more than 20 projects including corporate websites, mobile apps, AI integrations and automation solutions.",
+      "tags": [
+        "Corporate Websites",
+        "Mobile Apps",
+        "AI Integrations",
+        "Automation",
+        "E-Commerce",
+        "Admin Dashboards"
+      ]
+    }
   },
   "appShowcase": {
-    "badge": "Live on the App Store",
+    "badge": "Live on the App Store & Google Play",
     "titleAccent": "Not Ortağım",
-    "titleEnd": "is live on the App Store!",
+    "titleEnd": "is live on the App Store & Google Play!",
     "subtitle": "An AI-powered note-sharing platform. Upload a PDF, let AI build summaries and quizzes, listen to it as a podcast, or snap a question with Photo Mode and get an instant answer — Not Ortağım is always with you.",
     "features": [
       "AI summary, quiz and study plan in one tap",
@@ -207,7 +253,6 @@
       "Share PDFs and discover thousands of student notes"
     ],
     "storeTopApple": "Download on the",
-    "androidSoon": "Android coming soon",
     "metaRating": "App Store rating",
     "metaAge": "age rating",
     "metaCategoryValue": "Education",
@@ -245,7 +290,8 @@
         "icon": "Microphone",
         "screen": 4
       }
-    ]
+    ],
+    "storeTopGoogle": "Get it on"
   },
   "team": {
     "label": "Our Team",
@@ -255,9 +301,24 @@
     "subtitle": "Founders. Portraits will replace these placeholders when the files are ready.",
     "photoPlaceholder": "Photo to be added",
     "founders": [
-      { "name": "Göktuğ Eryılmaz", "role": "Co-founder, CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/" },
-      { "name": "Burak Gökçe", "role": "Co-founder, CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/" },
-      { "name": "Tolga Bıyık", "role": "Co-founder, CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/" }
+      {
+        "name": "Göktuğ Eryılmaz",
+        "role": "Co-founder, CEO",
+        "photo": "/team/goktug-eryilmaz.jpeg",
+        "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/"
+      },
+      {
+        "name": "Burak Gökçe",
+        "role": "Co-founder, CTO",
+        "photo": "/team/burak-gokce.jpeg",
+        "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
+      },
+      {
+        "name": "Tolga Bıyık",
+        "role": "Co-founder, CPO",
+        "photo": "/team/tolga-biyik.png",
+        "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/"
+      }
     ],
     "leaderLabel": "Lead",
     "deputyLabel": "Deputy",
@@ -271,9 +332,28 @@
         "iconKey": "leadership",
         "name": "Leadership",
         "members": [
-          { "name": "Göktuğ ERYILMAZ", "role": "Co-Founder — CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/", "instagram": "https://www.instagram.com/goktugery/" },
-          { "name": "Tolga BIYIK", "role": "Co-Founder — CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/", "instagram": "https://www.instagram.com/tolgapytech/" },
-          { "name": "Burak GÖKCE", "role": "Co-Founder — CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/", "instagram": "https://www.instagram.com/burakgokkce/", "secondaryType": "github" }
+          {
+            "name": "Göktuğ ERYILMAZ",
+            "role": "Co-Founder — CEO",
+            "photo": "/team/goktug-eryilmaz.jpeg",
+            "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/",
+            "instagram": "https://www.instagram.com/goktugery/"
+          },
+          {
+            "name": "Tolga BIYIK",
+            "role": "Co-Founder — CPO",
+            "photo": "/team/tolga-biyik.png",
+            "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/",
+            "instagram": "https://www.instagram.com/tolgapytech/"
+          },
+          {
+            "name": "Burak GÖKCE",
+            "role": "Co-Founder — CTO",
+            "photo": "/team/burak-gokce.jpeg",
+            "linkedin": "https://www.linkedin.com/in/burak-gokcee/",
+            "instagram": "https://www.instagram.com/burakgokkce/",
+            "secondaryType": "github"
+          }
         ]
       },
       {
@@ -281,12 +361,39 @@
         "iconKey": "rd",
         "name": "R&D Team",
         "members": [
-          { "isLeader": true, "name": "Kübra Utanğaç", "role": "R&D Leader", "photo": "/team/kubra-utangac.png" },
-          { "name": "Dilara Özcan", "role": "R&D Team Member", "photo": "/team/dilara-ozcan.jpeg", "objectPosition": "center 15%" },
-          { "isDeputyLeader": true, "name": "Esra Özekin", "role": "R&D Deputy Leader", "photo": "/team/esra-ozekin.png" },
-          { "name": "Ümmü Altın", "role": "R&D Team Member", "photo": "/team/ummu-altin.png" },
-          { "name": "Mustafa Eren Kabaca", "role": "R&D Team Member", "photo": "/team/mustafa-eren-kabaca.png" },
-          { "name": "Beyza Civcik", "role": "R&D Team Member", "photo": "/team/beyza.jpeg" }
+          {
+            "isLeader": true,
+            "name": "Kübra Utanğaç",
+            "role": "R&D Leader",
+            "photo": "/team/kubra-utangac.png"
+          },
+          {
+            "name": "Dilara Özcan",
+            "role": "R&D Team Member",
+            "photo": "/team/dilara-ozcan.jpeg",
+            "objectPosition": "center 15%"
+          },
+          {
+            "isDeputyLeader": true,
+            "name": "Esra Özekin",
+            "role": "R&D Deputy Leader",
+            "photo": "/team/esra-ozekin.png"
+          },
+          {
+            "name": "Ümmü Altın",
+            "role": "R&D Team Member",
+            "photo": "/team/ummu-altin.png"
+          },
+          {
+            "name": "Mustafa Eren Kabaca",
+            "role": "R&D Team Member",
+            "photo": "/team/mustafa-eren-kabaca.png"
+          },
+          {
+            "name": "Beyza Civcik",
+            "role": "R&D Team Member",
+            "photo": "/team/beyza.jpeg"
+          }
         ]
       },
       {
@@ -294,10 +401,29 @@
         "iconKey": "business",
         "name": "Business Development",
         "members": [
-          { "isLeader": true, "name": "Şükrü Ata Erenkuş", "role": "Business Partnership Lead", "photo": "/team/sukru-ata-erenkus.png" },
-          { "isLeader": true, "name": "Timur Ceyhan", "role": "International Business Development Lead", "photo": "/team/timur_ceyhan.jpeg" },
-          { "name": "Sema Kayalı", "role": "Business Partnership Team Member", "photo": "/team/sema.jpeg" },
-          { "name": "Dilara Çavuş", "role": "Business Partnership Team Member", "photo": "/team/dilara_cavus.jpeg", "objectPosition": "70% 50%" }
+          {
+            "isLeader": true,
+            "name": "Şükrü Ata Erenkuş",
+            "role": "Business Partnership Lead",
+            "photo": "/team/sukru-ata-erenkus.png"
+          },
+          {
+            "isLeader": true,
+            "name": "Timur Ceyhan",
+            "role": "International Business Development Lead",
+            "photo": "/team/timur_ceyhan.jpeg"
+          },
+          {
+            "name": "Sema Kayalı",
+            "role": "Business Partnership Team Member",
+            "photo": "/team/sema.jpeg"
+          },
+          {
+            "name": "Dilara Çavuş",
+            "role": "Business Partnership Team Member",
+            "photo": "/team/dilara_cavus.jpeg",
+            "objectPosition": "70% 50%"
+          }
         ]
       },
       {
@@ -305,9 +431,22 @@
         "iconKey": "marketing",
         "name": "Marketing Team",
         "members": [
-          { "isLeader": true, "name": "Mehmet Efe Dur", "role": "Marketing Team Leader", "photo": "/team/mehmet-efe-dur.png" },
-          { "isDeputyLeader": true, "name": "Semra Aslan", "role": "Marketing Deputy Lead", "photo": "/team/semra-aslan.jpeg" },
-          { "name": "Özlem Gültekin", "role": "Marketing Team Member" }
+          {
+            "isLeader": true,
+            "name": "Mehmet Efe Dur",
+            "role": "Marketing Team Leader",
+            "photo": "/team/mehmet-efe-dur.png"
+          },
+          {
+            "isDeputyLeader": true,
+            "name": "Semra Aslan",
+            "role": "Marketing Deputy Lead",
+            "photo": "/team/semra-aslan.jpeg"
+          },
+          {
+            "name": "Özlem Gültekin",
+            "role": "Marketing Team Member"
+          }
         ]
       }
     ]
@@ -423,9 +562,9 @@
       "label": "Internship Program",
       "title": "Impevos Summer Internship Program",
       "intro": [
-        "At Impevos, we are launching our internship program for students with mandatory summer internships.",
-        "During this process, students will gain experience by actively participating in real project workflows, not just observing.",
-        "Our goal is to provide young talents with a genuine work environment in software, design, project management, and teamwork."
+        "At İmpevos we run an internship programme for university students with a mandatory summer internship.",
+        "Our interns don't just watch — they take an active role in real product and project work.",
+        "Our goal is to give young talent a real working environment in software, design, project management and teamwork."
       ],
       "eligibleTitle": "Who Can Apply",
       "eligible": [
@@ -444,14 +583,61 @@
         "AI and Automation",
         "Social Media and Digital Content",
         "Project Management and Operations"
+      ],
+      "notice": {
+        "badge": "Announcement",
+        "title": "Internship applications open in January 2027",
+        "desc": "Applications for the summer 2027 internship programme will open on this page in January. Students with a mandatory summer internship can keep an eye on the date."
+      },
+      "stats": [
+        {
+          "value": "10",
+          "label": "Interns · Summer 2026"
+        },
+        {
+          "value": "6",
+          "label": "Projects built together"
+        },
+        {
+          "value": "Jan 2027",
+          "label": "Next application period"
+        }
+      ],
+      "supportTitle": "What We Do for Applicants and Interns",
+      "supportIntro": "We support every applicant and every intern who joins us throughout the process.",
+      "support": [
+        {
+          "title": "We review every application",
+          "desc": "Our team reads each application and contacts suitable candidates by email or phone."
+        },
+        {
+          "title": "We hold an intro call",
+          "desc": "A short online call to clarify your interests, goals and internship dates together."
+        },
+        {
+          "title": "Every intern gets a mentor",
+          "desc": "An experienced team member answers questions and follows your work throughout the internship."
+        },
+        {
+          "title": "Real project work",
+          "desc": "Interns work on live products such as Not Ortağım, İnffy and Awyron AI, and on new projects."
+        },
+        {
+          "title": "Regular team meetings",
+          "desc": "Weekly meetings to review progress together and give feedback."
+        },
+        {
+          "title": "Internship paperwork",
+          "desc": "We support interns with the logbook and documents required for mandatory internships."
+        }
       ]
     },
     "form": {
       "label": "Application",
       "title": "Internship Application Form",
       "subtitle": "Required fields are marked with *.",
-      "closedTitle": "Applications Closed",
-      "closedDesc": "Internship applications are closed for this term. Thank you for your interest.",
+      "closedTitle": "Applications Open in January 2027",
+      "closedDesc": "Our summer 2026 internship programme is complete. Applications for summer 2027 will open on this form in January.",
       "steps": [
         "Personal Info",
         "Education Info",
@@ -493,49 +679,142 @@
       },
       "options": {
         "mandatory": [
-          { "value": "yes", "label": "Yes" },
-          { "value": "no", "label": "No" },
-          { "value": "unsure", "label": "Not sure" }
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          },
+          {
+            "value": "unsure",
+            "label": "Not sure"
+          }
         ],
         "previousInternship": [
-          { "value": "yes", "label": "Yes" },
-          { "value": "no", "label": "No" }
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
         ],
         "english": [
-          { "value": "beginner", "label": "Beginner" },
-          { "value": "intermediate", "label": "Intermediate" },
-          { "value": "good", "label": "Good" },
-          { "value": "advanced", "label": "Advanced" }
+          {
+            "value": "beginner",
+            "label": "Beginner"
+          },
+          {
+            "value": "intermediate",
+            "label": "Intermediate"
+          },
+          {
+            "value": "good",
+            "label": "Good"
+          },
+          {
+            "value": "advanced",
+            "label": "Advanced"
+          }
         ],
         "hearAbout": [
-          { "value": "instagram", "label": "Instagram" },
-          { "value": "linkedin", "label": "LinkedIn" },
-          { "value": "friend", "label": "Friend / Referral" },
-          { "value": "university", "label": "University" },
-          { "value": "google", "label": "Google / Search" },
-          { "value": "other", "label": "Other" }
+          {
+            "value": "instagram",
+            "label": "Instagram"
+          },
+          {
+            "value": "linkedin",
+            "label": "LinkedIn"
+          },
+          {
+            "value": "friend",
+            "label": "Friend / Referral"
+          },
+          {
+            "value": "university",
+            "label": "University"
+          },
+          {
+            "value": "google",
+            "label": "Google / Search"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
         ],
         "field": [
-          { "value": "web-frontend", "label": "Web Frontend" },
-          { "value": "backend", "label": "Backend" },
-          { "value": "mobile-ios", "label": "Mobile iOS" },
-          { "value": "mobile-android", "label": "Mobile Android" },
-          { "value": "ui-ux", "label": "UI/UX Design" },
-          { "value": "ai", "label": "Artificial Intelligence" },
-          { "value": "digital-marketing", "label": "Digital Marketing" },
-          { "value": "social-media", "label": "Social Media" },
-          { "value": "project-management", "label": "Project Management" },
-          { "value": "undecided", "label": "Not decided yet" }
+          {
+            "value": "web-frontend",
+            "label": "Web Frontend"
+          },
+          {
+            "value": "backend",
+            "label": "Backend"
+          },
+          {
+            "value": "mobile-ios",
+            "label": "Mobile iOS"
+          },
+          {
+            "value": "mobile-android",
+            "label": "Mobile Android"
+          },
+          {
+            "value": "ui-ux",
+            "label": "UI/UX Design"
+          },
+          {
+            "value": "ai",
+            "label": "Artificial Intelligence"
+          },
+          {
+            "value": "digital-marketing",
+            "label": "Digital Marketing"
+          },
+          {
+            "value": "social-media",
+            "label": "Social Media"
+          },
+          {
+            "value": "project-management",
+            "label": "Project Management"
+          },
+          {
+            "value": "undecided",
+            "label": "Not decided yet"
+          }
         ],
         "remote": [
-          { "value": "yes", "label": "Yes" },
-          { "value": "no", "label": "No" },
-          { "value": "partial", "label": "Partially" }
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          },
+          {
+            "value": "partial",
+            "label": "Partially"
+          }
         ],
         "meetings": [
-          { "value": "yes", "label": "Yes" },
-          { "value": "no", "label": "No" },
-          { "value": "depends", "label": "Depends" }
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          },
+          {
+            "value": "depends",
+            "label": "Depends"
+          }
         ]
       },
       "select": "Select",
@@ -570,9 +849,21 @@
     "videoTitle": "How We Started the Company",
     "videoText": "Video slot. The series will be embedded here when it is ready.",
     "events": [
-      { "date": "9 March 2026", "title": "Not Ortağım on the App Store", "text": "The app was released on the Apple App Store." },
-      { "date": "About 10 days later", "title": "Investment offer", "text": "An investment offer arrived shortly after the release." },
-      { "date": "2026 · Istanbul", "title": "IMPEVOS A.Ş. was incorporated", "text": "The company was established in Istanbul." }
+      {
+        "date": "9 March 2026",
+        "title": "Not Ortağım on the App Store",
+        "text": "The app was released on the Apple App Store."
+      },
+      {
+        "date": "About 10 days later",
+        "title": "Investment offer",
+        "text": "An investment offer arrived shortly after the release."
+      },
+      {
+        "date": "2026 · Istanbul",
+        "title": "IMPEVOS A.Ş. was incorporated",
+        "text": "The company was established in Istanbul."
+      }
     ]
   },
   "careerSection": {
@@ -587,7 +878,9 @@
     "submit": "Submit application",
     "sending": "Sending",
     "success": "Application received. We will write to you if there is a fit.",
-    "error": "The application could not be sent. You can write to kariyer@impevos.com.tr."
+    "error": "The application could not be sent. You can write to kariyer@impevos.com.tr.",
+    "closedTitle": "Applications open in January 2027",
+    "closedText": "Applications for the summer 2027 mandatory internship will open here in January."
   },
   "cookie": {
     "text": "This site uses a necessary cookie to remember your choice.",
@@ -600,23 +893,44 @@
     "kvkk": {
       "title": "KVKK Notice",
       "blocks": [
-        { "heading": "Controller", "text": "This notice is provided for IMPEVOS A.Ş. The street address, MERSIS number, and tax number will be added when the registry details are confirmed. Those fields are placeholders." },
-        { "heading": "Purpose", "text": "The contact form processes your name, email, company, and message. The internship form processes your name, university, department, and CV, so we can reply and review the application." },
-        { "heading": "Your rights", "text": "To use the rights in KVKK article 11, write to info@impevos.com.tr." }
+        {
+          "heading": "Controller",
+          "text": "This notice is provided for IMPEVOS A.Ş. The street address, MERSIS number, and tax number will be added when the registry details are confirmed. Those fields are placeholders."
+        },
+        {
+          "heading": "Purpose",
+          "text": "The contact form processes your name, email, company, and message. The internship form processes your name, university, department, and CV, so we can reply and review the application."
+        },
+        {
+          "heading": "Your rights",
+          "text": "To use the rights in KVKK article 11, write to info@impevos.com.tr."
+        }
       ]
     },
     "privacy": {
       "title": "Privacy Policy",
       "blocks": [
-        { "heading": "Scope", "text": "This policy covers impevos.com. Product apps may publish their own notices." },
-        { "heading": "Information", "text": "Browsing the site does not require an account. If you submit a form, we process what you type. We do not take payments on this site." }
+        {
+          "heading": "Scope",
+          "text": "This policy covers impevos.com. Product apps may publish their own notices."
+        },
+        {
+          "heading": "Information",
+          "text": "Browsing the site does not require an account. If you submit a form, we process what you type. We do not take payments on this site."
+        }
       ]
     },
     "cookies": {
       "title": "Cookie Policy",
       "blocks": [
-        { "heading": "Necessary cookie", "text": "The impevos-consent cookie stores your choice from the cookie notice in this browser. No analytics or advertising cookies are loaded." },
-        { "heading": "Your choice", "text": "Accept and Necessary only both write the same necessary cookie. You can delete the choice in your browser settings." }
+        {
+          "heading": "Necessary cookie",
+          "text": "The impevos-consent cookie stores your choice from the cookie notice in this browser. No analytics or advertising cookies are loaded."
+        },
+        {
+          "heading": "Your choice",
+          "text": "Accept and Necessary only both write the same necessary cookie. You can delete the choice in your browser settings."
+        }
       ]
     }
   },

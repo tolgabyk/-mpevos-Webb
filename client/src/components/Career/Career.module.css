@@ -71,3 +71,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+.closedTitle {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-accent);
+}

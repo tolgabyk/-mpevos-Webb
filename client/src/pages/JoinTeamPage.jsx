@@ -5,6 +5,27 @@ import JoinTeamForm from '../components/JoinTeamForm/JoinTeamForm'
 import { DEPARTMENTS, DEPARTMENT_GROUPS, getDepartmentsByGroup } from '../components/JoinTeamForm/constants'
 import styles from './JoinTeamPage.module.css'
 
+const APPLICATION_EMAIL = 'burak.gokce@impevos.com.tr'
+
+const PROCESS_STEPS = [
+  {
+    title: 'Başvurun bize ulaşır',
+    desc: `Formu gönderdiğin anda başvurun ve CV'n ${APPLICATION_EMAIL} adresine iletilir, sana da onay e-postası gönderilir.`,
+  },
+  {
+    title: 'Başvurunu inceliyoruz',
+    desc: 'Seçtiğin departmanın lideriyle birlikte başvurunu ve yanıtlarını tek tek okuyoruz.',
+  },
+  {
+    title: 'Tanışma görüşmesi',
+    desc: 'Uygun gördüğümüz adaylarla e-posta veya telefonla iletişime geçip kısa bir online görüşme planlıyoruz.',
+  },
+  {
+    title: 'Ekibe katılım',
+    desc: 'Ekibe katılan arkadaşlarımızı departmanına tanıtıyor, ilk görevini ve iletişim kanallarını paylaşıyoruz.',
+  },
+]
+
 export default function JoinTeamPage() {
   return (
     <div className={styles.page}>
@@ -40,6 +61,32 @@ export default function JoinTeamPage() {
                 başvurunu tamamlayabilirsin.
               </p>
             </div>
+          </div>
+        </section>
+
+        <section className={styles.process}>
+          <div className="container">
+            <div className="section-header">
+              <div className="section-label">Başvuru Süreci</div>
+              <h2 className="section-title">Başvurundan Sonra Neler Oluyor?</h2>
+              <p className="section-subtitle">
+                Her başvuruyu ekibimiz inceler. Süreç şu adımlarla ilerler.
+              </p>
+            </div>
+            <ol className={styles.processList}>
+              {PROCESS_STEPS.map((step, i) => (
+                <li key={step.title} className={styles.processStep}>
+                  <span className={styles.processNum}>{i + 1}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className={styles.processMail}>
+              Başvurularla ilgili soruların için: <strong>{APPLICATION_EMAIL}</strong>
+            </p>
           </div>
         </section>
 

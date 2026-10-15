@@ -217,3 +217,77 @@
     padding: 32px 24px;
   }
 }
+
+/* Application process */
+.process {
+  padding: 40px 0 80px;
+}
+
+.processList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.processStep {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.processStep > div {
+  min-width: 0;
+}
+
+.processNum {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: var(--color-primary, #000);
+  background: var(--color-accent);
+}
+
+.processStep h3 {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin: 0 0 6px;
+}
+
+.processStep p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-secondary-dim);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.processMail {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--color-secondary-dim);
+}
+
+.processMail strong {
+  color: var(--color-accent);
+  user-select: all;
+}
+
+@media (max-width: 1000px) {
+  .processList { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .processList { grid-template-columns: 1fr; }
+}

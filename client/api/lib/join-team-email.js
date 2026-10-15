@@ -1,6 +1,8 @@
 import nodemailer from 'nodemailer'
 import { getDepartmentLabel } from './join-team-departments.js'
 
+export const TEAM_APPLICATION_EMAIL = 'burak.gokce@impevos.com.tr'
+
 function getTransporter() {
   if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
     console.warn('[join-team-email] SMTP ortam değişkenleri eksik: SMTP_HOST, SMTP_USER veya SMTP_PASS tanımlı değil.')
@@ -60,7 +62,7 @@ function buildCompanyHtml(app) {
       <div style="margin-top:24px;padding:12px 16px;background:#f9fafb;border-left:4px solid #00aa00;border-radius:4px;">
         <p style="margin:0;font-size:13px;color:#333;line-height:1.5;">
           <strong>CRM Paneli Durumu:</strong> CRM paneli kapalı olduğu için ekip başvuruları doğrudan 
-          <a href="mailto:kariyer@impevos.com.tr" style="color:#00aa00;font-weight:600;">kariyer@impevos.com.tr</a> 
+          <a href="mailto:burak.gokce@impevos.com.tr" style="color:#00aa00;font-weight:600;">burak.gokce@impevos.com.tr</a> 
           adresine yönlendirilmiştir. Aday ile iletişime geçmek için bu e-postayı doğrudan yanıtlayabilirsiniz.
         </p>
       </div>
@@ -70,7 +72,8 @@ function buildCompanyHtml(app) {
 
 export async function sendJoinTeamNotifications(application, cvBuffer, cvName) {
   const transporter = getTransporter()
-  const companyTo = process.env.JOIN_TEAM_EMAIL || process.env.CAREER_EMAIL || process.env.INTERNSHIP_EMAIL || 'kariyer@impevos.com.tr'
+  // Ekip başvuruları her zaman bu adrese iletilir (ortam değişkeni ile ezilmez)
+  const companyTo = TEAM_APPLICATION_EMAIL
   const from = process.env.SMTP_USER || companyTo
 
   if (!transporter) {
