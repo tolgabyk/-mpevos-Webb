@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" role="img" aria-label="IMPEVOS">
+  <title>IMPEVOS</title>
+  <rect x="0" y="10" width="28" height="10" rx="2" fill="#7c6cff"/>
+  <rect x="12" y="28" width="28" height="10" rx="2" fill="#4c8dff"/>
+  <text x="52" y="34" fill="#f4f6fb" font-family="Inter, Arial, sans-serif" font-size="28" letter-spacing="4">IMPEVOS</text>
+</svg>
