@@ -5,6 +5,7 @@ import contactRoutes from './routes/contact.js'
 import internshipRoutes from './routes/internship.js'
 import adminRoutes from './routes/admin.js'
 import joinTeamRoutes from './routes/join-team.js'
+import careerRoutes from './routes/career.js'
 import { ensureDataDirs, logConfigStatus } from './config.js'
 
 dotenv.config()
@@ -24,6 +25,7 @@ app.use('/api/contact', contactRoutes)
 app.use('/api/internship', internshipRoutes)
 app.use('/api/admin', adminRoutes)
 app.use('/api/join-team', joinTeamRoutes)
+app.use('/api/career', careerRoutes)
 
 // Base
 app.get('/', (req, res) => {

@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer'
 const router = express.Router()
 
 router.post('/', async (req, res) => {
-  const { name, email, subject, message } = req.body
+  const { name, email, company, subject, message } = req.body
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: 'Ad, E-posta ve Mesaj alanları zorunludur.' })
@@ -25,13 +25,14 @@ router.post('/', async (req, res) => {
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_USER}>`,
       replyTo: email,
-      to: process.env.CONTACT_EMAIL || 'impevos@gmail.com',
+      to: process.env.CONTACT_EMAIL || 'info@impevos.com.tr',
       subject: subject || 'Web Sitesi İletişim Formu Yeni Mesaj',
-      text: `Gönderen: ${name} (${email})\n\nMesaj:\n${message}`,
+      text: `Gönderen: ${name} (${email})\nŞirket: ${company || '—'}\n\nMesaj:\n${message}`,
       html: `
         <h3>Web Sitesinden Yeni İletişim Formu Mesajı</h3>
         <p><strong>Gönderen:</strong> ${name}</p>
         <p><strong>E-posta:</strong> ${email}</p>
+        <p><strong>Şirket:</strong> ${company || '—'}</p>
         <p><strong>Konu:</strong> ${subject || 'Belirtilmedi'}</p>
         <hr/>
         <h4>Mesaj:</h4>

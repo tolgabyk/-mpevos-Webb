@@ -12,6 +12,10 @@
       "maxDuration": 60,
       "memory": 1024
     },
+    "api/career/apply.js": {
+      "maxDuration": 60,
+      "memory": 1024
+    },
     "api/test-email.js": {
       "maxDuration": 30,
       "memory": 1024

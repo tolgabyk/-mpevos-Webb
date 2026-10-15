@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import JoinTeamPage from './pages/JoinTeamPage'
+import LegalPage from './pages/LegalPage'
+import CookieBanner from './components/CookieBanner/CookieBanner'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 
@@ -10,9 +12,13 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/ekibe-katil" element={<JoinTeamPage />} />
+        <Route path="/kvkk" element={<LegalPage pageKey="kvkk" />} />
+        <Route path="/gizlilik" element={<LegalPage pageKey="privacy" />} />
+        <Route path="/cerez-politikasi" element={<LegalPage pageKey="cookies" />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
+      <CookieBanner />
     </BrowserRouter>
   )
 }

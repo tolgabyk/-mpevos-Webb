@@ -43,19 +43,24 @@ export default function Footer() {
           <div className={styles.column}>
             <h4>{t('footer.legal')}</h4>
             <ul>
-              <li><a href="#">{t('footer.privacy')}</a></li>
-              <li><a href="#">{t('footer.terms')}</a></li>
-              <li><a href="#">{t('footer.cookies')}</a></li>
+              <li><Link to="/kvkk">{t('footer.kvkk')}</Link></li>
+              <li><Link to="/gizlilik">{t('footer.privacy')}</Link></li>
+              <li><Link to="/cerez-politikasi">{t('footer.cookies')}</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
         <div className={styles.bottom}>
-          <p>{t('footer.copyright')}</p>
+          <div>
+            <p>IMPEVOS A.Ş.</p>
+            <p>{t('footer.address')}</p>
+            <p>{t('footer.mersis')} · {t('footer.tax')}</p>
+            <p>© {new Date().getFullYear()} IMPEVOS A.Ş. {t('footer.rights')}</p>
+          </div>
           <div className={styles.socials}>
-            <a href="https://www.linkedin.com/company/impevos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedinLogo weight="fill" /></a>
-            <a href="https://www.instagram.com/impevos?igsh=eHFsa2sxbDBxYXRk" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramLogo weight="fill" /></a>
+            <a href="https://www.linkedin.com/company/112823150" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><LinkedinLogo weight="fill" /></a>
+            <a href="https://www.instagram.com/impevos" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><InstagramLogo weight="fill" /></a>
           </div>
         </div>
       </div>

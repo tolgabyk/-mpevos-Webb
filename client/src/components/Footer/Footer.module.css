@@ -57,7 +57,8 @@
 .bottom {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  gap: 24px;
   padding-top: 32px;
   border-top: 1px solid var(--color-border);
 }

@@ -1,0 +1,32 @@
+.page {
+  padding: 140px 0 80px;
+  min-height: 70vh;
+}
+
+.updated {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.page h1 {
+  margin: 12px 0 32px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #fff;
+}
+
+.page section + section {
+  margin-top: 28px;
+}
+
+.page h2 {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.page p {
+  max-width: 720px;
+}
