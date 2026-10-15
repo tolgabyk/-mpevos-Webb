@@ -1,0 +1,42 @@
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.item {
+  padding: 28px 20px;
+  text-align: center;
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+}
+
+.value {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--color-secondary);
+}
+
+.label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@media (max-width: 800px) {
+  .row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

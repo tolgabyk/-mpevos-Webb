@@ -648,6 +648,28 @@
   .nodeLeader .nodeCard { width: 100%; }
 }
 
+.founderGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  justify-items: center;
+}
+
+.photoNote {
+  margin-top: 8px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+@media (max-width: 800px) {
+  .founderGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 460px) {
   .treeContainer { padding-left: 15px; }
   .branchLine { left: 10px; }

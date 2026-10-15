@@ -3,7 +3,9 @@
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "projects": "Projects",
+    "projects": "Products",
+    "story": "Story",
+    "career": "Careers",
     "team": "Team",
     "internship": "Internship",
     "internshipApply": "Internship Application",
@@ -38,17 +40,18 @@
   },
   "hero": {
     "badge": "AI & Advanced Technology",
+    "headline": "We build AI products and automate how companies work.",
     "title": "Building the Technology",
     "titleAccent": "of Tomorrow",
     "titleEnd": "Today",
-    "subtitle": "We empower your business with AI, automation, and advanced software solutions. Global vision, local strength.",
+    "subtitle": "We develop mobile apps, AI integrations, and software that simplifies day-to-day operations.",
     "typewriter": [
       "Building the future with artificial intelligence",
       "Real projects, real solutions",
       "Global vision, local strength"
     ],
-    "cta1": "Explore Projects",
-    "cta2": "Contact Us",
+    "cta1": "Our products",
+    "cta2": "Discuss a project",
     "scroll": "Scroll Down"
   },
   "vision": {
@@ -131,34 +134,35 @@
     "title": "Discover Our",
     "titleAccent": "Services",
     "titleEnd": "",
-    "lead": "A large team, a global vision! We bring all your digital needs under one roof.",
+    "lead": "Alongside our products, we build software and automation for other companies.",
     "subtitle": "We offer scalable and innovative solutions tailored to your business needs.",
     "bgText": "Services",
     "cardTag": "Explore",
     "items": [
-      { "icon": "Brain", "title": "AI Solutions", "desc": "We develop intelligent systems with machine learning, natural language processing, and computer vision technologies." },
-      { "icon": "Code", "title": "Software Development", "desc": "We create modern, scalable, and secure software solutions for web, mobile, and desktop platforms." },
-      { "icon": "GearSix", "title": "Process Automation", "desc": "We automate your business processes to increase efficiency and reduce costs." },
-      { "icon": "Cloud", "title": "Cloud Infrastructure", "desc": "We design and manage secure, scalable, and high-performance cloud infrastructure solutions." },
-      { "icon": "ChartLineUp", "title": "Data Analytics", "desc": "We strengthen your data-driven decision-making with big data analysis and visualization." },
-      { "icon": "ShieldCheck", "title": "Cybersecurity", "desc": "We protect your digital assets with comprehensive security assessments and protection solutions." }
+      { "icon": "DeviceMobile", "title": "Mobile app development", "desc": "We design and ship mobile products for iOS and Android." },
+      { "icon": "Brain", "title": "AI integration", "desc": "We add models, assistants, and summary steps to existing workflows." },
+      { "icon": "GearSix", "title": "Process automation", "desc": "We shorten repetitive operations in software and keep approval steps in place." },
+      { "icon": "Code", "title": "Custom software", "desc": "We build company-specific panels, internal tools, and integrations." }
     ]
   },
   "projects": {
-    "label": "Our Projects",
-    "title": "Projects That Make",
-    "titleAccent": "a Difference",
-    "subtitle": "Discover our projects that stand out with innovative solutions.",
+    "label": "Products",
+    "title": "Our products",
+    "titleAccent": "",
+    "subtitle": "A short description, a visual, and a link for each product.",
+    "imagePlaceholder": "Image to be added",
     "tabs": { "all": "All", "ongoing": "Ongoing", "completed": "Completed" },
     "details": "Details",
     "items": [
-      { 
-        "id": "not-ortagim", 
-        "status": "completed", 
-        "statusLabel": "Live", 
-        "title": "Not Ortağım", 
-        "desc": "AI-powered PDF summarization and interactive study assistant. Live on the App Store.", 
+      {
+        "id": "not-ortagim",
+        "status": "completed",
+        "statusLabel": "Live on the App Store",
+        "title": "Not Ortağım",
+        "desc": "An AI study assistant for students’ notes.",
         "type": "app",
+        "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
+        "cta": "App Store",
         "screens": [
           "/app-screens/01-discover.png",
           "/app-screens/02-discover-feed.png",
@@ -169,24 +173,25 @@
           "/app-screens/07-youtube-summary.png"
         ]
       },
-      { 
-        "id": "rota-neresi", 
-        "status": "ongoing", 
-        "statusLabel": "In Progress", 
-        "title": "Rota Neresi", 
-        "desc": "Smart trip planner that creates the best routes based on your personal interests and budget.", 
-        "type": "app",
-        "screens": [
-          "/app-screens/rota1.jpeg",
-          "/app-screens/rota2.jpeg",
-          "/app-screens/rota3.jpeg",
-          "/app-screens/rota4.jpeg",
-          "/app-screens/rota5.jpeg",
-          "/app-screens/rota6.jpeg",
-          "/app-screens/rota7.jpeg",
-          "/app-screens/rota8.jpeg",
-          "/app-screens/rota9.jpeg"
-        ]
+      {
+        "id": "inffy",
+        "status": "completed",
+        "statusLabel": "Web",
+        "title": "İnffy",
+        "desc": "An AI digital product.",
+        "type": "placeholder",
+        "href": "https://inffyai.com",
+        "cta": "inffyai.com"
+      },
+      {
+        "id": "awyron-ai",
+        "status": "ongoing",
+        "statusLabel": "Early access",
+        "title": "Awyron AI",
+        "desc": "An AI layer that brings work tools into one place.",
+        "type": "placeholder",
+        "href": "https://awyronai.com",
+        "cta": "Demo / Request early access"
       }
     ]
   },
@@ -247,7 +252,13 @@
     "title": "Our Team",
     "titleAccent": "",
     "titleEnd": "",
-    "subtitle": "Our passionate team grows IMPEVOS every day, led by specialised leaders across each department.",
+    "subtitle": "Founders. Portraits will replace these placeholders when the files are ready.",
+    "photoPlaceholder": "Photo to be added",
+    "founders": [
+      { "name": "Göktuğ Eryılmaz", "role": "Co-founder, CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/" },
+      { "name": "Burak Gökçe", "role": "Co-founder, CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/" },
+      { "name": "Tolga Bıyık", "role": "Co-founder, CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/" }
+    ],
     "leaderLabel": "Lead",
     "deputyLabel": "Deputy",
     "peopleSuffix": "people",
@@ -306,6 +317,14 @@
     "headline": "Let's discuss your projects.",
     "subtitle": "Reach our team directly for corporate technology solutions tailored to your business needs.",
     "fab": "Contact",
+    "name": "Full name",
+    "email": "Email",
+    "company": "Company",
+    "message": "Message",
+    "submit": "Send message",
+    "sending": "Sending",
+    "success": "Message received. We will reply shortly.",
+    "error": "The message could not be sent. You can write to info@impevos.com.tr.",
     "info": {
       "help": {
         "phone": "0850 640 00 98"
@@ -536,15 +555,85 @@
       "successBtn": "OK"
     }
   },
+  "stats": {
+    "label": "Impevos in numbers",
+    "title": "A short count",
+    "products": "Products",
+    "interns": "Interns",
+    "projects": "Projects",
+    "founded": "Founded"
+  },
+  "story": {
+    "label": "Our story",
+    "title": "From one app to a company",
+    "subtitle": "The Not Ortağım launch, an investment offer, and the Istanbul incorporation happened in the same year.",
+    "videoTitle": "How We Started the Company",
+    "videoText": "Video slot. The series will be embedded here when it is ready.",
+    "events": [
+      { "date": "9 March 2026", "title": "Not Ortağım on the App Store", "text": "The app was released on the Apple App Store." },
+      { "date": "About 10 days later", "title": "Investment offer", "text": "An investment offer arrived shortly after the release." },
+      { "date": "2026 · Istanbul", "title": "IMPEVOS A.Ş. was incorporated", "text": "The company was established in Istanbul." }
+    ]
+  },
+  "careerSection": {
+    "label": "Careers and internships",
+    "title": "Compulsory internship program",
+    "subtitle": "The program is for university students completing a compulsory internship with a product team.",
+    "name": "Full name",
+    "university": "University",
+    "department": "Department",
+    "cv": "CV",
+    "cvHint": "PDF, DOC, or DOCX. 5 MB maximum.",
+    "submit": "Submit application",
+    "sending": "Sending",
+    "success": "Application received. We will write to you if there is a fit.",
+    "error": "The application could not be sent. You can write to kariyer@impevos.com.tr."
+  },
+  "cookie": {
+    "text": "This site uses a necessary cookie to remember your choice.",
+    "accept": "Accept",
+    "reject": "Necessary only",
+    "policy": "Cookie policy"
+  },
+  "legalPages": {
+    "updated": "15 October 2026",
+    "kvkk": {
+      "title": "KVKK Notice",
+      "blocks": [
+        { "heading": "Controller", "text": "This notice is provided for IMPEVOS A.Ş. The street address, MERSIS number, and tax number will be added when the registry details are confirmed. Those fields are placeholders." },
+        { "heading": "Purpose", "text": "The contact form processes your name, email, company, and message. The internship form processes your name, university, department, and CV, so we can reply and review the application." },
+        { "heading": "Your rights", "text": "To use the rights in KVKK article 11, write to info@impevos.com.tr." }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "blocks": [
+        { "heading": "Scope", "text": "This policy covers impevos.com. Product apps may publish their own notices." },
+        { "heading": "Information", "text": "Browsing the site does not require an account. If you submit a form, we process what you type. We do not take payments on this site." }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "blocks": [
+        { "heading": "Necessary cookie", "text": "The impevos-consent cookie stores your choice from the cookie notice in this browser. No analytics or advertising cookies are loaded." },
+        { "heading": "Your choice", "text": "Accept and Necessary only both write the same necessary cookie. You can delete the choice in your browser settings." }
+      ]
+    }
+  },
   "footer": {
-    "desc": "Shaping the future with AI and advanced technology solutions.",
+    "desc": "AI products and software for companies.",
     "links": "Quick Links",
     "careers": "Careers",
     "services": "Services",
     "legal": "Legal",
     "privacy": "Privacy Policy",
+    "kvkk": "KVKK",
     "terms": "Terms of Use",
     "cookies": "Cookie Policy",
-    "copyright": "© 2026 IMPEVOS TECHNOLOGY INC. All rights reserved."
+    "rights": "All rights reserved.",
+    "address": "Address to be added — Istanbul, Türkiye",
+    "mersis": "MERSIS No: —",
+    "tax": "Tax No: —",
+    "copyright": "© 2026 IMPEVOS A.Ş. All rights reserved."
   }
 }

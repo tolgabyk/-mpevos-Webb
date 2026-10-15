@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
 import {
@@ -53,7 +54,9 @@ function getInitials(name) {
 }
 
 function MemberNode({ member, isLeader }) {
-  const hasPhoto = Boolean(member.photo)
+  const { t } = useTranslation()
+  const [photoFailed, setPhotoFailed] = useState(false)
+  const hasPhoto = Boolean(member.photo) && !photoFailed
   const initials = member.initials || getInitials(member.name)
 
   return (
@@ -64,11 +67,12 @@ function MemberNode({ member, isLeader }) {
       <div className={styles.nodeCard}>
         <div className={`${styles.avatar} ${hasPhoto ? styles.avatarHasPhoto : ''}`}>
           {hasPhoto ? (
-            <img 
-              src={member.photo} 
-              alt={member.name} 
-              className={styles.avatarImg} 
+            <img
+              src={member.photo}
+              alt={member.name}
+              className={styles.avatarImg}
               style={member.objectPosition ? { objectPosition: member.objectPosition } : {}}
+              onError={() => setPhotoFailed(true)}
             />
           ) : (
             <span>{initials}</span>
@@ -80,6 +84,7 @@ function MemberNode({ member, isLeader }) {
           <h3 className={styles.name}>{member.name}</h3>
           <div className={styles.role}>{member.role}</div>
           
+          {!hasPhoto && <p className={styles.photoNote}>{t('team.photoPlaceholder')}</p>}
           <div className={styles.socials}>
             {member.linkedin && <a href={member.linkedin} target="_blank" rel="noopener noreferrer"><LinkedinLogo weight="fill" /></a>}
             {member.instagram && <a href={member.instagram} target="_blank" rel="noopener noreferrer"><InstagramLogo weight="fill" /></a>}
@@ -97,7 +102,39 @@ function MemberNode({ member, isLeader }) {
 
 export default function Team() {
   const { t } = useTranslation()
+  const founders = t('team.founders', { returnObjects: true })
   const departments = t('team.departments', { returnObjects: true }) || []
+
+  if (Array.isArray(founders) && founders.length) {
+    return (
+      <section id="team" className={styles.section}>
+        <div className={styles.bgGlow} />
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <div className="section-label">{t('team.label')}</div>
+            <h2 className="section-title">{t('team.title')}</h2>
+            <p className="section-subtitle">{t('team.subtitle')}</p>
+          </motion.div>
+          <motion.div
+            className={styles.founderGrid}
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {founders.map((member) => (
+              <MemberNode key={member.name} member={member} isLeader />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    )
+  }
   const totalMembers = departments.reduce((sum, d) => sum + (d.members?.length || 0), 0)
 
   // Separate Leadership from other departments

@@ -3,7 +3,9 @@
     "home": "Ana Sayfa",
     "about": "Hakkımızda",
     "services": "Hizmetler",
-    "projects": "Projeler",
+    "projects": "Ürünler",
+    "story": "Hikaye",
+    "career": "Kariyer",
     "team": "Ekibimiz",
     "internship": "Staj",
     "internshipApply": "Staj Başvuru Formu",
@@ -38,17 +40,18 @@
   },
   "hero": {
     "badge": "Yapay Zeka & İleri Teknoloji",
+    "headline": "Yapay zeka destekli ürünler geliştiriyor, işletmelerin süreçlerini otomatikleştiriyoruz.",
     "title": "Geleceğin Teknolojisini",
     "titleAccent": "Bugün",
     "titleEnd": "İnşa Ediyoruz",
-    "subtitle": "Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.",
+    "subtitle": "Mobil uygulamalar, yapay zeka entegrasyonu ve şirketlerin günlük işini sadeleştiren yazılımlar geliştiriyoruz.",
     "typewriter": [
       "Yapay zeka ile geleceği inşa ediyoruz",
       "Gerçek projeler, gerçek çözümler",
       "Global vizyon, yerel güç"
     ],
-    "cta1": "Projeleri Keşfet",
-    "cta2": "Bize Ulaşın",
+    "cta1": "Ürünlerimiz",
+    "cta2": "Projenizi konuşalım",
     "scroll": "Aşağı Kaydır"
   },
   "vision": {
@@ -131,34 +134,35 @@
     "title": "Hizmetlerimizi",
     "titleAccent": "Keşfedin",
     "titleEnd": "",
-    "lead": "Büyük bir ekip, küresel bir vizyon! 360 derece dijital hizmetlerimizle işletmenizin tüm ihtiyaçlarını tek çatı altında topluyoruz.",
+    "lead": "Ürün geliştirmenin yanında, şirketlerin kendi yazılımlarını ve otomasyonlarını da kuruyoruz.",
     "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.",
     "bgText": "Hizmetler",
     "cardTag": "Keşfet",
     "items": [
-      { "icon": "Brain", "title": "Yapay Zeka Çözümleri", "desc": "Makine öğrenmesi, doğal dil işleme ve bilgisayarlı görme teknolojileriyle akıllı sistemler geliştiriyoruz." },
-      { "icon": "Code", "title": "Yazılım Geliştirme", "desc": "Web, mobil ve masaüstü platformlar için modern, ölçeklenebilir ve güvenli yazılım çözümleri üretiyoruz." },
-      { "icon": "GearSix", "title": "Süreç Otomasyonu", "desc": "İş süreçlerinizi otomatikleştirerek verimliliği artırıyor, maliyetleri düşürüyoruz." },
-      { "icon": "Cloud", "title": "Bulut Altyapı", "desc": "Güvenli, ölçeklenebilir ve yüksek performanslı bulut altyapı çözümleri tasarlıyor ve yönetiyoruz." },
-      { "icon": "ChartLineUp", "title": "Veri Analitiği", "desc": "Büyük veri analizi ve görselleştirme ile veriye dayalı karar alma süreçlerinizi güçlendiriyoruz." },
-      { "icon": "ShieldCheck", "title": "Siber Güvenlik", "desc": "Kapsamlı güvenlik değerlendirmeleri ve koruma çözümleriyle dijital varlıklarınızı güvence altına alıyoruz." }
+      { "icon": "DeviceMobile", "title": "Mobil uygulama geliştirme", "desc": "iOS ve Android için yayınlanabilir mobil ürünler tasarlıyor ve geliştiriyoruz." },
+      { "icon": "Brain", "title": "Yapay zeka entegrasyonu", "desc": "Mevcut iş akışlarına model, asistan ve özetleme adımlarını ekliyoruz." },
+      { "icon": "GearSix", "title": "Süreç otomasyonu", "desc": "Tekrarlayan operasyonları yazılımla kısaltıyor, onay adımlarını yerinde bırakıyoruz." },
+      { "icon": "Code", "title": "Özel yazılım geliştirme", "desc": "Şirkete özel paneller, iç araçlar ve entegrasyonlar geliştiriyoruz." }
     ]
   },
   "projects": {
-    "label": "Projelerimiz",
-    "title": "Gerçekleştirdiğimiz",
-    "titleAccent": "Projeler",
-    "subtitle": "Yenilikçi çözümlerimizle fark yaratan projelerimizi keşfedin.",
+    "label": "Ürünler",
+    "title": "Ürünlerimiz",
+    "titleAccent": "",
+    "subtitle": "Her ürünün kısa açıklaması, görseli ve bağlantısı.",
+    "imagePlaceholder": "Görsel eklenecek",
     "tabs": { "all": "Tümü", "ongoing": "Devam Eden", "completed": "Tamamlanan" },
     "details": "Detaylar",
     "items": [
-      { 
-        "id": "not-ortagim", 
-        "status": "completed", 
-        "statusLabel": "Yayında", 
-        "title": "Not Ortağım", 
-        "desc": "Yapay zeka destekli, PDF özetleme ve interaktif çalışma asistanı. App Store'da yayında.", 
+      {
+        "id": "not-ortagim",
+        "status": "completed",
+        "statusLabel": "App Store'da yayında",
+        "title": "Not Ortağım",
+        "desc": "Öğrenciler için yapay zeka destekli not ve çalışma asistanı.",
         "type": "app",
+        "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
+        "cta": "App Store",
         "screens": [
           "/app-screens/01-discover.png",
           "/app-screens/02-discover-feed.png",
@@ -169,24 +173,25 @@
           "/app-screens/07-youtube-summary.png"
         ]
       },
-      { 
-        "id": "rota-neresi", 
-        "status": "ongoing", 
-        "statusLabel": "Devam Ediyor", 
-        "title": "Rota Neresi", 
-        "desc": "Kişisel ilgi alanlarınıza ve bütçenize göre en uygun rotaları oluşturan akıllı gezi planlayıcı.", 
-        "type": "app",
-        "screens": [
-          "/app-screens/rota1.jpeg",
-          "/app-screens/rota2.jpeg",
-          "/app-screens/rota3.jpeg",
-          "/app-screens/rota4.jpeg",
-          "/app-screens/rota5.jpeg",
-          "/app-screens/rota6.jpeg",
-          "/app-screens/rota7.jpeg",
-          "/app-screens/rota8.jpeg",
-          "/app-screens/rota9.jpeg"
-        ]
+      {
+        "id": "inffy",
+        "status": "completed",
+        "statusLabel": "Web",
+        "title": "İnffy",
+        "desc": "Yapay zeka destekli dijital ürün.",
+        "type": "placeholder",
+        "href": "https://inffyai.com",
+        "cta": "inffyai.com"
+      },
+      {
+        "id": "awyron-ai",
+        "status": "ongoing",
+        "statusLabel": "Ön talep",
+        "title": "Awyron AI",
+        "desc": "İş araçlarını tek platformda toplayan yapay zeka katmanı.",
+        "type": "placeholder",
+        "href": "https://awyronai.com",
+        "cta": "Demo / Ön talep bırak"
       }
     ]
   },
@@ -247,7 +252,13 @@
     "title": "Ekibimiz",
     "titleAccent": "",
     "titleEnd": "",
-    "subtitle": "Tutkulu ekibimiz, departman departman uzmanlaşmış liderlerin önderliğinde IMPEVOS'u büyütüyor.",
+    "subtitle": "Kurucular. Fotoğraflar hazır olduğunda yer tutucuların yerine geçecek.",
+    "photoPlaceholder": "Fotoğraf eklenecek",
+    "founders": [
+      { "name": "Göktuğ Eryılmaz", "role": "Kurucu Ortak, CEO", "photo": "/team/goktug-eryilmaz.jpeg", "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/" },
+      { "name": "Burak Gökçe", "role": "Kurucu Ortak, CTO", "photo": "/team/burak-gokce.jpeg", "linkedin": "https://www.linkedin.com/in/burak-gokcee/" },
+      { "name": "Tolga Bıyık", "role": "Kurucu Ortak, CPO", "photo": "/team/tolga-biyik.png", "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/" }
+    ],
     "leaderLabel": "Lider",
     "deputyLabel": "Yardımcı",
     "peopleSuffix": "kişi",
@@ -306,6 +317,14 @@
     "headline": "Projeleriniz için bizimle görüşün.",
     "subtitle": "Kurumsal ihtiyaçlarınıza özel teknoloji çözümleri için ekibimizle doğrudan iletişime geçebilirsiniz.",
     "fab": "İletişim",
+    "name": "Ad soyad",
+    "email": "E-posta",
+    "company": "Şirket",
+    "message": "Mesaj",
+    "submit": "Mesajı gönder",
+    "sending": "Gönderiliyor",
+    "success": "Mesajınız alındı. En kısa sürede dönüş yapılır.",
+    "error": "Mesaj iletilemedi. info@impevos.com.tr adresine yazabilirsiniz.",
     "info": {
       "help": {
         "phone": "0850 640 00 98"
@@ -536,15 +555,85 @@
       "successBtn": "Tamam"
     }
   },
+  "stats": {
+    "label": "Rakamlarla Impevos",
+    "title": "Kısa bir tablo",
+    "products": "Ürün",
+    "interns": "Stajyer",
+    "projects": "Proje",
+    "founded": "Kuruluş"
+  },
+  "story": {
+    "label": "Hikayemiz",
+    "title": "Bir uygulamadan şirkete",
+    "subtitle": "Not Ortağım’ın yayını, yatırım görüşmesi ve İstanbul’da şirket kuruluşu aynı yılın içinde gerçekleşti.",
+    "videoTitle": "Şirketi Nasıl Kurduk?",
+    "videoText": "Video alanı. Seri hazır olduğunda bu kareye gömülecek.",
+    "events": [
+      { "date": "9 Mart 2026", "title": "Not Ortağım App Store’da", "text": "Uygulama Apple App Store’da yayınlandı." },
+      { "date": "Yaklaşık 10 gün sonra", "title": "Yatırım teklifi", "text": "Yayından kısa süre sonra bir yatırım teklifi alındı." },
+      { "date": "2026 · İstanbul", "title": "IMPEVOS A.Ş. kuruldu", "text": "Şirket İstanbul’da kuruldu." }
+    ]
+  },
+  "careerSection": {
+    "label": "Kariyer ve staj",
+    "title": "Zorunlu staj programı",
+    "subtitle": "Program, üniversite öğrencilerinin zorunlu stajını ürün ekiplerinde geçirmesi için açılır.",
+    "name": "Ad soyad",
+    "university": "Üniversite",
+    "department": "Bölüm",
+    "cv": "CV",
+    "cvHint": "PDF, DOC veya DOCX. En fazla 5 MB.",
+    "submit": "Başvuruyu gönder",
+    "sending": "Gönderiliyor",
+    "success": "Başvuru alındı. Uygun görülürse sizinle iletişime geçilir.",
+    "error": "Başvuru iletilemedi. kariyer@impevos.com.tr adresine yazabilirsiniz."
+  },
+  "cookie": {
+    "text": "Site, tercihlerinizi hatırlamak için zorunlu bir çerez kullanır.",
+    "accept": "Kabul et",
+    "reject": "Yalnızca zorunlu",
+    "policy": "Çerez politikası"
+  },
+  "legalPages": {
+    "updated": "15 Ekim 2026",
+    "kvkk": {
+      "title": "KVKK Aydınlatma Metni",
+      "blocks": [
+        { "heading": "Veri sorumlusu", "text": "Bu metin IMPEVOS A.Ş. adına hazırlanmıştır. Adres, MERSİS numarası ve vergi numarası kayıtlar netleştikçe eklenecektir. Bu alanlar şu an yer tutucudur." },
+        { "heading": "Amaç", "text": "İletişim formunda ad, e-posta, şirket ve mesaj; staj formunda ad, üniversite, bölüm ve CV, talebi yanıtlamak ve başvuruyu değerlendirmek için işlenir." },
+        { "heading": "Haklarınız", "text": "KVKK madde 11 kapsamındaki başvurular için info@impevos.com.tr adresine yazabilirsiniz." }
+      ]
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "blocks": [
+        { "heading": "Kapsam", "text": "Bu politika impevos.com sitesini kapsar. Ürün uygulamaları kendi metinlerini yayımlayabilir." },
+        { "heading": "Toplanan bilgiler", "text": "Siteyi gezmek hesap açmayı gerektirmez. Form gönderdiğinizde yazdığınız bilgiler işlenir. Bu sitede ödeme alınmaz." }
+      ]
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "blocks": [
+        { "heading": "Zorunlu çerez", "text": "impevos-consent çerezi, çerez bildirimindeki seçiminizi bu tarayıcıda tutar. Analiz veya reklam çerezi yüklenmez." },
+        { "heading": "Seçim", "text": "Kabul et ve Yalnızca zorunlu aynı zorunlu çerezi yazar. Seçimi tarayıcı ayarlarından silebilirsiniz." }
+      ]
+    }
+  },
   "footer": {
-    "desc": "Yapay zeka ve ileri teknoloji çözümleriyle geleceği şekillendiriyoruz.",
+    "desc": "Yapay zeka destekli ürünler ve işletmeler için yazılım.",
     "links": "Hızlı Bağlantılar",
     "careers": "Kariyer",
     "services": "Hizmetler",
     "legal": "Yasal",
     "privacy": "Gizlilik Politikası",
+    "kvkk": "KVKK",
     "terms": "Kullanım Koşulları",
     "cookies": "Çerez Politikası",
-    "copyright": "© 2026 IMPEVOS TEKNOLOJİ A.Ş. Tüm hakları saklıdır."
+    "rights": "Tüm hakları saklıdır.",
+    "address": "Adres bilgisi eklenecek — İstanbul, Türkiye",
+    "mersis": "MERSİS No: —",
+    "tax": "Vergi No: —",
+    "copyright": "© 2026 IMPEVOS A.Ş. Tüm hakları saklıdır."
   }
 }

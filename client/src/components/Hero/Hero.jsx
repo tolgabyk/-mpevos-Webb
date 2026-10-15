@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
-import { useTypewriter } from '../../hooks/useTypewriter'
 import styles from './Hero.module.css'
 
 function initParticles(canvas) {
@@ -83,8 +82,6 @@ const itemVariants = {
 export default function Hero({ ready = true }) {
   const { t } = useTranslation()
   const canvasRef = useRef(null)
-  const phrases = t('hero.typewriter', { returnObjects: true })
-  const typed = useTypewriter(ready ? phrases : [], 48, 2400)
 
   useEffect(() => {
     if (!canvasRef.current) return
@@ -109,15 +106,8 @@ export default function Hero({ ready = true }) {
         </motion.div>
 
         <motion.h1 className={styles.title} variants={itemVariants}>
-          {t('hero.title')}<br />
-          <span className="text-accent">{t('hero.titleAccent')}</span>
-          {' '}{t('hero.titleEnd')}
+          {t('hero.headline')}
         </motion.h1>
-
-        <motion.p className={styles.typewriter} variants={itemVariants}>
-          <span className={styles.typewriterText}>{typed}</span>
-          <span className={styles.cursor} aria-hidden="true" />
-        </motion.p>
 
         <motion.p className={styles.subtitle} variants={itemVariants}>
           {t('hero.subtitle')}

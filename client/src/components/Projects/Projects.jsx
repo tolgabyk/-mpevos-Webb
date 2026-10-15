@@ -58,14 +58,18 @@ export default function Projects() {
                 >
                   <div className={styles.image}>
                     <div className={styles.glow} />
-                    {item.type === 'app' ? (
+                    {item.type === 'app' && (item.screens?.length || item.id === 'not-ortagim') ? (
                       <div className={styles.phoneFrame}>
                         <div className={styles.notch} />
                         <PhoneCarousel screens={item.id === 'not-ortagim' ? NOT_ORTAGIM_SCREEN_SRCS : item.screens} />
                       </div>
                     ) : (
-                      <div className={styles.iconPlaceholder}>
-                        {Icon && <Icon size={80} weight="duotone" />}
+                      <div className={styles.phoneFrame}>
+                        <div className={styles.notch} />
+                        <div className={styles.placeholderScreen}>
+                          {Icon && <Icon size={36} weight="duotone" />}
+                          <span>{t('projects.imagePlaceholder')}</span>
+                        </div>
                       </div>
                     )}
                   </div>
@@ -77,10 +81,12 @@ export default function Projects() {
                     </div>
                     <h3>{item.title}</h3>
                     <p>{item.desc}</p>
-                    <a href="#contact" className={styles.link}>
-                      <span>{t('projects.details')}</span>
-                      <Icons.ArrowRight size={20} weight="bold" />
-                    </a>
+                    {item.href ? (
+                      <a href={item.href} className={styles.link} target="_blank" rel="noopener noreferrer">
+                        <span>{item.cta || t('projects.details')}</span>
+                        <Icons.ArrowRight size={20} weight="bold" />
+                      </a>
+                    ) : null}
                   </div>
                 </motion.div>
               )
