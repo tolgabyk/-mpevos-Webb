@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Ana Sayfa",
-    "about": "Hakkımızda",
+    "about": "Biz Kimiz",
     "services": "Hizmetler",
     "projects": "Ürünler",
     "story": "Hikaye",
@@ -39,12 +39,12 @@
     }
   },
   "hero": {
-    "badge": "Yapay Zeka & İleri Teknoloji",
-    "headline": "Yapay zeka destekli ürünler geliştiriyor, işletmelerin süreçlerini otomatikleştiriyoruz.",
+    "badge": "IMPEVOS Teknoloji A.Ş.",
+    "headline": "Yapay zeka ile işletmelerin dijital dönüşümüne yön veriyoruz.",
     "title": "Geleceğin Teknolojisini",
     "titleAccent": "Bugün",
     "titleEnd": "İnşa Ediyoruz",
-    "subtitle": "Mobil uygulamalar, yapay zeka entegrasyonu ve şirketlerin günlük işini sadeleştiren yazılımlar geliştiriyoruz.",
+    "subtitle": "Kurumsal yazılım, mobil uygulama ve süreç otomasyonu alanında ölçeklenebilir çözümler geliştiren İstanbul merkezli bir teknoloji şirketiyiz.",
     "typewriter": [
       "Yapay zeka ile geleceği inşa ediyoruz",
       "Gerçek projeler, gerçek çözümler",
@@ -184,13 +184,12 @@
         "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
         "cta": "App Store",
         "screens": [
-          "/app-screens/01-discover.png",
-          "/app-screens/02-discover-feed.png",
-          "/app-screens/03-ai-work.png",
-          "/app-screens/04-note-detail.png",
-          "/app-screens/05-voice-summary.png",
-          "/app-screens/06-ai-summary.png",
-          "/app-screens/07-youtube-summary.png"
+          "/app-screens/no-01-ana-sayfa.jpg",
+          "/app-screens/no-02-ai-araclari.jpg",
+          "/app-screens/no-03-pdf-notlari.jpg",
+          "/app-screens/no-04-nori.jpg",
+          "/app-screens/no-05-youtube-ozeti.jpg",
+          "/app-screens/no-06-kampanyalar.jpg"
         ]
       },
       {
@@ -274,21 +273,21 @@
         "desc": "PDF yükleyin; yapay zeka saniyeler içinde özet, quiz ve çalışma planı oluştursun.",
         "chip": "AI Özet",
         "icon": "Sparkle",
-        "screen": 2
+        "screen": 1
       },
       {
         "title": "Binlerce Notu Keşfedin",
         "desc": "Paylaşılan notlara göz atın, filtreleyin ve ihtiyacınız olanı tek dokunuşla indirin.",
         "chip": "Keşfet",
         "icon": "Compass",
-        "screen": 1
+        "screen": 2
       },
       {
         "title": "Sesli Özet ile Öğrenin",
         "desc": "Notunuzu podcast'e dönüştürün; hareket halindeyken kulaktan öğrenin.",
         "chip": "Podcast",
         "icon": "Microphone",
-        "screen": 4
+        "screen": 0
       }
     ],
     "storeTopGoogle": "İndir"
@@ -949,5 +948,51 @@
     "mersis": "MERSİS No: —",
     "tax": "Vergi No: —",
     "copyright": "© 2026 IMPEVOS A.Ş. Tüm hakları saklıdır."
+  },
+  "whoWeAre": {
+    "label": "Biz Kimiz",
+    "title": "Yazılım ve yapay zeka alanında ürün geliştiren bir teknoloji şirketiyiz.",
+    "lead": "IMPEVOS Teknoloji A.Ş., 2026 yılında İstanbul'da kuruldu. Kendi dijital ürünlerimizi geliştiriyor, işletmelere yazılım ve yapay zeka çözümleri sunuyoruz.",
+    "body": "Göktuğ Eryılmaz, Burak Gökçe ve Tolga Bıyık tarafından kurulan şirketimiz; ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyor. Her projede ölçülebilir sonuç, sürdürülebilir mimari ve şeffaf iletişimi esas alıyoruz.",
+    "facts": [
+      {
+        "label": "Kuruluş",
+        "value": "2026 · İstanbul"
+      },
+      {
+        "label": "Unvan",
+        "value": "IMPEVOS Teknoloji A.Ş."
+      },
+      {
+        "label": "Ürünler",
+        "value": "Not Ortağım, İnffy, Awyron AI"
+      },
+      {
+        "label": "Tamamlanan proje",
+        "value": "20+"
+      }
+    ],
+    "pillars": [
+      {
+        "icon": "Cube",
+        "title": "Ürün Geliştirme",
+        "desc": "Kendi ürünlerimizi fikir aşamasından yayına kadar uçtan uca geliştiriyor ve büyütüyoruz."
+      },
+      {
+        "icon": "Code",
+        "title": "Kurumsal Yazılım",
+        "desc": "İşletmeler için web, mobil ve yönetim paneli çözümleri tasarlıyor ve geliştiriyoruz."
+      },
+      {
+        "icon": "Brain",
+        "title": "Yapay Zeka Entegrasyonu",
+        "desc": "Yapay zeka modellerini mevcut iş süreçlerine güvenli ve ölçülebilir biçimde entegre ediyoruz."
+      },
+      {
+        "icon": "GearSix",
+        "title": "Süreç Otomasyonu",
+        "desc": "Tekrarlayan operasyonel işleri otomatikleştirerek ekiplerin zamanını stratejik işlere ayırıyoruz."
+      }
+    ]
   }
 }

@@ -1094,3 +1094,131 @@
   .minimalUpdateLink { padding: 6px 14px; font-size: 0.75rem; margin-bottom: 20px; }
   .dots { bottom: -32px; }
 }
+
+/* ============================================
+   Refined device mockup (overrides)
+   ============================================ */
+.phoneStage {
+  aspect-ratio: auto;
+  padding: 24px 0 8px;
+}
+
+.phoneStage::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 78%;
+  height: 72%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 255, 0, 0.14), transparent);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.phone {
+  width: 292px;
+  height: 622px;
+  border-radius: 54px;
+  padding: 10px;
+  background: linear-gradient(160deg, #3a3a3e 0%, #121214 22%, #0a0a0b 60%, #2a2a2d 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    inset 0 0 0 3px #050505,
+    0 50px 100px -20px rgba(0, 0, 0, 0.75),
+    0 30px 60px -30px rgba(0, 255, 0, 0.18);
+  animation: none;
+  cursor: default;
+}
+
+.phone:hover {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 0 0 0 3px #050505,
+    0 50px 100px -20px rgba(0, 0, 0, 0.75),
+    0 30px 60px -30px rgba(0, 255, 0, 0.24);
+}
+
+.phoneShadow {
+  display: none;
+}
+
+.phoneBody {
+  border-radius: 44px;
+  background: #fff;
+}
+
+.phoneNotch {
+  top: 11px;
+  width: 92px;
+  height: 27px;
+  border-radius: 20px;
+  justify-content: flex-end;
+  padding-right: 12px;
+}
+
+.phoneCamera {
+  width: 9px;
+  height: 9px;
+  background: radial-gradient(circle at 35% 35%, #2b3a55 0%, #0b0f18 60%);
+  border: none;
+  box-shadow: none;
+}
+
+.phoneSideBtnL,
+.phoneSideBtnL2,
+.phoneSideBtnR {
+  background: linear-gradient(90deg, #2c2c30, #18181a);
+}
+
+.phoneSideBtnL { left: -3px; top: 120px; width: 3px; height: 30px; }
+.phoneSideBtnL2 { left: -3px; top: 168px; width: 3px; height: 56px; }
+.phoneSideBtnR { right: -3px; top: 150px; width: 3px; height: 82px; }
+
+.phoneCompact {
+  width: 252px;
+  height: 536px;
+  border-radius: 48px;
+  padding: 9px;
+}
+
+.phoneCompact .phoneBody {
+  border-radius: 39px;
+}
+
+.phoneCompact .phoneNotch {
+  top: 10px;
+  width: 80px;
+  height: 24px;
+}
+
+@media (max-width: 600px) {
+  .phone {
+    width: 252px;
+    height: 536px;
+    border-radius: 48px;
+    padding: 9px;
+  }
+  .phone .phoneBody { border-radius: 39px; }
+}
+
+/* Clean status-bar band so every screenshot starts consistently under the island */
+.phoneScreen::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 46px;
+  background: #fff;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.phoneScreen .screenImg {
+  top: 22px;
+  height: calc(100% - 22px);
+}
+
+.phoneCompact .phoneScreen::after {
+  height: 40px;
+}

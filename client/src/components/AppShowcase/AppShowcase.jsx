@@ -11,7 +11,6 @@ import {
   Lightning,
   Star,
   ArrowSquareOut,
-  CheckCircle,
   ArrowRight,
   Compass,
 } from '@phosphor-icons/react'
@@ -86,7 +85,6 @@ function PhoneMockup({
         <div className={styles.phoneShadow} />
         <div className={styles.phoneBody}>
           <div className={styles.phoneNotch}>
-            <div className={styles.phoneSpeaker} />
             <div className={styles.phoneCamera} />
           </div>
 
@@ -104,26 +102,11 @@ function PhoneMockup({
                 exit="exit"
                 draggable={false}
                 decoding="async"
-                width={390}
-                height={844}
+                width={470}
+                height={1024}
               />
             </AnimatePresence>
 
-            <span className={styles.screenGlare} aria-hidden="true" />
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`label-${active}`}
-                className={styles.screenLabel}
-                initial={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
-                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
-                transition={{ duration: 0.45, ease: EASE_SMOOTH }}
-              >
-                <Sparkle size={11} weight="fill" />
-                <span>{screen.label}</span>
-              </motion.div>
-            </AnimatePresence>
           </div>
         </div>
 
@@ -310,54 +293,6 @@ export default function AppShowcase() {
           transition={{ duration: 0.9, ease: EASE_SMOOTH }}
         >
           <div className={styles.phoneStage}>
-            <motion.div
-              className={`${styles.floatCard} ${styles.floatCardA}`}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              <div className={styles.floatIcon}>
-                <Sparkle size={14} weight="fill" />
-              </div>
-              <div>
-                <div className={styles.floatTitle}>{t('appShowcase.float1Title')}</div>
-                <div className={styles.floatDesc}>{t('appShowcase.float1Desc')}</div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className={`${styles.floatCard} ${styles.floatCardB}`}
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.85, duration: 0.6 }}
-            >
-              <div className={`${styles.floatIcon} ${styles.floatIconAlt}`}>
-                <Microphone size={14} weight="fill" />
-              </div>
-              <div>
-                <div className={styles.floatTitle}>{t('appShowcase.float2Title')}</div>
-                <div className={styles.floatDesc}>{t('appShowcase.float2Desc')}</div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className={`${styles.floatCard} ${styles.floatCardC}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.05, duration: 0.6 }}
-            >
-              <div className={`${styles.floatIcon} ${styles.floatIconAlt2}`}>
-                <CheckCircle size={14} weight="fill" />
-              </div>
-              <div>
-                <div className={styles.floatTitle}>{t('appShowcase.float3Title')}</div>
-                <div className={styles.floatDesc}>{t('appShowcase.float3Desc')}</div>
-              </div>
-            </motion.div>
-
             <PhoneMockup
               active={active}
               direction={heroDirection}
@@ -366,8 +301,6 @@ export default function AppShowcase() {
               onDotClick={setActive}
             />
 
-            <div className={styles.ring1} />
-            <div className={styles.ring2} />
           </div>
         </motion.div>
       </div>
@@ -456,7 +389,6 @@ export default function AppShowcase() {
                     compact
                     showDots={false}
                   />
-                  <div className={styles.ring1} />
                 </div>
 
                 <div className={styles.stepTabs}>

@@ -2,13 +2,11 @@ import { useState, useCallback } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import SplashScreen from '../components/SplashScreen/SplashScreen'
 import Hero from '../components/Hero/Hero'
-import VisionStatement from '../components/VisionStatement/VisionStatement'
 import AppShowcase from '../components/AppShowcase/AppShowcase'
-import About from '../components/About/About'
+import WhoWeAre from '../components/WhoWeAre/WhoWeAre'
 import Services from '../components/Services/Services'
 import Projects from '../components/Projects/Projects'
 import Stats from '../components/Stats/Stats'
-import Story from '../components/Story/Story'
 import Team from '../components/Team/Team'
 import Career from '../components/Career/Career'
 import InternshipDetails from '../components/InternshipDetails/InternshipDetails'
@@ -27,13 +25,11 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero ready={splashDone} />
-        <VisionStatement />
         <AppShowcase />
-        <About />
+        <WhoWeAre />
         <Services />
         <Projects />
         <Stats />
-        <Story />
         <Team />
         <InternshipDetails />
         <Career />

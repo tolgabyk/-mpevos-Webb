@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "about": "About",
+    "about": "Who We Are",
     "services": "Services",
     "projects": "Products",
     "story": "Story",
@@ -39,12 +39,12 @@
     }
   },
   "hero": {
-    "badge": "AI & Advanced Technology",
-    "headline": "We build AI products and automate how companies work.",
+    "badge": "IMPEVOS Teknoloji A.Ş.",
+    "headline": "We guide businesses through digital transformation with AI.",
     "title": "Building the Technology",
     "titleAccent": "of Tomorrow",
     "titleEnd": "Today",
-    "subtitle": "We develop mobile apps, AI integrations, and software that simplifies day-to-day operations.",
+    "subtitle": "An Istanbul-based technology company building scalable solutions in enterprise software, mobile apps and process automation.",
     "typewriter": [
       "Building the future with artificial intelligence",
       "Real projects, real solutions",
@@ -184,13 +184,12 @@
         "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
         "cta": "App Store",
         "screens": [
-          "/app-screens/01-discover.png",
-          "/app-screens/02-discover-feed.png",
-          "/app-screens/03-ai-work.png",
-          "/app-screens/04-note-detail.png",
-          "/app-screens/05-voice-summary.png",
-          "/app-screens/06-ai-summary.png",
-          "/app-screens/07-youtube-summary.png"
+          "/app-screens/no-01-ana-sayfa.jpg",
+          "/app-screens/no-02-ai-araclari.jpg",
+          "/app-screens/no-03-pdf-notlari.jpg",
+          "/app-screens/no-04-nori.jpg",
+          "/app-screens/no-05-youtube-ozeti.jpg",
+          "/app-screens/no-06-kampanyalar.jpg"
         ]
       },
       {
@@ -274,21 +273,21 @@
         "desc": "Upload a PDF and let AI generate summaries, quizzes and a study plan in seconds.",
         "chip": "AI Summary",
         "icon": "Sparkle",
-        "screen": 2
+        "screen": 1
       },
       {
         "title": "Discover Thousands of Notes",
         "desc": "Browse shared notes, filter what you need and download with a single tap.",
         "chip": "Discover",
         "icon": "Compass",
-        "screen": 1
+        "screen": 2
       },
       {
         "title": "Learn with Voice Summaries",
         "desc": "Turn your notes into a podcast and learn on the go.",
         "chip": "Podcast",
         "icon": "Microphone",
-        "screen": 4
+        "screen": 0
       }
     ],
     "storeTopGoogle": "Get it on"
@@ -949,5 +948,51 @@
     "mersis": "MERSIS No: —",
     "tax": "Tax No: —",
     "copyright": "© 2026 IMPEVOS A.Ş. All rights reserved."
+  },
+  "whoWeAre": {
+    "label": "Who We Are",
+    "title": "We are a technology company building software and AI products.",
+    "lead": "IMPEVOS Teknoloji A.Ş. was founded in Istanbul in 2026. We build our own digital products and deliver software and AI solutions to businesses.",
+    "body": "Founded by Göktuğ Eryılmaz, Burak Gökçe and Tolga Bıyık, the company works across product development, enterprise software, AI integration and process automation. Every project is built on measurable results, sustainable architecture and transparent communication.",
+    "facts": [
+      {
+        "label": "Founded",
+        "value": "2026 · Istanbul"
+      },
+      {
+        "label": "Company",
+        "value": "IMPEVOS Teknoloji A.Ş."
+      },
+      {
+        "label": "Products",
+        "value": "Not Ortağım, İnffy, Awyron AI"
+      },
+      {
+        "label": "Completed projects",
+        "value": "20+"
+      }
+    ],
+    "pillars": [
+      {
+        "icon": "Cube",
+        "title": "Product Development",
+        "desc": "We build and grow our own products end to end, from idea to launch."
+      },
+      {
+        "icon": "Code",
+        "title": "Enterprise Software",
+        "desc": "We design and build web, mobile and admin dashboard solutions for businesses."
+      },
+      {
+        "icon": "Brain",
+        "title": "AI Integration",
+        "desc": "We integrate AI models into existing business processes in a secure, measurable way."
+      },
+      {
+        "icon": "GearSix",
+        "title": "Process Automation",
+        "desc": "We automate repetitive operational work so teams can focus on strategic tasks."
+      }
+    ]
   }
 }

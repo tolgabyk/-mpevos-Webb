@@ -7,7 +7,7 @@ import { useScrollSpy } from '../../hooks/useScrollSpy'
 import { INTERNSHIP_APPLICATIONS_OPEN } from '../../data/config'
 import styles from './Navbar.module.css'
 
-const NAV_IDS = ['hero', 'about', 'services', 'projects', 'stats', 'story', 'team', 'career', 'contact']
+const NAV_IDS = ['hero', 'about', 'services', 'projects', 'stats', 'team', 'career', 'contact']
 
 export default function Navbar() {
   const { t, i18n } = useTranslation()
@@ -48,9 +48,9 @@ export default function Navbar() {
   }
 
   const navItems = [
+    { id: 'about', label: t('nav.about') },
     { id: 'projects', label: t('nav.projects') },
     { id: 'services', label: t('nav.services') },
-    { id: 'story', label: t('nav.story') },
     { id: 'team', label: t('nav.team') },
     { id: 'career', label: t('nav.career') },
     { id: 'contact', label: t('nav.contact') },
