@@ -13,8 +13,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 50% at 18% 40%, rgba(0, 255, 0, 0.10) 0%, transparent 60%),
-    radial-gradient(40% 40% at 82% 65%, rgba(0, 255, 136, 0.08) 0%, transparent 60%);
+    radial-gradient(60% 50% at 18% 40%, rgba(34, 197, 94, 0.10) 0%, transparent 60%),
+    radial-gradient(40% 40% at 82% 65%, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -23,8 +23,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 255, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 0, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(34, 197, 94, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
           mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
@@ -49,8 +49,8 @@
   align-items: center;
   gap: 10px;
   padding: 8px 16px 8px 12px;
-  background: rgba(0, 255, 0, 0.08);
-  border: 1px solid rgba(0, 255, 0, 0.25);
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -65,7 +65,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--color-accent);
-  box-shadow: 0 0 12px rgba(0, 255, 0, 0.9);
+  box-shadow: none;
   animation: pulseDot 1.6s ease-in-out infinite;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .titleAccent {
-  background: linear-gradient(135deg, #00ff66 0%, #00ff00 50%, #88ffaa 100%);
+  background: linear-gradient(135deg, #00ff66 0%, #22c55e 50%, #88ffaa 100%);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
@@ -123,10 +123,10 @@
   width: 30px;
   height: 30px;
   border-radius: 9px;
-  background: rgba(0, 255, 0, 0.12);
+  background: rgba(34, 197, 94, 0.12);
   color: var(--color-accent);
   flex-shrink: 0;
-  box-shadow: inset 0 0 0 1px rgba(0, 255, 0, 0.2);
+  box-shadow: none;
 }
 
 /* ---------- Store buttons ---------- */
@@ -154,16 +154,16 @@
 }
 
 .storeBtn:hover {
-  border-color: rgba(0, 255, 0, 0.5);
-  background: rgba(0, 255, 0, 0.06);
+  border-color: rgba(34, 197, 94, 0.5);
+  background: rgba(34, 197, 94, 0.06);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 255, 0, 0.18);
+  box-shadow: none;
 }
 
 .storeBtnPrimary {
-  background: linear-gradient(135deg, rgba(0, 255, 0, 0.22), rgba(0, 200, 80, 0.12));
-  border-color: rgba(0, 255, 0, 0.5);
-  box-shadow: 0 10px 30px rgba(0, 255, 0, 0.22);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(0, 200, 80, 0.12));
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: none;
 }
 
 .storeBtnPrimary::after {
@@ -184,8 +184,8 @@
 }
 
 .storeBtnPrimary:hover {
-  background: linear-gradient(135deg, rgba(0, 255, 0, 0.32), rgba(0, 200, 80, 0.2));
-  box-shadow: 0 14px 36px rgba(0, 255, 0, 0.32);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.32), rgba(0, 200, 80, 0.2));
+  box-shadow: none;
 }
 
 .storeBtnText {
@@ -259,11 +259,11 @@
 }
 
 .minimalUpdateLink:hover {
-  background: rgba(0, 255, 0, 0.06);
-  border-color: rgba(0, 255, 0, 0.4);
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.4);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 255, 0, 0.12);
+  box-shadow: none;
 }
 
 .liveDot {
@@ -378,7 +378,7 @@
 .ring1 {
   width: 92%;
   height: 92%;
-  background: radial-gradient(circle, rgba(0, 255, 0, 0.20) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.20) 0%, transparent 60%);
   filter: blur(22px);
   animation: ringPulse 6s ease-in-out infinite;
 }
@@ -386,7 +386,7 @@
 .ring2 {
   width: 70%;
   height: 70%;
-  border: 1px solid rgba(0, 255, 0, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.18);
   animation: ringSpin 24s linear infinite;
 }
 
@@ -409,10 +409,7 @@
   background: linear-gradient(145deg, #1a1a1a 0%, #060606 50%, #1a1a1a 100%);
   padding: 12px;
   box-shadow:
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.08),
-    inset 0 0 40px rgba(0, 0, 0, 0.6),
-    0 30px 80px rgba(0, 0, 0, 0.6),
-    0 0 60px rgba(0, 255, 0, 0.18);
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.08), inset 0 0 40px rgba(0, 0, 0, 0.6), 0 30px 80px rgba(0, 0, 0, 0.6);
   z-index: 2;
   animation: phoneFloat 6s ease-in-out infinite;
   cursor: pointer;
@@ -423,10 +420,7 @@
 
 .phone:hover {
   box-shadow:
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.1),
-    inset 0 0 40px rgba(0, 0, 0, 0.6),
-    0 30px 80px rgba(0, 0, 0, 0.6),
-    0 0 90px rgba(0, 255, 0, 0.32);
+    inset 0 0 0 1.5px rgba(255, 255, 255, 0.1), inset 0 0 40px rgba(0, 0, 0, 0.6), 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 @keyframes phoneFloat {
@@ -438,7 +432,7 @@
   position: absolute;
   inset: -2px;
   border-radius: 50px;
-  background: linear-gradient(135deg, rgba(0, 255, 0, 0.4), transparent 50%, rgba(0, 255, 0, 0.2));
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), transparent 50%, rgba(34, 197, 94, 0.2));
   z-index: -1;
   opacity: 0.5;
   filter: blur(2px);
@@ -495,7 +489,7 @@
   background: #1a1a1a;
   border: 1px solid #222;
   border-radius: 50%;
-  box-shadow: inset 0 0 2px #00ff88;
+  box-shadow: inset 0 0 2px #22c55e;
 }
 
 /* ---------- Screen — real screenshots ---------- */
@@ -562,7 +556,7 @@
   border-radius: 100px;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 255, 0, 0.3);
+  border: 1px solid rgba(34, 197, 94, 0.3);
   color: var(--color-accent);
   font-size: 0.625rem;
   font-weight: 700;
@@ -570,7 +564,7 @@
   text-transform: uppercase;
   z-index: 3;
   white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 255, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* ---------- Indicator dots ---------- */
@@ -603,7 +597,7 @@
   width: 28px;
   border-radius: 100px;
   background: var(--color-accent);
-  box-shadow: 0 0 12px rgba(0, 255, 0, 0.7);
+  box-shadow: none;
 }
 
 /* ---------- Floating notification cards ---------- */
@@ -615,9 +609,9 @@
   padding: 10px 14px;
   background: rgba(15, 18, 16, 0.82);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 255, 0, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.18);
   border-radius: 14px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   z-index: 3;
   min-width: 180px;
   animation: floatUp 4.5s ease-in-out infinite;
@@ -650,7 +644,7 @@
   width: 30px;
   height: 30px;
   border-radius: 9px;
-  background: rgba(0, 255, 0, 0.15);
+  background: rgba(34, 197, 94, 0.15);
   color: var(--color-accent);
   display: flex;
   align-items: center;
@@ -699,7 +693,7 @@
   height: 420px;
   top: 8%;
   right: 6%;
-  background: radial-gradient(circle, rgba(0, 255, 0, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.12) 0%, transparent 70%);
   animation: noiseDrift 14s ease-in-out infinite;
 }
 
@@ -777,15 +771,15 @@
 }
 
 .chip:hover {
-  border-color: rgba(0, 255, 0, 0.3);
+  border-color: rgba(34, 197, 94, 0.3);
   transform: translateY(-2px);
 }
 
 .chipActive {
-  border-color: rgba(0, 255, 0, 0.45);
-  background: rgba(0, 255, 0, 0.1);
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.1);
   color: #fff;
-  box-shadow: 0 12px 32px rgba(0, 255, 0, 0.15);
+  box-shadow: none;
   transform: scale(1.04);
 }
 
@@ -800,7 +794,7 @@
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: rgba(0, 255, 0, 0.1);
+  background: rgba(34, 197, 94, 0.1);
   color: var(--color-accent);
   flex-shrink: 0;
 }
@@ -851,14 +845,14 @@
 }
 
 .hubPathActive {
-  stroke: rgba(0, 255, 0, 0.55);
+  stroke: rgba(34, 197, 94, 0.55);
   stroke-width: 2;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.4));
+  filter: none;
 }
 
 .hubPathOut {
   fill: none;
-  stroke: rgba(0, 255, 0, 0.25);
+  stroke: rgba(34, 197, 94, 0.25);
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-dasharray: 4 6;
@@ -879,9 +873,9 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(145deg, #111 0%, #000 100%);
-  border: 1px solid rgba(0, 255, 0, 0.35);
+  border: 1px solid rgba(34, 197, 94, 0.35);
   color: var(--color-accent);
-  box-shadow: 0 0 40px rgba(0, 255, 0, 0.2);
+  box-shadow: none;
 }
 
 .hubRight {
@@ -997,15 +991,15 @@
 }
 
 .stepTab:hover {
-  border-color: rgba(0, 255, 0, 0.3);
+  border-color: rgba(34, 197, 94, 0.3);
   color: rgba(255, 255, 255, 0.8);
 }
 
 .stepTabActive {
-  border-color: rgba(0, 255, 0, 0.45);
-  background: rgba(0, 255, 0, 0.1);
+  border-color: rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.1);
   color: var(--color-accent);
-  box-shadow: 0 0 24px rgba(0, 255, 0, 0.15);
+  box-shadow: none;
 }
 
 .phoneCompact {
@@ -1112,7 +1106,7 @@
   height: 72%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(0, 255, 0, 0.14), transparent);
+  background: radial-gradient(closest-side, rgba(34, 197, 94, 0.14), transparent);
   filter: blur(30px);
   pointer-events: none;
 }
@@ -1124,20 +1118,14 @@
   padding: 10px;
   background: linear-gradient(160deg, #3a3a3e 0%, #121214 22%, #0a0a0b 60%, #2a2a2d 100%);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.14),
-    inset 0 0 0 3px #050505,
-    0 50px 100px -20px rgba(0, 0, 0, 0.75),
-    0 30px 60px -30px rgba(0, 255, 0, 0.18);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.14), inset 0 0 0 3px #050505, 0 50px 100px -20px rgba(0, 0, 0, 0.75);
   animation: none;
   cursor: default;
 }
 
 .phone:hover {
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
-    inset 0 0 0 3px #050505,
-    0 50px 100px -20px rgba(0, 0, 0, 0.75),
-    0 30px 60px -30px rgba(0, 255, 0, 0.24);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 0 0 3px #050505, 0 50px 100px -20px rgba(0, 0, 0, 0.75);
 }
 
 .phoneShadow {
@@ -1222,3 +1210,6 @@
 .phoneCompact .phoneScreen::after {
   height: 40px;
 }
+
+.bgGrid, .noiseA, .noiseB { display: none; }
+.bgGlow { opacity: 0.35; }

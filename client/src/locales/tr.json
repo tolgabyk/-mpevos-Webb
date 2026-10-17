@@ -130,11 +130,11 @@
     ]
   },
   "services": {
-    "label": "Hizmetlerimiz",
-    "title": "Hizmetlerimizi",
-    "titleAccent": "Keşfedin",
+    "label": "Hizmetler",
+    "title": "Uçtan uca",
+    "titleAccent": "teknoloji hizmetleri",
     "titleEnd": "",
-    "lead": "Ürün geliştirmenin yanında, şirketlerin kendi yazılımlarını ve otomasyonlarını da kuruyoruz.",
+    "lead": "Strateji, tasarım, geliştirme ve operasyon süreçlerini tek ekip olarak yönetiyor; işletmenize ölçeklenebilir çözümler sunuyoruz.",
     "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.",
     "bgText": "Hizmetler",
     "cardTag": "Keşfet",
@@ -163,9 +163,9 @@
   },
   "projects": {
     "label": "Ürünler",
-    "title": "Ürünlerimiz",
-    "titleAccent": "",
-    "subtitle": "Her ürünün kısa açıklaması, görseli ve bağlantısı.",
+    "title": "Geliştirdiğimiz",
+    "titleAccent": "ürünler",
+    "subtitle": "Kendi ürünlerimizi tasarlıyor, geliştiriyor ve yayında tutuyoruz.",
     "imagePlaceholder": "Görsel eklenecek",
     "tabs": {
       "all": "Tümü",
@@ -243,8 +243,8 @@
   "appShowcase": {
     "badge": "App Store ve Google Play'de Yayında",
     "titleAccent": "Not Ortağım",
-    "titleEnd": "App Store ve Google Play'de yayında!",
-    "subtitle": "Yapay zeka destekli not paylaşma platformu. PDF yükle, AI ile özet ve quiz oluştur, podcast olarak dinle ya da fotoğraf modu ile soruyu çekip anında çöz — Not Ortağım her zaman yanında.",
+    "titleEnd": "App Store ve Google Play'de",
+    "subtitle": "Öğrencilerin notlarını paylaştığı; yapay zeka ile özet, quiz ve çalışma planı oluşturduğu çalışma platformu. Sesli özet ve fotoğrafla soru çözme özellikleriyle öğrenmeyi kolaylaştırır.",
     "features": [
       "AI özet, quiz ve çalışma planı tek dokunuşla",
       "Foto Modu ile soruyu çek, AI öğretmen anında çözsün",
@@ -264,8 +264,8 @@
     "float3Desc": "10/10 doğru cevap",
     "updateShort": "Güncellemeleri ve Yenilikleri Takip Et",
     "scrollLabel": "Uygulama Deneyimi",
-    "scrollTitle": "Tüm güç",
-    "scrollTitleAccent": "tek uygulamada",
+    "scrollTitle": "Öğrenme araçları",
+    "scrollTitleAccent": "tek platformda",
     "scrollSubtitle": "AI özet, not keşfi ve sesli öğrenme — Not Ortağım ile tüm öğrenme araçları tek platformda birleşiyor.",
     "scrollSteps": [
       {
@@ -294,10 +294,10 @@
   },
   "team": {
     "label": "Ekibimiz",
-    "title": "Ekibimiz",
+    "title": "Yönetim ekibi",
     "titleAccent": "",
     "titleEnd": "",
-    "subtitle": "Kurucular. Fotoğraflar hazır olduğunda yer tutucuların yerine geçecek.",
+    "subtitle": "IMPEVOS'u kuran ve yöneten ekip.",
     "photoPlaceholder": "Fotoğraf eklenecek",
     "founders": [
       {
@@ -452,8 +452,8 @@
   },
   "contact": {
     "label": "İletişim",
-    "headline": "Projeleriniz için bizimle görüşün.",
-    "subtitle": "Kurumsal ihtiyaçlarınıza özel teknoloji çözümleri için ekibimizle doğrudan iletişime geçebilirsiniz.",
+    "headline": "Projenizi birlikte planlayalım.",
+    "subtitle": "İhtiyaçlarınızı paylaşın, ekibimiz en kısa sürede sizinle iletişime geçsin.",
     "fab": "İletişim",
     "name": "Ad soyad",
     "email": "E-posta",
@@ -834,8 +834,8 @@
     }
   },
   "stats": {
-    "label": "Rakamlarla Impevos",
-    "title": "Kısa bir tablo",
+    "label": "Rakamlarla IMPEVOS",
+    "title": "Kuruluşumuzdan bu yana",
     "products": "Ürün",
     "interns": "Stajyer",
     "projects": "Proje",
@@ -866,9 +866,9 @@
     ]
   },
   "careerSection": {
-    "label": "Kariyer ve staj",
-    "title": "Zorunlu staj programı",
-    "subtitle": "Program, üniversite öğrencilerinin zorunlu stajını ürün ekiplerinde geçirmesi için açılır.",
+    "label": "Kariyer",
+    "title": "Staj programı",
+    "subtitle": "Üniversite öğrencilerine zorunlu stajlarını ürün ekiplerimizde, gerçek projelerde tamamlama imkânı sunuyoruz.",
     "name": "Ad soyad",
     "university": "Üniversite",
     "department": "Bölüm",
@@ -992,6 +992,87 @@
         "icon": "GearSix",
         "title": "Süreç Otomasyonu",
         "desc": "Tekrarlayan operasyonel işleri otomatikleştirerek ekiplerin zamanını stratejik işlere ayırıyoruz."
+      }
+    ]
+  },
+  "process": {
+    "label": "Çalışma Sürecimiz",
+    "title": "Fikirden yayına net bir süreç",
+    "subtitle": "Her projeyi aynı disiplinle yönetir, her aşamada sizi bilgilendiririz.",
+    "steps": [
+      {
+        "title": "Keşif ve analiz",
+        "desc": "İhtiyaçlarınızı, hedeflerinizi ve mevcut süreçlerinizi birlikte inceler, projenin kapsamını netleştiririz."
+      },
+      {
+        "title": "Tasarım ve planlama",
+        "desc": "Kullanıcı deneyimini tasarlar, teknik mimariyi ve proje takvimini belirleriz."
+      },
+      {
+        "title": "Geliştirme ve test",
+        "desc": "Düzenli aralıklarla çalışan sürümler paylaşır, geri bildirimlerinizle ilerleriz."
+      },
+      {
+        "title": "Yayın ve destek",
+        "desc": "Ürünü yayına alır, performansını izler ve sürekli iyileştirmeye devam ederiz."
+      }
+    ]
+  },
+  "whyUs": {
+    "label": "Neden IMPEVOS",
+    "title": "Ürün geliştiren bir ekiple çalışırsınız",
+    "subtitle": "Kendi ürünlerini yayına alıp büyüten bir ekip olarak, müşteri projelerine de aynı sorumlulukla yaklaşıyoruz.",
+    "items": [
+      {
+        "icon": "RocketLaunch",
+        "title": "Yayında olan ürünler",
+        "desc": "Not Ortağım App Store ve Google Play'de yayında; İnffy ve Awyron AI'ı da kendi ekibimizle geliştiriyoruz."
+      },
+      {
+        "icon": "Stack",
+        "title": "Uçtan uca teslim",
+        "desc": "Tasarım, mobil ve web geliştirme, altyapı ve yayın süreçlerini tek ekip olarak yönetiyoruz."
+      },
+      {
+        "icon": "Brain",
+        "title": "Yapay zeka uzmanlığı",
+        "desc": "Yapay zeka modellerini ürünlerimizde gerçek kullanıcılarla çalıştırıyor, bu deneyimi projelerinize taşıyoruz."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Şeffaf iletişim",
+        "desc": "Her aşamada ilerlemeyi paylaşır, kararları birlikte alırız."
+      }
+    ]
+  },
+  "faq": {
+    "label": "Sıkça Sorulan Sorular",
+    "title": "Merak edilenler",
+    "subtitle": "Aklınıza takılan başka bir soru varsa iletişim formundan bize ulaşabilirsiniz.",
+    "items": [
+      {
+        "q": "Hangi tür projeler geliştiriyorsunuz?",
+        "a": "Mobil uygulamalar, web platformları, yönetim panelleri, yapay zeka entegrasyonları ve süreç otomasyonu projeleri geliştiriyoruz."
+      },
+      {
+        "q": "Bir proje ne kadar sürer?",
+        "a": "Süre, projenin kapsamına göre değişir. Keşif görüşmesinin ardından aşamaları ve tahmini takvimi içeren bir plan paylaşıyoruz."
+      },
+      {
+        "q": "Fiyatlandırma nasıl belirleniyor?",
+        "a": "Fiyat; kapsam, özellikler ve zaman planına göre belirlenir. İhtiyaçlarınızı dinledikten sonra size özel bir teklif hazırlıyoruz."
+      },
+      {
+        "q": "Yayından sonra destek veriyor musunuz?",
+        "a": "Evet. Yayın sonrasında bakım, güncelleme ve yeni geliştirmeler için birlikte çalışmaya devam edebiliyoruz."
+      },
+      {
+        "q": "Mevcut sistemlerimize yapay zeka entegre edebilir misiniz?",
+        "a": "Evet. Mevcut yazılımlarınızı ve iş akışlarınızı inceleyerek yapay zekanın en çok değer katacağı noktaları belirliyor ve entegrasyonu yapıyoruz."
+      },
+      {
+        "q": "Ekibinize nasıl katılabilirim?",
+        "a": "Ekip başvuruları için 'Ekibe Katıl' sayfasını kullanabilirsiniz. Staj başvurularımız Ocak 2027'de açılacak."
       }
     ]
   }

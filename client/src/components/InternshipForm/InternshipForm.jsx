@@ -69,14 +69,14 @@ export default function InternshipForm() {
           <div style={{
             maxWidth: '600px',
             margin: '0 auto',
-            background: 'rgba(0, 255, 0, 0.02)',
-            border: '1px solid rgba(0, 255, 0, 0.1)',
+            background: 'rgba(34, 197, 94, 0.02)',
+            border: '1px solid rgba(34, 197, 94, 0.1)',
             borderRadius: '16px',
             padding: '40px',
             textAlign: 'center',
             backdropFilter: 'blur(10px)'
           }}>
-            <h3 style={{ color: '#00ff00', fontSize: '24px', marginBottom: '16px' }}>{t('internship.form.closedTitle')}</h3>
+            <h3 style={{ color: '#22c55e', fontSize: '24px', marginBottom: '16px' }}>{t('internship.form.closedTitle')}</h3>
             <p style={{ color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}>{t('internship.form.closedDesc')}</p>
           </div>
         </div>

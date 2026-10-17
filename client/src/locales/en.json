@@ -130,11 +130,11 @@
     ]
   },
   "services": {
-    "label": "Our Services",
-    "title": "Discover Our",
-    "titleAccent": "Services",
+    "label": "Services",
+    "title": "End-to-end",
+    "titleAccent": "technology services",
     "titleEnd": "",
-    "lead": "Alongside our products, we build software and automation for other companies.",
+    "lead": "We manage strategy, design, development and operations as one team and deliver scalable solutions for your business.",
     "subtitle": "We offer scalable and innovative solutions tailored to your business needs.",
     "bgText": "Services",
     "cardTag": "Explore",
@@ -163,9 +163,9 @@
   },
   "projects": {
     "label": "Products",
-    "title": "Our products",
-    "titleAccent": "",
-    "subtitle": "A short description, a visual, and a link for each product.",
+    "title": "Products we",
+    "titleAccent": "build",
+    "subtitle": "We design, build and run our own products.",
     "imagePlaceholder": "Image to be added",
     "tabs": {
       "all": "All",
@@ -243,7 +243,7 @@
   "appShowcase": {
     "badge": "Live on the App Store & Google Play",
     "titleAccent": "Not Ortağım",
-    "titleEnd": "is live on the App Store & Google Play!",
+    "titleEnd": "on the App Store & Google Play",
     "subtitle": "An AI-powered note-sharing platform. Upload a PDF, let AI build summaries and quizzes, listen to it as a podcast, or snap a question with Photo Mode and get an instant answer — Not Ortağım is always with you.",
     "features": [
       "AI summary, quiz and study plan in one tap",
@@ -264,8 +264,8 @@
     "float3Desc": "10/10 correct answers",
     "updateShort": "Follow Latest Updates & Innovations",
     "scrollLabel": "App Experience",
-    "scrollTitle": "All the power",
-    "scrollTitleAccent": "in one app",
+    "scrollTitle": "Learning tools",
+    "scrollTitleAccent": "in one platform",
     "scrollSubtitle": "AI summaries, note discovery and voice learning — every study tool united in Not Ortağım.",
     "scrollSteps": [
       {
@@ -294,10 +294,10 @@
   },
   "team": {
     "label": "Our Team",
-    "title": "Our Team",
+    "title": "Leadership team",
     "titleAccent": "",
     "titleEnd": "",
-    "subtitle": "Founders. Portraits will replace these placeholders when the files are ready.",
+    "subtitle": "The team that founded and leads IMPEVOS.",
     "photoPlaceholder": "Photo to be added",
     "founders": [
       {
@@ -452,8 +452,8 @@
   },
   "contact": {
     "label": "Contact",
-    "headline": "Let's discuss your projects.",
-    "subtitle": "Reach our team directly for corporate technology solutions tailored to your business needs.",
+    "headline": "Let's plan your project together.",
+    "subtitle": "Share your needs and our team will get back to you shortly.",
     "fab": "Contact",
     "name": "Full name",
     "email": "Email",
@@ -834,8 +834,8 @@
     }
   },
   "stats": {
-    "label": "Impevos in numbers",
-    "title": "A short count",
+    "label": "IMPEVOS in numbers",
+    "title": "Since our founding",
     "products": "Products",
     "interns": "Interns",
     "projects": "Projects",
@@ -866,9 +866,9 @@
     ]
   },
   "careerSection": {
-    "label": "Careers and internships",
-    "title": "Compulsory internship program",
-    "subtitle": "The program is for university students completing a compulsory internship with a product team.",
+    "label": "Careers",
+    "title": "Internship programme",
+    "subtitle": "We offer university students the chance to complete their mandatory internship on real projects with our product teams.",
     "name": "Full name",
     "university": "University",
     "department": "Department",
@@ -992,6 +992,87 @@
         "icon": "GearSix",
         "title": "Process Automation",
         "desc": "We automate repetitive operational work so teams can focus on strategic tasks."
+      }
+    ]
+  },
+  "process": {
+    "label": "How We Work",
+    "title": "A clear path from idea to launch",
+    "subtitle": "We run every project with the same discipline and keep you informed at every stage.",
+    "steps": [
+      {
+        "title": "Discovery",
+        "desc": "We review your needs, goals and current processes together and define the project scope."
+      },
+      {
+        "title": "Design and planning",
+        "desc": "We design the user experience and set the technical architecture and timeline."
+      },
+      {
+        "title": "Development and testing",
+        "desc": "We share working versions regularly and move forward with your feedback."
+      },
+      {
+        "title": "Launch and support",
+        "desc": "We launch the product, monitor its performance and keep improving it."
+      }
+    ]
+  },
+  "whyUs": {
+    "label": "Why IMPEVOS",
+    "title": "Work with a team that ships products",
+    "subtitle": "As a team that launches and grows its own products, we bring the same ownership to client projects.",
+    "items": [
+      {
+        "icon": "RocketLaunch",
+        "title": "Products in the market",
+        "desc": "Not Ortağım is live on the App Store and Google Play; İnffy and Awyron AI are built by our own team."
+      },
+      {
+        "icon": "Stack",
+        "title": "End-to-end delivery",
+        "desc": "Design, mobile and web development, infrastructure and launch handled by one team."
+      },
+      {
+        "icon": "Brain",
+        "title": "AI expertise",
+        "desc": "We run AI models with real users in our own products and bring that experience to your project."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Transparent communication",
+        "desc": "We share progress at every stage and make decisions together."
+      }
+    ]
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently asked questions",
+    "subtitle": "If you have another question, reach us through the contact form.",
+    "items": [
+      {
+        "q": "What kind of projects do you build?",
+        "a": "Mobile apps, web platforms, admin dashboards, AI integrations and process automation projects."
+      },
+      {
+        "q": "How long does a project take?",
+        "a": "It depends on the scope. After a discovery call we share a plan with phases and an estimated timeline."
+      },
+      {
+        "q": "How is pricing determined?",
+        "a": "Pricing depends on scope, features and timeline. We prepare a tailored proposal after understanding your needs."
+      },
+      {
+        "q": "Do you provide support after launch?",
+        "a": "Yes. We can keep working together on maintenance, updates and new features after launch."
+      },
+      {
+        "q": "Can you integrate AI into our existing systems?",
+        "a": "Yes. We review your software and workflows, identify where AI adds the most value and handle the integration."
+      },
+      {
+        "q": "How can I join your team?",
+        "a": "Use the 'Join the Team' page for team applications. Internship applications open in January 2027."
       }
     ]
   }

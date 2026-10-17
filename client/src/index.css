@@ -7,22 +7,22 @@
 /* ---- CSS Custom Properties ---- */
 :root {
   /* Colors */
-  --color-primary: #000000;
+  --color-primary: #0b0d0f;
   --color-secondary: #ffffff;
-  --color-accent: #00ff00;
-  --color-accent-dim: rgba(0, 255, 0, 0.08);
-  --color-accent-mid: rgba(0, 255, 0, 0.15);
+  --color-accent: #22c55e;
+  --color-accent-dim: rgba(34, 197, 94, 0.08);
+  --color-accent-mid: rgba(34, 197, 94, 0.15);
   --color-glass: rgba(255, 255, 255, 0.03);
   --color-glass-hover: rgba(255, 255, 255, 0.06);
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(0, 255, 0, 0.25);
+  --color-border-hover: rgba(34, 197, 94, 0.25);
   --color-secondary-dim: rgba(255, 255, 255, 0.65);
   --color-secondary-muted: rgba(255, 255, 255, 0.35);
 
   /* Shadows */
-  --glow-sm: 0 0 20px rgba(0, 255, 0, 0.15);
-  --glow-md: 0 0 40px rgba(0, 255, 0, 0.2);
-  --glow-lg: 0 0 80px rgba(0, 255, 0, 0.25);
+  --glow-sm: 0 0 20px rgba(34, 197, 94, 0.15);
+  --glow-md: 0 0 40px rgba(34, 197, 94, 0.2);
+  --glow-lg: 0 0 80px rgba(34, 197, 94, 0.25);
 
   /* Typography */
   --font-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -93,7 +93,7 @@ button {
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-primary); }
-::-webkit-scrollbar-thumb { background: rgba(0, 255, 0, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: rgba(34, 197, 94, 0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
 
 /* ---- Layout ---- */
@@ -188,8 +188,8 @@ section {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,255,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(34, 197, 94,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 0;
@@ -197,13 +197,13 @@ section {
 
 /* ---- Animations ---- */
 @keyframes glowPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 6px 2px rgba(0,255,0,0.4); }
-  50% { opacity: 0.6; box-shadow: 0 0 12px 4px rgba(0,255,0,0.2); }
+  0%, 100% { opacity: 1; box-shadow: none; }
+  50% { opacity: 0.6; box-shadow: none; }
 }
 
 @keyframes borderGlow {
-  0%, 100% { border-color: rgba(0,255,0,0.2); }
-  50% { border-color: rgba(0,255,0,0.5); }
+  0%, 100% { border-color: rgba(34, 197, 94,0.2); }
+  50% { border-color: rgba(34, 197, 94,0.5); }
 }
 
 @keyframes marquee {
@@ -239,3 +239,6 @@ section {
     font-size: clamp(1.75rem, 6vw, 2.5rem);
   }
 }
+
+/* Calm, corporate surface: no decorative grids */
+.grid-bg { display: none !important; }

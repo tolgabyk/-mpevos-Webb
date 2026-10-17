@@ -7,8 +7,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(60% 40% at 80% 10%, rgba(0, 255, 0, 0.07) 0%, transparent 60%),
-    radial-gradient(50% 40% at 20% 90%, rgba(0, 255, 136, 0.06) 0%, transparent 60%);
+    radial-gradient(60% 40% at 80% 10%, rgba(34, 197, 94, 0.07) 0%, transparent 60%),
+    radial-gradient(50% 40% at 20% 90%, rgba(34, 197, 94, 0.06) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -20,7 +20,7 @@
   margin-top: 28px;
   padding: 16px 24px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 255, 0, 0.18);
+  border: 1px solid rgba(34, 197, 94, 0.18);
   border-radius: 100px;
   backdrop-filter: blur(8px);
 }
@@ -81,11 +81,11 @@
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(0, 255, 0, 0.1);
-  border: 1px solid rgba(0, 255, 0, 0.25);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.25);
   color: var(--color-accent);
   flex-shrink: 0;
-  box-shadow: 0 0 24px rgba(0, 255, 0, 0.12);
+  box-shadow: none;
 }
 
 .deptHeaderText {
@@ -110,7 +110,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-accent);
-  background: rgba(0, 255, 0, 0.08);
+  background: rgba(34, 197, 94, 0.08);
   padding: 4px 10px;
   border-radius: 100px;
 }
@@ -118,7 +118,7 @@
 .deptLine {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, rgba(0, 255, 0, 0.25), transparent);
+  background: linear-gradient(to right, rgba(34, 197, 94, 0.25), transparent);
 }
 
 /* ---------- Grid ---------- */
@@ -144,7 +144,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(60% 60% at 50% 0%, rgba(0, 255, 0, 0.08), transparent 70%);
+  background: radial-gradient(60% 60% at 50% 0%, rgba(34, 197, 94, 0.08), transparent 70%);
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
@@ -193,18 +193,16 @@
 
 /* Leader card */
 .cardLeader {
-  background: linear-gradient(160deg, rgba(0, 255, 0, 0.08) 0%, rgba(0, 255, 0, 0.02) 50%, rgba(255, 255, 255, 0.02) 100%);
-  border-color: rgba(0, 255, 0, 0.32);
+  background: linear-gradient(160deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.02) 50%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(34, 197, 94, 0.32);
   box-shadow:
-    0 0 0 1px rgba(0, 255, 0, 0.05),
-    0 12px 40px rgba(0, 255, 0, 0.08);
+    none;
 }
 
 .cardLeader:hover {
-  border-color: rgba(0, 255, 0, 0.55);
+  border-color: rgba(34, 197, 94, 0.55);
   box-shadow:
-    0 0 0 1px rgba(0, 255, 0, 0.15),
-    0 20px 60px rgba(0, 255, 0, 0.18);
+    none;
 }
 
 .leaderBadge {
@@ -222,7 +220,7 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
   border-radius: 100px;
-  box-shadow: 0 4px 14px rgba(0, 255, 0, 0.45);
+  box-shadow: none;
   z-index: 2;
 }
 
@@ -241,7 +239,7 @@
   color: var(--color-primary);
   background: linear-gradient(135deg, #00ff66, #009944);
   transition: transform var(--ease-base);
-  box-shadow: 0 10px 24px rgba(0, 255, 0, 0.18);
+  box-shadow: none;
   overflow: hidden;
 }
 
@@ -262,7 +260,7 @@
   width: 96px;
   height: 96px;
   font-size: 1.875rem;
-  box-shadow: 0 14px 32px rgba(0, 255, 0, 0.3);
+  box-shadow: none;
 }
 
 .avatar span:first-child {
@@ -274,7 +272,7 @@
   position: absolute;
   inset: -6px;
   border-radius: 50%;
-  border: 1.5px dashed rgba(0, 255, 0, 0.35);
+  border: 1.5px dashed rgba(34, 197, 94, 0.35);
   opacity: 0;
   transition: opacity 0.35s ease;
   animation: ringSpin 18s linear infinite;
@@ -290,7 +288,7 @@
 
 .card:hover .avatar {
   transform: scale(1.06);
-  box-shadow: 0 14px 32px rgba(0, 255, 0, 0.32);
+  box-shadow: none;
 }
 
 @keyframes ringSpin {
@@ -357,7 +355,7 @@
   background: var(--color-accent);
   color: var(--color-primary);
   transform: scale(1.12);
-  box-shadow: 0 4px 14px rgba(0, 255, 0, 0.4);
+  box-shadow: none;
 }
 
 /* ---------- Tree Layout ---------- */
@@ -393,7 +391,7 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 40px;
-  box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+  box-shadow: none;
   z-index: 20;
 }
 
@@ -451,7 +449,7 @@
   left: 50%;
   width: 2px;
   height: 40px;
-  background: linear-gradient(to bottom, var(--color-accent), rgba(0, 255, 0, 0.4));
+  background: linear-gradient(to bottom, var(--color-accent), rgba(34, 197, 94, 0.4));
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -477,7 +475,7 @@
   height: 80px;
   left: 50%;
   width: 2px;
-  background: rgba(0, 255, 0, 0.4);
+  background: rgba(34, 197, 94, 0.4);
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -488,7 +486,7 @@
   height: 40px;
   left: 50%;
   width: 2px;
-  background: rgba(0, 255, 0, 0.4);
+  background: rgba(34, 197, 94, 0.4);
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -524,7 +522,7 @@
   width: 75%;
   max-width: 1000px;
   height: 2px;
-  background: linear-gradient(to right, transparent, rgba(0, 255, 0, 0.4) 15%, rgba(0, 255, 0, 0.4) 85%, transparent);
+  background: linear-gradient(to right, transparent, rgba(34, 197, 94, 0.4) 15%, rgba(34, 197, 94, 0.4) 85%, transparent);
   z-index: 1;
 }
 
@@ -567,12 +565,12 @@
   border-color: var(--color-accent);
   transform: translateY(-5px);
   background: #111;
-  box-shadow: 0 20px 50px rgba(0, 255, 0, 0.15);
+  box-shadow: none;
 }
 
 .nodeLeader .nodeCard {
-  border-color: rgba(0, 255, 0, 0.5);
-  background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(10, 10, 10, 0.98));
+  border-color: rgba(34, 197, 94, 0.5);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(10, 10, 10, 0.98));
   width: 260px;
 }
 

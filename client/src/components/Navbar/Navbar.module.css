@@ -51,15 +51,15 @@
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.25);
+  box-shadow: none;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
 }
 
 .applyBtnActive {
-  box-shadow: 0 0 28px rgba(0, 255, 0, 0.5);
-  outline: 2px solid rgba(0, 255, 0, 0.4);
+  box-shadow: none;
+  outline: 2px solid rgba(34, 197, 94, 0.4);
   outline-offset: 2px;
 }
 
@@ -78,13 +78,13 @@
 }
 
 .applyBtnSecondary:hover {
-  border-color: rgba(0, 255, 0, 0.3);
+  border-color: rgba(34, 197, 94, 0.3);
   color: var(--color-secondary);
 }
 
 .applyBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 0 28px rgba(0, 255, 0, 0.4);
+  box-shadow: none;
 }
 
 .mobileApplyBtn {
@@ -143,7 +143,7 @@
   height: 4px;
   border-radius: 50%;
   background: var(--color-accent);
-  box-shadow: 0 0 8px rgba(0,255,0,0.6);
+  box-shadow: none;
 }
 
 /* Nav right */

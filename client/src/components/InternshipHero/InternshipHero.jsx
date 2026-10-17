@@ -37,7 +37,7 @@ function initParticles(canvas) {
       if (p.y < 0 || p.y > canvas.height) p.vy *= -1
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(0, 255, 0, ${p.alpha})`
+      ctx.fillStyle = `rgba(34, 197, 94, ${p.alpha})`
       ctx.fill()
     })
     for (let i = 0; i < particles.length; i++) {
@@ -49,7 +49,7 @@ function initParticles(canvas) {
           ctx.beginPath()
           ctx.moveTo(particles[i].x, particles[i].y)
           ctx.lineTo(particles[j].x, particles[j].y)
-          ctx.strokeStyle = `rgba(0, 255, 0, ${0.04 * (1 - dist / 100)})`
+          ctx.strokeStyle = `rgba(34, 197, 94, ${0.04 * (1 - dist / 100)})`
           ctx.lineWidth = 0.5
           ctx.stroke()
         }

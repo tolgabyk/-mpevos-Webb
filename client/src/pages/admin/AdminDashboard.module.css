@@ -124,10 +124,10 @@
   font-weight: 600;
 }
 
-.badgeNew { background: rgba(0, 255, 0, 0.1); color: var(--color-accent); }
+.badgeNew { background: rgba(34, 197, 94, 0.1); color: var(--color-accent); }
 .badgeReviewing { background: rgba(255, 200, 0, 0.1); color: #ffc800; }
 .badgeInvited { background: rgba(0, 150, 255, 0.1); color: #0096ff; }
-.badgeAccepted { background: rgba(0, 255, 0, 0.15); color: #00ff00; }
+.badgeAccepted { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
 .badgeRejected { background: rgba(255, 68, 68, 0.1); color: #ff4444; }
 
 .empty {

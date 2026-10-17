@@ -28,7 +28,7 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 255, 0, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.35) 0%, transparent 70%);
   filter: blur(24px);
 }
 
@@ -37,7 +37,7 @@
   width: clamp(120px, 22vw, 160px);
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 30px rgba(0, 255, 0, 0.35));
+  filter: none;
 }
 
 .progressTrack {

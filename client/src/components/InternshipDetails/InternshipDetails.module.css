@@ -12,7 +12,7 @@
   height: 80vw;
   max-width: 800px;
   max-height: 800px;
-  background: radial-gradient(circle, rgba(0, 255, 0, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
   z-index: 0;
   pointer-events: none;
   filter: blur(50px);
@@ -63,15 +63,15 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.3), transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .block:hover {
   transform: translateY(-8px);
-  border-color: rgba(0, 255, 0, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 255, 0, 0.05), inset 0 1px 0 rgba(255,255,255,0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 .block:hover::before {
@@ -97,14 +97,14 @@
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: rgba(0, 255, 0, 0.03);
+  background: rgba(34, 197, 94, 0.03);
   color: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  border: 1px solid rgba(0, 255, 0, 0.15);
-  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.05), 0 0 15px rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  box-shadow: none;
   flex-shrink: 0;
 }
 
@@ -131,8 +131,8 @@
 }
 
 .blockFull:hover {
-  border-color: rgba(0, 255, 0, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 255, 0, 0.05), inset 0 1px 0 rgba(255,255,255,0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 .list {
@@ -160,7 +160,7 @@
   font-size: 18px;
   color: var(--color-accent);
   margin-top: 3px;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 0, 0.4));
+  filter: none;
 }
 
 .areas {
@@ -191,7 +191,7 @@
   transform: translate(-50%, -50%);
   width: 0;
   height: 0;
-  background: rgba(0, 255, 0, 0.15);
+  background: rgba(34, 197, 94, 0.15);
   border-radius: 50%;
   filter: blur(15px);
   opacity: 0;
@@ -200,7 +200,7 @@
 }
 
 .areaTag:hover {
-  border-color: rgba(0, 255, 0, 0.3);
+  border-color: rgba(34, 197, 94, 0.3);
   color: #fff;
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
@@ -232,9 +232,9 @@
   margin: 0 auto 32px;
   padding: 24px 32px;
   border-radius: 20px;
-  border: 1px solid rgba(0, 255, 0, 0.35);
-  background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 255, 0, 0.02));
-  box-shadow: 0 0 40px rgba(0, 255, 0, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.02));
+  box-shadow: none;
 }
 
 .noticeIcon {
