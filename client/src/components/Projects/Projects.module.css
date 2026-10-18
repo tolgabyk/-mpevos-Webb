@@ -172,6 +172,24 @@
 .status.ongoing .statusDot { background: var(--color-accent); }
 .status.completed .statusDot { background: var(--color-secondary-dim); }
 
+.liveCard .status.completed {
+  background: var(--color-accent-dim);
+  color: var(--color-accent);
+}
+
+.liveCard .status.completed .statusDot { background: var(--color-accent); }
+
+.liveCard .body h3,
+.liveCard .body p,
+.liveCard .storeLink {
+  color: var(--color-accent);
+}
+
+.liveCard .storeLink {
+  border-color: rgba(34, 197, 94, 0.4);
+  background: rgba(34, 197, 94, 0.08);
+}
+
 .body h3 {
   font-size: 2rem;
   font-weight: 800;

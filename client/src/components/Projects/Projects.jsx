@@ -60,7 +60,7 @@ export default function Projects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-100px' }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
-                  className={styles.card}
+                  className={`${styles.card} ${item.id === 'not-ortagim' ? styles.liveCard : ''}`}
                 >
                   <div className={styles.image}>
                     <div className={styles.glow} />
