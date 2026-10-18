@@ -23,7 +23,7 @@ const PAGES = {
       <h2>Hizmetler</h2>
       <p>Mobil uygulama geliştirme, yapay zeka entegrasyonu, süreç otomasyonu, özel yazılım geliştirme.</p>
       <h2>Ekip</h2>
-      <p>Göktuğ Eryılmaz, Kurucu Ortak, CEO. Burak Gökçe, Kurucu Ortak, CTO. Tolga Bıyık, Kurucu Ortak, CPO.</p>
+      <p>Göktuğ Eryılmaz, Kurucu Ortak. Burak Gökçe, Kurucu Ortak. Tolga Bıyık, Kurucu Ortak.</p>
       <h2>İletişim</h2>
       <p>info@impevos.com.tr</p>
     `,

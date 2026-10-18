@@ -302,19 +302,19 @@
     "founders": [
       {
         "name": "Göktuğ Eryılmaz",
-        "role": "Kurucu Ortak, CEO",
+        "role": "Kurucu Ortak",
         "photo": "/team/goktug-eryilmaz.jpeg",
         "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/"
       },
       {
         "name": "Burak Gökçe",
-        "role": "Kurucu Ortak, CTO",
+        "role": "Kurucu Ortak",
         "photo": "/team/burak-gokce.jpeg",
         "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
       },
       {
         "name": "Tolga Bıyık",
-        "role": "Kurucu Ortak, CPO",
+        "role": "Kurucu Ortak",
         "photo": "/team/tolga-biyik.png",
         "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/"
       }
@@ -333,21 +333,21 @@
         "members": [
           {
             "name": "Göktuğ ERYILMAZ",
-            "role": "Kurucu Ortak — CEO",
+            "role": "Kurucu Ortak",
             "photo": "/team/goktug-eryilmaz.jpeg",
             "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/",
             "instagram": "https://www.instagram.com/goktugery/"
           },
           {
             "name": "Tolga BIYIK",
-            "role": "Kurucu Ortak — CPO",
+            "role": "Kurucu Ortak",
             "photo": "/team/tolga-biyik.png",
             "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/",
             "instagram": "https://www.instagram.com/tolgapytech/"
           },
           {
             "name": "Burak GÖKCE",
-            "role": "Kurucu Ortak — CTO",
+            "role": "Kurucu Ortak",
             "photo": "/team/burak-gokce.jpeg",
             "linkedin": "https://www.linkedin.com/in/burak-gokcee/",
             "instagram": "https://www.instagram.com/burakgokkce/",

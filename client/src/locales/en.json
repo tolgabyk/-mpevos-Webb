@@ -302,19 +302,19 @@
     "founders": [
       {
         "name": "Göktuğ Eryılmaz",
-        "role": "Co-founder, CEO",
+        "role": "Co-founder",
         "photo": "/team/goktug-eryilmaz.jpeg",
         "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/"
       },
       {
         "name": "Burak Gökçe",
-        "role": "Co-founder, CTO",
+        "role": "Co-founder",
         "photo": "/team/burak-gokce.jpeg",
         "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
       },
       {
         "name": "Tolga Bıyık",
-        "role": "Co-founder, CPO",
+        "role": "Co-founder",
         "photo": "/team/tolga-biyik.png",
         "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/"
       }
@@ -333,21 +333,21 @@
         "members": [
           {
             "name": "Göktuğ ERYILMAZ",
-            "role": "Co-Founder — CEO",
+            "role": "Co-founder",
             "photo": "/team/goktug-eryilmaz.jpeg",
             "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/",
             "instagram": "https://www.instagram.com/goktugery/"
           },
           {
             "name": "Tolga BIYIK",
-            "role": "Co-Founder — CPO",
+            "role": "Co-founder",
             "photo": "/team/tolga-biyik.png",
             "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/",
             "instagram": "https://www.instagram.com/tolgapytech/"
           },
           {
             "name": "Burak GÖKCE",
-            "role": "Co-Founder — CTO",
+            "role": "Co-founder",
             "photo": "/team/burak-gokce.jpeg",
             "linkedin": "https://www.linkedin.com/in/burak-gokcee/",
             "instagram": "https://www.instagram.com/burakgokkce/",
