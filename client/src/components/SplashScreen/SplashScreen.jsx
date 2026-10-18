@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { EASE_CURTAIN, EASE_SMOOTH } from '../../utils/motion'
 import styles from './SplashScreen.module.css'
 
 const SPLASH_KEY = 'impevos-splash-seen'
 
+function splashAlreadySeen() {
+  try {
+    return sessionStorage.getItem(SPLASH_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 export default function SplashScreen({ onComplete }) {
-  const [visible, setVisible] = useState(() => !sessionStorage.getItem(SPLASH_KEY))
+  const [visible, setVisible] = useState(() => !splashAlreadySeen())
   const [phase, setPhase] = useState('logo')
 
   useEffect(() => {
@@ -17,13 +25,19 @@ export default function SplashScreen({ onComplete }) {
 
     document.body.style.overflow = 'hidden'
 
-    const t1 = setTimeout(() => setPhase('curtain'), 1800)
-    const t2 = setTimeout(() => {
-      sessionStorage.setItem(SPLASH_KEY, '1')
-      setVisible(false)
+    const finish = () => {
+      try {
+        sessionStorage.setItem(SPLASH_KEY, '1')
+      } catch {
+        // Depolama kapalıysa site yine de açılsın.
+      }
       document.body.style.overflow = ''
+      setVisible(false)
       onComplete?.()
-    }, 2900)
+    }
+
+    const t1 = setTimeout(() => setPhase('curtain'), 900)
+    const t2 = setTimeout(finish, 1600)
 
     return () => {
       clearTimeout(t1)
@@ -32,13 +46,14 @@ export default function SplashScreen({ onComplete }) {
     }
   }, [visible, onComplete])
 
+  if (!visible) return null
+
   return (
-    <AnimatePresence>
-      {visible && (
         <motion.div
           className={styles.overlay}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.55, ease: EASE_SMOOTH }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: phase === 'curtain' ? 0 : 1 }}
+          transition={{ duration: 0.45, ease: EASE_SMOOTH }}
         >
           {phase === 'curtain' && (
             <>
@@ -68,11 +83,7 @@ export default function SplashScreen({ onComplete }) {
             transition={{ duration: 0.9, ease: EASE_SMOOTH }}
           >
             <div className={styles.logoWrap}>
-              <motion.div
-                className={styles.logoGlow}
-                animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              />
+              <div className={styles.logoGlow} />
               <motion.img
                 src="/logo.png"
                 alt="IMPEVOS"
@@ -95,7 +106,5 @@ export default function SplashScreen({ onComplete }) {
             <span className={styles.tagline}>IMPEVOS TEKNOLOJİ</span>
           </motion.div>
         </motion.div>
-      )}
-    </AnimatePresence>
   )
 }
