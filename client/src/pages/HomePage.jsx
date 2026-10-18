@@ -10,6 +10,7 @@ import Stats from '../components/Stats/Stats'
 import Team from '../components/Team/Team'
 import Career from '../components/Career/Career'
 import InternshipDetails from '../components/InternshipDetails/InternshipDetails'
+import InternshipForm from '../components/InternshipForm/InternshipForm'
 import Process from '../components/Process/Process'
 import WhyUs from '../components/WhyUs/WhyUs'
 import Faq from '../components/Faq/Faq'
@@ -37,6 +38,7 @@ export default function HomePage() {
         <Team />
         <InternshipDetails />
         <Career />
+        <InternshipForm />
         <Faq />
         <Contact />
       </main>

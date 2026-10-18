@@ -1,26 +1,9 @@
-import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { INTERNSHIP_APPLICATIONS_OPEN } from '../../data/config'
 import styles from './Career.module.css'
 
 export default function Career() {
   const { t } = useTranslation()
-  const [status, setStatus] = useState('idle')
-
-  async function onSubmit(event) {
-    event.preventDefault()
-    const form = event.currentTarget
-    const data = new FormData(form)
-    setStatus('sending')
-    try {
-      const response = await fetch('/api/career/apply', { method: 'POST', body: data })
-      if (!response.ok) throw new Error('failed')
-      setStatus('success')
-      form.reset()
-    } catch {
-      setStatus('error')
-    }
-  }
 
   return (
     <section id="career" className={styles.section} aria-labelledby="career-title">
@@ -37,35 +20,11 @@ export default function Career() {
               <p className={styles.hint}>{t('careerSection.closedText')}</p>
             </div>
           ) : (
-          <form className={styles.form} onSubmit={onSubmit}>
-            {status === 'success' ? (
-              <p className={styles.success} role="status">{t('careerSection.success')}</p>
-            ) : (
-              <>
-                <label>
-                  {t('careerSection.name')}
-                  <input name="name" required autoComplete="name" />
-                </label>
-                <label>
-                  {t('careerSection.university')}
-                  <input name="university" required />
-                </label>
-                <label>
-                  {t('careerSection.department')}
-                  <input name="department" required />
-                </label>
-                <label>
-                  {t('careerSection.cv')}
-                  <input name="cv" type="file" required accept=".pdf,.doc,.docx,application/pdf" />
-                  <span className={styles.hint}>{t('careerSection.cvHint')}</span>
-                </label>
-                {status === 'error' ? <p className={styles.error} role="alert">{t('careerSection.error')}</p> : null}
-                <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>
-                  {status === 'sending' ? t('careerSection.sending') : t('careerSection.submit')}
-                </button>
-              </>
-            )}
-          </form>
+            <div className={styles.form}>
+              <h3 className={styles.closedTitle}>{t('careerSection.openTitle')}</h3>
+              <p className={styles.hint}>{t('careerSection.openText')}</p>
+              <a href="#internship-apply" className="btn btn-primary">{t('careerSection.openCta')}</a>
+            </div>
           )}
         </div>
       </div>

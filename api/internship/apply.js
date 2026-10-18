@@ -46,6 +46,12 @@ export default async function handler(req, res) {
 
     const notifyResults = await notifyApplication(application, cvPath)
 
+    if (!notifyResults.email?.sent) {
+      return sendJson(res, 502, {
+        error: 'Başvuru e-postası iletilemedi. Lütfen tekrar deneyin veya kariyer@impevos.com.tr adresine yazın.',
+      })
+    }
+
     return sendJson(res, 201, {
       ok: true,
       id: application.id,

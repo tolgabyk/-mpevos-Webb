@@ -471,9 +471,9 @@
   },
   "internship": {
     "hero": {
-      "badge": "Internship Openings 2026",
-      "title": "Impevos Internship Applications Are Open",
-      "subtitle": "Applications are now open for students with mandatory summer internships. We welcome students who want to gain real experience in software, design, mobile development, and digital projects.",
+      "badge": "Long-term internship",
+      "title": "Long-term voluntary internship applications are open",
+      "subtitle": "We are accepting 10 university students who want to develop themselves into a long-term voluntary internship. The aim is to gain experience on real projects.",
       "slides": [
         {
           "type": "team",
@@ -487,9 +487,9 @@
         },
         {
           "type": "internship",
-          "badge": "Internship Openings 2026",
-          "title": "Impevos Internship Applications Are Open",
-          "subtitle": "Applications are now open for students with mandatory summer internships. We welcome students who want real experience in software, design, mobile development, and digital projects.",
+          "badge": "10 places",
+          "title": "Long-term voluntary internship applications are open",
+          "subtitle": "Applications are open for university students who want to develop themselves. The programme is voluntary and focused on gaining real experience.",
           "cta1": "Apply Now",
           "cta1Link": "#internship-apply",
           "cta2": "View Internship Details",
@@ -516,28 +516,28 @@
       "label": "Internship announcement",
       "cta": "Apply",
       "messages": [
-        "Our internship applications are open — Summer internship now accepting",
-        "Internship opportunities in software, design, and mobile development",
-        "Real project experience for students with mandatory internships",
-        "Apply now to the Impevos summer internship program"
+        "Long-term voluntary internship applications are open — 10 places",
+        "Only university students who want to develop themselves",
+        "The aim is to gain experience on real projects",
+        "The programme is voluntary, not a paid job"
       ]
     },
     "popup": {
       "badge": "Internship Announcement",
-      "title": "Our Internship Applications Are Open!",
-      "desc": "Applications are now open for the Impevos summer internship program for students with mandatory internships. Join us to gain real experience in software, design, and digital projects.",
+      "title": "Long-term voluntary internship applications are open",
+      "desc": "We are accepting 10 university students who want to develop themselves. The programme is voluntary and focused on gaining experience.",
       "cta": "Go to Application Form",
       "later": "Maybe Later",
       "close": "Close"
     },
     "midBanner": {
-      "title": "Our Internship Applications Are Open",
-      "desc": "Applications continue for the Impevos internship program for students with mandatory summer internships. We're looking for students eager to grow in software, design, and digital projects.",
+      "title": "Long-term voluntary internship applications are open",
+      "desc": "10 places, open to university students. The programme is voluntary and for gaining experience.",
       "cta": "Apply Now"
     },
     "highlight": {
-      "title": "Internship Applications Are Open",
-      "desc": "Applications for the Impevos internship program are open for students with mandatory summer internships.",
+      "title": "Long-term internship applications are open",
+      "desc": "We are accepting 10 university students into the voluntary long-term internship.",
       "cta": "Apply",
       "cards": [
         "Real Project Experience",
@@ -547,31 +547,31 @@
       ]
     },
     "expectations": {
-      "title": "What awaits you in this internship",
+      "title": "Programme conditions",
       "items": [
-        "Working on real projects",
-        "Participating in team meetings",
-        "Learning software, design, and project processes",
-        "Receiving mentor support",
-        "Experiencing remote work culture",
-        "Creating portfolio-worthy work"
+        "The programme is voluntary. There is no salary, payment, or insurance commitment",
+        "10 people will be accepted this term",
+        "Only active university students can apply",
+        "The aim is to help you gain experience, not to offer a paid job",
+        "Work is remote, and regular team meetings are expected",
+        "You are expected to stay open to learning and developing yourself"
       ]
     },
     "details": {
-      "label": "Internship Program",
-      "title": "Impevos Summer Internship Program",
+      "label": "Long-term internship",
+      "title": "Long-term voluntary internship",
       "intro": [
-        "At İmpevos we run an internship programme for university students with a mandatory summer internship.",
-        "Our interns don't just watch — they take an active role in real product and project work.",
-        "Our goal is to give young talent a real working environment in software, design, project management and teamwork."
+        "Impevos is opening a long-term voluntary internship for university students who want to develop themselves.",
+        "This is not a paid role. The aim is to gain experience on real projects, learn inside a team, and turn that work into a portfolio.",
+        "We will accept 10 people this term. Applications are reviewed for a clear wish to gain experience and to keep learning."
       ],
-      "eligibleTitle": "Who Can Apply",
+      "eligibleTitle": "Who can apply",
       "eligible": [
-        "Students enrolled in relevant university departments",
-        "Students with mandatory summer internships",
-        "Those interested in software, design, mobile apps, web development, or digital projects",
-        "Individuals who can take responsibility and adapt to teamwork",
-        "Students who are eager to learn and communicate effectively"
+        "Active university students",
+        "People who want to develop themselves and gain new experience",
+        "Students who want experience in software, design, mobile, AI, or digital projects",
+        "People who can set aside regular time over a long period",
+        "People who accept the voluntary model"
       ],
       "areasTitle": "Application Areas",
       "areas": [
@@ -584,22 +584,22 @@
         "Project Management and Operations"
       ],
       "notice": {
-        "badge": "Announcement",
-        "title": "Internship applications open in January 2027",
-        "desc": "Applications for the summer 2027 internship programme will open on this page in January. Students with a mandatory summer internship can keep an eye on the date."
+        "badge": "10 places",
+        "title": "Long-term voluntary internship applications are open",
+        "desc": "We are accepting 10 university students who want to develop themselves into the long-term internship. The programme is voluntary. The focus is gaining experience on real projects."
       },
       "stats": [
         {
           "value": "10",
-          "label": "Interns · Summer 2026"
+          "label": "Interns we will accept"
         },
         {
-          "value": "6",
-          "label": "Projects built together"
+          "value": "Voluntary",
+          "label": "Experience-focused programme"
         },
         {
-          "value": "Jan 2027",
-          "label": "Next application period"
+          "value": "Long-term",
+          "label": "Regular participation"
         }
       ],
       "supportTitle": "What We Do for Applicants and Interns",
@@ -626,24 +626,32 @@
           "desc": "Weekly meetings to review progress together and give feedback."
         },
         {
-          "title": "Internship paperwork",
-          "desc": "We support interns with the logbook and documents required for mandatory internships."
+          "title": "We help you turn the work into a portfolio",
+          "desc": "We give feedback so the work you produce can become examples you can talk about."
         }
       ]
     },
     "form": {
       "label": "Application",
-      "title": "Internship Application Form",
-      "subtitle": "Required fields are marked with *.",
-      "closedTitle": "Applications Open in January 2027",
-      "closedDesc": "Our summer 2026 internship programme is complete. Applications for summer 2027 will open on this form in January.",
+      "title": "Long-term internship application",
+      "subtitle": "This application is only for university students who want to develop themselves. Required fields are marked with *.",
+      "closedTitle": "Applications are closed",
+      "closedDesc": "Applications are not accepted on this form while the long-term voluntary internship is closed.",
+      "rulesTitle": "Before you apply",
+      "rules": [
+        "10 people will be accepted this term.",
+        "The programme is voluntary. There is no payment, salary, or insurance promise.",
+        "Only active university students can apply.",
+        "The questions are there to understand which experience you want to gain.",
+        "You are expected to set aside regular time over the long term."
+      ],
       "steps": [
-        "Personal Info",
-        "Education Info",
-        "Internship Info",
-        "Technical Info",
-        "Links & CV",
-        "Review & Submit"
+        "Personal info",
+        "Student status",
+        "Experience",
+        "About you",
+        "Links and CV",
+        "Voluntary terms"
       ],
       "fields": {
         "fullName": "Full Name",
@@ -656,27 +664,39 @@
         "grade": "Year/Grade",
         "gpa": "What is your GPA?",
         "englishLevel": "What is your English level?",
-        "mandatoryInternship": "Do you have a mandatory summer internship?",
-        "internshipDateRange": "What is your internship date range?",
-        "internshipWorkDays": "How many business days is your internship?",
-        "field": "Which area would you like to intern in?",
-        "hasPreviousInternship": "Have you done an internship before?",
-        "previousInternshipInfo": "Briefly describe your internship experience (or write 'No experience')",
-        "technologies": "Which technologies have you used before?",
-        "selfIntro": "Briefly introduce yourself",
-        "reason": "Why do you want to intern at Impevos?",
+        "studentStatus": "Are you currently an active university student?",
+        "experienceGoal": "What experience do you want to gain in this internship?",
+        "developmentFocus": "What do you most want to develop in yourself?",
+        "field": "In which area do you want to gain experience?",
+        "hasPreviousInternship": "Have you already gained experience on a project or internship?",
+        "previousInternshipInfo": "Briefly describe that experience. If you have none yet, you can write 'No experience yet'.",
+        "technologies": "Which tools or technologies have you tried so far?",
+        "selfIntro": "Introduce yourself in a few sentences.",
+        "reason": "Why do you want to gain this experience at Impevos, as a volunteer?",
         "projectLink": "Project link",
         "github": "GitHub link",
         "linkedin": "LinkedIn link",
         "cv": "Upload CV",
         "portfolio": "Portfolio link",
-        "remoteWork": "Are you available for remote work?",
-        "daysPerWeek": "How many days per week can you be active?",
-        "teamMeetings": "Can you attend team meetings?",
+        "remoteWork": "Are you able to gain experience in a remote setup?",
+        "daysPerWeek": "How many days a week can you set aside over the long term?",
+        "teamMeetings": "Are you ready to gain experience by joining regular team meetings?",
+        "voluntaryConsent": "I have read and accept that this is a voluntary internship for gaining experience, not a paid job.",
+        "rulesAccepted": "I have read that the programme is only for university students, that there are 10 places, and that I accept the conditions.",
         "howDidYouHear": "How did you hear about Impevos?",
         "additionalNotes": "Anything else you'd like to add?"
       },
       "options": {
+        "student": [
+          {
+            "value": "yes",
+            "label": "Yes, I am an active university student"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
         "mandatory": [
           {
             "value": "yes",
@@ -820,8 +840,11 @@
       "linkHint": "If you don't have a link, you can write 'None'.",
       "cvHint": "PDF, DOC or DOCX (max 5MB)",
       "required": "Please fill in all required fields.",
+      "studentOnly": "This programme is only open to active university students.",
+      "consentRequired": "You need to accept the voluntary internship terms to continue.",
       "invalidEmail": "Please enter a valid email address.",
       "cvRequired": "CV upload is required.",
+      "voluntaryNote": "The Impevos long-term internship is a voluntary experience programme. It is unpaid. The aim is for you to gain experience on real projects and develop yourself.",
       "back": "Back",
       "next": "Next",
       "submit": "Submit Application",
@@ -867,8 +890,11 @@
   },
   "careerSection": {
     "label": "Careers",
-    "title": "Internship programme",
-    "subtitle": "We offer university students the chance to complete their mandatory internship on real projects with our product teams.",
+    "title": "Long-term voluntary internship",
+    "subtitle": "We are accepting 10 university students who want to develop themselves into a long-term voluntary internship on real projects.",
+    "openTitle": "10 places are open",
+    "openText": "The application is for students who want to gain experience. The programme is voluntary.",
+    "openCta": "Go to the application form",
     "name": "Full name",
     "university": "University",
     "department": "Department",
@@ -878,8 +904,8 @@
     "sending": "Sending",
     "success": "Application received. We will write to you if there is a fit.",
     "error": "The application could not be sent. You can write to kariyer@impevos.com.tr.",
-    "closedTitle": "Applications open in January 2027",
-    "closedText": "Applications for the summer 2027 mandatory internship will open here in January."
+    "closedTitle": "Applications are closed",
+    "closedText": "Applications are not accepted here while the long-term voluntary internship is closed."
   },
   "cookie": {
     "text": "This site uses a necessary cookie to remember your choice.",
@@ -1072,7 +1098,7 @@
       },
       {
         "q": "How can I join your team?",
-        "a": "Use the 'Join the Team' page for team applications. Internship applications open in January 2027."
+        "a": "Use the Join the Team page for team applications. The long-term voluntary internship application is the form on this page. It is for students, and there are 10 places."
       }
     ]
   }

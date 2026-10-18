@@ -4,12 +4,15 @@ import { syncToDashboard } from '../../server/src/services/dashboard.js'
 
 const REQUIRED_FIELDS = [
   'fullName', 'email', 'phone', 'city',
-  'university', 'department', 'grade',
-  'mandatoryInternship', 'internshipDateRange', 'internshipWorkDays', 'field',
-  'hasPreviousInternship',
+  'university', 'department', 'grade', 'studentStatus',
+  'field', 'experienceGoal', 'developmentFocus', 'hasPreviousInternship',
   'technologies', 'selfIntro', 'reason',
   'remoteWork', 'daysPerWeek', 'teamMeetings',
 ]
+
+function accepted(value) {
+  return value === true || value === 'true' || value === 'yes' || value === 'on' || value === '1'
+}
 
 function trimOrEmpty(v) {
   return (v ?? '').trim()
@@ -28,6 +31,7 @@ export function parseInternshipForm(fields, file) {
     'district', 'gpa', 'englishLevel', 'previousInternshipInfo',
     'projectLink', 'github', 'linkedin', 'portfolio',
     'howDidYouHear', 'additionalNotes',
+    'voluntaryConsent', 'rulesAccepted',
   ]) {
     body[key] = fieldValue(fields, key)
   }
@@ -36,6 +40,14 @@ export function parseInternshipForm(fields, file) {
     if (!body[field]) {
       throw new Error(`${field} alanı zorunludur`)
     }
+  }
+
+  if (body.studentStatus !== 'yes') {
+    throw new Error('Bu program yalnızca aktif üniversite öğrencilerine açıktır')
+  }
+
+  if (!accepted(body.voluntaryConsent) || !accepted(body.rulesAccepted)) {
+    throw new Error('Gönüllü staj şartlarını kabul etmeniz gerekmektedir')
   }
 
   if (body.hasPreviousInternship === 'yes' && !body.previousInternshipInfo) {
@@ -77,9 +89,11 @@ export function parseInternshipForm(fields, file) {
       grade: body.grade,
       gpa: body.gpa,
       englishLevel: body.englishLevel,
-      mandatoryInternship: body.mandatoryInternship,
-      internshipDateRange: body.internshipDateRange,
-      internshipWorkDays: body.internshipWorkDays,
+      studentStatus: body.studentStatus,
+      experienceGoal: body.experienceGoal,
+      developmentFocus: body.developmentFocus,
+      voluntaryConsent: accepted(body.voluntaryConsent),
+      rulesAccepted: accepted(body.rulesAccepted),
       field: body.field,
       hasPreviousInternship: body.hasPreviousInternship,
       previousInternshipInfo: body.previousInternshipInfo,

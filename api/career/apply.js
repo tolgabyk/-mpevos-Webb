@@ -48,7 +48,7 @@ export default async function handler(req, res) {
 
     await transporter.sendMail({
       from: process.env.SMTP_USER,
-      to: process.env.CAREER_EMAIL || process.env.INTERNSHIP_EMAIL || 'kariyer@impevos.com.tr',
+      to: ['burak.gokce@impevos.com.tr', 'kariyer@impevos.com.tr'],
       subject: `[Staj Başvurusu] ${name}`,
       text: `Ad: ${name}\nÜniversite: ${university}\nBölüm: ${department}`,
       attachments: [{ filename: file.originalFilename || 'cv.pdf', path: file.filepath }],

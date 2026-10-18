@@ -32,12 +32,15 @@ const router = express.Router()
 
 const REQUIRED_FIELDS = [
   'fullName', 'email', 'phone', 'city',
-  'university', 'department', 'grade',
-  'mandatoryInternship', 'internshipDateRange', 'internshipWorkDays', 'field',
-  'hasPreviousInternship',
+  'university', 'department', 'grade', 'studentStatus',
+  'field', 'experienceGoal', 'developmentFocus', 'hasPreviousInternship',
   'technologies', 'selfIntro', 'reason',
   'remoteWork', 'daysPerWeek', 'teamMeetings',
 ]
+
+function accepted(value) {
+  return value === true || value === 'true' || value === 'yes' || value === 'on' || value === '1'
+}
 
 function trimOrEmpty(v) {
   return v?.trim() || ''
@@ -66,6 +69,14 @@ async function handleApply(req, res) {
       }
     }
 
+    if (req.body.studentStatus !== 'yes') {
+      return res.status(400).json({ error: 'Bu program yalnızca aktif üniversite öğrencilerine açıktır' })
+    }
+
+    if (!accepted(req.body.voluntaryConsent) || !accepted(req.body.rulesAccepted)) {
+      return res.status(400).json({ error: 'Gönüllü staj şartlarını kabul etmeniz gerekmektedir' })
+    }
+
     if (req.body.hasPreviousInternship === 'yes' && !req.body.previousInternshipInfo?.trim()) {
       return res.status(400).json({ error: 'previousInternshipInfo alanı zorunludur' })
     }
@@ -92,9 +103,11 @@ async function handleApply(req, res) {
       grade: req.body.grade.trim(),
       gpa: trimOrEmpty(req.body.gpa),
       englishLevel: trimOrEmpty(req.body.englishLevel),
-      mandatoryInternship: req.body.mandatoryInternship,
-      internshipDateRange: req.body.internshipDateRange.trim(),
-      internshipWorkDays: req.body.internshipWorkDays.trim(),
+      studentStatus: req.body.studentStatus,
+      experienceGoal: req.body.experienceGoal.trim(),
+      developmentFocus: req.body.developmentFocus.trim(),
+      voluntaryConsent: accepted(req.body.voluntaryConsent),
+      rulesAccepted: accepted(req.body.rulesAccepted),
       field: req.body.field,
       hasPreviousInternship: req.body.hasPreviousInternship,
       previousInternshipInfo: trimOrEmpty(req.body.previousInternshipInfo),

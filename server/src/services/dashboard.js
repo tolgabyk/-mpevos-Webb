@@ -13,7 +13,6 @@ const FIELD_LABELS = {
   undecided: 'Henüz karar vermedim',
 }
 
-const MANDATORY_LABELS = { yes: 'Evet', no: 'Hayır', unsure: 'Emin değilim' }
 const REMOTE_LABELS = { yes: 'Evet', no: 'Hayır', partial: 'Kısmen' }
 const MEETING_LABELS = { yes: 'Evet', no: 'Hayır', depends: 'Duruma göre' }
 const ENGLISH_LABELS = { beginner: 'Başlangıç', intermediate: 'Orta', good: 'İyi', advanced: 'İleri' }
@@ -28,10 +27,11 @@ function buildMessage(application) {
     ['İlçe', application.district],
     ['Not Ortalaması', application.gpa],
     ['İngilizce Seviyesi', ENGLISH_LABELS[application.englishLevel] || application.englishLevel],
-    ['Staj Alanı', FIELD_LABELS[application.field] || application.field],
-    ['Zorunlu Yaz Stajı', MANDATORY_LABELS[application.mandatoryInternship] || application.mandatoryInternship],
-    ['Staj Tarih Aralığı', application.internshipDateRange],
-    ['Staj Süresi (İş Günü)', application.internshipWorkDays],
+    ['Aktif Üniversite Öğrencisi', application.studentStatus === 'yes' ? 'Evet' : application.studentStatus],
+    ['Deneyim Alanı', FIELD_LABELS[application.field] || application.field],
+    ['Edinmek İstediği Tecrübe', application.experienceGoal],
+    ['Geliştirmek İstediği Konu', application.developmentFocus],
+    ['Gönüllü Staj Onayı', application.voluntaryConsent ? 'Evet' : 'Hayır'],
     ['Önceki Staj Deneyimi', application.hasPreviousInternship === 'yes' ? 'Evet' : 'Hayır'],
     ['Staj Deneyimi Detayı', application.previousInternshipInfo],
     ['Teknolojiler', application.technologies],

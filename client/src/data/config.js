@@ -1,1 +1,1 @@
-export const INTERNSHIP_APPLICATIONS_OPEN = false
+export const INTERNSHIP_APPLICATIONS_OPEN = true

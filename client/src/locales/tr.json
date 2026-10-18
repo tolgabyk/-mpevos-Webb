@@ -471,9 +471,9 @@
   },
   "internship": {
     "hero": {
-      "badge": "Stajyer Alımları 2027",
-      "title": "Stajyer Başvuruları Ocak'ta Açılıyor",
-      "subtitle": "2027 yaz dönemi staj başvurularımız Ocak 2027'de açılacak. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri bekliyoruz.",
+      "badge": "Uzun Dönem Staj",
+      "title": "Uzun Dönem Gönüllü Staj Başvuruları Açık",
+      "subtitle": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi uzun dönem gönüllü staj programımıza alıyoruz. Amaç, gerçek projelerde deneyim kazanmak ve tecrübe edinmektir.",
       "slides": [
         {
           "type": "team",
@@ -487,9 +487,9 @@
         },
         {
           "type": "internship",
-          "badge": "Stajyer Alımları 2026",
-          "title": "İmpevos Stajyer Alımları Başladı",
-          "subtitle": "Zorunlu yaz stajı olan öğrenciler için staj başvurularımız açıldı. Yazılım, tasarım, mobil geliştirme ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri ekibimize bekliyoruz.",
+          "badge": "10 kişilik kontenjan",
+          "title": "Uzun Dönem Gönüllü Staj Başvuruları Açık",
+          "subtitle": "Kendini geliştirmek isteyen üniversite öğrencileri için uzun dönem gönüllü staj başvuruları açıldı. Program deneyim kazanmak ve gerçek projelerde tecrübe etmek içindir.",
           "cta1": "Hemen Başvur",
           "cta1Link": "#internship-apply",
           "cta2": "Staj Detaylarını Gör",
@@ -516,28 +516,28 @@
       "label": "Staj duyurusu",
       "cta": "Başvur",
       "messages": [
-        "Stajyer başvuruları Ocak 2027'de açılacak",
-        "2026 yaz döneminde 10 stajyerle 6 proje geliştirdik",
-        "Zorunlu stajı olan öğrenciler için gerçek proje deneyimi",
-        "2027 yaz staj programı için takipte kal"
+        "Uzun dönem gönüllü staj başvuruları açık — 10 kişilik kontenjan",
+        "Yalnızca üniversite öğrencileri ve kendini geliştirmek isteyenler",
+        "Amaç deneyim kazanmak ve gerçek projelerde tecrübe etmek",
+        "Program gönüllüdür, ücretli bir iş değildir"
       ]
     },
     "popup": {
       "badge": "Staj Duyurusu",
-      "title": "Stajyer Başvuruları Ocak'ta Açılıyor!",
-      "desc": "2027 yaz dönemi staj başvuruları Ocak 2027'de açılacak. Yazılım, tasarım ve dijital projelerde gerçek deneyim kazanmak isteyen öğrencileri bekliyoruz.",
+      "title": "Uzun dönem gönüllü staj başvuruları açık",
+      "desc": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi alıyoruz. Program gönüllüdür; odak deneyim kazanmak ve tecrübe etmektir.",
       "cta": "Staj Detaylarını Gör",
       "later": "Daha Sonra",
       "close": "Kapat"
     },
     "midBanner": {
-      "title": "Stajyer Başvuruları Ocak 2027'de Açılıyor",
-      "desc": "2027 yaz dönemi staj başvuruları Ocak ayında başlayacak. Yazılım, tasarım ve dijital projelerde kendini geliştirmek isteyen öğrencileri bekliyoruz.",
+      "title": "Uzun dönem gönüllü staj başvuruları açık",
+      "desc": "10 kişilik kontenjan, üniversite öğrencilerine açık. Program gönüllüdür ve deneyim kazanmak içindir.",
       "cta": "Detayları Gör"
     },
     "highlight": {
-      "title": "Stajyer Başvuruları Ocak'ta Açılıyor",
-      "desc": "2027 yaz dönemi staj başvuruları Ocak 2027'de açılacak.",
+      "title": "Uzun dönem staj başvuruları açık",
+      "desc": "10 üniversite öğrencisini gönüllü uzun dönem staj programına alıyoruz.",
       "cta": "Başvuru Yap",
       "cards": [
         "Gerçek Proje Deneyimi",
@@ -547,31 +547,31 @@
       ]
     },
     "expectations": {
-      "title": "Bu stajda seni neler bekliyor",
+      "title": "Programın şartları",
       "items": [
-        "Gerçek projelerde görev alma",
-        "Ekip toplantılarına katılma",
-        "Yazılım, tasarım ve proje süreçlerini öğrenme",
-        "Mentor desteği alma",
-        "Uzaktan çalışma kültürünü deneyimleme",
-        "Portföyüne ekleyebileceğin işler üretme"
+        "Program gönüllüdür; maaş, ücret veya sigorta taahhüdü yoktur",
+        "Bu dönem 10 kişi alınacaktır",
+        "Yalnızca aktif üniversite öğrencileri başvurabilir",
+        "Amaç işe almak değil, deneyim kazandırmak ve tecrübe ettirmektir",
+        "Uzaktan çalışılır; düzenli ekip toplantılarına katılım beklenir",
+        "Süreç boyunca öğrenmeye ve kendini geliştirmeye açık olmak gerekir"
       ]
     },
     "details": {
-      "label": "Staj Programı",
-      "title": "İmpevos Yaz Stajı Programı",
+      "label": "Uzun Dönem Staj",
+      "title": "Uzun Dönem Gönüllü Staj",
       "intro": [
-        "İmpevos olarak zorunlu yaz stajı olan üniversite öğrencileri için staj programı yürütüyoruz.",
-        "Stajyerlerimiz yalnızca izleyici olarak değil, gerçek ürün ve proje süreçlerinde aktif rol alarak deneyim kazanıyor.",
-        "Amacımız genç yeteneklere yazılım, tasarım, proje yönetimi ve ekip çalışması konusunda gerçek bir çalışma ortamı sunmak."
+        "İmpevos, kendini geliştirmek isteyen üniversite öğrencileri için uzun dönem gönüllü staj programı açıyor.",
+        "Bu program ücretli bir iş değildir. Amaç; gerçek projelerde deneyim kazanmak, ekip içinde tecrübe edinmek ve öğrendiklerini portfolyoya dönüştürmektir.",
+        "Bu dönemde 10 kişiyi ekibimize alacağız. Başvurular deneyim kazanma isteğine ve öğrenmeye açıklığa göre değerlendirilir."
       ],
       "eligibleTitle": "Kimler Başvurabilir",
       "eligible": [
-        "Üniversitelerin ilgili bölümlerinde okuyan öğrenciler",
-        "Zorunlu yaz stajı bulunan öğrenciler",
-        "Yazılım, tasarım, mobil uygulama, web geliştirme veya dijital projelere ilgi duyanlar",
-        "Sorumluluk alabilecek ve ekip çalışmasına uyum sağlayabilecek kişiler",
-        "Öğrenmeye açık ve düzenli iletişim kurabilecek öğrenciler"
+        "Aktif üniversite öğrencileri",
+        "Kendini geliştirmek ve yeni tecrübeler edinmek isteyenler",
+        "Yazılım, tasarım, mobil, yapay zeka veya dijital projelerde deneyim kazanmak isteyenler",
+        "Uzun dönem boyunca düzenli zaman ayırabilecekler",
+        "Gönüllü çalışma modelini kabul edenler"
       ],
       "areasTitle": "Başvuru Alanları",
       "areas": [
@@ -584,22 +584,22 @@
         "Proje Yönetimi ve Operasyon"
       ],
       "notice": {
-        "badge": "Duyuru",
-        "title": "Stajyer başvuruları Ocak 2027'de açılacak",
-        "desc": "2027 yaz dönemi staj başvuruları Ocak ayında bu sayfadan alınmaya başlanacak. Zorunlu yaz stajı olan öğrenciler başvuru tarihini takip edebilir."
+        "badge": "10 kişilik kontenjan",
+        "title": "Uzun dönem gönüllü staj başvuruları açık",
+        "desc": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi uzun dönem staj programımıza alıyoruz. Süreç gönüllüdür; odak deneyim kazanmak ve gerçek projelerde tecrübe etmektir."
       },
       "stats": [
         {
           "value": "10",
-          "label": "Stajyer · 2026 Yaz"
+          "label": "Alınacak stajyer"
         },
         {
-          "value": "6",
-          "label": "Birlikte geliştirilen proje"
+          "value": "Gönüllü",
+          "label": "Deneyim odaklı program"
         },
         {
-          "value": "Ocak 2027",
-          "label": "Yeni başvuru dönemi"
+          "value": "Uzun dönem",
+          "label": "Düzenli katılım"
         }
       ],
       "supportTitle": "Başvurular ve Stajyerler İçin Neler Yapıyoruz",
@@ -626,24 +626,32 @@
           "desc": "Haftalık toplantılarla ilerlemeyi birlikte değerlendiriyor, geri bildirim veriyoruz."
         },
         {
-          "title": "Staj evraklarını tamamlıyoruz",
-          "desc": "Zorunlu staj için gereken staj defteri ve belge süreçlerinde stajyerlerimize destek oluyoruz."
+          "title": "Öğrendiklerini portfolyona dönüştürüyoruz",
+          "desc": "Staj boyunca ürettiğin işleri, deneyimini anlatabileceğin örneklere dönüştürmen için geri bildirim veriyoruz."
         }
       ]
     },
     "form": {
       "label": "Başvuru",
-      "title": "Staj Başvuru Formu",
-      "subtitle": "Zorunlu alanlar * ile işaretlidir.",
-      "closedTitle": "Başvurular Ocak 2027'de Açılıyor",
-      "closedDesc": "2026 yaz dönemi staj programımız tamamlandı. 2027 yaz stajı başvuruları Ocak ayında bu form üzerinden alınmaya başlanacak.",
+      "title": "Uzun Dönem Staj Başvurusu",
+      "subtitle": "Başvuru yalnızca üniversite öğrencilerine ve kendini geliştirmek isteyenlere açıktır. Zorunlu alanlar * ile işaretlidir.",
+      "closedTitle": "Başvurular şu an kapalı",
+      "closedDesc": "Uzun dönem gönüllü staj başvuruları kapalıyken bu form üzerinden başvuru alınmaz.",
+      "rulesTitle": "Başvurmadan önce",
+      "rules": [
+        "Bu dönem 10 kişi alınacaktır.",
+        "Program gönüllüdür. Ücret, maaş veya sigorta vaadi yoktur.",
+        "Yalnızca aktif üniversite öğrencileri başvurabilir.",
+        "Sorular, hangi deneyimi kazanmak ve hangi tecrübeyi edinmek istediğini anlamak içindir.",
+        "Uzun dönem boyunca düzenli zaman ayırman beklenir."
+      ],
       "steps": [
         "Kişisel Bilgiler",
-        "Eğitim Bilgileri",
-        "Staj Bilgileri",
-        "Teknik Bilgiler",
+        "Öğrencilik",
+        "Deneyim",
+        "Kendini Anlat",
         "Linkler ve CV",
-        "Onay ve Gönder"
+        "Gönüllülük"
       ],
       "fields": {
         "fullName": "Ad Soyad",
@@ -656,27 +664,39 @@
         "grade": "Sınıf",
         "gpa": "Not ortalaman nedir?",
         "englishLevel": "İngilizce seviyen nedir?",
-        "mandatoryInternship": "Zorunlu yaz stajın var mı?",
-        "internshipDateRange": "Staj tarih aralığın nedir?",
-        "internshipWorkDays": "Staj süren kaç iş günü?",
-        "field": "Hangi alanda staj yapmak istiyorsun?",
-        "hasPreviousInternship": "Daha önce staj yaptın mı?",
-        "previousInternshipInfo": "Staj deneyimini kısaca anlat (yoksa 'Deneyimim yok' yaz)",
-        "technologies": "Daha önce hangi teknolojileri kullandın?",
-        "selfIntro": "Kendini kısaca tanıtır mısın?",
-        "reason": "İmpevos'ta staj yapmak isteme sebebin nedir?",
+        "studentStatus": "Şu an bir üniversitede aktif öğrenci misin?",
+        "experienceGoal": "Bu stajda hangi tecrübeyi edinmek istiyorsun?",
+        "developmentFocus": "Kendini en çok hangi konuda geliştirmek istiyorsun?",
+        "field": "Hangi alanda deneyim kazanmak istiyorsun?",
+        "hasPreviousInternship": "Daha önce bir projede veya stajda deneyim kazandın mı?",
+        "previousInternshipInfo": "Kazandığın deneyimi kısaca anlat. Henüz yoksa 'Henüz deneyimim yok' yazabilirsin.",
+        "technologies": "Şimdiye kadar hangi araçları veya teknolojileri denedin?",
+        "selfIntro": "Kendini birkaç cümleyle tanıtır mısın?",
+        "reason": "Bu deneyimi neden İmpevos'ta, gönüllü olarak kazanmak istiyorsun?",
         "projectLink": "Proje linkin",
         "github": "GitHub linkin",
         "linkedin": "LinkedIn linkin",
         "cv": "CV Yükle",
         "portfolio": "Portfolyo linkin",
-        "remoteWork": "Uzaktan çalışmaya uygun musun?",
-        "daysPerWeek": "Haftalık kaç gün aktif olabilirsin?",
-        "teamMeetings": "Ekip toplantılarına katılabilir misin?",
+        "remoteWork": "Uzaktan çalışma düzeninde deneyim kazanmaya uygun musun?",
+        "daysPerWeek": "Uzun dönem boyunca haftada kaç gün zaman ayırabilirsin?",
+        "teamMeetings": "Düzenli ekip toplantılarına katılarak tecrübe edinmeye hazır mısın?",
+        "voluntaryConsent": "Bu programın ücretli bir iş değil, deneyim kazanmaya yönelik gönüllü bir staj olduğunu okudum ve kabul ediyorum.",
+        "rulesAccepted": "Programın yalnızca üniversite öğrencilerine açık olduğunu, 10 kişilik kontenjanı ve şartları okudum.",
         "howDidYouHear": "İmpevos'u nereden duydun?",
         "additionalNotes": "Eklemek istediğin bir şey var mı?"
       },
       "options": {
+        "student": [
+          {
+            "value": "yes",
+            "label": "Evet, aktif üniversite öğrencisiyim"
+          },
+          {
+            "value": "no",
+            "label": "Hayır"
+          }
+        ],
         "mandatory": [
           {
             "value": "yes",
@@ -820,8 +840,11 @@
       "linkHint": "Linkin yoksa ilgili alana 'Yok' yazabilirsin.",
       "cvHint": "PDF, DOC veya DOCX (max 5MB)",
       "required": "Lütfen tüm zorunlu alanları doldurun.",
+      "studentOnly": "Bu program yalnızca aktif üniversite öğrencilerine açıktır.",
+      "consentRequired": "Devam etmek için gönüllü staj şartlarını kabul etmen gerekir.",
       "invalidEmail": "Geçerli bir e-posta adresi giriniz.",
       "cvRequired": "CV yüklemeniz gerekmektedir.",
+      "voluntaryNote": "İmpevos uzun dönem stajı gönüllü bir deneyim programıdır. Karşılığında ücret ödenmez. Amaç, gerçek projelerde tecrübe edinmen ve kendini geliştirmen.",
       "back": "Geri",
       "next": "İleri",
       "submit": "Başvuruyu Gönder",
@@ -867,8 +890,11 @@
   },
   "careerSection": {
     "label": "Kariyer",
-    "title": "Staj programı",
-    "subtitle": "Üniversite öğrencilerine zorunlu stajlarını ürün ekiplerimizde, gerçek projelerde tamamlama imkânı sunuyoruz.",
+    "title": "Uzun dönem gönüllü staj",
+    "subtitle": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi, gerçek projelerde deneyim kazanmaları için uzun dönem gönüllü staj programımıza alıyoruz.",
+    "openTitle": "10 kişilik kontenjan açık",
+    "openText": "Başvuru, deneyim kazanmak ve tecrübe edinmek isteyen öğrencilere yöneliktir. Program gönüllüdür.",
+    "openCta": "Başvuru formuna git",
     "name": "Ad soyad",
     "university": "Üniversite",
     "department": "Bölüm",
@@ -878,8 +904,8 @@
     "sending": "Gönderiliyor",
     "success": "Başvuru alındı. Uygun görülürse sizinle iletişime geçilir.",
     "error": "Başvuru iletilemedi. kariyer@impevos.com.tr adresine yazabilirsiniz.",
-    "closedTitle": "Başvurular Ocak 2027'de açılacak",
-    "closedText": "2027 yaz dönemi zorunlu staj başvuruları Ocak ayında bu bölümden alınmaya başlanacak."
+    "closedTitle": "Başvurular şu an kapalı",
+    "closedText": "Uzun dönem gönüllü staj başvuruları kapalıyken bu bölümden başvuru alınmaz."
   },
   "cookie": {
     "text": "Site, tercihlerinizi hatırlamak için zorunlu bir çerez kullanır.",
@@ -1072,7 +1098,7 @@
       },
       {
         "q": "Ekibinize nasıl katılabilirim?",
-        "a": "Ekip başvuruları için 'Ekibe Katıl' sayfasını kullanabilirsiniz. Staj başvurularımız Ocak 2027'de açılacak."
+        "a": "Ekip başvuruları için 'Ekibe Katıl' sayfasını kullanabilirsiniz. Uzun dönem gönüllü staj başvurusu bu sayfadaki formdan alınır. Program öğrencilere yöneliktir ve 10 kişiliktir."
       }
     ]
   }

@@ -31,7 +31,7 @@ router.post('/apply', upload.single('cv'), async (req, res) => {
   }
 
   try {
-    const to = process.env.CAREER_EMAIL || process.env.INTERNSHIP_EMAIL || 'kariyer@impevos.com.tr'
+    const to = ['burak.gokce@impevos.com.tr', 'kariyer@impevos.com.tr']
     if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,

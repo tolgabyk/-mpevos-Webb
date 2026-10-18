@@ -28,15 +28,15 @@ const FIELD_LABELS = {
   grade: 'Sınıf',
   gpa: 'Not Ortalaması',
   englishLevel: 'İngilizce Seviyesi',
-  mandatoryInternship: 'Zorunlu Yaz Stajı',
-  internshipDateRange: 'Staj Tarih Aralığı',
-  internshipWorkDays: 'Staj Süresi (İş Günü)',
-  field: 'Staj Alanı',
-  hasPreviousInternship: 'Önceki Staj Deneyimi',
-  previousInternshipInfo: 'Staj Deneyimi Detayı',
-  technologies: 'Teknolojiler',
+  studentStatus: 'Aktif Üniversite Öğrencisi',
+  field: 'Deneyim Alanı',
+  experienceGoal: 'Edinmek İstediği Tecrübe',
+  developmentFocus: 'Geliştirmek İstediği Konu',
+  hasPreviousInternship: 'Önceki Deneyim',
+  previousInternshipInfo: 'Deneyim Detayı',
+  technologies: 'Denediği Araçlar ve Teknolojiler',
   selfIntro: 'Kendini Tanıtma',
-  reason: 'Staj Sebebi',
+  reason: 'Gönüllü Staj Sebebi',
   projectLink: 'Proje Linki',
   github: 'GitHub',
   linkedin: 'LinkedIn',
@@ -46,9 +46,24 @@ const FIELD_LABELS = {
   teamMeetings: 'Ekip Toplantıları',
   howDidYouHear: 'İmpevos\'u Nereden Duydun',
   additionalNotes: 'Ek Notlar',
+  voluntaryConsent: 'Gönüllü Staj Onayı',
+  rulesAccepted: 'Şartlar Onayı',
+}
+
+const INTERNSHIP_RECIPIENTS = ['burak.gokce@impevos.com.tr', 'kariyer@impevos.com.tr']
+
+function internshipRecipients() {
+  const fromEnv = [process.env.INTERNSHIP_EMAIL, process.env.CAREER_EMAIL]
+    .flatMap((value) => String(value || '').split(/[,;]/))
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean)
+  return [...new Set([...INTERNSHIP_RECIPIENTS, ...fromEnv])]
 }
 
 const VALUE_LABELS = {
+  studentStatus: { yes: 'Evet', no: 'Hayır' },
+  voluntaryConsent: { true: 'Evet', false: 'Hayır' },
+  rulesAccepted: { true: 'Evet', false: 'Hayır' },
   mandatoryInternship: { yes: 'Evet', no: 'Hayır', unsure: 'Emin değilim' },
   hasPreviousInternship: { yes: 'Evet', no: 'Hayır' },
   remoteWork: { yes: 'Evet', no: 'Hayır', partial: 'Kısmen' },
@@ -77,6 +92,7 @@ const VALUE_LABELS = {
 }
 
 function formatValue(key, value) {
+  if (value === true || value === false) return value ? 'Evet' : 'Hayır'
   if (!value) return '—'
   return VALUE_LABELS[key]?.[value] || value
 }
@@ -91,8 +107,8 @@ function buildHtml(application) {
 
   return `
     <div style="font-family:Inter,Arial,sans-serif;max-width:640px;">
-      <h2 style="color:#000;">Yeni Staj Başvurusu</h2>
-      <p style="color:#666;">Web sitesinden yeni bir staj başvurusu alındı.</p>
+      <h2 style="color:#000;">Yeni Uzun Dönem Staj Başvurusu</h2>
+      <p style="color:#666;">Web sitesinden yeni bir uzun dönem gönüllü staj başvurusu alındı.</p>
       <table style="border-collapse:collapse;width:100%;font-size:14px;">${rows}</table>
       <p style="margin-top:24px;color:#888;font-size:12px;">Başvuru ID: ${application.id}</p>
     </div>
@@ -107,13 +123,13 @@ function buildText(application) {
 
 export async function sendInternshipNotification(application, cvPath) {
   const transporter = getTransporter()
-  const to = process.env.INTERNSHIP_EMAIL || process.env.CAREER_EMAIL || process.env.JOIN_TEAM_EMAIL || 'kariyer@impevos.com.tr'
+  const to = internshipRecipients()
 
   const mailOptions = {
-    from: `"İmpevos Staj Başvuruları" <${process.env.SMTP_USER || to}>`,
+    from: `"İmpevos Staj Başvuruları" <${process.env.SMTP_USER || 'kariyer@impevos.com.tr'}>`,
     replyTo: application.email,
     to,
-    subject: `[Staj Başvurusu] ${application.fullName} — ${formatValue('field', application.field)}`,
+    subject: `[Uzun Dönem Staj] ${application.fullName} — ${formatValue('field', application.field)}`,
     text: buildText(application),
     html: buildHtml(application),
     attachments: cvPath ? [{ filename: application.cvOriginalName || 'cv.pdf', path: cvPath }] : [],

@@ -17,10 +17,10 @@ const INITIAL_FORM = {
   grade: '',
   gpa: '',
   englishLevel: '',
-  mandatoryInternship: '',
-  internshipDateRange: '',
-  internshipWorkDays: '',
+  studentStatus: '',
   field: '',
+  experienceGoal: '',
+  developmentFocus: '',
   hasPreviousInternship: '',
   previousInternshipInfo: '',
   technologies: '',
@@ -35,12 +35,14 @@ const INITIAL_FORM = {
   teamMeetings: '',
   howDidYouHear: '',
   additionalNotes: '',
+  voluntaryConsent: false,
+  rulesAccepted: false,
 }
 
 const REQUIRED_FIELDS = {
   0: ['fullName', 'email', 'phone', 'city'],
-  1: ['university', 'department', 'grade'],
-  2: ['mandatoryInternship', 'internshipDateRange', 'internshipWorkDays', 'field', 'hasPreviousInternship'],
+  1: ['university', 'department', 'grade', 'studentStatus'],
+  2: ['field', 'experienceGoal', 'developmentFocus', 'hasPreviousInternship'],
   3: ['technologies', 'selfIntro', 'reason'],
   4: [],
   5: ['remoteWork', 'daysPerWeek', 'teamMeetings'],
@@ -91,7 +93,7 @@ export default function InternshipForm() {
   const [error, setError] = useState('')
 
   const stepLabels = t('internship.form.steps', { returnObjects: true })
-  const mandatoryOptions = t('internship.form.options.mandatory', { returnObjects: true })
+  const studentOptions = t('internship.form.options.student', { returnObjects: true })
   const fieldOptions = t('internship.form.options.field', { returnObjects: true })
   const remoteOptions = t('internship.form.options.remote', { returnObjects: true })
   const meetingOptions = t('internship.form.options.meetings', { returnObjects: true })
@@ -119,10 +121,16 @@ export default function InternshipForm() {
 
   const validateStep = (stepIndex = step) => {
     for (const field of REQUIRED_FIELDS[stepIndex]) {
-      if (!form[field]?.trim()) {
+      const value = form[field]
+      if (typeof value === 'string' ? !value.trim() : !value) {
         setError(t('internship.form.required'))
         return false
       }
+    }
+
+    if (stepIndex === 1 && form.studentStatus !== 'yes') {
+      setError(t('internship.form.studentOnly'))
+      return false
     }
 
     if (stepIndex === 2 && form.hasPreviousInternship === 'yes' && !form.previousInternshipInfo?.trim()) {
@@ -137,6 +145,11 @@ export default function InternshipForm() {
 
     if (stepIndex === 4 && !cvFile) {
       setError(t('internship.form.cvRequired'))
+      return false
+    }
+
+    if (stepIndex === 5 && (!form.voluntaryConsent || !form.rulesAccepted)) {
+      setError(t('internship.form.consentRequired'))
       return false
     }
 
@@ -236,6 +249,7 @@ export default function InternshipForm() {
       case 1:
         return (
           <div className={styles.fields}>
+            {renderSelect('studentStatus', t('internship.form.fields.studentStatus'), studentOptions, true)}
             {renderField('university', t('internship.form.fields.university'), 'text', true)}
             <div className={styles.row}>
               {renderField('department', t('internship.form.fields.department'), 'text', true)}
@@ -250,10 +264,9 @@ export default function InternshipForm() {
       case 2:
         return (
           <div className={styles.fields}>
-            {renderSelect('mandatoryInternship', t('internship.form.fields.mandatoryInternship'), mandatoryOptions, true)}
-            {renderField('internshipDateRange', t('internship.form.fields.internshipDateRange'), 'text', true)}
-            {renderField('internshipWorkDays', t('internship.form.fields.internshipWorkDays'), 'text', true)}
             {renderSelect('field', t('internship.form.fields.field'), fieldOptions, true)}
+            {renderField('experienceGoal', t('internship.form.fields.experienceGoal'), 'textarea', true)}
+            {renderField('developmentFocus', t('internship.form.fields.developmentFocus'), 'textarea', true)}
             {renderSelect('hasPreviousInternship', t('internship.form.fields.hasPreviousInternship'), previousInternshipOptions, true)}
             {form.hasPreviousInternship === 'yes' && (
               renderField('previousInternshipInfo', t('internship.form.fields.previousInternshipInfo'), 'textarea', true)
@@ -304,6 +317,25 @@ export default function InternshipForm() {
             {renderSelect('teamMeetings', t('internship.form.fields.teamMeetings'), meetingOptions, true)}
             {renderSelect('howDidYouHear', t('internship.form.fields.howDidYouHear'), hearAboutOptions)}
             {renderField('additionalNotes', t('internship.form.fields.additionalNotes'), 'textarea')}
+            <div className={styles.consentBox}>
+              <p className={styles.consentInfo}>{t('internship.form.voluntaryNote')}</p>
+              <label className={styles.consentLabel}>
+                <input
+                  type="checkbox"
+                  checked={form.voluntaryConsent}
+                  onChange={e => update('voluntaryConsent', e.target.checked)}
+                />
+                <span>{t('internship.form.fields.voluntaryConsent')} *</span>
+              </label>
+              <label className={styles.consentLabel}>
+                <input
+                  type="checkbox"
+                  checked={form.rulesAccepted}
+                  onChange={e => update('rulesAccepted', e.target.checked)}
+                />
+                <span>{t('internship.form.fields.rulesAccepted')} *</span>
+              </label>
+            </div>
           </div>
         )
       default:
@@ -324,6 +356,15 @@ export default function InternshipForm() {
           <h2 className="section-title">{t('internship.form.title')}</h2>
           <p className="section-subtitle">{t('internship.form.subtitle')}</p>
         </motion.div>
+
+        <div className={styles.rules}>
+          <h3>{t('internship.form.rulesTitle')}</h3>
+          <ul>
+            {t('internship.form.rules', { returnObjects: true }).map((rule) => (
+              <li key={rule}>{rule}</li>
+            ))}
+          </ul>
+        </div>
 
         <div className={styles.wrapper}>
           <div className={styles.steps}>
