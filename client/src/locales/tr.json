@@ -1,188 +1,121 @@
 {
   "nav": {
-    "home": "Ana Sayfa",
-    "about": "Biz Kimiz",
-    "services": "Hizmetler",
-    "projects": "Ürünler",
-    "story": "Hikaye",
-    "career": "Kariyer",
-    "team": "Ekibimiz",
-    "internship": "Staj",
-    "internshipApply": "Staj Başvuru Formu",
-    "joinTeam": "Ekibe Katıl",
-    "contact": "İletişim"
-  },
-  "joinTeam": {
-    "announcement": {
-      "label": "Ekip başvurusu duyurusu",
-      "cta": "Ekibe Katıl",
-      "messages": [
-        "Ekip başvurularımız açıldı — Yazılım, pazarlama ve operasyon alanlarında",
-        "Gerçek projelerde deneyim kazanmak isteyen ekip arkadaşları arıyoruz",
-        "Cursor, Claude, Antigravity ve AI araçlarını kullanan adaylar öncelikli",
-        "Yazılım ekibi, pazarlama ekibi ve aktif proje ekiplerine başvur",
-        "İmpevos ekibine katıl — gönüllü çalışma modeliyle gerçek proje deneyimi"
-      ]
-    },
-    "midBanner": {
-      "title": "Ekip Başvurularımız Açıldı",
-      "desc": "Yazılım, yapay zeka, mobil uygulama, web geliştirme, pazarlama ve operasyon alanlarında bizimle birlikte gerçek projelerde yer almak isteyen ekip arkadaşları arıyoruz.",
-      "cta": "Ekibe Katıl"
-    },
-    "popup": {
-      "badge": "Ekip Başvurusu",
-      "title": "Ekip Başvurularımız Açıldı!",
-      "desc": "İmpevos bünyesinde yazılım, pazarlama, mobil uygulama ve operasyon projelerinde görev almak isteyen adaylar için ekip başvuruları başladı. Gerçek projelerde deneyim kazan, modern araçlarla çalış.",
-      "cta": "Ekibe Katıl",
-      "later": "Daha Sonra",
-      "close": "Kapat"
-    }
+    "home": "Home",
+    "projects": "Products",
+    "studio": "Studio",
+    "process": "How We Work",
+    "dna": "Our DNA",
+    "team": "Team",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "partnerWithUs": "Partner With Us"
   },
   "hero": {
-    "headline": "Fikirden geleceğe",
-    "title": "Geleceğin Teknolojisini",
-    "titleAccent": "Bugün",
-    "titleEnd": "İnşa Ediyoruz",
-    "subtitle": "İstanbul merkezli bir anonim şirketiz. Kurumsal yazılım, yapay zeka ve süreç otomasyonu alanında işletmelere çözüm sunuyoruz.",
+    "badge": "AI & MOBILE STARTUP STUDIO",
+    "titleBefore": "The science behind the",
+    "titleAccent": "next-gen apps.",
+    "subtitle": "Impevos is an autonomous product and venture studio. We conceive, engineer, and scale category-defining AI and mobile applications for millions worldwide.",
     "typewriter": [
-      "Kurumsal yazılım çözümleri",
-      "Yapay zeka entegrasyonu",
-      "Süreç otomasyonu",
-      "Dijital ürün geliştirme"
+      "Autonomous Mobile & AI Venture Studio",
+      "Building Products Reaching Millions Globally",
+      "Proprietary Machine Learning & Audio-Visual AI",
+      "From In-House Inception to Global Market Leaders"
     ],
-    "cta1": "Ürünlerimiz",
-    "cta2": "Projenizi konuşalım",
-    "scroll": "Aşağı Kaydır"
+    "cta1": "Discover Products",
+    "cta2": "Partner With Us",
+    "scroll": "Scroll Down"
   },
-  "vision": {
-    "quote": "Teknolojinin evrensel bir dil olduğuna inanıyoruz!",
-    "sub": "İyi bir tasarım ve güçlü yazılım, farklı sektörlerdeki işletmeleri bile dönüştürmeyi başarır.",
-    "bgText": "Vizyon"
-  },
-  "about": {
-    "label": "Hakkımızda",
-    "title": "Teknolojiyle Değer Yaratan",
-    "titleAccent": "Vizyon",
-    "subtitle": "Kim olduğumuzu ve nereye gittiğimizi keşfedin.",
-    "h3": "Hikayemiz",
-    "p1": "IMPEVOS TEKNOLOJİ, yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunan bir teknoloji şirketidir. Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
-    "p2": "Global vizyonumuz ve yerel tecrübemizle, müşterilerimizin karmaşık problemlerine akıllı, ölçeklenebilir ve sürdürülebilir teknoloji çözümleri üretiyoruz. Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
-    "featured": {
-      "tag": "İlk İzlenim",
-      "title": "İlk izlenim son şansınız olabilir.",
-      "lead": "Her bir piksel, her bir renk, tasarımın karakterini belirler ve ziyaretçisine bir hikaye anlatır.",
-      "body1": "Kurumsal kimliğiniz, markanızın ruhudur ve bu ruhu dijital dünyada doğru yansıtmak hayati öneme sahiptir.",
-      "body2": "Premium bir dijital deneyim, markanızı zarif ve etkileyici biçimde sergilemenin en etkili yoludur."
-    },
-    "trust": {
-      "title": "Şeffaf iletişimin gücüne inanıyoruz.",
-      "lead": "Geliştirdiğimiz teknolojik araçlar ve stratejik iş ortaklıkları ile markanızı ileriye taşıyoruz."
-    },
-    "stack": [
+  "whoWeAre": {
+    "label": "The Studio Model",
+    "title": "Design. Build. Launch. Scale.",
+    "lead": "We are structured as an autonomous venture studio — pairing visionary product squads with a shared central powerhouse in AI, engineering, and global growth.",
+    "body": "Every product in our portfolio is conceived, designed, and built in-house. By eliminating agency noise and corporate bureaucracy, our autonomous product studios move with unprecedented velocity from initial prototype to global app market distribution.",
+    "facts": [
       {
-        "tag": "İlk İzlenim",
-        "title": "İlk izlenim son şansınız olabilir.",
-        "lead": "Her bir piksel, her bir renk, tasarımın karakterini belirler ve ziyaretçisine bir hikaye anlatır.",
-        "body": "Kurumsal kimliğiniz, markanızın ruhudur ve bu ruhu dijital dünyada doğru yansıtmak hayati öneme sahiptir.",
-        "body2": "Premium bir dijital deneyim, markanızı zarif ve etkileyici biçimde sergilemenin en etkili yoludur.",
-        "tone": 0
+        "label": "Model",
+        "value": "Autonomous Startup Studio"
       },
       {
-        "tag": "İletişim",
-        "title": "Şeffaf iletişimin gücüne inanıyoruz.",
-        "lead": "Geliştirdiğimiz teknolojik araçlar ve stratejik iş ortaklıkları ile markanızı ileriye taşıyoruz.",
-        "body": "IMPEVOS TEKNOLOJİ, yapay zeka, ileri yazılım teknolojileri ve dijital dönüşüm alanında öncü çözümler sunar.",
-        "body2": "Kurumsal yapımızdaki şeffaflık ve startup ruhumuzdaki yenilikçilik ile geleceği bugünden inşa ediyoruz.",
-        "tone": 1
+        "label": "HQ",
+        "value": "Istanbul · Global Reach"
       },
       {
-        "tag": "Yapay Zeka",
-        "title": "Akıllı sistemler, gerçek sonuçlar.",
-        "lead": "Makine öğrenmesi ve otomasyon ile işletmenizin potansiyelini açığa çıkarıyoruz.",
-        "body": "Doğal dil işleme, bilgisayarlı görme ve veri analitiği alanlarında uçtan uca AI çözümleri geliştiriyoruz.",
-        "body2": "Her proje, teknoloji ile ölçülebilir değer yaratma tutkumuzun bir yansımasıdır.",
-        "tone": 2
+        "label": "Focus",
+        "value": "Generative AI & Mobile Apps"
       },
       {
-        "tag": "Yazılım",
-        "title": "Modern yazılım, sağlam altyapı.",
-        "lead": "Web, mobil ve bulut platformlarında ölçeklenebilir çözümler üretiyoruz.",
-        "body": "Güvenli, performanslı ve sürdürülebilir yazılım mimarileri ile dijital dönüşümünüzü hızlandırıyoruz.",
-        "body2": "Global vizyonumuz ve yerel tecrübemizle karmaşık problemlere akıllı çözümler sunuyoruz.",
-        "tone": 3
-      },
-      {
-        "tag": "Güven",
-        "title": "Kurumsal güven, startup hızı.",
-        "lead": "Profesyonel süreçler ve çevik metodoloji ile projelerinizi güvenle teslim ediyoruz.",
-        "body": "Şeffaf iletişim, net zaman çizelgeleri ve sürekli geri bildirim kültürümüzün temelini oluşturur.",
-        "body2": "Müşterilerimizin dijital varlıklarını siber güvenlik standartlarıyla koruyoruz.",
-        "tone": 4
-      },
-      {
-        "tag": "Vizyon",
-        "title": "Geleceği bugünden inşa ediyoruz.",
-        "lead": "Teknolojinin evrensel bir dil olduğuna inanıyoruz.",
-        "body": "Farklı sektörlerdeki işletmeleri dönüştüren yenilikçi çözümler üretmeye devam ediyoruz.",
-        "body2": "Her bir projemiz, teknoloji ile değer yaratma tutkumuzun bir ürünüdür.",
-        "tone": 5
+        "label": "Reach",
+        "value": "80+ Countries Worldwide"
       }
-    ]
-  },
-  "services": {
-    "label": "Hizmetler",
-    "title": "Uçtan uca",
-    "titleAccent": "teknoloji hizmetleri",
-    "titleEnd": "",
-    "lead": "Strateji, tasarım, geliştirme ve operasyon süreçlerini tek ekip olarak yönetiyor; işletmenize ölçeklenebilir çözümler sunuyoruz.",
-    "subtitle": "İşletmenizin ihtiyaçlarına özel, ölçeklenebilir ve yenilikçi çözümler sunuyoruz.",
-    "bgText": "Hizmetler",
-    "cardTag": "Keşfet",
-    "items": [
+    ],
+    "pillars": [
       {
-        "icon": "DeviceMobile",
-        "title": "Mobil uygulama geliştirme",
-        "desc": "iOS ve Android için yayınlanabilir mobil ürünler tasarlıyor ve geliştiriyoruz."
+        "icon": "Cube",
+        "title": "In-House Incubation",
+        "desc": "Autonomous squads ideate and build new applications with extreme speed, validating market demand with real data."
       },
       {
         "icon": "Brain",
-        "title": "Yapay zeka entegrasyonu",
-        "desc": "Mevcut iş akışlarına model, asistan ve özetleme adımlarını ekliyoruz."
+        "title": "State-of-the-Art AI",
+        "desc": "Proprietary generative models, smart multimodal vision, and lightning-fast edge inference running inside every app."
       },
       {
         "icon": "GearSix",
-        "title": "Süreç otomasyonu",
-        "desc": "Tekrarlayan operasyonları yazılımla kısaltıyor, onay adımlarını yerinde bırakıyoruz."
+        "title": "Global Scaling Engine",
+        "desc": "Data-driven monetization, relentless ASO, and high-velocity organic loops carrying our apps to the top of the charts."
       },
       {
         "icon": "Code",
-        "title": "Özel yazılım geliştirme",
-        "desc": "Şirkete özel paneller, iç araçlar ve entegrasyonlar geliştiriyoruz."
+        "title": "Shared Tech Infrastructure",
+        "desc": "Centralized backend, analytics, payment orchestration, and design systems powering all studio ventures."
+      }
+    ]
+  },
+  "process": {
+    "label": "How We Build",
+    "title": "From napkin concept to global scale",
+    "subtitle": "Our disciplined studio methodology allows us to conceive, validate, and scale digital products with surgical precision.",
+    "steps": [
+      {
+        "title": "Opportunity & Ideation",
+        "desc": "We analyze emerging technological shifts in AI and mobile user behavior, identifying massive unmet consumer and professional needs."
+      },
+      {
+        "title": "Rapid Prototyping & UX",
+        "desc": "Our product squads build working, high-fidelity native prototypes in days, refining micro-animations and intuitive workflows."
+      },
+      {
+        "title": "Soft Launch & Validation",
+        "desc": "We deploy to target markets, rigorously measuring retention, conversion, day-1/day-7 engagement, and organic viral coefficients."
+      },
+      {
+        "title": "Global Expansion & Scale",
+        "desc": "Armed with validated unit economics, we leverage our shared studio growth engine to scale acquisition across 170+ countries."
       }
     ]
   },
   "projects": {
-    "label": "Ürünler",
-    "title": "Geliştirdiğimiz",
-    "titleAccent": "ürünler",
-    "subtitle": "Kendi ürünlerimizi tasarlıyor, geliştiriyor ve yayında tutuyoruz.",
-    "imagePlaceholder": "Görsel eklenecek",
+    "label": "Portfolio",
+    "title": "Products that define",
+    "titleAccent": "categories",
+    "subtitle": "Our in-house ventures span AI productivity, creator ecosystems, and enterprise intelligence.",
+    "imagePlaceholder": "Product Preview",
     "tabs": {
-      "all": "Tümü",
-      "ongoing": "Devam Eden",
-      "completed": "Tamamlanan"
+      "all": "All Ventures",
+      "completed": "Live Products",
+      "ongoing": "Early Access & Beta"
     },
-    "details": "Detaylar",
+    "details": "Explore Product",
     "items": [
       {
         "id": "not-ortagim",
         "status": "completed",
-        "statusLabel": "App Store ve Google Play'de yayında",
+        "statusLabel": "Live on App Store & Google Play",
         "title": "Not Ortağım",
-        "desc": "Öğrenciler için yapay zeka destekli not ve çalışma asistanı. App Store ve Google Play'de yayında.",
+        "desc": "AI-powered document summarization, voice podcast generation, and interactive study assistant. Reached thousands of students across universities.",
         "type": "app",
         "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
-        "cta": "App Store",
+        "cta": "Download on App Store",
         "screens": [
           "/app-screens/no-01-ana-sayfa.jpg",
           "/app-screens/no-02-ai-araclari.jpg",
@@ -195,12 +128,12 @@
       {
         "id": "inffy",
         "status": "completed",
-        "statusLabel": "Yayında",
-        "title": "İnffy",
-        "desc": "İçerik üreticileri için anlaşma, içerik, finans ve AI araçlarını tek yerde toplayan Creator OS. Markalar için influencer keşfi ve kampanya yönetimi.",
+        "statusLabel": "Live Platform",
+        "title": "İnffy Creator OS",
+        "desc": "The all-in-one Creator OS bringing deals, content management, creator finance, and AI tools together for modern influencers and brands.",
         "type": "web",
         "url": "https://www.inffyai.com",
-        "linkLabel": "Siteyi Ziyaret Et",
+        "linkLabel": "Visit Website",
         "screens": [
           "/app-screens/inffy-web1.jpg",
           "/app-screens/inffy-web2.jpg",
@@ -210,12 +143,12 @@
       {
         "id": "awyron-ai",
         "status": "ongoing",
-        "statusLabel": "Demo & Ön Talep",
+        "statusLabel": "Private Beta",
         "title": "Awyron AI",
-        "desc": "Modern şirketler için yapay zeka işletim sistemi. Araçlarınızı bağlar, şirketinizi anlar ve her departman için AI ajanları oluşturur.",
+        "desc": "The autonomous AI operating system for modern enterprises. Unifies data, understands operations, and deploys specialized AI agents across departments.",
         "type": "web",
         "url": "https://www.awyronai.com",
-        "linkLabel": "Siteyi Ziyaret Et",
+        "linkLabel": "Request Early Access",
         "screens": [
           "/app-screens/awyron-web1.jpg",
           "/app-screens/awyron-web2.jpg",
@@ -227,127 +160,162 @@
       }
     ],
     "more": {
-      "count": "+20",
-      "title": "Tamamlanan 20'den fazla proje daha",
-      "desc": "Not Ortağım, İnffy ve Awyron AI'ın yanında kurumsal web siteleri, mobil uygulamalar, yapay zeka entegrasyonları ve otomasyon çözümlerinden oluşan 20'yi aşkın projeyi hayata geçirdik.",
+      "count": "10M+",
+      "title": "AI Inferences & Rapid Innovation",
+      "desc": "In addition to our flagship ventures, our studio continuously explores experimental micro-products, custom ML pipelines, and developer frameworks.",
       "tags": [
-        "Kurumsal Web Siteleri",
-        "Mobil Uygulamalar",
-        "Yapay Zeka Entegrasyonları",
-        "Otomasyon",
-        "E-Ticaret",
-        "Yönetim Panelleri"
+        "Consumer Mobile Apps",
+        "Generative AI",
+        "Real-Time Speech Synthesis",
+        "Multimodal Vision",
+        "Global Growth & ASO",
+        "High-Velocity Engineering"
       ]
     }
   },
   "appShowcase": {
-    "badge": "App Store ve Google Play'de Yayında",
+    "badge": "Flagship Venture · Live on App Store & Google Play",
     "titleAccent": "Not Ortağım",
-    "titleEnd": "App Store ve Google Play'de",
-    "subtitle": "Öğrencilerin notlarını paylaştığı; yapay zeka ile özet, quiz ve çalışma planı oluşturduğu çalışma platformu. Sesli özet ve fotoğrafla soru çözme özellikleriyle öğrenmeyi kolaylaştırır.",
+    "titleEnd": "AI Study Assistant",
+    "subtitle": "An intelligent learning and document companion. Upload 500+ page PDFs, generate conversational audio podcasts, take interactive quizzes, or snap a math problem with Photo Mode for instant step-by-step guidance.",
     "features": [
-      "AI özet, quiz ve çalışma planı tek dokunuşla",
-      "Foto Modu ile soruyu çek, AI öğretmen anında çözsün",
-      "Notunu podcast olarak dinle, kulaktan öğren",
-      "PDF paylaş, binlerce öğrenci notuna ulaş"
+      "Instant AI document summaries, flashcards, and personalized study quizzes",
+      "Photo Solver: Snap any complex problem and receive step-by-step explanations",
+      "Podcast Mode: Turn dry academic documents into conversational audio summaries",
+      "Interactive AI Tutor answering questions 24/7 with deep context"
     ],
-    "storeTopApple": "İndir",
-    "metaRating": "App Store puanı",
-    "metaAge": "yaş sınırı",
-    "metaCategoryValue": "Eğitim",
-    "metaCategory": "kategori",
-    "float1Title": "AI özet hazır",
-    "float1Desc": "540 sayfa · 38 sn'de",
-    "float2Title": "Podcast oluşturuldu",
-    "float2Desc": "Notunu kulaktan dinle",
-    "float3Title": "Quiz tamamlandı",
-    "float3Desc": "10/10 doğru cevap",
-    "updateShort": "Güncellemeleri ve Yenilikleri Takip Et",
-    "scrollLabel": "Uygulama Deneyimi",
-    "scrollTitle": "Öğrenme araçları",
-    "scrollTitleAccent": "tek platformda",
-    "scrollSubtitle": "AI özet, not keşfi ve sesli öğrenme — Not Ortağım ile tüm öğrenme araçları tek platformda birleşiyor.",
+    "storeTopApple": "Download on the",
+    "storeTopGoogle": "Get it on",
+    "metaRating": "App Store Rating",
+    "metaAge": "Age Rating",
+    "metaCategoryValue": "Education & AI",
+    "metaCategory": "Category",
+    "float1Title": "AI Summary Ready",
+    "float1Desc": "540 pages in 28 sec",
+    "float2Title": "Podcast Generated",
+    "float2Desc": "Listen to your notes on the go",
+    "float3Title": "Quiz Completed",
+    "float3Desc": "10/10 correct answers",
+    "updateShort": "Loved by thousands of students and lifelong learners",
+    "scrollLabel": "Product Deep-Dive",
+    "scrollTitle": "Engineered for the",
+    "scrollTitleAccent": "future of learning",
+    "scrollSubtitle": "Combining proprietary summarization algorithms, neural voice synthesis, and an intuitive mobile experience.",
     "scrollSteps": [
       {
-        "title": "AI ile Anında Özet",
-        "desc": "PDF yükleyin; yapay zeka saniyeler içinde özet, quiz ve çalışma planı oluştursun.",
-        "chip": "AI Özet",
+        "title": "Instant Multimodal Summaries",
+        "desc": "Upload complex lecture slides or textbooks. AI breaks down key concepts into digestible, retention-focused modules.",
+        "chip": "AI Summary",
         "icon": "Sparkle",
         "screen": 1
       },
       {
-        "title": "Binlerce Notu Keşfedin",
-        "desc": "Paylaşılan notlara göz atın, filtreleyin ve ihtiyacınız olanı tek dokunuşla indirin.",
-        "chip": "Keşfet",
+        "title": "Shared Knowledge Ecosystem",
+        "desc": "Discover thousands of student-curated lecture notes, verified flashcard decks, and community discussions.",
+        "chip": "Discovery",
         "icon": "Compass",
         "screen": 2
       },
       {
-        "title": "Sesli Özet ile Öğrenin",
-        "desc": "Notunuzu podcast'e dönüştürün; hareket halindeyken kulaktan öğrenin.",
+        "title": "Conversational Audio Learning",
+        "desc": "Turn your notes into an engaging podcast and absorb high-yield concepts while commuting or exercising.",
         "chip": "Podcast",
         "icon": "Microphone",
         "screen": 0
       }
-    ],
-    "storeTopGoogle": "İndir"
+    ]
+  },
+  "whyUs": {
+    "label": "Our DNA",
+    "title": "An environment where ambitious builders thrive",
+    "subtitle": "To build products people love worldwide, we foster a high-performance culture rooted in autonomous execution.",
+    "items": [
+      {
+        "icon": "RocketLaunch",
+        "title": "The Right People",
+        "desc": "We look for self-starters who take initiative, solve hard problems independently, and take immense pride in crafting exceptional software."
+      },
+      {
+        "icon": "Brain",
+        "title": "State-of-the-Art Tech",
+        "desc": "Data and modern engineering empower our velocity. We continuously build internal tools, AI wrappers, and metrics platforms to guide every release."
+      },
+      {
+        "icon": "Stack",
+        "title": "Shared Values",
+        "desc": "We believe in cultivating a lean culture with strong shared standards: speed, craft, intellectual honesty, and extreme user empathy."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Global Ambition",
+        "desc": "Every product we develop is engineered from day one for global scale, targeting top-tier international audiences and markets."
+      }
+    ]
+  },
+  "stats": {
+    "label": "By The Numbers",
+    "title": "Scale, reach, and momentum",
+    "products": "Live Ventures",
+    "users": "Global Users",
+    "countries": "Countries Reached",
+    "queries": "AI Inferences"
   },
   "team": {
-    "label": "Ekibimiz",
-    "title": "Yönetim ekibi",
-    "titleAccent": "",
+    "label": "Leadership & Team",
+    "title": "The Builders",
+    "titleAccent": "Behind the Studio",
     "titleEnd": "",
-    "subtitle": "IMPEVOS'u kuran ve yöneten ekip.",
-    "photoPlaceholder": "Fotoğraf eklenecek",
+    "subtitle": "Founders, product designers, and growth engineers shaping the next generation of mobile and AI experiences.",
+    "photoPlaceholder": "Photo to be added",
     "founders": [
       {
         "name": "Göktuğ Eryılmaz",
-        "role": "Kurucu Ortak",
+        "role": "Co-Founder & CEO",
         "photo": "/team/goktug-eryilmaz.jpeg",
         "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/"
       },
       {
-        "name": "Burak Gökçe",
-        "role": "Kurucu Ortak",
-        "photo": "/team/burak-gokce.jpeg",
-        "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
-      },
-      {
         "name": "Tolga Bıyık",
-        "role": "Kurucu Ortak",
+        "role": "Co-Founder & CTO",
         "photo": "/team/tolga-biyik.png",
         "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/"
+      },
+      {
+        "name": "Burak Gökçe",
+        "role": "Co-Founder & COO",
+        "photo": "/team/burak-gokce.jpeg",
+        "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
       }
     ],
-    "leaderLabel": "Lider",
-    "deputyLabel": "Yardımcı",
-    "peopleSuffix": "kişi",
-    "statMembers": "Ekip Üyesi",
-    "statDepartments": "Departman",
-    "statVision": "Ortak Vizyon",
+    "leaderLabel": "Lead",
+    "deputyLabel": "Deputy",
+    "peopleSuffix": "people",
+    "statMembers": "Team members",
+    "statDepartments": "Departments",
+    "statVision": "Shared vision",
     "departments": [
       {
         "id": "leadership",
         "iconKey": "leadership",
-        "name": "Yönetim Kurulu",
+        "name": "Leadership",
         "members": [
           {
             "name": "Göktuğ ERYILMAZ",
-            "role": "Kurucu Ortak",
+            "role": "Co-Founder & CEO",
             "photo": "/team/goktug-eryilmaz.jpeg",
             "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/",
             "instagram": "https://www.instagram.com/goktugery/"
           },
           {
             "name": "Tolga BIYIK",
-            "role": "Kurucu Ortak",
+            "role": "Co-Founder & CTO",
             "photo": "/team/tolga-biyik.png",
             "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/",
             "instagram": "https://www.instagram.com/tolgapytech/"
           },
           {
             "name": "Burak GÖKCE",
-            "role": "Kurucu Ortak",
+            "role": "Co-Founder & COO",
             "photo": "/team/burak-gokce.jpeg",
             "linkedin": "https://www.linkedin.com/in/burak-gokcee/",
             "instagram": "https://www.instagram.com/burakgokkce/",
@@ -358,39 +326,39 @@
       {
         "id": "rd",
         "iconKey": "rd",
-        "name": "Ar-Ge Ekibi",
+        "name": "R&D Team",
         "members": [
           {
             "isLeader": true,
             "name": "Kübra Utanğaç",
-            "role": "Ar-Ge Lideri",
+            "role": "R&D Leader",
             "photo": "/team/kubra-utangac.png"
           },
           {
             "name": "Dilara Özcan",
-            "role": "Ar-Ge Ekip Üyesi",
+            "role": "R&D Team Member",
             "photo": "/team/dilara-ozcan.jpeg",
             "objectPosition": "center 15%"
           },
           {
             "isDeputyLeader": true,
             "name": "Esra Özekin",
-            "role": "Ar-Ge Lider Yardımcısı",
+            "role": "R&D Deputy Leader",
             "photo": "/team/esra-ozekin.png"
           },
           {
             "name": "Ümmü Altın",
-            "role": "Ar-Ge Ekip Üyesi",
+            "role": "R&D Team Member",
             "photo": "/team/ummu-altin.png"
           },
           {
             "name": "Mustafa Eren Kabaca",
-            "role": "Ar-Ge Ekip Üyesi",
+            "role": "R&D Team Member",
             "photo": "/team/mustafa-eren-kabaca.png"
           },
           {
             "name": "Beyza Civcik",
-            "role": "Ar-Ge Ekip Üyesi",
+            "role": "R&D Team Member",
             "photo": "/team/beyza.jpeg"
           }
         ]
@@ -398,28 +366,28 @@
       {
         "id": "business",
         "iconKey": "business",
-        "name": "İş Geliştirme ve Ortaklıklar",
+        "name": "Business Development",
         "members": [
           {
             "isLeader": true,
             "name": "Şükrü Ata Erenkuş",
-            "role": "İş Ortaklıkları Lideri",
+            "role": "Business Partnership Lead",
             "photo": "/team/sukru-ata-erenkus.png"
           },
           {
             "isLeader": true,
             "name": "Timur Ceyhan",
-            "role": "Uluslararası İş Geliştirme Lideri",
+            "role": "International Business Development Lead",
             "photo": "/team/timur_ceyhan.jpeg"
           },
           {
             "name": "Sema Kayalı",
-            "role": "İş Ortaklıkları Ekip Üyesi",
+            "role": "Business Partnership Team Member",
             "photo": "/team/sema.jpeg"
           },
           {
             "name": "Dilara Çavuş",
-            "role": "İş Ortaklıkları Ekip Üyesi",
+            "role": "Business Partnership Team Member",
             "photo": "/team/dilara_cavus.jpeg",
             "objectPosition": "70% 50%"
           }
@@ -428,678 +396,138 @@
       {
         "id": "marketing",
         "iconKey": "marketing",
-        "name": "Pazarlama Ekibi",
+        "name": "Marketing Team",
         "members": [
           {
             "isLeader": true,
             "name": "Mehmet Efe Dur",
-            "role": "Pazarlama Takım Lideri",
+            "role": "Marketing Team Leader",
             "photo": "/team/mehmet-efe-dur.png"
           },
           {
             "isDeputyLeader": true,
             "name": "Semra Aslan",
-            "role": "Pazarlama Lider Yardımcısı",
+            "role": "Marketing Deputy Lead",
             "photo": "/team/semra-aslan.jpeg"
           },
           {
             "name": "Özlem Gültekin",
-            "role": "Pazarlama Ekip Üyesi"
+            "role": "Marketing Team Member"
           }
         ]
-      }
-    ]
-  },
-  "contact": {
-    "label": "İletişim",
-    "headline": "Projenizi birlikte planlayalım.",
-    "subtitle": "İhtiyaçlarınızı paylaşın, ekibimiz en kısa sürede sizinle iletişime geçsin.",
-    "fab": "İletişim",
-    "name": "Ad soyad",
-    "email": "E-posta",
-    "company": "Şirket",
-    "message": "Mesaj",
-    "submit": "Mesajı gönder",
-    "sending": "Gönderiliyor",
-    "success": "Mesajınız alındı. En kısa sürede dönüş yapılır.",
-    "error": "Mesaj iletilemedi. info@impevos.com.tr adresine yazabilirsiniz.",
-    "info": {
-      "help": {
-        "phone": "0850 640 00 98"
-      }
-    }
-  },
-  "internship": {
-    "hero": {
-      "badge": "Uzun Dönem Staj",
-      "title": "Uzun Dönem Gönüllü Staj Başvuruları Açık",
-      "subtitle": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi uzun dönem gönüllü staj programımıza alıyoruz. Amaç, gerçek projelerde deneyim kazanmak ve tecrübe edinmektir.",
-      "slides": [
-        {
-          "type": "team",
-          "badge": "Ekip Başvuruları Açık",
-          "title": "İmpevos Ekibine Katıl",
-          "subtitle": "Ekip başvurularımız açıldı. Yazılım, yapay zeka, mobil uygulama, pazarlama ve operasyon alanlarında gerçek projelerde deneyim kazanmak isteyen ekip arkadaşları arıyoruz.",
-          "cta1": "Ekibe Katıl",
-          "cta1Link": "/ekibe-katil",
-          "cta2": "Başvuru Detayları",
-          "cta2Link": "/ekibe-katil"
-        },
-        {
-          "type": "internship",
-          "badge": "10 kişilik kontenjan",
-          "title": "Uzun Dönem Gönüllü Staj Başvuruları Açık",
-          "subtitle": "Kendini geliştirmek isteyen üniversite öğrencileri için uzun dönem gönüllü staj başvuruları açıldı. Program deneyim kazanmak ve gerçek projelerde tecrübe etmek içindir.",
-          "cta1": "Hemen Başvur",
-          "cta1Link": "#internship-apply",
-          "cta2": "Staj Detaylarını Gör",
-          "cta2Link": "#internship-details"
-        },
-        {
-          "type": "company",
-          "badge": "Yapay Zeka & İleri Teknoloji",
-          "title": "Geleceğin Teknolojisini",
-          "titleAccent": "Bugün",
-          "titleEnd": "İnşa Ediyoruz",
-          "subtitle": "Yapay zeka, otomasyon ve ileri yazılım çözümleriyle işletmenizi bir adım öteye taşıyoruz. Global vizyon, yerel güç.",
-          "cta1": "Projeleri Keşfet",
-          "cta1Link": "#projects",
-          "cta2": "Bize Ulaşın",
-          "cta2Link": "#contact"
-        }
-      ],
-      "cta1": "Hemen Başvur",
-      "cta2": "Staj Detaylarını Gör",
-      "scroll": "kaydır"
-    },
-    "announcement": {
-      "label": "Staj duyurusu",
-      "cta": "Başvur",
-      "messages": [
-        "Uzun dönem gönüllü staj başvuruları açık — 10 kişilik kontenjan",
-        "Yalnızca üniversite öğrencileri ve kendini geliştirmek isteyenler",
-        "Amaç deneyim kazanmak ve gerçek projelerde tecrübe etmek",
-        "Program gönüllüdür, ücretli bir iş değildir"
-      ]
-    },
-    "popup": {
-      "badge": "Staj Duyurusu",
-      "title": "Uzun dönem gönüllü staj başvuruları açık",
-      "desc": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi alıyoruz. Program gönüllüdür; odak deneyim kazanmak ve tecrübe etmektir.",
-      "cta": "Staj Detaylarını Gör",
-      "later": "Daha Sonra",
-      "close": "Kapat"
-    },
-    "midBanner": {
-      "title": "Uzun dönem gönüllü staj başvuruları açık",
-      "desc": "10 kişilik kontenjan, üniversite öğrencilerine açık. Program gönüllüdür ve deneyim kazanmak içindir.",
-      "cta": "Detayları Gör"
-    },
-    "highlight": {
-      "title": "Uzun dönem staj başvuruları açık",
-      "desc": "10 üniversite öğrencisini gönüllü uzun dönem staj programına alıyoruz.",
-      "cta": "Başvuru Yap",
-      "cards": [
-        "Gerçek Proje Deneyimi",
-        "Ekip Çalışması",
-        "Mentor Desteği",
-        "Uzaktan Çalışma Kültürü"
-      ]
-    },
-    "expectations": {
-      "title": "Programın şartları",
-      "items": [
-        "Program gönüllüdür; maaş, ücret veya sigorta taahhüdü yoktur",
-        "Bu dönem 10 kişi alınacaktır",
-        "Yalnızca aktif üniversite öğrencileri başvurabilir",
-        "Amaç işe almak değil, deneyim kazandırmak ve tecrübe ettirmektir",
-        "Uzaktan çalışılır; düzenli ekip toplantılarına katılım beklenir",
-        "Süreç boyunca öğrenmeye ve kendini geliştirmeye açık olmak gerekir"
-      ]
-    },
-    "details": {
-      "label": "Uzun Dönem Staj",
-      "title": "Uzun Dönem Gönüllü Staj",
-      "intro": [
-        "İmpevos, kendini geliştirmek isteyen üniversite öğrencileri için uzun dönem gönüllü staj programı açıyor.",
-        "Bu program ücretli bir iş değildir. Amaç; gerçek projelerde deneyim kazanmak, ekip içinde tecrübe edinmek ve öğrendiklerini portfolyoya dönüştürmektir.",
-        "Bu dönemde 10 kişiyi ekibimize alacağız. Başvurular deneyim kazanma isteğine ve öğrenmeye açıklığa göre değerlendirilir."
-      ],
-      "eligibleTitle": "Kimler Başvurabilir",
-      "eligible": [
-        "Aktif üniversite öğrencileri",
-        "Kendini geliştirmek ve yeni tecrübeler edinmek isteyenler",
-        "Yazılım, tasarım, mobil, yapay zeka veya dijital projelerde deneyim kazanmak isteyenler",
-        "Uzun dönem boyunca düzenli zaman ayırabilecekler",
-        "Gönüllü çalışma modelini kabul edenler"
-      ],
-      "areasTitle": "Başvuru Alanları",
-      "areas": [
-        "Web Geliştirme",
-        "Mobil Uygulama Geliştirme",
-        "Backend Geliştirme",
-        "UI/UX Tasarım",
-        "Yapay Zeka ve Otomasyon",
-        "Sosyal Medya ve Dijital İçerik",
-        "Proje Yönetimi ve Operasyon"
-      ],
-      "notice": {
-        "badge": "10 kişilik kontenjan",
-        "title": "Uzun dönem gönüllü staj başvuruları açık",
-        "desc": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi uzun dönem staj programımıza alıyoruz. Süreç gönüllüdür; odak deneyim kazanmak ve gerçek projelerde tecrübe etmektir."
-      },
-      "stats": [
-        {
-          "value": "10",
-          "label": "Alınacak stajyer"
-        },
-        {
-          "value": "Gönüllü",
-          "label": "Deneyim odaklı program"
-        },
-        {
-          "value": "Uzun dönem",
-          "label": "Düzenli katılım"
-        }
-      ],
-      "supportTitle": "Başvurular ve Stajyerler İçin Neler Yapıyoruz",
-      "supportIntro": "Başvuru yapan her adayı ve aramıza katılan her stajyeri süreç boyunca yalnız bırakmıyoruz.",
-      "support": [
-        {
-          "title": "Her başvuruyu tek tek inceliyoruz",
-          "desc": "Formdan gelen başvurular ekibimiz tarafından okunur; uygun adaylarla e-posta veya telefonla iletişime geçilir."
-        },
-        {
-          "title": "Tanışma görüşmesi yapıyoruz",
-          "desc": "Kısa bir online görüşmeyle ilgi alanını, hedeflerini ve staj takvimini birlikte netleştiriyoruz."
-        },
-        {
-          "title": "Her stajyere bir mentor atıyoruz",
-          "desc": "Alanında deneyimli bir ekip üyesi staj boyunca sorularını yanıtlar ve işini takip eder."
-        },
-        {
-          "title": "Gerçek projelerde görev veriyoruz",
-          "desc": "Stajyerler Not Ortağım, İnffy ve Awyron AI gibi yayındaki ürünlerimizde ve yeni projelerde çalışır."
-        },
-        {
-          "title": "Düzenli ekip toplantıları yapıyoruz",
-          "desc": "Haftalık toplantılarla ilerlemeyi birlikte değerlendiriyor, geri bildirim veriyoruz."
-        },
-        {
-          "title": "Öğrendiklerini portfolyona dönüştürüyoruz",
-          "desc": "Staj boyunca ürettiğin işleri, deneyimini anlatabileceğin örneklere dönüştürmen için geri bildirim veriyoruz."
-        }
-      ]
-    },
-    "form": {
-      "label": "Başvuru",
-      "title": "Uzun Dönem Staj Başvurusu",
-      "subtitle": "Başvuru yalnızca üniversite öğrencilerine ve kendini geliştirmek isteyenlere açıktır. Zorunlu alanlar * ile işaretlidir.",
-      "closedTitle": "Başvurular şu an kapalı",
-      "closedDesc": "Uzun dönem gönüllü staj başvuruları kapalıyken bu form üzerinden başvuru alınmaz.",
-      "rulesTitle": "Başvurmadan önce",
-      "rules": [
-        "Bu dönem 10 kişi alınacaktır.",
-        "Program gönüllüdür. Ücret, maaş veya sigorta vaadi yoktur.",
-        "Yalnızca aktif üniversite öğrencileri başvurabilir.",
-        "Sorular, hangi deneyimi kazanmak ve hangi tecrübeyi edinmek istediğini anlamak içindir.",
-        "Uzun dönem boyunca düzenli zaman ayırman beklenir."
-      ],
-      "steps": [
-        "Kişisel Bilgiler",
-        "Öğrencilik",
-        "Deneyim",
-        "Kendini Anlat",
-        "Linkler ve CV",
-        "Gönüllülük"
-      ],
-      "fields": {
-        "fullName": "Ad Soyad",
-        "email": "E-posta Adresi",
-        "phone": "Telefon Numarası",
-        "city": "Hangi şehirde yaşıyorsun?",
-        "district": "İlçe",
-        "university": "Üniversite Adı",
-        "department": "Bölüm",
-        "grade": "Sınıf",
-        "gpa": "Not ortalaman nedir?",
-        "englishLevel": "İngilizce seviyen nedir?",
-        "studentStatus": "Şu an bir üniversitede aktif öğrenci misin?",
-        "experienceGoal": "Bu stajda hangi tecrübeyi edinmek istiyorsun?",
-        "developmentFocus": "Kendini en çok hangi konuda geliştirmek istiyorsun?",
-        "field": "Hangi alanda deneyim kazanmak istiyorsun?",
-        "hasPreviousInternship": "Daha önce bir projede veya stajda deneyim kazandın mı?",
-        "previousInternshipInfo": "Kazandığın deneyimi kısaca anlat. Henüz yoksa 'Henüz deneyimim yok' yazabilirsin.",
-        "technologies": "Şimdiye kadar hangi araçları veya teknolojileri denedin?",
-        "selfIntro": "Kendini birkaç cümleyle tanıtır mısın?",
-        "reason": "Bu deneyimi neden İmpevos'ta, gönüllü olarak kazanmak istiyorsun?",
-        "projectLink": "Proje linkin",
-        "github": "GitHub linkin",
-        "linkedin": "LinkedIn linkin",
-        "cv": "CV Yükle",
-        "portfolio": "Portfolyo linkin",
-        "remoteWork": "Uzaktan çalışma düzeninde deneyim kazanmaya uygun musun?",
-        "daysPerWeek": "Uzun dönem boyunca haftada kaç gün zaman ayırabilirsin?",
-        "teamMeetings": "Düzenli ekip toplantılarına katılarak tecrübe edinmeye hazır mısın?",
-        "voluntaryConsent": "Bu programın ücretli bir iş değil, deneyim kazanmaya yönelik gönüllü bir staj olduğunu okudum ve kabul ediyorum.",
-        "rulesAccepted": "Programın yalnızca üniversite öğrencilerine açık olduğunu, 10 kişilik kontenjanı ve şartları okudum.",
-        "howDidYouHear": "İmpevos'u nereden duydun?",
-        "additionalNotes": "Eklemek istediğin bir şey var mı?"
-      },
-      "options": {
-        "student": [
-          {
-            "value": "yes",
-            "label": "Evet, aktif üniversite öğrencisiyim"
-          },
-          {
-            "value": "no",
-            "label": "Hayır"
-          }
-        ],
-        "mandatory": [
-          {
-            "value": "yes",
-            "label": "Evet"
-          },
-          {
-            "value": "no",
-            "label": "Hayır"
-          },
-          {
-            "value": "unsure",
-            "label": "Emin değilim"
-          }
-        ],
-        "previousInternship": [
-          {
-            "value": "yes",
-            "label": "Evet"
-          },
-          {
-            "value": "no",
-            "label": "Hayır"
-          }
-        ],
-        "english": [
-          {
-            "value": "beginner",
-            "label": "Başlangıç"
-          },
-          {
-            "value": "intermediate",
-            "label": "Orta"
-          },
-          {
-            "value": "good",
-            "label": "İyi"
-          },
-          {
-            "value": "advanced",
-            "label": "İleri"
-          }
-        ],
-        "hearAbout": [
-          {
-            "value": "instagram",
-            "label": "Instagram"
-          },
-          {
-            "value": "linkedin",
-            "label": "LinkedIn"
-          },
-          {
-            "value": "friend",
-            "label": "Arkadaş / Tanıdık"
-          },
-          {
-            "value": "university",
-            "label": "Üniversite"
-          },
-          {
-            "value": "google",
-            "label": "Google / Arama"
-          },
-          {
-            "value": "other",
-            "label": "Diğer"
-          }
-        ],
-        "field": [
-          {
-            "value": "web-frontend",
-            "label": "Web Frontend"
-          },
-          {
-            "value": "backend",
-            "label": "Backend"
-          },
-          {
-            "value": "mobile-ios",
-            "label": "Mobil iOS"
-          },
-          {
-            "value": "mobile-android",
-            "label": "Mobil Android"
-          },
-          {
-            "value": "ui-ux",
-            "label": "UI/UX Tasarım"
-          },
-          {
-            "value": "ai",
-            "label": "Yapay Zeka"
-          },
-          {
-            "value": "digital-marketing",
-            "label": "Dijital Pazarlama"
-          },
-          {
-            "value": "social-media",
-            "label": "Sosyal Medya"
-          },
-          {
-            "value": "project-management",
-            "label": "Proje Yönetimi"
-          },
-          {
-            "value": "undecided",
-            "label": "Henüz karar vermedim"
-          }
-        ],
-        "remote": [
-          {
-            "value": "yes",
-            "label": "Evet"
-          },
-          {
-            "value": "no",
-            "label": "Hayır"
-          },
-          {
-            "value": "partial",
-            "label": "Kısmen"
-          }
-        ],
-        "meetings": [
-          {
-            "value": "yes",
-            "label": "Evet"
-          },
-          {
-            "value": "no",
-            "label": "Hayır"
-          },
-          {
-            "value": "depends",
-            "label": "Duruma göre"
-          }
-        ]
-      },
-      "select": "Seçiniz",
-      "linkHint": "Linkin yoksa ilgili alana 'Yok' yazabilirsin.",
-      "cvHint": "PDF, DOC veya DOCX (max 5MB)",
-      "required": "Lütfen tüm zorunlu alanları doldurun.",
-      "studentOnly": "Bu program yalnızca aktif üniversite öğrencilerine açıktır.",
-      "consentRequired": "Devam etmek için gönüllü staj şartlarını kabul etmen gerekir.",
-      "invalidEmail": "Geçerli bir e-posta adresi giriniz.",
-      "cvRequired": "CV yüklemeniz gerekmektedir.",
-      "voluntaryNote": "İmpevos uzun dönem stajı gönüllü bir deneyim programıdır. Karşılığında ücret ödenmez. Amaç, gerçek projelerde tecrübe edinmen ve kendini geliştirmen.",
-      "back": "Geri",
-      "next": "İleri",
-      "submit": "Başvuruyu Gönder",
-      "sending": "Gönderiliyor...",
-      "error": "Başvuru gönderilemedi. Lütfen tekrar deneyin.",
-      "networkError": "Sunucuya bağlanılamadı. API sunucusunun çalıştığından emin olun.",
-      "successTitle": "Başvurun başarıyla alındı",
-      "successDesc": "İmpevos ekibi başvurunu inceleyecek ve uygun görülmesi durumunda seninle iletişime geçecektir. İlgin için teşekkür ederiz.",
-      "successBtn": "Tamam"
-    }
-  },
-  "stats": {
-    "label": "Rakamlarla IMPEVOS",
-    "title": "Kuruluşumuzdan bu yana",
-    "products": "Ürün",
-    "interns": "Stajyer",
-    "projects": "Proje",
-    "founded": "Kuruluş"
-  },
-  "story": {
-    "label": "Hikayemiz",
-    "title": "Bir uygulamadan şirkete",
-    "subtitle": "Not Ortağım’ın yayını, yatırım görüşmesi ve İstanbul’da şirket kuruluşu aynı yılın içinde gerçekleşti.",
-    "videoTitle": "Şirketi Nasıl Kurduk?",
-    "videoText": "Video alanı. Seri hazır olduğunda bu kareye gömülecek.",
-    "events": [
-      {
-        "date": "9 Mart 2026",
-        "title": "Not Ortağım App Store’da",
-        "text": "Uygulama Apple App Store’da yayınlandı."
-      },
-      {
-        "date": "Yaklaşık 10 gün sonra",
-        "title": "Yatırım teklifi",
-        "text": "Yayından kısa süre sonra bir yatırım teklifi alındı."
-      },
-      {
-        "date": "2026 · İstanbul",
-        "title": "IMPEVOS A.Ş. kuruldu",
-        "text": "Şirket İstanbul’da kuruldu."
-      }
-    ]
-  },
-  "careerSection": {
-    "label": "Kariyer",
-    "title": "Uzun dönem gönüllü staj",
-    "subtitle": "Kendini geliştirmek isteyen üniversite öğrencilerinden 10 kişiyi, gerçek projelerde deneyim kazanmaları için uzun dönem gönüllü staj programımıza alıyoruz.",
-    "openTitle": "10 kişilik kontenjan açık",
-    "openText": "Başvuru, deneyim kazanmak ve tecrübe edinmek isteyen öğrencilere yöneliktir. Program gönüllüdür.",
-    "openCta": "Başvuru formuna git",
-    "name": "Ad soyad",
-    "university": "Üniversite",
-    "department": "Bölüm",
-    "cv": "CV",
-    "cvHint": "PDF, DOC veya DOCX. En fazla 5 MB.",
-    "submit": "Başvuruyu gönder",
-    "sending": "Gönderiliyor",
-    "success": "Başvuru alındı. Uygun görülürse sizinle iletişime geçilir.",
-    "error": "Başvuru iletilemedi. kariyer@impevos.com.tr adresine yazabilirsiniz.",
-    "closedTitle": "Başvurular şu an kapalı",
-    "closedText": "Uzun dönem gönüllü staj başvuruları kapalıyken bu bölümden başvuru alınmaz."
-  },
-  "cookie": {
-    "text": "Site, tercihlerinizi hatırlamak için zorunlu bir çerez kullanır.",
-    "accept": "Kabul et",
-    "reject": "Yalnızca zorunlu",
-    "policy": "Çerez politikası"
-  },
-  "legalPages": {
-    "updated": "15 Ekim 2026",
-    "kvkk": {
-      "title": "KVKK Aydınlatma Metni",
-      "blocks": [
-        {
-          "heading": "Veri sorumlusu",
-          "text": "Bu metin IMPEVOS A.Ş. adına hazırlanmıştır. Adres, MERSİS numarası ve vergi numarası kayıtlar netleştikçe eklenecektir. Bu alanlar şu an yer tutucudur."
-        },
-        {
-          "heading": "Amaç",
-          "text": "İletişim formunda ad, e-posta, şirket ve mesaj; staj formunda ad, üniversite, bölüm ve CV, talebi yanıtlamak ve başvuruyu değerlendirmek için işlenir."
-        },
-        {
-          "heading": "Haklarınız",
-          "text": "KVKK madde 11 kapsamındaki başvurular için info@impevos.com.tr adresine yazabilirsiniz."
-        }
-      ]
-    },
-    "privacy": {
-      "title": "Gizlilik Politikası",
-      "blocks": [
-        {
-          "heading": "Kapsam",
-          "text": "Bu politika impevos.com sitesini kapsar. Ürün uygulamaları kendi metinlerini yayımlayabilir."
-        },
-        {
-          "heading": "Toplanan bilgiler",
-          "text": "Siteyi gezmek hesap açmayı gerektirmez. Form gönderdiğinizde yazdığınız bilgiler işlenir. Bu sitede ödeme alınmaz."
-        }
-      ]
-    },
-    "cookies": {
-      "title": "Çerez Politikası",
-      "blocks": [
-        {
-          "heading": "Zorunlu çerez",
-          "text": "impevos-consent çerezi, çerez bildirimindeki seçiminizi bu tarayıcıda tutar. Analiz veya reklam çerezi yüklenmez."
-        },
-        {
-          "heading": "Seçim",
-          "text": "Kabul et ve Yalnızca zorunlu aynı zorunlu çerezi yazar. Seçimi tarayıcı ayarlarından silebilirsiniz."
-        }
-      ]
-    }
-  },
-  "footer": {
-    "desc": "Yapay zeka destekli ürünler ve işletmeler için yazılım.",
-    "links": "Hızlı Bağlantılar",
-    "careers": "Kariyer",
-    "services": "Hizmetler",
-    "legal": "Yasal",
-    "privacy": "Gizlilik Politikası",
-    "kvkk": "KVKK",
-    "terms": "Kullanım Koşulları",
-    "cookies": "Çerez Politikası",
-    "rights": "Tüm hakları saklıdır.",
-    "address": "Adres bilgisi eklenecek — İstanbul, Türkiye",
-    "mersis": "MERSİS No: —",
-    "tax": "Vergi No: —",
-    "copyright": "© 2026 IMPEVOS A.Ş. Tüm hakları saklıdır."
-  },
-  "whoWeAre": {
-    "label": "Biz Kimiz",
-    "title": "Kendi ürünlerini geliştiren bir teknoloji şirketiyiz.",
-    "lead": "2026'da İstanbul'da kurulduk. Not Ortağım, İnffy ve Awyron AI'ı fikirden yayına kadar kendi ekibimizle tasarlıyor, geliştiriyor ve yaşatıyoruz. Aynı çalışma düzenini, yazılım ve yapay zeka ihtiyacı olan işletmelere de taşıyoruz.",
-    "body": "Ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyoruz. Kapsamı baştan netleştirir, ilerlemeyi görünür kılar ve ortaya çıkan sistemi sürdürülebilir bir mimariyle teslim ederiz.",
-    "facts": [
-      {
-        "label": "Kuruluş",
-        "value": "2026 · İstanbul"
-      },
-      {
-        "label": "Unvan",
-        "value": "IMPEVOS Teknoloji A.Ş."
-      },
-      {
-        "label": "Ürünler",
-        "value": "Not Ortağım, İnffy, Awyron AI"
-      },
-      {
-        "label": "Tamamlanan proje",
-        "value": "20+"
-      }
-    ],
-    "pillars": [
-      {
-        "icon": "Cube",
-        "title": "Ürün Geliştirme",
-        "desc": "Kendi ürünlerimizi fikir aşamasından yayına kadar uçtan uca geliştiriyor ve büyütüyoruz."
-      },
-      {
-        "icon": "Code",
-        "title": "Kurumsal Yazılım",
-        "desc": "İşletmeler için web, mobil ve yönetim paneli çözümleri tasarlıyor ve geliştiriyoruz."
-      },
-      {
-        "icon": "Brain",
-        "title": "Yapay Zeka Entegrasyonu",
-        "desc": "Yapay zeka modellerini mevcut iş süreçlerine güvenli ve ölçülebilir biçimde entegre ediyoruz."
-      },
-      {
-        "icon": "GearSix",
-        "title": "Süreç Otomasyonu",
-        "desc": "Tekrarlayan operasyonel işleri otomatikleştirerek ekiplerin zamanını stratejik işlere ayırıyoruz."
-      }
-    ]
-  },
-  "process": {
-    "label": "Çalışma Sürecimiz",
-    "title": "Fikirden yayına net bir süreç",
-    "subtitle": "Her projeyi aynı disiplinle yönetir, her aşamada sizi bilgilendiririz.",
-    "steps": [
-      {
-        "title": "Keşif ve analiz",
-        "desc": "İhtiyaçlarınızı, hedeflerinizi ve mevcut süreçlerinizi birlikte inceler, projenin kapsamını netleştiririz."
-      },
-      {
-        "title": "Tasarım ve planlama",
-        "desc": "Kullanıcı deneyimini tasarlar, teknik mimariyi ve proje takvimini belirleriz."
-      },
-      {
-        "title": "Geliştirme ve test",
-        "desc": "Düzenli aralıklarla çalışan sürümler paylaşır, geri bildirimlerinizle ilerleriz."
-      },
-      {
-        "title": "Yayın ve destek",
-        "desc": "Ürünü yayına alır, performansını izler ve sürekli iyileştirmeye devam ederiz."
-      }
-    ]
-  },
-  "whyUs": {
-    "label": "Neden IMPEVOS",
-    "title": "Ürün geliştiren bir ekiple çalışırsınız",
-    "subtitle": "Kendi ürünlerini yayına alıp büyüten bir ekip olarak, müşteri projelerine de aynı sorumlulukla yaklaşıyoruz.",
-    "items": [
-      {
-        "icon": "RocketLaunch",
-        "title": "Yayında olan ürünler",
-        "desc": "Not Ortağım App Store ve Google Play'de yayında; İnffy ve Awyron AI'ı da kendi ekibimizle geliştiriyoruz."
-      },
-      {
-        "icon": "Stack",
-        "title": "Uçtan uca teslim",
-        "desc": "Tasarım, mobil ve web geliştirme, altyapı ve yayın süreçlerini tek ekip olarak yönetiyoruz."
-      },
-      {
-        "icon": "Brain",
-        "title": "Yapay zeka uzmanlığı",
-        "desc": "Yapay zeka modellerini ürünlerimizde gerçek kullanıcılarla çalıştırıyor, bu deneyimi projelerinize taşıyoruz."
-      },
-      {
-        "icon": "Handshake",
-        "title": "Şeffaf iletişim",
-        "desc": "Her aşamada ilerlemeyi paylaşır, kararları birlikte alırız."
       }
     ]
   },
   "faq": {
-    "label": "Sıkça Sorulan Sorular",
-    "title": "Merak edilenler",
-    "subtitle": "Aklınıza takılan başka bir soru varsa iletişim formundan bize ulaşabilirsiniz.",
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Impevos Studio, our products, and partnership opportunities.",
     "items": [
       {
-        "q": "Hangi tür projeler geliştiriyorsunuz?",
-        "a": "Mobil uygulamalar, web platformları, yönetim panelleri, yapay zeka entegrasyonları ve süreç otomasyonu projeleri geliştiriyoruz."
+        "q": "What is an autonomous startup studio?",
+        "a": "A startup studio (or venture builder) develops digital products in-house. Rather than being an agency taking client contracts, we conceive our own concepts, develop the software, and scale each product with dedicated growth, AI, and engineering squads."
       },
       {
-        "q": "Bir proje ne kadar sürer?",
-        "a": "Süre, projenin kapsamına göre değişir. Keşif görüşmesinin ardından aşamaları ve tahmini takvimi içeren bir plan paylaşıyoruz."
+        "q": "How does Impevos decide what to build?",
+        "a": "We systematically research emerging trends in consumer AI, mobile utilities, and developer tooling. We test hypotheses with rapid prototypes and greenlight projects that demonstrate exceptional user retention and product-market fit."
       },
       {
-        "q": "Fiyatlandırma nasıl belirleniyor?",
-        "a": "Fiyat; kapsam, özellikler ve zaman planına göre belirlenir. İhtiyaçlarınızı dinledikten sonra size özel bir teklif hazırlıyoruz."
+        "q": "Are you open to strategic partnerships or investments?",
+        "a": "Yes. We actively collaborate with visionary founders, technology partners, and angel/institutional investors looking to co-build or accelerate category-leading digital ventures."
       },
       {
-        "q": "Yayından sonra destek veriyor musunuz?",
-        "a": "Evet. Yayın sonrasında bakım, güncelleme ve yeni geliştirmeler için birlikte çalışmaya devam edebiliyoruz."
+        "q": "What technologies power Impevos products?",
+        "a": "Our stack combines native iOS & Android (Swift, Kotlin, Flutter), modern web architectures (React, Next.js, Node.js), and proprietary AI pipelines (large language models, multimodal vision, real-time audio synthesis, and cloud edge infrastructure)."
       },
       {
-        "q": "Mevcut sistemlerimize yapay zeka entegre edebilir misiniz?",
-        "a": "Evet. Mevcut yazılımlarınızı ve iş akışlarınızı inceleyerek yapay zekanın en çok değer katacağı noktaları belirliyor ve entegrasyonu yapıyoruz."
-      },
-      {
-        "q": "Ekibinize nasıl katılabilirim?",
-        "a": "Ekip başvuruları için 'Ekibe Katıl' sayfasını kullanabilirsiniz. Uzun dönem gönüllü staj başvurusu bu sayfadaki formdan alınır. Program öğrencilere yöneliktir ve 10 kişiliktir."
+        "q": "How can I contact the studio team?",
+        "a": "You can reach out through our contact form below or email us directly at info@impevos.com.tr for partnership, investment, or media inquiries."
       }
     ]
+  },
+  "contact": {
+    "label": "Contact",
+    "headline": "Let's build something extraordinary.",
+    "subtitle": "Have a partnership proposal, investment inquiry, or press question? Reach out to our leadership team.",
+    "fab": "Contact",
+    "name": "Full Name",
+    "email": "Email Address",
+    "company": "Company / Venture",
+    "message": "Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Your message has been received. We will get back to you shortly.",
+    "error": "Message could not be sent. Please write directly to info@impevos.com.tr.",
+    "info": {
+      "help": {
+        "phone": "+90 850 640 00 98"
+      }
+    }
+  },
+  "footer": {
+    "desc": "Autonomous AI & mobile product studio building category-defining applications for millions globally.",
+    "studio": "Studio",
+    "products": "Portfolio",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "kvkk": "KVKK Notice",
+    "cookies": "Cookie Policy",
+    "rights": "All rights reserved.",
+    "address": "Istanbul, Türkiye · Global Reach",
+    "mersis": "MERSIS No: —",
+    "tax": "Tax No: —",
+    "copyright": "© 2026 IMPEVOS A.Ş. All rights reserved."
+  },
+  "cookie": {
+    "text": "This site uses a necessary cookie to remember your choice.",
+    "accept": "Accept",
+    "reject": "Necessary only",
+    "policy": "Cookie policy"
+  },
+  "legalPages": {
+    "updated": "15 October 2026",
+    "kvkk": {
+      "title": "KVKK Notice",
+      "blocks": [
+        {
+          "heading": "Controller",
+          "text": "This notice is provided for IMPEVOS A.Ş. The street address, MERSIS number, and tax number will be added when the registry details are confirmed. Those fields are placeholders."
+        },
+        {
+          "heading": "Purpose",
+          "text": "The contact form processes your name, email, company, and message. The internship form processes your name, university, department, and CV, so we can reply and review the application."
+        },
+        {
+          "heading": "Your rights",
+          "text": "To use the rights in KVKK article 11, write to info@impevos.com.tr."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "blocks": [
+        {
+          "heading": "Scope",
+          "text": "This policy covers impevos.com. Product apps may publish their own notices."
+        },
+        {
+          "heading": "Information",
+          "text": "Browsing the site does not require an account. If you submit a form, we process what you type. We do not take payments on this site."
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "blocks": [
+        {
+          "heading": "Necessary cookie",
+          "text": "The impevos-consent cookie stores your choice from the cookie notice in this browser. No analytics or advertising cookies are loaded."
+        },
+        {
+          "heading": "Your choice",
+          "text": "Accept and Necessary only both write the same necessary cookie. You can delete the choice in your browser settings."
+        }
+      ]
+    }
   }
 }

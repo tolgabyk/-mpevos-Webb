@@ -72,7 +72,7 @@ export default function Projects() {
                             <span className={styles.browserUrl}>{item.urlLabel || item.url?.replace(/^https?:\/\/(www\.)?/, '')}</span>
                           </div>
                           <div className={styles.laptopScreen}>
-                            <PhoneCarousel screens={item.screens} alt={`${item.title} web sitesi`} />
+                            <PhoneCarousel screens={item.screens} alt={`${item.title} website preview`} />
                           </div>
                         </div>
                         <div className={styles.laptopBase} />

@@ -20,32 +20,32 @@ export default function Footer() {
 
           {/* Links */}
           <div className={styles.column}>
-            <h4>{t('footer.links')}</h4>
+            <h4>{t('footer.studio', 'Studio')}</h4>
             <ul>
-              <li><a href="#about">{t('nav.about')}</a></li>
-              <li><a href="#services">{t('nav.services')}</a></li>
-              <li><a href="#projects">{t('nav.projects')}</a></li>
-              <li><Link to="/ekibe-katil">{t('nav.joinTeam')}</Link></li>
-              <li><a href="#contact">{t('nav.contact')}</a></li>
+              <li><a href="#projects">{t('nav.projects', 'Products')}</a></li>
+              <li><a href="#about">{t('nav.studio', 'Studio Model')}</a></li>
+              <li><a href="#process">{t('nav.process', 'How We Work')}</a></li>
+              <li><a href="#why">{t('nav.dna', 'Our DNA')}</a></li>
+              <li><a href="#team">{t('nav.team', 'Leadership')}</a></li>
+              <li><a href="#contact">{t('nav.contact', 'Contact')}</a></li>
             </ul>
           </div>
 
           <div className={styles.column}>
-            <h4>{t('footer.services')}</h4>
+            <h4>{t('footer.products', 'Portfolio')}</h4>
             <ul>
-              <li><a href="#services">{t('services.items.0.title')}</a></li>
-              <li><a href="#services">{t('services.items.1.title')}</a></li>
-              <li><a href="#services">{t('services.items.2.title')}</a></li>
-              <li><a href="#services">{t('services.items.3.title')}</a></li>
+              <li><a href="https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814" target="_blank" rel="noopener noreferrer">Not Ortağım (iOS & Android)</a></li>
+              <li><a href="https://www.inffyai.com" target="_blank" rel="noopener noreferrer">İnffy Creator OS</a></li>
+              <li><a href="https://www.awyronai.com" target="_blank" rel="noopener noreferrer">Awyron AI</a></li>
             </ul>
           </div>
 
           <div className={styles.column}>
-            <h4>{t('footer.legal')}</h4>
+            <h4>{t('footer.legal', 'Legal')}</h4>
             <ul>
-              <li><Link to="/kvkk">{t('footer.kvkk')}</Link></li>
-              <li><Link to="/gizlilik">{t('footer.privacy')}</Link></li>
-              <li><Link to="/cerez-politikasi">{t('footer.cookies')}</Link></li>
+              <li><Link to="/kvkk">{t('footer.kvkk', 'KVKK Notice')}</Link></li>
+              <li><Link to="/gizlilik">{t('footer.privacy', 'Privacy Policy')}</Link></li>
+              <li><Link to="/cerez-politikasi">{t('footer.cookies', 'Cookie Policy')}</Link></li>
             </ul>
           </div>
         </div>

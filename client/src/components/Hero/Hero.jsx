@@ -97,6 +97,7 @@ export default function Hero({ ready = true }) {
 
   return (
     <section id="hero" className={styles.hero}>
+      <canvas ref={canvasRef} className={styles.canvas} />
       <div className={styles.glow} />
 
       <motion.div
@@ -105,8 +106,13 @@ export default function Hero({ ready = true }) {
         initial="hidden"
         animate={ready ? 'visible' : 'hidden'}
       >
+        <motion.div className={styles.badge} variants={itemVariants}>
+          <span className={styles.badgeDot} />
+          <span>{t('hero.badge', 'AI & MOBILE STARTUP STUDIO')}</span>
+        </motion.div>
+
         <motion.h1 className={styles.title} variants={itemVariants}>
-          {t('hero.headline')}
+          {t('hero.titleBefore', 'The science behind the')} <span className="text-accent">{t('hero.titleAccent', 'next-gen apps.')}</span>
         </motion.h1>
 
         <motion.p className={styles.typewriter} variants={itemVariants} aria-live="polite">
@@ -115,15 +121,37 @@ export default function Hero({ ready = true }) {
         </motion.p>
 
         <motion.p className={styles.subtitle} variants={itemVariants}>
-          {t('hero.subtitle')}
+          {t('hero.subtitle', 'Impevos is an autonomous product studio, building world-class AI and mobile apps using deep engineering, proprietary technology, and global growth systems.')}
         </motion.p>
 
         <motion.div className={styles.cta} variants={itemVariants}>
-          <a href="#projects" className="btn btn-primary">{t('hero.cta1')}</a>
-          <a href="#contact" className="btn btn-secondary">{t('hero.cta2')}</a>
+          <a href="#projects" className="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 14 16" fill="currentColor" style={{ marginRight: 2 }}>
+              <path d="M3.38956.76009l9.55424 5.65086c1.2085.71374 1.2085 2.46363 0 3.17737l-9.55424 5.65088C2.159.967 1.5.078 1.5-1.35V2.35c0-1.43 1.555-2.32 2.786-1.59z" />
+            </svg>
+            <span>{t('hero.cta1', 'Discover Products')}</span>
+          </a>
+          <a href="#contact" className="btn btn-secondary">
+            <span>{t('hero.cta2', 'Partner With Us')}</span>
+          </a>
         </motion.div>
 
-
+        <motion.div className={styles.statsStrip} variants={itemVariants}>
+          <div className={styles.statsItem}>
+            <strong>In-House</strong>
+            <span>Product Studios</span>
+          </div>
+          <div className={styles.statsDivider} />
+          <div className={styles.statsItem}>
+            <strong>Global</strong>
+            <span>Distribution</span>
+          </div>
+          <div className={styles.statsDivider} />
+          <div className={styles.statsItem}>
+            <strong>Proprietary</strong>
+            <span>AI Architecture</span>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   )

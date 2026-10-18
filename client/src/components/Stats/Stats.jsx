@@ -4,10 +4,10 @@ import { useCountUp } from '../../hooks/useCountUp'
 import styles from './Stats.module.css'
 
 const ITEMS = [
-  { key: 'products', value: 3 },
-  { key: 'interns', value: 10 },
-  { key: 'projects', value: 20, suffix: '+' },
-  { key: 'founded', value: 2026 },
+  { key: 'products', value: 3, suffix: '+' },
+  { key: 'users', value: 150, suffix: 'K+' },
+  { key: 'countries', value: 80, suffix: '+' },
+  { key: 'queries', value: 10, suffix: 'M+' },
 ]
 
 function Stat({ value, label, suffix = '' }) {

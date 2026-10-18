@@ -10,8 +10,8 @@ i18n
       tr: { translation: tr },
       en: { translation: en },
     },
-    lng: localStorage.getItem('impevos-lang') || 'tr',
-    fallbackLng: 'tr',
+    lng: 'en',
+    fallbackLng: 'en',
     interpolation: { escapeValue: false },
   })
 

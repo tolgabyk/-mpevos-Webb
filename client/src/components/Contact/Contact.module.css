@@ -82,7 +82,8 @@
 }
 
 .form input,
-.form textarea {
+.form textarea,
+.select {
   width: 100%;
   padding: 14px 16px;
   border-radius: 12px;
@@ -91,10 +92,17 @@
   color: #fff;
   font: inherit;
   font-weight: 400;
+  transition: border-color 0.2s ease;
+}
+
+.select option {
+  background: #111;
+  color: #fff;
 }
 
 .form input:focus,
-.form textarea:focus {
+.form textarea:focus,
+.select:focus {
   outline: none;
   border-color: var(--color-accent);
 }

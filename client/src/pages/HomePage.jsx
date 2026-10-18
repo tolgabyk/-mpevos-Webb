@@ -2,20 +2,15 @@ import { useState, useCallback } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import SplashScreen from '../components/SplashScreen/SplashScreen'
 import Hero from '../components/Hero/Hero'
-import AppShowcase from '../components/AppShowcase/AppShowcase'
 import WhoWeAre from '../components/WhoWeAre/WhoWeAre'
-import Services from '../components/Services/Services'
+import Process from '../components/Process/Process'
 import Projects from '../components/Projects/Projects'
+import AppShowcase from '../components/AppShowcase/AppShowcase'
+import WhyUs from '../components/WhyUs/WhyUs'
 import Stats from '../components/Stats/Stats'
 import Team from '../components/Team/Team'
-import Career from '../components/Career/Career'
-import InternshipDetails from '../components/InternshipDetails/InternshipDetails'
-import InternshipForm from '../components/InternshipForm/InternshipForm'
-import Process from '../components/Process/Process'
-import WhyUs from '../components/WhyUs/WhyUs'
 import Faq from '../components/Faq/Faq'
 import Contact from '../components/Contact/Contact'
-import ContactFab from '../components/ContactFab/ContactFab'
 import Footer from '../components/Footer/Footer'
 
 export default function HomePage() {
@@ -29,21 +24,16 @@ export default function HomePage() {
       <main>
         <Hero ready={splashDone} />
         <WhoWeAre />
-        <Services />
         <Process />
         <Projects />
         <AppShowcase />
         <WhyUs />
         <Stats />
         <Team />
-        <InternshipDetails />
-        <Career />
-        <InternshipForm />
         <Faq />
         <Contact />
       </main>
       <Footer />
-      <ContactFab />
     </>
   )
 }

@@ -39,17 +39,13 @@ export default function Contact() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className={styles.wrap}>
-            <span className={styles.label}>{t('contact.label')}</span>
-            <h2 className={styles.title}>{t('contact.headline')}</h2>
-            <p className={styles.subtitle}>{t('contact.subtitle')}</p>
+            <span className={styles.label}>{t('contact.label', 'Get In Touch')}</span>
+            <h2 className={styles.title}>{t('contact.headline', 'Partner with the studio.')}</h2>
+            <p className={styles.subtitle}>{t('contact.subtitle', 'Have a partnership proposal, investment inquiry, or want to connect with our leadership team? Send us a message below.')}</p>
             <div className={styles.actions}>
               <a href="mailto:info@impevos.com.tr" className={styles.phoneBtn}>
                 <EnvelopeSimple size={20} weight="duotone" />
                 <span>info@impevos.com.tr</span>
-              </a>
-              <a href="tel:+908506400098" className={styles.phoneBtn}>
-                <Phone size={20} weight="duotone" />
-                <span>{t('contact.info.help.phone')}</span>
               </a>
               <a href="https://www.linkedin.com/company/112823150" className={styles.phoneBtn} target="_blank" rel="noopener noreferrer">
                 <LinkedinLogo size={20} weight="fill" />
@@ -64,28 +60,38 @@ export default function Contact() {
 
           <form className={styles.form} onSubmit={onSubmit}>
             {status === 'success' ? (
-              <p role="status">{t('contact.success')}</p>
+              <p role="status">{t('contact.success', 'Your message has been received. Our team will get back to you shortly.')}</p>
             ) : (
               <>
                 <label>
-                  {t('contact.name')}
-                  <input name="name" required autoComplete="name" />
+                  {t('contact.name', 'Full Name')}
+                  <input name="name" required autoComplete="name" placeholder="John Doe" />
                 </label>
                 <label>
-                  {t('contact.email')}
-                  <input name="email" type="email" required autoComplete="email" />
+                  {t('contact.email', 'Email Address')}
+                  <input name="email" type="email" required autoComplete="email" placeholder="john@example.com" />
                 </label>
                 <label>
-                  {t('contact.company')}
-                  <input name="company" required autoComplete="organization" />
+                  {t('contact.topic', 'Inquiry Topic')}
+                  <select name="topic" defaultValue="partnership" className={styles.select}>
+                    <option value="partnership">Studio Partnership & Co-Building</option>
+                    <option value="investment">Investment & Ecosystem</option>
+                    <option value="publishing">App Publishing & Scaling</option>
+                    <option value="press">Press & Media</option>
+                    <option value="general">General Inquiry</option>
+                  </select>
                 </label>
                 <label>
-                  {t('contact.message')}
-                  <textarea name="message" required rows={5} />
+                  {t('contact.company', 'Organization / Venture (Optional)')}
+                  <input name="company" autoComplete="organization" placeholder="Venture or Company name" />
                 </label>
-                {status === 'error' ? <p className={styles.error} role="alert">{t('contact.error')}</p> : null}
+                <label>
+                  {t('contact.message', 'Message')}
+                  <textarea name="message" required rows={4} placeholder="Tell us about your proposal or inquiry..." />
+                </label>
+                {status === 'error' ? <p className={styles.error} role="alert">{t('contact.error', 'Message could not be sent. Please write directly to info@impevos.com.tr')}</p> : null}
                 <button className="btn btn-primary" type="submit" disabled={status === 'sending'}>
-                  {status === 'sending' ? t('contact.sending') : t('contact.submit')}
+                  {status === 'sending' ? t('contact.sending', 'Sending...') : t('contact.submit', 'Send Message')}
                 </button>
               </>
             )}

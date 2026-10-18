@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from './pages/HomePage'
-import JoinTeamPage from './pages/JoinTeamPage'
 import LegalPage from './pages/LegalPage'
 import CookieBanner from './components/CookieBanner/CookieBanner'
 import AdminLogin from './pages/admin/AdminLogin'
@@ -11,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/ekibe-katil" element={<JoinTeamPage />} />
+        <Route path="/ekibe-katil" element={<Navigate to="/" replace />} />
         <Route path="/kvkk" element={<LegalPage pageKey="kvkk" />} />
         <Route path="/gizlilik" element={<LegalPage pageKey="privacy" />} />
         <Route path="/cerez-politikasi" element={<LegalPage pageKey="cookies" />} />

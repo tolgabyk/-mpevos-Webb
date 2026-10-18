@@ -26,6 +26,11 @@ export default function WhoWeAre() {
             <h2 id="about-title" className={styles.title}>{t('whoWeAre.title')}</h2>
             <p className={styles.lead}>{t('whoWeAre.lead')}</p>
             <p className={styles.body}>{t('whoWeAre.body')}</p>
+            <div style={{ marginTop: 28 }}>
+              <a href="#projects" className="btn btn-primary">
+                <span>{t('whoWeAre.cta', 'Discover Products')}</span>
+              </a>
+            </div>
           </motion.div>
 
           {Array.isArray(facts) && facts.length > 0 && (

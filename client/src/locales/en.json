@@ -1,188 +1,121 @@
 {
   "nav": {
     "home": "Home",
-    "about": "Who We Are",
-    "services": "Services",
     "projects": "Products",
-    "story": "Story",
-    "career": "Careers",
+    "studio": "Studio",
+    "process": "How We Work",
+    "dna": "Our DNA",
     "team": "Team",
-    "internship": "Internship",
-    "internshipApply": "Internship Application",
-    "joinTeam": "Join the Team",
-    "contact": "Contact"
-  },
-  "joinTeam": {
-    "announcement": {
-      "label": "Team application announcement",
-      "cta": "Join the Team",
-      "messages": [
-        "Team applications are open — Software, marketing and operations",
-        "We are looking for teammates to gain experience on real projects",
-        "Candidates using Cursor, Claude, Antigravity and AI tools are prioritized",
-        "Apply to software, marketing and active project teams",
-        "Join Impevos — real project experience through our volunteer work model"
-      ]
-    },
-    "midBanner": {
-      "title": "Team Applications Are Open",
-      "desc": "We are looking for teammates in software, AI, mobile apps, web development, marketing and operations to work on real projects with us.",
-      "cta": "Join the Team"
-    },
-    "popup": {
-      "badge": "Team Application",
-      "title": "Team Applications Are Open!",
-      "desc": "Team applications have started for candidates who want to work on software, marketing, mobile and operations projects at Impevos. Gain real project experience and work with modern tools.",
-      "cta": "Join the Team",
-      "later": "Later",
-      "close": "Close"
-    }
+    "faq": "FAQ",
+    "contact": "Contact",
+    "partnerWithUs": "Partner With Us"
   },
   "hero": {
-    "headline": "From idea to the future",
-    "title": "Building the Technology",
-    "titleAccent": "of Tomorrow",
-    "titleEnd": "Today",
-    "subtitle": "We are an Istanbul-based joint-stock company. We deliver enterprise software, artificial intelligence and process automation for businesses.",
+    "badge": "AI & MOBILE STARTUP STUDIO",
+    "titleBefore": "The science behind the",
+    "titleAccent": "next-gen apps.",
+    "subtitle": "Impevos is an autonomous product and venture studio. We conceive, engineer, and scale category-defining AI and mobile applications for millions worldwide.",
     "typewriter": [
-      "Enterprise software solutions",
-      "Artificial intelligence integration",
-      "Process automation",
-      "Digital product development"
+      "Autonomous Mobile & AI Venture Studio",
+      "Building Products Reaching Millions Globally",
+      "Proprietary Machine Learning & Audio-Visual AI",
+      "From In-House Inception to Global Market Leaders"
     ],
-    "cta1": "Our products",
-    "cta2": "Discuss a project",
+    "cta1": "Discover Products",
+    "cta2": "Partner With Us",
     "scroll": "Scroll Down"
   },
-  "vision": {
-    "quote": "We believe technology is a universal language!",
-    "sub": "Great design and powerful software can transform businesses across every industry.",
-    "bgText": "Vision"
-  },
-  "about": {
-    "label": "About Us",
-    "title": "A Vision That Creates",
-    "titleAccent": "Value",
-    "subtitle": "Discover who we are and where we're heading.",
-    "h3": "Our Story",
-    "p1": "IMPEVOS TECHNOLOGY is a pioneering technology company providing innovative solutions in AI, advanced software technologies, and digital transformation. We combine corporate reliability with startup innovation to build the future today.",
-    "p2": "With our global vision and local expertise, we create smart, scalable, and sustainable technology solutions for our clients' complex problems. Every project is a product of our passion for creating value through technology.",
-    "featured": {
-      "tag": "First Impression",
-      "title": "First impression might be your last chance.",
-      "lead": "Every pixel, every color defines the character of design and tells a story to its visitor.",
-      "body1": "Your corporate identity is the soul of your brand, and reflecting it correctly in the digital world is vital.",
-      "body2": "A premium digital experience is the most effective way to showcase your brand elegantly and impressively."
-    },
-    "trust": {
-      "title": "We believe in the power of transparent communication.",
-      "lead": "We move your brand forward with the technological tools we develop and strategic partnerships."
-    },
-    "stack": [
+  "whoWeAre": {
+    "label": "The Studio Model",
+    "title": "Design. Build. Launch. Scale.",
+    "lead": "We are structured as an autonomous venture studio — pairing visionary product squads with a shared central powerhouse in AI, engineering, and global growth.",
+    "body": "Every product in our portfolio is conceived, designed, and built in-house. By eliminating agency noise and corporate bureaucracy, our autonomous product studios move with unprecedented velocity from initial prototype to global app market distribution.",
+    "facts": [
       {
-        "tag": "First Impression",
-        "title": "First impression might be your last chance.",
-        "lead": "Every pixel, every color defines the character of design and tells a story to its visitor.",
-        "body": "Your corporate identity is the soul of your brand, and reflecting it correctly in the digital world is vital.",
-        "body2": "A premium digital experience is the most effective way to showcase your brand elegantly and impressively.",
-        "tone": 0
+        "label": "Model",
+        "value": "Autonomous Startup Studio"
       },
       {
-        "tag": "Communication",
-        "title": "We believe in the power of transparent communication.",
-        "lead": "We move your brand forward with the technological tools we develop and strategic partnerships.",
-        "body": "IMPEVOS TECHNOLOGY delivers pioneering solutions in AI, advanced software, and digital transformation.",
-        "body2": "We combine corporate transparency with startup innovation to build the future today.",
-        "tone": 1
+        "label": "HQ",
+        "value": "Istanbul · Global Reach"
       },
       {
-        "tag": "Artificial Intelligence",
-        "title": "Smart systems, real results.",
-        "lead": "We unlock your business potential with machine learning and automation.",
-        "body": "We develop end-to-end AI solutions in NLP, computer vision, and data analytics.",
-        "body2": "Every project reflects our passion for creating measurable value through technology.",
-        "tone": 2
+        "label": "Focus",
+        "value": "Generative AI & Mobile Apps"
       },
       {
-        "tag": "Software",
-        "title": "Modern software, solid infrastructure.",
-        "lead": "We build scalable solutions across web, mobile, and cloud platforms.",
-        "body": "We accelerate your digital transformation with secure, performant, and sustainable architectures.",
-        "body2": "Our global vision and local expertise deliver smart solutions to complex problems.",
-        "tone": 3
-      },
-      {
-        "tag": "Trust",
-        "title": "Corporate trust, startup speed.",
-        "lead": "We deliver your projects safely with professional processes and agile methodology.",
-        "body": "Transparent communication, clear timelines, and continuous feedback form the core of our culture.",
-        "body2": "We protect our clients' digital assets with cybersecurity standards.",
-        "tone": 4
-      },
-      {
-        "tag": "Vision",
-        "title": "We build the future today.",
-        "lead": "We believe technology is a universal language.",
-        "body": "We continue to create innovative solutions that transform businesses across industries.",
-        "body2": "Every project is a product of our passion for creating value through technology.",
-        "tone": 5
+        "label": "Reach",
+        "value": "80+ Countries Worldwide"
       }
-    ]
-  },
-  "services": {
-    "label": "Services",
-    "title": "End-to-end",
-    "titleAccent": "technology services",
-    "titleEnd": "",
-    "lead": "We manage strategy, design, development and operations as one team and deliver scalable solutions for your business.",
-    "subtitle": "We offer scalable and innovative solutions tailored to your business needs.",
-    "bgText": "Services",
-    "cardTag": "Explore",
-    "items": [
+    ],
+    "pillars": [
       {
-        "icon": "DeviceMobile",
-        "title": "Mobile app development",
-        "desc": "We design and ship mobile products for iOS and Android."
+        "icon": "Cube",
+        "title": "In-House Incubation",
+        "desc": "Autonomous squads ideate and build new applications with extreme speed, validating market demand with real data."
       },
       {
         "icon": "Brain",
-        "title": "AI integration",
-        "desc": "We add models, assistants, and summary steps to existing workflows."
+        "title": "State-of-the-Art AI",
+        "desc": "Proprietary generative models, smart multimodal vision, and lightning-fast edge inference running inside every app."
       },
       {
         "icon": "GearSix",
-        "title": "Process automation",
-        "desc": "We shorten repetitive operations in software and keep approval steps in place."
+        "title": "Global Scaling Engine",
+        "desc": "Data-driven monetization, relentless ASO, and high-velocity organic loops carrying our apps to the top of the charts."
       },
       {
         "icon": "Code",
-        "title": "Custom software",
-        "desc": "We build company-specific panels, internal tools, and integrations."
+        "title": "Shared Tech Infrastructure",
+        "desc": "Centralized backend, analytics, payment orchestration, and design systems powering all studio ventures."
+      }
+    ]
+  },
+  "process": {
+    "label": "How We Build",
+    "title": "From napkin concept to global scale",
+    "subtitle": "Our disciplined studio methodology allows us to conceive, validate, and scale digital products with surgical precision.",
+    "steps": [
+      {
+        "title": "Opportunity & Ideation",
+        "desc": "We analyze emerging technological shifts in AI and mobile user behavior, identifying massive unmet consumer and professional needs."
+      },
+      {
+        "title": "Rapid Prototyping & UX",
+        "desc": "Our product squads build working, high-fidelity native prototypes in days, refining micro-animations and intuitive workflows."
+      },
+      {
+        "title": "Soft Launch & Validation",
+        "desc": "We deploy to target markets, rigorously measuring retention, conversion, day-1/day-7 engagement, and organic viral coefficients."
+      },
+      {
+        "title": "Global Expansion & Scale",
+        "desc": "Armed with validated unit economics, we leverage our shared studio growth engine to scale acquisition across 170+ countries."
       }
     ]
   },
   "projects": {
-    "label": "Products",
-    "title": "Products we",
-    "titleAccent": "build",
-    "subtitle": "We design, build and run our own products.",
-    "imagePlaceholder": "Image to be added",
+    "label": "Portfolio",
+    "title": "Products that define",
+    "titleAccent": "categories",
+    "subtitle": "Our in-house ventures span AI productivity, creator ecosystems, and enterprise intelligence.",
+    "imagePlaceholder": "Product Preview",
     "tabs": {
-      "all": "All",
-      "ongoing": "Ongoing",
-      "completed": "Completed"
+      "all": "All Ventures",
+      "completed": "Live Products",
+      "ongoing": "Early Access & Beta"
     },
-    "details": "Details",
+    "details": "Explore Product",
     "items": [
       {
         "id": "not-ortagim",
         "status": "completed",
         "statusLabel": "Live on App Store & Google Play",
         "title": "Not Ortağım",
-        "desc": "AI-powered PDF summarization and interactive study assistant. Live on the App Store and Google Play.",
+        "desc": "AI-powered document summarization, voice podcast generation, and interactive study assistant. Reached thousands of students across universities.",
         "type": "app",
         "href": "https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814",
-        "cta": "App Store",
+        "cta": "Download on App Store",
         "screens": [
           "/app-screens/no-01-ana-sayfa.jpg",
           "/app-screens/no-02-ai-araclari.jpg",
@@ -195,9 +128,9 @@
       {
         "id": "inffy",
         "status": "completed",
-        "statusLabel": "Live",
-        "title": "İnffy",
-        "desc": "A Creator OS that brings deals, content, finance and AI tools together for content creators — plus influencer discovery and campaign management for brands.",
+        "statusLabel": "Live Platform",
+        "title": "İnffy Creator OS",
+        "desc": "The all-in-one Creator OS bringing deals, content management, creator finance, and AI tools together for modern influencers and brands.",
         "type": "web",
         "url": "https://www.inffyai.com",
         "linkLabel": "Visit Website",
@@ -210,12 +143,12 @@
       {
         "id": "awyron-ai",
         "status": "ongoing",
-        "statusLabel": "Demo & Early Access",
+        "statusLabel": "Private Beta",
         "title": "Awyron AI",
-        "desc": "The AI operating system for modern companies. Connects your tools, understands your business and deploys AI agents for every department.",
+        "desc": "The autonomous AI operating system for modern enterprises. Unifies data, understands operations, and deploys specialized AI agents across departments.",
         "type": "web",
         "url": "https://www.awyronai.com",
-        "linkLabel": "Visit Website",
+        "linkLabel": "Request Early Access",
         "screens": [
           "/app-screens/awyron-web1.jpg",
           "/app-screens/awyron-web2.jpg",
@@ -227,96 +160,131 @@
       }
     ],
     "more": {
-      "count": "+20",
-      "title": "20+ more completed projects",
-      "desc": "Alongside Not Ortağım, İnffy and Awyron AI, we have delivered more than 20 projects including corporate websites, mobile apps, AI integrations and automation solutions.",
+      "count": "10M+",
+      "title": "AI Inferences & Rapid Innovation",
+      "desc": "In addition to our flagship ventures, our studio continuously explores experimental micro-products, custom ML pipelines, and developer frameworks.",
       "tags": [
-        "Corporate Websites",
-        "Mobile Apps",
-        "AI Integrations",
-        "Automation",
-        "E-Commerce",
-        "Admin Dashboards"
+        "Consumer Mobile Apps",
+        "Generative AI",
+        "Real-Time Speech Synthesis",
+        "Multimodal Vision",
+        "Global Growth & ASO",
+        "High-Velocity Engineering"
       ]
     }
   },
   "appShowcase": {
-    "badge": "Live on the App Store & Google Play",
+    "badge": "Flagship Venture · Live on App Store & Google Play",
     "titleAccent": "Not Ortağım",
-    "titleEnd": "on the App Store & Google Play",
-    "subtitle": "An AI-powered note-sharing platform. Upload a PDF, let AI build summaries and quizzes, listen to it as a podcast, or snap a question with Photo Mode and get an instant answer — Not Ortağım is always with you.",
+    "titleEnd": "AI Study Assistant",
+    "subtitle": "An intelligent learning and document companion. Upload 500+ page PDFs, generate conversational audio podcasts, take interactive quizzes, or snap a math problem with Photo Mode for instant step-by-step guidance.",
     "features": [
-      "AI summary, quiz and study plan in one tap",
-      "Photo Mode: snap a question, the AI teacher solves it instantly",
-      "Listen to your notes as a podcast and learn on the go",
-      "Share PDFs and discover thousands of student notes"
+      "Instant AI document summaries, flashcards, and personalized study quizzes",
+      "Photo Solver: Snap any complex problem and receive step-by-step explanations",
+      "Podcast Mode: Turn dry academic documents into conversational audio summaries",
+      "Interactive AI Tutor answering questions 24/7 with deep context"
     ],
     "storeTopApple": "Download on the",
-    "metaRating": "App Store rating",
-    "metaAge": "age rating",
-    "metaCategoryValue": "Education",
-    "metaCategory": "category",
-    "float1Title": "AI summary ready",
-    "float1Desc": "540 pages in 38 sec",
-    "float2Title": "Podcast generated",
-    "float2Desc": "Listen to your notes",
-    "float3Title": "Quiz completed",
+    "storeTopGoogle": "Get it on",
+    "metaRating": "App Store Rating",
+    "metaAge": "Age Rating",
+    "metaCategoryValue": "Education & AI",
+    "metaCategory": "Category",
+    "float1Title": "AI Summary Ready",
+    "float1Desc": "540 pages in 28 sec",
+    "float2Title": "Podcast Generated",
+    "float2Desc": "Listen to your notes on the go",
+    "float3Title": "Quiz Completed",
     "float3Desc": "10/10 correct answers",
-    "updateShort": "Follow Latest Updates & Innovations",
-    "scrollLabel": "App Experience",
-    "scrollTitle": "Learning tools",
-    "scrollTitleAccent": "in one platform",
-    "scrollSubtitle": "AI summaries, note discovery and voice learning — every study tool united in Not Ortağım.",
+    "updateShort": "Loved by thousands of students and lifelong learners",
+    "scrollLabel": "Product Deep-Dive",
+    "scrollTitle": "Engineered for the",
+    "scrollTitleAccent": "future of learning",
+    "scrollSubtitle": "Combining proprietary summarization algorithms, neural voice synthesis, and an intuitive mobile experience.",
     "scrollSteps": [
       {
-        "title": "Instant AI Summaries",
-        "desc": "Upload a PDF and let AI generate summaries, quizzes and a study plan in seconds.",
+        "title": "Instant Multimodal Summaries",
+        "desc": "Upload complex lecture slides or textbooks. AI breaks down key concepts into digestible, retention-focused modules.",
         "chip": "AI Summary",
         "icon": "Sparkle",
         "screen": 1
       },
       {
-        "title": "Discover Thousands of Notes",
-        "desc": "Browse shared notes, filter what you need and download with a single tap.",
-        "chip": "Discover",
+        "title": "Shared Knowledge Ecosystem",
+        "desc": "Discover thousands of student-curated lecture notes, verified flashcard decks, and community discussions.",
+        "chip": "Discovery",
         "icon": "Compass",
         "screen": 2
       },
       {
-        "title": "Learn with Voice Summaries",
-        "desc": "Turn your notes into a podcast and learn on the go.",
+        "title": "Conversational Audio Learning",
+        "desc": "Turn your notes into an engaging podcast and absorb high-yield concepts while commuting or exercising.",
         "chip": "Podcast",
         "icon": "Microphone",
         "screen": 0
       }
-    ],
-    "storeTopGoogle": "Get it on"
+    ]
+  },
+  "whyUs": {
+    "label": "Our DNA",
+    "title": "An environment where ambitious builders thrive",
+    "subtitle": "To build products people love worldwide, we foster a high-performance culture rooted in autonomous execution.",
+    "items": [
+      {
+        "icon": "RocketLaunch",
+        "title": "The Right People",
+        "desc": "We look for self-starters who take initiative, solve hard problems independently, and take immense pride in crafting exceptional software."
+      },
+      {
+        "icon": "Brain",
+        "title": "State-of-the-Art Tech",
+        "desc": "Data and modern engineering empower our velocity. We continuously build internal tools, AI wrappers, and metrics platforms to guide every release."
+      },
+      {
+        "icon": "Stack",
+        "title": "Shared Values",
+        "desc": "We believe in cultivating a lean culture with strong shared standards: speed, craft, intellectual honesty, and extreme user empathy."
+      },
+      {
+        "icon": "Handshake",
+        "title": "Global Ambition",
+        "desc": "Every product we develop is engineered from day one for global scale, targeting top-tier international audiences and markets."
+      }
+    ]
+  },
+  "stats": {
+    "label": "By The Numbers",
+    "title": "Scale, reach, and momentum",
+    "products": "Live Ventures",
+    "users": "Global Users",
+    "countries": "Countries Reached",
+    "queries": "AI Inferences"
   },
   "team": {
-    "label": "Our Team",
-    "title": "Leadership team",
-    "titleAccent": "",
+    "label": "Leadership & Team",
+    "title": "The Builders",
+    "titleAccent": "Behind the Studio",
     "titleEnd": "",
-    "subtitle": "The team that founded and leads IMPEVOS.",
+    "subtitle": "Founders, product designers, and growth engineers shaping the next generation of mobile and AI experiences.",
     "photoPlaceholder": "Photo to be added",
     "founders": [
       {
         "name": "Göktuğ Eryılmaz",
-        "role": "Co-founder",
+        "role": "Co-Founder & CEO",
         "photo": "/team/goktug-eryilmaz.jpeg",
         "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/"
       },
       {
-        "name": "Burak Gökçe",
-        "role": "Co-founder",
-        "photo": "/team/burak-gokce.jpeg",
-        "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
-      },
-      {
         "name": "Tolga Bıyık",
-        "role": "Co-founder",
+        "role": "Co-Founder & CTO",
         "photo": "/team/tolga-biyik.png",
         "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/"
+      },
+      {
+        "name": "Burak Gökçe",
+        "role": "Co-Founder & COO",
+        "photo": "/team/burak-gokce.jpeg",
+        "linkedin": "https://www.linkedin.com/in/burak-gokcee/"
       }
     ],
     "leaderLabel": "Lead",
@@ -333,21 +301,21 @@
         "members": [
           {
             "name": "Göktuğ ERYILMAZ",
-            "role": "Co-founder",
+            "role": "Co-Founder & CEO",
             "photo": "/team/goktug-eryilmaz.jpeg",
             "linkedin": "https://www.linkedin.com/in/göktuğ-eryılmaz-625613292/",
             "instagram": "https://www.instagram.com/goktugery/"
           },
           {
             "name": "Tolga BIYIK",
-            "role": "Co-founder",
+            "role": "Co-Founder & CTO",
             "photo": "/team/tolga-biyik.png",
             "linkedin": "https://www.linkedin.com/in/tolga-bıyık-468a89225/",
             "instagram": "https://www.instagram.com/tolgapytech/"
           },
           {
             "name": "Burak GÖKCE",
-            "role": "Co-founder",
+            "role": "Co-Founder & COO",
             "photo": "/team/burak-gokce.jpeg",
             "linkedin": "https://www.linkedin.com/in/burak-gokcee/",
             "instagram": "https://www.instagram.com/burakgokkce/",
@@ -450,462 +418,65 @@
       }
     ]
   },
-  "contact": {
-    "label": "Contact",
-    "headline": "Let's plan your project together.",
-    "subtitle": "Share your needs and our team will get back to you shortly.",
-    "fab": "Contact",
-    "name": "Full name",
-    "email": "Email",
-    "company": "Company",
-    "message": "Message",
-    "submit": "Send message",
-    "sending": "Sending",
-    "success": "Message received. We will reply shortly.",
-    "error": "The message could not be sent. You can write to info@impevos.com.tr.",
-    "info": {
-      "help": {
-        "phone": "0850 640 00 98"
-      }
-    }
-  },
-  "internship": {
-    "hero": {
-      "badge": "Long-term internship",
-      "title": "Long-term voluntary internship applications are open",
-      "subtitle": "We are accepting 10 university students who want to develop themselves into a long-term voluntary internship. The aim is to gain experience on real projects.",
-      "slides": [
-        {
-          "type": "team",
-          "badge": "Team Applications Open",
-          "title": "Join the Impevos Team",
-          "subtitle": "Team applications are open. We are looking for teammates in software, AI, mobile apps, marketing and operations who want to gain experience on real projects.",
-          "cta1": "Join the Team",
-          "cta1Link": "/ekibe-katil",
-          "cta2": "Application Details",
-          "cta2Link": "/ekibe-katil"
-        },
-        {
-          "type": "internship",
-          "badge": "10 places",
-          "title": "Long-term voluntary internship applications are open",
-          "subtitle": "Applications are open for university students who want to develop themselves. The programme is voluntary and focused on gaining real experience.",
-          "cta1": "Apply Now",
-          "cta1Link": "#internship-apply",
-          "cta2": "View Internship Details",
-          "cta2Link": "#internship-details"
-        },
-        {
-          "type": "company",
-          "badge": "AI & Advanced Technology",
-          "title": "Building the Technology",
-          "titleAccent": "of Tomorrow",
-          "titleEnd": "Today",
-          "subtitle": "We empower your business with AI, automation, and advanced software solutions. Global vision, local strength.",
-          "cta1": "Explore Projects",
-          "cta1Link": "#projects",
-          "cta2": "Contact Us",
-          "cta2Link": "#contact"
-        }
-      ],
-      "cta1": "Apply Now",
-      "cta2": "View Internship Details",
-      "scroll": "scroll"
-    },
-    "announcement": {
-      "label": "Internship announcement",
-      "cta": "Apply",
-      "messages": [
-        "Long-term voluntary internship applications are open — 10 places",
-        "Only university students who want to develop themselves",
-        "The aim is to gain experience on real projects",
-        "The programme is voluntary, not a paid job"
-      ]
-    },
-    "popup": {
-      "badge": "Internship Announcement",
-      "title": "Long-term voluntary internship applications are open",
-      "desc": "We are accepting 10 university students who want to develop themselves. The programme is voluntary and focused on gaining experience.",
-      "cta": "Go to Application Form",
-      "later": "Maybe Later",
-      "close": "Close"
-    },
-    "midBanner": {
-      "title": "Long-term voluntary internship applications are open",
-      "desc": "10 places, open to university students. The programme is voluntary and for gaining experience.",
-      "cta": "Apply Now"
-    },
-    "highlight": {
-      "title": "Long-term internship applications are open",
-      "desc": "We are accepting 10 university students into the voluntary long-term internship.",
-      "cta": "Apply",
-      "cards": [
-        "Real Project Experience",
-        "Team Collaboration",
-        "Mentor Support",
-        "Remote Work Culture"
-      ]
-    },
-    "expectations": {
-      "title": "Programme conditions",
-      "items": [
-        "The programme is voluntary. There is no salary, payment, or insurance commitment",
-        "10 people will be accepted this term",
-        "Only active university students can apply",
-        "The aim is to help you gain experience, not to offer a paid job",
-        "Work is remote, and regular team meetings are expected",
-        "You are expected to stay open to learning and developing yourself"
-      ]
-    },
-    "details": {
-      "label": "Long-term internship",
-      "title": "Long-term voluntary internship",
-      "intro": [
-        "Impevos is opening a long-term voluntary internship for university students who want to develop themselves.",
-        "This is not a paid role. The aim is to gain experience on real projects, learn inside a team, and turn that work into a portfolio.",
-        "We will accept 10 people this term. Applications are reviewed for a clear wish to gain experience and to keep learning."
-      ],
-      "eligibleTitle": "Who can apply",
-      "eligible": [
-        "Active university students",
-        "People who want to develop themselves and gain new experience",
-        "Students who want experience in software, design, mobile, AI, or digital projects",
-        "People who can set aside regular time over a long period",
-        "People who accept the voluntary model"
-      ],
-      "areasTitle": "Application Areas",
-      "areas": [
-        "Web Development",
-        "Mobile App Development",
-        "Backend Development",
-        "UI/UX Design",
-        "AI and Automation",
-        "Social Media and Digital Content",
-        "Project Management and Operations"
-      ],
-      "notice": {
-        "badge": "10 places",
-        "title": "Long-term voluntary internship applications are open",
-        "desc": "We are accepting 10 university students who want to develop themselves into the long-term internship. The programme is voluntary. The focus is gaining experience on real projects."
-      },
-      "stats": [
-        {
-          "value": "10",
-          "label": "Interns we will accept"
-        },
-        {
-          "value": "Voluntary",
-          "label": "Experience-focused programme"
-        },
-        {
-          "value": "Long-term",
-          "label": "Regular participation"
-        }
-      ],
-      "supportTitle": "What We Do for Applicants and Interns",
-      "supportIntro": "We support every applicant and every intern who joins us throughout the process.",
-      "support": [
-        {
-          "title": "We review every application",
-          "desc": "Our team reads each application and contacts suitable candidates by email or phone."
-        },
-        {
-          "title": "We hold an intro call",
-          "desc": "A short online call to clarify your interests, goals and internship dates together."
-        },
-        {
-          "title": "Every intern gets a mentor",
-          "desc": "An experienced team member answers questions and follows your work throughout the internship."
-        },
-        {
-          "title": "Real project work",
-          "desc": "Interns work on live products such as Not Ortağım, İnffy and Awyron AI, and on new projects."
-        },
-        {
-          "title": "Regular team meetings",
-          "desc": "Weekly meetings to review progress together and give feedback."
-        },
-        {
-          "title": "We help you turn the work into a portfolio",
-          "desc": "We give feedback so the work you produce can become examples you can talk about."
-        }
-      ]
-    },
-    "form": {
-      "label": "Application",
-      "title": "Long-term internship application",
-      "subtitle": "This application is only for university students who want to develop themselves. Required fields are marked with *.",
-      "closedTitle": "Applications are closed",
-      "closedDesc": "Applications are not accepted on this form while the long-term voluntary internship is closed.",
-      "rulesTitle": "Before you apply",
-      "rules": [
-        "10 people will be accepted this term.",
-        "The programme is voluntary. There is no payment, salary, or insurance promise.",
-        "Only active university students can apply.",
-        "The questions are there to understand which experience you want to gain.",
-        "You are expected to set aside regular time over the long term."
-      ],
-      "steps": [
-        "Personal info",
-        "Student status",
-        "Experience",
-        "About you",
-        "Links and CV",
-        "Voluntary terms"
-      ],
-      "fields": {
-        "fullName": "Full Name",
-        "email": "Email Address",
-        "phone": "Phone Number",
-        "city": "Which city do you live in?",
-        "district": "District",
-        "university": "University Name",
-        "department": "Department",
-        "grade": "Year/Grade",
-        "gpa": "What is your GPA?",
-        "englishLevel": "What is your English level?",
-        "studentStatus": "Are you currently an active university student?",
-        "experienceGoal": "What experience do you want to gain in this internship?",
-        "developmentFocus": "What do you most want to develop in yourself?",
-        "field": "In which area do you want to gain experience?",
-        "hasPreviousInternship": "Have you already gained experience on a project or internship?",
-        "previousInternshipInfo": "Briefly describe that experience. If you have none yet, you can write 'No experience yet'.",
-        "technologies": "Which tools or technologies have you tried so far?",
-        "selfIntro": "Introduce yourself in a few sentences.",
-        "reason": "Why do you want to gain this experience at Impevos, as a volunteer?",
-        "projectLink": "Project link",
-        "github": "GitHub link",
-        "linkedin": "LinkedIn link",
-        "cv": "Upload CV",
-        "portfolio": "Portfolio link",
-        "remoteWork": "Are you able to gain experience in a remote setup?",
-        "daysPerWeek": "How many days a week can you set aside over the long term?",
-        "teamMeetings": "Are you ready to gain experience by joining regular team meetings?",
-        "voluntaryConsent": "I have read and accept that this is a voluntary internship for gaining experience, not a paid job.",
-        "rulesAccepted": "I have read that the programme is only for university students, that there are 10 places, and that I accept the conditions.",
-        "howDidYouHear": "How did you hear about Impevos?",
-        "additionalNotes": "Anything else you'd like to add?"
-      },
-      "options": {
-        "student": [
-          {
-            "value": "yes",
-            "label": "Yes, I am an active university student"
-          },
-          {
-            "value": "no",
-            "label": "No"
-          }
-        ],
-        "mandatory": [
-          {
-            "value": "yes",
-            "label": "Yes"
-          },
-          {
-            "value": "no",
-            "label": "No"
-          },
-          {
-            "value": "unsure",
-            "label": "Not sure"
-          }
-        ],
-        "previousInternship": [
-          {
-            "value": "yes",
-            "label": "Yes"
-          },
-          {
-            "value": "no",
-            "label": "No"
-          }
-        ],
-        "english": [
-          {
-            "value": "beginner",
-            "label": "Beginner"
-          },
-          {
-            "value": "intermediate",
-            "label": "Intermediate"
-          },
-          {
-            "value": "good",
-            "label": "Good"
-          },
-          {
-            "value": "advanced",
-            "label": "Advanced"
-          }
-        ],
-        "hearAbout": [
-          {
-            "value": "instagram",
-            "label": "Instagram"
-          },
-          {
-            "value": "linkedin",
-            "label": "LinkedIn"
-          },
-          {
-            "value": "friend",
-            "label": "Friend / Referral"
-          },
-          {
-            "value": "university",
-            "label": "University"
-          },
-          {
-            "value": "google",
-            "label": "Google / Search"
-          },
-          {
-            "value": "other",
-            "label": "Other"
-          }
-        ],
-        "field": [
-          {
-            "value": "web-frontend",
-            "label": "Web Frontend"
-          },
-          {
-            "value": "backend",
-            "label": "Backend"
-          },
-          {
-            "value": "mobile-ios",
-            "label": "Mobile iOS"
-          },
-          {
-            "value": "mobile-android",
-            "label": "Mobile Android"
-          },
-          {
-            "value": "ui-ux",
-            "label": "UI/UX Design"
-          },
-          {
-            "value": "ai",
-            "label": "Artificial Intelligence"
-          },
-          {
-            "value": "digital-marketing",
-            "label": "Digital Marketing"
-          },
-          {
-            "value": "social-media",
-            "label": "Social Media"
-          },
-          {
-            "value": "project-management",
-            "label": "Project Management"
-          },
-          {
-            "value": "undecided",
-            "label": "Not decided yet"
-          }
-        ],
-        "remote": [
-          {
-            "value": "yes",
-            "label": "Yes"
-          },
-          {
-            "value": "no",
-            "label": "No"
-          },
-          {
-            "value": "partial",
-            "label": "Partially"
-          }
-        ],
-        "meetings": [
-          {
-            "value": "yes",
-            "label": "Yes"
-          },
-          {
-            "value": "no",
-            "label": "No"
-          },
-          {
-            "value": "depends",
-            "label": "Depends"
-          }
-        ]
-      },
-      "select": "Select",
-      "linkHint": "If you don't have a link, you can write 'None'.",
-      "cvHint": "PDF, DOC or DOCX (max 5MB)",
-      "required": "Please fill in all required fields.",
-      "studentOnly": "This programme is only open to active university students.",
-      "consentRequired": "You need to accept the voluntary internship terms to continue.",
-      "invalidEmail": "Please enter a valid email address.",
-      "cvRequired": "CV upload is required.",
-      "voluntaryNote": "The Impevos long-term internship is a voluntary experience programme. It is unpaid. The aim is for you to gain experience on real projects and develop yourself.",
-      "back": "Back",
-      "next": "Next",
-      "submit": "Submit Application",
-      "sending": "Submitting...",
-      "error": "Application could not be submitted. Please try again.",
-      "networkError": "Could not connect to the server. Make sure the API server is running.",
-      "successTitle": "Your application has been received",
-      "successDesc": "The Impevos team will review your application and contact you if suitable. Thank you for your interest.",
-      "successBtn": "OK"
-    }
-  },
-  "stats": {
-    "label": "IMPEVOS in numbers",
-    "title": "Since our founding",
-    "products": "Products",
-    "interns": "Interns",
-    "projects": "Projects",
-    "founded": "Founded"
-  },
-  "story": {
-    "label": "Our story",
-    "title": "From one app to a company",
-    "subtitle": "The Not Ortağım launch, an investment offer, and the Istanbul incorporation happened in the same year.",
-    "videoTitle": "How We Started the Company",
-    "videoText": "Video slot. The series will be embedded here when it is ready.",
-    "events": [
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about Impevos Studio, our products, and partnership opportunities.",
+    "items": [
       {
-        "date": "9 March 2026",
-        "title": "Not Ortağım on the App Store",
-        "text": "The app was released on the Apple App Store."
+        "q": "What is an autonomous startup studio?",
+        "a": "A startup studio (or venture builder) develops digital products in-house. Rather than being an agency taking client contracts, we conceive our own concepts, develop the software, and scale each product with dedicated growth, AI, and engineering squads."
       },
       {
-        "date": "About 10 days later",
-        "title": "Investment offer",
-        "text": "An investment offer arrived shortly after the release."
+        "q": "How does Impevos decide what to build?",
+        "a": "We systematically research emerging trends in consumer AI, mobile utilities, and developer tooling. We test hypotheses with rapid prototypes and greenlight projects that demonstrate exceptional user retention and product-market fit."
       },
       {
-        "date": "2026 · Istanbul",
-        "title": "IMPEVOS A.Ş. was incorporated",
-        "text": "The company was established in Istanbul."
+        "q": "Are you open to strategic partnerships or investments?",
+        "a": "Yes. We actively collaborate with visionary founders, technology partners, and angel/institutional investors looking to co-build or accelerate category-leading digital ventures."
+      },
+      {
+        "q": "What technologies power Impevos products?",
+        "a": "Our stack combines native iOS & Android (Swift, Kotlin, Flutter), modern web architectures (React, Next.js, Node.js), and proprietary AI pipelines (large language models, multimodal vision, real-time audio synthesis, and cloud edge infrastructure)."
+      },
+      {
+        "q": "How can I contact the studio team?",
+        "a": "You can reach out through our contact form below or email us directly at info@impevos.com.tr for partnership, investment, or media inquiries."
       }
     ]
   },
-  "careerSection": {
-    "label": "Careers",
-    "title": "Long-term voluntary internship",
-    "subtitle": "We are accepting 10 university students who want to develop themselves into a long-term voluntary internship on real projects.",
-    "openTitle": "10 places are open",
-    "openText": "The application is for students who want to gain experience. The programme is voluntary.",
-    "openCta": "Go to the application form",
-    "name": "Full name",
-    "university": "University",
-    "department": "Department",
-    "cv": "CV",
-    "cvHint": "PDF, DOC, or DOCX. 5 MB maximum.",
-    "submit": "Submit application",
-    "sending": "Sending",
-    "success": "Application received. We will write to you if there is a fit.",
-    "error": "The application could not be sent. You can write to kariyer@impevos.com.tr.",
-    "closedTitle": "Applications are closed",
-    "closedText": "Applications are not accepted here while the long-term voluntary internship is closed."
+  "contact": {
+    "label": "Contact",
+    "headline": "Let's build something extraordinary.",
+    "subtitle": "Have a partnership proposal, investment inquiry, or press question? Reach out to our leadership team.",
+    "fab": "Contact",
+    "name": "Full Name",
+    "email": "Email Address",
+    "company": "Company / Venture",
+    "message": "Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Your message has been received. We will get back to you shortly.",
+    "error": "Message could not be sent. Please write directly to info@impevos.com.tr.",
+    "info": {
+      "help": {
+        "phone": "+90 850 640 00 98"
+      }
+    }
+  },
+  "footer": {
+    "desc": "Autonomous AI & mobile product studio building category-defining applications for millions globally.",
+    "studio": "Studio",
+    "products": "Portfolio",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "kvkk": "KVKK Notice",
+    "cookies": "Cookie Policy",
+    "rights": "All rights reserved.",
+    "address": "Istanbul, Türkiye · Global Reach",
+    "mersis": "MERSIS No: —",
+    "tax": "Tax No: —",
+    "copyright": "© 2026 IMPEVOS A.Ş. All rights reserved."
   },
   "cookie": {
     "text": "This site uses a necessary cookie to remember your choice.",
@@ -958,148 +529,5 @@
         }
       ]
     }
-  },
-  "footer": {
-    "desc": "AI products and software for companies.",
-    "links": "Quick Links",
-    "careers": "Careers",
-    "services": "Services",
-    "legal": "Legal",
-    "privacy": "Privacy Policy",
-    "kvkk": "KVKK",
-    "terms": "Terms of Use",
-    "cookies": "Cookie Policy",
-    "rights": "All rights reserved.",
-    "address": "Address to be added — Istanbul, Türkiye",
-    "mersis": "MERSIS No: —",
-    "tax": "Tax No: —",
-    "copyright": "© 2026 IMPEVOS A.Ş. All rights reserved."
-  },
-  "whoWeAre": {
-    "label": "Who We Are",
-    "title": "We are a technology company that builds its own products.",
-    "lead": "We were founded in Istanbul in 2026. We design, build and maintain Not Ortağım, İnffy and Awyron AI ourselves, from idea to launch. We bring the same way of working to businesses that need software and AI.",
-    "body": "We work across product development, enterprise software, AI integration and process automation. We define the scope at the start, keep progress visible and deliver the system on a sustainable architecture.",
-    "facts": [
-      {
-        "label": "Founded",
-        "value": "2026 · Istanbul"
-      },
-      {
-        "label": "Company",
-        "value": "IMPEVOS Teknoloji A.Ş."
-      },
-      {
-        "label": "Products",
-        "value": "Not Ortağım, İnffy, Awyron AI"
-      },
-      {
-        "label": "Completed projects",
-        "value": "20+"
-      }
-    ],
-    "pillars": [
-      {
-        "icon": "Cube",
-        "title": "Product Development",
-        "desc": "We build and grow our own products end to end, from idea to launch."
-      },
-      {
-        "icon": "Code",
-        "title": "Enterprise Software",
-        "desc": "We design and build web, mobile and admin dashboard solutions for businesses."
-      },
-      {
-        "icon": "Brain",
-        "title": "AI Integration",
-        "desc": "We integrate AI models into existing business processes in a secure, measurable way."
-      },
-      {
-        "icon": "GearSix",
-        "title": "Process Automation",
-        "desc": "We automate repetitive operational work so teams can focus on strategic tasks."
-      }
-    ]
-  },
-  "process": {
-    "label": "How We Work",
-    "title": "A clear path from idea to launch",
-    "subtitle": "We run every project with the same discipline and keep you informed at every stage.",
-    "steps": [
-      {
-        "title": "Discovery",
-        "desc": "We review your needs, goals and current processes together and define the project scope."
-      },
-      {
-        "title": "Design and planning",
-        "desc": "We design the user experience and set the technical architecture and timeline."
-      },
-      {
-        "title": "Development and testing",
-        "desc": "We share working versions regularly and move forward with your feedback."
-      },
-      {
-        "title": "Launch and support",
-        "desc": "We launch the product, monitor its performance and keep improving it."
-      }
-    ]
-  },
-  "whyUs": {
-    "label": "Why IMPEVOS",
-    "title": "Work with a team that ships products",
-    "subtitle": "As a team that launches and grows its own products, we bring the same ownership to client projects.",
-    "items": [
-      {
-        "icon": "RocketLaunch",
-        "title": "Products in the market",
-        "desc": "Not Ortağım is live on the App Store and Google Play; İnffy and Awyron AI are built by our own team."
-      },
-      {
-        "icon": "Stack",
-        "title": "End-to-end delivery",
-        "desc": "Design, mobile and web development, infrastructure and launch handled by one team."
-      },
-      {
-        "icon": "Brain",
-        "title": "AI expertise",
-        "desc": "We run AI models with real users in our own products and bring that experience to your project."
-      },
-      {
-        "icon": "Handshake",
-        "title": "Transparent communication",
-        "desc": "We share progress at every stage and make decisions together."
-      }
-    ]
-  },
-  "faq": {
-    "label": "FAQ",
-    "title": "Frequently asked questions",
-    "subtitle": "If you have another question, reach us through the contact form.",
-    "items": [
-      {
-        "q": "What kind of projects do you build?",
-        "a": "Mobile apps, web platforms, admin dashboards, AI integrations and process automation projects."
-      },
-      {
-        "q": "How long does a project take?",
-        "a": "It depends on the scope. After a discovery call we share a plan with phases and an estimated timeline."
-      },
-      {
-        "q": "How is pricing determined?",
-        "a": "Pricing depends on scope, features and timeline. We prepare a tailored proposal after understanding your needs."
-      },
-      {
-        "q": "Do you provide support after launch?",
-        "a": "Yes. We can keep working together on maintenance, updates and new features after launch."
-      },
-      {
-        "q": "Can you integrate AI into our existing systems?",
-        "a": "Yes. We review your software and workflows, identify where AI adds the most value and handle the integration."
-      },
-      {
-        "q": "How can I join your team?",
-        "a": "Use the Join the Team page for team applications. The long-term voluntary internship application is the form on this page. It is for students, and there are 10 places."
-      }
-    ]
   }
 }

@@ -80,7 +80,7 @@
   line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 20px;
-  color: var(--color-accent);
+  color: #ffffff;
 }
 
 .titleAccent {
@@ -93,7 +93,7 @@
 
 .subtitle {
   font-size: 1.075rem;
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
   margin-bottom: 32px;
   max-width: 540px;
@@ -113,7 +113,7 @@
   align-items: center;
   gap: 12px;
   font-size: 0.9375rem;
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }
 
@@ -127,7 +127,7 @@
   background: rgba(34, 197, 94, 0.12);
   color: var(--color-accent);
   flex-shrink: 0;
-  box-shadow: none;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.15);
 }
 
 /* ---------- Store buttons ---------- */
@@ -143,28 +143,28 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 20px 12px 18px;
+  padding: 12px 22px 12px 18px;
   border-radius: 14px;
-  background: rgba(34, 197, 94, 0.08);
-  border: 1px solid rgba(34, 197, 94, 0.35);
-  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
   transition: all 0.25s ease;
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(8px);
 }
 
 .storeBtn:hover {
-  border-color: rgba(34, 197, 94, 0.5);
-  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.4);
+  background: rgba(34, 197, 94, 0.08);
   transform: translateY(-2px);
-  box-shadow: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .storeBtnPrimary {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(0, 200, 80, 0.12));
-  border-color: rgba(34, 197, 94, 0.5);
-  box-shadow: none;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.16), rgba(255, 255, 255, 0.04));
+  border-color: rgba(34, 197, 94, 0.4);
 }
 
 .storeBtnPrimary::after {
@@ -199,7 +199,7 @@
 .storeBtnTop {
   font-size: 0.6875rem;
   letter-spacing: 0.5px;
-  color: #86efac;
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 2px;
 }
 
@@ -207,11 +207,13 @@
   font-size: 1.125rem;
   font-weight: 800;
   letter-spacing: -0.01em;
+  color: #ffffff;
 }
 
 .storeBtnArrow {
   margin-left: 4px;
   opacity: 0.8;
+  color: var(--color-accent);
   transition: transform 0.25s ease;
 }
 
@@ -246,13 +248,13 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 100px;
   margin-bottom: 24px;
   text-decoration: none;
-  color: var(--color-accent);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.8125rem;
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -260,9 +262,9 @@
 }
 
 .minimalUpdateLink:hover {
-  background: rgba(34, 197, 94, 0.06);
+  background: rgba(34, 197, 94, 0.08);
   border-color: rgba(34, 197, 94, 0.4);
-  color: #4ade80;
+  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: none;
 }
@@ -296,7 +298,8 @@
 }
 
 .updateArrow {
-  opacity: 0.4;
+  opacity: 0.6;
+  color: var(--color-accent);
   transition: all 0.3s ease;
 }
 
@@ -331,7 +334,7 @@
   gap: 4px;
   font-size: 1.0625rem;
   font-weight: 800;
-  color: var(--color-accent);
+  color: #ffffff;
   letter-spacing: -0.01em;
 }
 
@@ -341,7 +344,7 @@
 
 .metaLbl {
   font-size: 0.75rem;
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .metaDivider {
@@ -673,7 +676,7 @@
 
 .floatDesc {
   font-size: 0.625rem;
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.2;
   margin-top: 2px;
   white-space: nowrap;
@@ -730,7 +733,7 @@
   margin: 16px 0 0;
   font-size: 1.0625rem;
   line-height: 1.75;
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .hubPanel {
@@ -761,7 +764,7 @@
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.04);
-  color: #4ade80;
+  color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -928,7 +931,7 @@
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.2;
-  color: var(--color-accent);
+  color: #ffffff;
   margin: 0;
 }
 
@@ -960,14 +963,14 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.25;
-  color: var(--color-accent);
+  color: #ffffff;
   margin: 0 0 16px;
 }
 
 .stepDesc {
   font-size: 1rem;
   line-height: 1.75;
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
   max-width: 480px;
 }
@@ -983,7 +986,7 @@
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.03);
-  color: #4ade80;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -993,7 +996,7 @@
 
 .stepTab:hover {
   border-color: rgba(34, 197, 94, 0.3);
-  color: #86efac;
+  color: #ffffff;
 }
 
 .stepTabActive {

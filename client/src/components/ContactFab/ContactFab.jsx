@@ -9,7 +9,7 @@ export default function ContactFab() {
       className={styles.fab}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="WhatsApp ile yazın"
+      aria-label="Contact us on WhatsApp"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" width="30" height="30">
         <path

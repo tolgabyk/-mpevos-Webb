@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import { List, X } from '@phosphor-icons/react'
+import { List, X, ArrowUpRight } from '@phosphor-icons/react'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
-import { INTERNSHIP_APPLICATIONS_OPEN } from '../../data/config'
 import styles from './Navbar.module.css'
 
-const NAV_IDS = ['hero', 'about', 'services', 'projects', 'stats', 'team', 'career', 'contact']
+const NAV_IDS = ['hero', 'projects', 'about', 'process', 'why', 'team', 'faq', 'contact']
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
@@ -23,11 +22,6 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  const switchLang = (lang) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('impevos-lang', lang)
-  }
 
   const handleNavClick = (id) => {
     setMenuOpen(false)
@@ -48,12 +42,13 @@ export default function Navbar() {
   }
 
   const navItems = [
-    { id: 'about', label: t('nav.about') },
-    { id: 'projects', label: t('nav.projects') },
-    { id: 'services', label: t('nav.services') },
-    { id: 'team', label: t('nav.team') },
-    { id: 'career', label: t('nav.career') },
-    { id: 'contact', label: t('nav.contact') },
+    { id: 'projects', label: t('nav.projects', 'Products') },
+    { id: 'about', label: t('nav.studio', 'Studio') },
+    { id: 'process', label: t('nav.process', 'How We Work') },
+    { id: 'why', label: t('nav.dna', 'Our DNA') },
+    { id: 'team', label: t('nav.team', 'Team') },
+    { id: 'faq', label: t('nav.faq', 'FAQ') },
+    { id: 'contact', label: t('nav.contact', 'Contact') },
   ]
 
   return (
@@ -61,7 +56,7 @@ export default function Navbar() {
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.container}>
           {/* Logo */}
-          <button className={styles.logo} onClick={handleLogoClick}>
+          <button className={styles.logo} onClick={handleLogoClick} aria-label="Impevos Home">
             <img src="/logo.png" alt="IMPEVOS Logo" />
           </button>
 
@@ -88,34 +83,14 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className={styles.navRight}>
-            <Link
-              to="/ekibe-katil"
-              className={`${styles.applyBtn} ${location.pathname === '/ekibe-katil' ? styles.applyBtnActive : ''}`}
-              onClick={() => setMenuOpen(false)}
+            <button
+              type="button"
+              className={styles.applyBtn}
+              onClick={() => handleNavClick('contact')}
             >
-              {t('nav.joinTeam')}
-            </Link>
-            {INTERNSHIP_APPLICATIONS_OPEN && (
-              <button
-                type="button"
-                className={styles.applyBtnSecondary}
-                onClick={() => handleNavClick('internship-apply')}
-              >
-                {t('nav.internshipApply')}
-              </button>
-            )}
-
-            {/* Lang Toggle */}
-            <div className={styles.langToggle}>
-              <button
-                className={`${styles.langBtn} ${i18n.language === 'tr' ? styles.langActive : ''}`}
-                onClick={() => switchLang('tr')}
-              >TR</button>
-              <button
-                className={`${styles.langBtn} ${i18n.language === 'en' ? styles.langActive : ''}`}
-                onClick={() => switchLang('en')}
-              >EN</button>
-            </div>
+              <span>{t('nav.partnerWithUs', 'Partner With Us')}</span>
+              <ArrowUpRight size={14} weight="bold" />
+            </button>
 
             {/* Hamburger */}
             <button
@@ -140,40 +115,12 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
           >
             <ul className={styles.mobileNavLinks}>
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0 }}
-              >
-                <Link
-                  to="/ekibe-katil"
-                  className={styles.mobileApplyBtn}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {t('nav.joinTeam')}
-                </Link>
-              </motion.li>
-              {INTERNSHIP_APPLICATIONS_OPEN && (
-                <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.03 }}
-                >
-                  <button
-                    type="button"
-                    className={styles.mobileNavLink}
-                    onClick={() => handleNavClick('internship-apply')}
-                  >
-                    {t('nav.internshipApply')}
-                  </button>
-                </motion.li>
-              )}
               {navItems.map(({ id, label }, i) => (
                 <motion.li
                   key={id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (i + 1) * 0.06 }}
+                  transition={{ delay: i * 0.04 }}
                 >
                   <button
                     className={`${styles.mobileNavLink} ${activeId === id ? styles.active : ''}`}
@@ -183,11 +130,20 @@ export default function Navbar() {
                   </button>
                 </motion.li>
               ))}
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.04 }}
+              >
+                <button
+                  type="button"
+                  className={styles.mobileApplyBtn}
+                  onClick={() => handleNavClick('contact')}
+                >
+                  {t('nav.partnerWithUs', 'Partner With Us')}
+                </button>
+              </motion.li>
             </ul>
-            <div className={styles.mobileLangToggle}>
-              <button className={`${styles.langBtn} ${i18n.language === 'tr' ? styles.langActive : ''}`} onClick={() => switchLang('tr')}>TR</button>
-              <button className={`${styles.langBtn} ${i18n.language === 'en' ? styles.langActive : ''}`} onClick={() => switchLang('en')}>EN</button>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
