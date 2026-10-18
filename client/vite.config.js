@@ -8,7 +8,7 @@ const PAGES = {
     title: 'IMPEVOS | Yapay Zeka ve Yazılım Çözümleri',
     description: 'IMPEVOS A.Ş., yapay zeka destekli ürünler geliştirir ve işletmelerin süreçlerini otomatikleştirir. Not Ortağım, İnffy ve Awyron AI.',
     body: `
-      <h1>Yapay zeka ile işletmelerin dijital dönüşümüne yön veriyoruz.</h1>
+      <h1>Fikirden geleceğe</h1>
       <p>Kurumsal yazılım, mobil uygulama ve süreç otomasyonu alanında ölçeklenebilir çözümler geliştiren İstanbul merkezli bir teknoloji şirketiyiz.</p>
       <h2>Biz Kimiz</h2>
       <p>IMPEVOS Teknoloji A.Ş., 2026 yılında İstanbul'da kuruldu. Kendi dijital ürünlerimizi geliştiriyor, işletmelere yazılım ve yapay zeka çözümleri sunuyoruz. Ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyoruz.</p>
