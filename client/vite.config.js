@@ -9,9 +9,9 @@ const PAGES = {
     description: 'IMPEVOS A.Ş., yapay zeka destekli ürünler geliştirir ve işletmelerin süreçlerini otomatikleştirir. Not Ortağım, İnffy ve Awyron AI.',
     body: `
       <h1>Fikirden geleceğe</h1>
-      <p>Kurumsal yazılım, mobil uygulama ve süreç otomasyonu alanında ölçeklenebilir çözümler geliştiren İstanbul merkezli bir teknoloji şirketiyiz.</p>
+      <p>İstanbul merkezli bir anonim şirketiz. Kurumsal yazılım, yapay zeka ve süreç otomasyonu alanında işletmelere çözüm sunuyoruz.</p>
       <h2>Biz Kimiz</h2>
-      <p>IMPEVOS Teknoloji A.Ş., 2026 yılında İstanbul'da kuruldu. Kendi dijital ürünlerimizi geliştiriyor, işletmelere yazılım ve yapay zeka çözümleri sunuyoruz. Ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyoruz.</p>
+      <p>2026'da İstanbul'da kurulduk. Not Ortağım, İnffy ve Awyron AI'ı fikirden yayına kadar kendi ekibimizle tasarlıyor, geliştiriyor ve yaşatıyoruz. Ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyoruz.</p>
       <h2>Ürünler</h2>
       <ul>
         <li>Not Ortağım — Öğrenciler için yapay zeka destekli not ve çalışma asistanı. App Store ve Google Play'de yayında.</li>
