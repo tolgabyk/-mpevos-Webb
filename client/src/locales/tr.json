@@ -39,16 +39,16 @@
     }
   },
   "hero": {
-    "badge": "IMPEVOS Teknoloji A.Ş.",
     "headline": "Fikirden geleceğe",
     "title": "Geleceğin Teknolojisini",
     "titleAccent": "Bugün",
     "titleEnd": "İnşa Ediyoruz",
     "subtitle": "Kurumsal yazılım, mobil uygulama ve süreç otomasyonu alanında ölçeklenebilir çözümler geliştiren İstanbul merkezli bir teknoloji şirketiyiz.",
     "typewriter": [
-      "Yapay zeka ile geleceği inşa ediyoruz",
-      "Gerçek projeler, gerçek çözümler",
-      "Global vizyon, yerel güç"
+      "Yapay zeka ile ürün geliştiriyoruz",
+      "İşletmeler için ölçeklenebilir yazılım",
+      "Fikirden yayına, görünür bir süreç",
+      "Ölçülebilir sonuç, kalıcı mimari"
     ],
     "cta1": "Ürünlerimiz",
     "cta2": "Projenizi konuşalım",
@@ -977,9 +977,9 @@
   },
   "whoWeAre": {
     "label": "Biz Kimiz",
-    "title": "Yazılım ve yapay zeka alanında ürün geliştiren bir teknoloji şirketiyiz.",
-    "lead": "IMPEVOS Teknoloji A.Ş., 2026 yılında İstanbul'da kuruldu. Kendi dijital ürünlerimizi geliştiriyor, işletmelere yazılım ve yapay zeka çözümleri sunuyoruz.",
-    "body": "Göktuğ Eryılmaz, Burak Gökçe ve Tolga Bıyık tarafından kurulan şirketimiz; ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyor. Her projede ölçülebilir sonuç, sürdürülebilir mimari ve şeffaf iletişimi esas alıyoruz.",
+    "title": "Kendi ürünlerini geliştiren bir teknoloji şirketiyiz.",
+    "lead": "2026'da İstanbul'da kurulduk. Not Ortağım, İnffy ve Awyron AI'ı fikirden yayına kadar kendi ekibimizle tasarlıyor, geliştiriyor ve yaşatıyoruz. Aynı çalışma düzenini, yazılım ve yapay zeka ihtiyacı olan işletmelere de taşıyoruz.",
+    "body": "Ürün geliştirme, kurumsal yazılım, yapay zeka entegrasyonu ve süreç otomasyonu alanlarında çalışıyoruz. Kapsamı baştan netleştirir, ilerlemeyi görünür kılar ve ortaya çıkan sistemi sürdürülebilir bir mimariyle teslim ederiz.",
     "facts": [
       {
         "label": "Kuruluş",

@@ -39,16 +39,16 @@
     }
   },
   "hero": {
-    "badge": "IMPEVOS Teknoloji A.Ş.",
     "headline": "From idea to the future",
     "title": "Building the Technology",
     "titleAccent": "of Tomorrow",
     "titleEnd": "Today",
     "subtitle": "An Istanbul-based technology company building scalable solutions in enterprise software, mobile apps and process automation.",
     "typewriter": [
-      "Building the future with artificial intelligence",
-      "Real projects, real solutions",
-      "Global vision, local strength"
+      "We build products with artificial intelligence",
+      "Scalable software for businesses",
+      "A visible path from idea to launch",
+      "Measurable results, lasting architecture"
     ],
     "cta1": "Our products",
     "cta2": "Discuss a project",
@@ -977,9 +977,9 @@
   },
   "whoWeAre": {
     "label": "Who We Are",
-    "title": "We are a technology company building software and AI products.",
-    "lead": "IMPEVOS Teknoloji A.Ş. was founded in Istanbul in 2026. We build our own digital products and deliver software and AI solutions to businesses.",
-    "body": "Founded by Göktuğ Eryılmaz, Burak Gökçe and Tolga Bıyık, the company works across product development, enterprise software, AI integration and process automation. Every project is built on measurable results, sustainable architecture and transparent communication.",
+    "title": "We are a technology company that builds its own products.",
+    "lead": "We were founded in Istanbul in 2026. We design, build and maintain Not Ortağım, İnffy and Awyron AI ourselves, from idea to launch. We bring the same way of working to businesses that need software and AI.",
+    "body": "We work across product development, enterprise software, AI integration and process automation. We define the scope at the start, keep progress visible and deliver the system on a sustainable architecture.",
     "facts": [
       {
         "label": "Founded",

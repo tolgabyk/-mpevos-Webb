@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { motion } from 'framer-motion'
+import { useTypewriter } from '../../hooks/useTypewriter'
 import styles from './Hero.module.css'
 
 function initParticles(canvas) {
@@ -80,8 +81,14 @@ const itemVariants = {
 }
 
 export default function Hero({ ready = true }) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const canvasRef = useRef(null)
+  const phrases = t('hero.typewriter', { returnObjects: true })
+  const rotatingLines = useMemo(
+    () => (Array.isArray(phrases) ? phrases : []),
+    [i18n.language],
+  )
+  const rotatingText = useTypewriter(rotatingLines, 48, 2400)
 
   useEffect(() => {
     if (!canvasRef.current) return undefined
@@ -98,14 +105,14 @@ export default function Hero({ ready = true }) {
         initial="hidden"
         animate={ready ? 'visible' : 'hidden'}
       >
-        <motion.div className={styles.badge} variants={itemVariants}>
-          <span className={styles.badgeDot} />
-          <span>{t('hero.badge')}</span>
-        </motion.div>
-
         <motion.h1 className={styles.title} variants={itemVariants}>
           {t('hero.headline')}
         </motion.h1>
+
+        <motion.p className={styles.typewriter} variants={itemVariants} aria-live="polite">
+          <span className={styles.typewriterText}>{rotatingText}</span>
+          <span className={styles.cursor} aria-hidden="true" />
+        </motion.p>
 
         <motion.p className={styles.subtitle} variants={itemVariants}>
           {t('hero.subtitle')}

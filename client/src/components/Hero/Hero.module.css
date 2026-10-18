@@ -67,11 +67,13 @@
 }
 
 .typewriter {
-  min-height: 2rem;
-  margin-bottom: 16px;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  min-height: 3.4rem;
+  margin: 0 auto 18px;
+  max-width: 720px;
+  font-size: clamp(1.05rem, 2.1vw, 1.35rem);
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: -0.02em;
+  color: var(--color-accent);
 }
 
 .typewriterText {
