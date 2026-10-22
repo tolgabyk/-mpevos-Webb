@@ -508,11 +508,31 @@
       "blocks": [
         {
           "heading": "Scope",
-          "text": "This policy covers impevos.com. Product apps may publish their own notices."
+          "text": "This policy covers impevos.com and the mobile apps published by IMPEVOS, including Lumivolt: Energy Puzzle."
         },
         {
           "heading": "Information",
           "text": "Browsing the site does not require an account. If you submit a form, we process what you type. We do not take payments on this site."
+        },
+        {
+          "heading": "Lumivolt: data on your device",
+          "text": "Lumivolt has no account or sign-in. Your game progress and settings are stored only on your device and are not sent to us. Deleting the app deletes this data. In-app purchases are processed by Apple; we never see your payment details."
+        },
+        {
+          "heading": "Lumivolt: advertising (Google AdMob)",
+          "text": "The free version of Lumivolt shows optional rewarded ads and occasional ads between levels, provided by Google AdMob. To serve and measure ads, Google may collect the advertising identifier (only if you allow tracking), approximate location derived from your IP address, product interaction and advertising data, and crash, performance and diagnostic data. Google's use of this data is described at policies.google.com/technologies/partner-sites."
+        },
+        {
+          "heading": "Your choices",
+          "text": "iOS asks for your permission before any tracking (App Tracking Transparency). In the EEA, the UK and Switzerland a consent form lets you accept or refuse personalised ads, and you can change this at any time in the app under Settings > Ad Privacy Choices. Buying Lumivolt Premium removes all ads."
+        },
+        {
+          "heading": "Children",
+          "text": "Our apps are not directed at children under 13, and we do not knowingly collect personal information from them."
+        },
+        {
+          "heading": "Contact",
+          "text": "For privacy questions about the site or our apps, write to info@impevos.com.tr."
         }
       ]
     },
