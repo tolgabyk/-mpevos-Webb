@@ -45,9 +45,6 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <div>
             <p className="text-white">{company.legalName}</p>
             <p className="mt-1">{company.addressPlaceholder[locale]}</p>
-            <p className="mt-1 font-mono text-xs text-white/55">
-              {company.mersisPlaceholder} · {company.taxPlaceholder[locale]}
-            </p>
             <p className="mt-3">© {year} {company.legalName}. {dict.footer.rights}</p>
           </div>
           <div className="flex gap-4">

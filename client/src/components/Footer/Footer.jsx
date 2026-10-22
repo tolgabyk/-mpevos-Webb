@@ -55,7 +55,6 @@ export default function Footer() {
           <div>
             <p>IMPEVOS A.Ş.</p>
             <p>{t('footer.address')}</p>
-            <p>{t('footer.mersis')} · {t('footer.tax')}</p>
             <p>© {new Date().getFullYear()} IMPEVOS A.Ş. {t('footer.rights')}</p>
           </div>
           <div className={styles.socials}>
