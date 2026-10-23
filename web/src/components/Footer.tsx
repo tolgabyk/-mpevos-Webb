@@ -18,8 +18,8 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/45">{dict.footer.products}</p>
           <ul className="mt-3 space-y-2 text-sm text-white/80">
             <li><Link href={localePath(locale, "/urunler/not-ortagim")}>Not Ortağım</Link></li>
-            <li><Link href={localePath(locale, "/urunler/inffy")}>İnffy</Link></li>
-            <li><Link href={localePath(locale, "/urunler/awyron-ai")}>Awyron AI</Link></li>
+            <li><Link href={localePath(locale, "/urunler/inffy")}>İnffy AI</Link></li>
+            <li><Link href={localePath(locale, "/urunler/awyron-ai")}>Awyron</Link></li>
           </ul>
         </div>
         <div>

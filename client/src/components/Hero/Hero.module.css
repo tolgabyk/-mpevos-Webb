@@ -74,8 +74,12 @@
   max-width: 720px;
   font-size: clamp(1.05rem, 2.1vw, 1.35rem);
   font-weight: 600;
+  line-height: 1.4;
   letter-spacing: -0.02em;
   color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .typewriterText {

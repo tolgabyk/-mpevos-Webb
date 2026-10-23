@@ -15,11 +15,12 @@ import Footer from '../components/Footer/Footer'
 
 export default function HomePage() {
   const [splashDone, setSplashDone] = useState(() => !!sessionStorage.getItem('impevos-splash-seen'))
+  const handleStartReveal = useCallback(() => setSplashDone(true), [])
   const handleSplashComplete = useCallback(() => setSplashDone(true), [])
 
   return (
     <>
-      <SplashScreen onComplete={handleSplashComplete} />
+      <SplashScreen onStartReveal={handleStartReveal} onComplete={handleSplashComplete} />
       <Navbar />
       <main>
         <Hero ready={splashDone} />

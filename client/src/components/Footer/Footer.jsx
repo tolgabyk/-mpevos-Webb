@@ -35,8 +35,8 @@ export default function Footer() {
             <h4>{t('footer.products', 'Portfolio')}</h4>
             <ul>
               <li><a href="https://apps.apple.com/tr/app/not-orta%C4%9F%C4%B1m-ai-not-asistan%C4%B1/id6758680814" target="_blank" rel="noopener noreferrer">Not Ortağım (iOS & Android)</a></li>
-              <li><a href="https://www.inffyai.com" target="_blank" rel="noopener noreferrer">İnffy Creator OS</a></li>
-              <li><a href="https://www.awyronai.com" target="_blank" rel="noopener noreferrer">Awyron AI</a></li>
+              <li><a href="https://www.inffyai.com" target="_blank" rel="noopener noreferrer">İnffy AI</a></li>
+              <li><a href="https://www.awyronai.com" target="_blank" rel="noopener noreferrer">Awyron</a></li>
             </ul>
           </div>
 

@@ -5,9 +5,9 @@ const dictionary = {
     meta: {
       homeTitle: "IMPEVOS | Yapay Zeka ve Yazılım Çözümleri",
       homeDescription:
-        "IMPEVOS A.Ş., yapay zeka destekli ürünler geliştirir ve işletmelerin süreçlerini otomatikleştirir. Not Ortağım, İnffy ve Awyron AI.",
+        "IMPEVOS A.Ş., yapay zeka destekli ürünler geliştirir ve işletmelerin süreçlerini otomatikleştirir. Not Ortağım, İnffy AI ve Awyron.",
       productsTitle: "Ürünler",
-      productsDescription: "Not Ortağım, İnffy ve Awyron AI. IMPEVOS ürünleri ve bağlantıları.",
+      productsDescription: "Not Ortağım, İnffy AI ve Awyron. IMPEVOS ürünleri ve bağlantıları.",
       blogTitle: "Blog",
       blogDescription: "IMPEVOS duyuruları: ürün lansmanları ve staj programı.",
       pressTitle: "Basın kiti",
@@ -67,20 +67,20 @@ const dictionary = {
           ],
         },
         inffy: {
-          name: "İnffy",
+          name: "İnffy AI",
           line: "Yapay zeka destekli dijital ürün.",
           cta: "inffyai.com",
           badge: "Web",
-          summary: "İnffy, IMPEVOS ürün portföyündeki yapay zeka ürünüdür. Güncel sürüm inffyai.com adresinde yayınlanır.",
+          summary: "İnffy AI, IMPEVOS ürün portföyündeki yapay zeka ürünüdür. Güncel sürüm inffyai.com adresinde yayınlanır.",
           points: ["Ürün sitesi: inffyai.com", "Ayrıntılı ekran görselleri eklenecek", "Kurumsal kullanım için iletişim formu açık"],
         },
         "awyron-ai": {
-          name: "Awyron AI",
+          name: "Awyron",
           line: "İş araçlarını tek platformda toplayan yapay zeka katmanı.",
           cta: "awyronai.com",
           badge: "Ön talep",
           summary:
-            "Awyron AI, e-posta, takvim ve iş araçlarını tek çalışma yüzeyinde birleştirmeyi hedefler. Demo ve ön talep için ekiple iletişime geçebilirsiniz.",
+            "Awyron, e-posta, takvim ve iş araçlarını tek çalışma yüzeyinde birleştirmeyi hedefler. Demo ve ön talep için ekiple iletişime geçebilirsiniz.",
           points: [
             "Demo: awyronai.com",
             "Ön talep iletişim formu üzerinden alınır",
@@ -190,7 +190,7 @@ const dictionary = {
       sending: "Gönderiliyor",
       success: "Mesajınız alındı. En kısa sürede dönüş yapılır.",
       error: "Mesaj iletilemedi. info@impevos.com.tr adresine yazabilirsiniz.",
-      preorder: "Awyron AI için ön talep bırakmak istiyorum.",
+      preorder: "Awyron için ön talep bırakmak istiyorum.",
     },
     footer: {
       blurb: "Yapay zeka destekli ürünler ve işletmeler için yazılım.",
@@ -239,9 +239,9 @@ const dictionary = {
     meta: {
       homeTitle: "IMPEVOS | AI and Software Solutions",
       homeDescription:
-        "IMPEVOS builds AI products and automates business operations. Not Ortağım, İnffy, and Awyron AI.",
+        "IMPEVOS builds AI products and automates business operations. Not Ortağım, Inffy AI, and Awyron.",
       productsTitle: "Products",
-      productsDescription: "Not Ortağım, İnffy, and Awyron AI. IMPEVOS products and links.",
+      productsDescription: "Not Ortağım, Inffy AI, and Awyron. IMPEVOS products and links.",
       blogTitle: "Blog",
       blogDescription: "IMPEVOS announcements: product launches and the internship program.",
       pressTitle: "Press kit",
@@ -297,20 +297,20 @@ const dictionary = {
           points: ["Upload and share PDF notes", "Summaries with AI", "App Store release for iPhone and iPad"],
         },
         inffy: {
-          name: "İnffy",
+          name: "Inffy AI",
           line: "An AI digital product.",
           cta: "inffyai.com",
           badge: "Web",
-          summary: "İnffy is an AI product in the IMPEVOS portfolio. The current release is published at inffyai.com.",
+          summary: "Inffy AI is an AI product in the IMPEVOS portfolio. The current release is published at inffyai.com.",
           points: ["Product site: inffyai.com", "Detailed screenshots will be added", "Use the contact form for company inquiries"],
         },
         "awyron-ai": {
-          name: "Awyron AI",
+          name: "Awyron",
           line: "An AI layer that brings work tools into one place.",
           cta: "awyronai.com",
           badge: "Early access",
           summary:
-            "Awyron AI is built to bring email, calendar, and work tools onto one surface. Request a demo or leave an early-access note.",
+            "Awyron is built to bring email, calendar, and work tools onto one surface. Request a demo or leave an early-access note.",
           points: ["Demo: awyronai.com", "Early access is collected through the contact form", "Product screens are placeholders"],
           demo: "Demo",
           preorder: "Request early access",
@@ -416,7 +416,7 @@ const dictionary = {
       sending: "Sending",
       success: "Message received. We will reply shortly.",
       error: "The message could not be sent. You can write to info@impevos.com.tr.",
-      preorder: "I would like early access to Awyron AI.",
+      preorder: "I would like early access to Awyron.",
     },
     footer: {
       blurb: "AI products and software for companies.",

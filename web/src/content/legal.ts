@@ -46,7 +46,7 @@ const legal = {
         {
           heading: "Kapsam",
           paragraphs: [
-            "Bu politika impevos.com sitesini kapsar. Not Ortağım, İnffy ve Awyron AI’nin kendi uygulamaları ayrı metinler yayımlayabilir.",
+            "Bu politika impevos.com sitesini kapsar. Not Ortağım, İnffy AI ve Awyron’nin kendi uygulamaları ayrı metinler yayımlayabilir.",
           ],
         },
         {
@@ -130,7 +130,7 @@ const legal = {
         {
           heading: "Scope",
           paragraphs: [
-            "This policy covers impevos.com. Not Ortağım, İnffy, and Awyron AI may publish separate notices for their own apps.",
+            "This policy covers impevos.com. Not Ortağım, Inffy AI, and Awyron may publish separate notices for their own apps.",
           ],
         },
         {

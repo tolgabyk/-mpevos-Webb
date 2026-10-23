@@ -27,7 +27,7 @@ function Stat({ value, label, suffix = '' }) {
 
   return (
     <div ref={ref} className={styles.item}>
-      <span className={styles.value}>{start ? count : value}{suffix}</span>
+      <span className={styles.value}>{start ? count : 0}{suffix}</span>
       <span className={styles.label}>{label}</span>
     </div>
   )

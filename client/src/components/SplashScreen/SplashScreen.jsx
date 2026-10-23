@@ -13,7 +13,7 @@ function splashAlreadySeen() {
   }
 }
 
-export default function SplashScreen({ onComplete }) {
+export default function SplashScreen({ onStartReveal, onComplete }) {
   const [visible, setVisible] = useState(() => !splashAlreadySeen())
   const [phase, setPhase] = useState('logo')
 
@@ -25,86 +25,90 @@ export default function SplashScreen({ onComplete }) {
 
     document.body.style.overflow = 'hidden'
 
-    const finish = () => {
+    // At 850ms, start opening curtains and notify Hero/Navbar to reveal
+    const t1 = setTimeout(() => {
+      setPhase('curtain')
+      onStartReveal?.()
+    }, 850)
+
+    // At 1650ms, curtains have fully cleared the viewport; unmount cleanly
+    const t2 = setTimeout(() => {
       try {
         sessionStorage.setItem(SPLASH_KEY, '1')
       } catch {
-        // Depolama kapalıysa site yine de açılsın.
+        // Storage disabled fallback
       }
       document.body.style.overflow = ''
       setVisible(false)
       onComplete?.()
-    }
-
-    const t1 = setTimeout(() => setPhase('curtain'), 900)
-    const t2 = setTimeout(finish, 1600)
+    }, 1650)
 
     return () => {
       clearTimeout(t1)
       clearTimeout(t2)
       document.body.style.overflow = ''
     }
-  }, [visible, onComplete])
+  }, [visible, onStartReveal, onComplete])
 
   if (!visible) return null
 
+  const isCurtain = phase === 'curtain'
+
   return (
-        <motion.div
-          className={styles.overlay}
-          initial={{ opacity: 1 }}
-          animate={{ opacity: phase === 'curtain' ? 0 : 1 }}
-          transition={{ duration: 0.45, ease: EASE_SMOOTH }}
-        >
-          {phase === 'curtain' && (
-            <>
-              <motion.div
-                className={styles.curtainTop}
-                initial={{ scaleY: 1 }}
-                animate={{ scaleY: 0 }}
-                transition={{ duration: 1, ease: EASE_CURTAIN }}
-              />
-              <motion.div
-                className={styles.curtainBottom}
-                initial={{ scaleY: 1 }}
-                animate={{ scaleY: 0 }}
-                transition={{ duration: 1, ease: EASE_CURTAIN }}
-              />
-            </>
-          )}
+    <div className={`${styles.overlay} ${isCurtain ? styles.overlayCurtain : ''}`}>
+      {/* Top Curtain Panel */}
+      <motion.div
+        className={styles.curtainTop}
+        initial={{ y: '0%' }}
+        animate={{ y: isCurtain ? '-100%' : '0%' }}
+        transition={{ duration: 0.8, ease: EASE_CURTAIN }}
+      />
 
+      {/* Bottom Curtain Panel */}
+      <motion.div
+        className={styles.curtainBottom}
+        initial={{ y: '0%' }}
+        animate={{ y: isCurtain ? '100%' : '0%' }}
+        transition={{ duration: 0.8, ease: EASE_CURTAIN }}
+      />
+
+      {/* Logo & Progress Bar */}
+      <motion.div
+        className={styles.inner}
+        initial={{ opacity: 0, scale: 0.88 }}
+        animate={
+          isCurtain
+            ? { opacity: 0, scale: 1.05 }
+            : { opacity: 1, scale: 1 }
+        }
+        transition={{
+          duration: isCurtain ? 0.35 : 0.65,
+          ease: EASE_SMOOTH,
+        }}
+      >
+        <div className={styles.logoWrap}>
+          <div className={styles.logoGlow} />
+          <motion.img
+            src="/logo.png"
+            alt="IMPEVOS"
+            className={styles.logo}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.6, ease: EASE_SMOOTH }}
+          />
+        </div>
+
+        <div className={styles.progressTrack}>
           <motion.div
-            className={styles.inner}
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={
-              phase === 'curtain'
-                ? { opacity: 0, scale: 1.08 }
-                : { opacity: 1, scale: 1 }
-            }
-            transition={{ duration: 0.9, ease: EASE_SMOOTH }}
-          >
-            <div className={styles.logoWrap}>
-              <div className={styles.logoGlow} />
-              <motion.img
-                src="/logo.png"
-                alt="IMPEVOS"
-                className={styles.logo}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.7 }}
-              />
-            </div>
+            className={styles.progressBar}
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, ease: EASE_SMOOTH }}
+          />
+        </div>
 
-            <div className={styles.progressTrack}>
-              <motion.div
-                className={styles.progressBar}
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1.5, ease: EASE_SMOOTH }}
-              />
-            </div>
-
-            <span className={styles.tagline}>IMPEVOS TEKNOLOJİ</span>
-          </motion.div>
-        </motion.div>
+        <span className={styles.tagline}>IMPEVOS TEKNOLOJİ</span>
+      </motion.div>
+    </div>
   )
 }

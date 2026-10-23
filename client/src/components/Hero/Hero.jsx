@@ -90,6 +90,10 @@ export default function Hero({ ready = true }) {
   )
   const rotatingText = useTypewriter(rotatingLines, 48, 2400)
 
+  // When loaded with splash already complete (page refresh), render directly without initial hidden delay.
+  // When loaded with active splash, start hidden and animate in sync as curtains open.
+  const isFirstVisitWithSplash = useRef(!ready).current
+
   useEffect(() => {
     if (!canvasRef.current) return undefined
     return initParticles(canvasRef.current)
@@ -103,7 +107,7 @@ export default function Hero({ ready = true }) {
       <motion.div
         className={styles.content}
         variants={containerVariants}
-        initial="hidden"
+        initial={isFirstVisitWithSplash ? 'hidden' : false}
         animate={ready ? 'visible' : 'hidden'}
       >
         <motion.div className={styles.badge} variants={itemVariants}>
